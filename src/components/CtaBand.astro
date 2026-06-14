@@ -1,7 +1,7 @@
 ---
 import { signupUrl } from "@/data/site";
 
-const { title = "Turn Expertise Into Income", text = "Retainr helps freelancers and creators turn services into scalable products while managing clients, projects, and payments from one place.", cta = "Start Selling Today" } = Astro.props;
+const { title = "Turn Expertise Into Income", text = "Retainr helps freelancers and creators turn services into scalable products while managing clients, projects, and payments from one place.", cta = "Start Selling Today", href = signupUrl } = Astro.props;
 ---
 
 <section class="cta-band">
@@ -10,6 +10,6 @@ const { title = "Turn Expertise Into Income", text = "Retainr helps freelancers 
       <h2>{title}</h2>
       <p>{text}</p>
     </div>
-    <a href={signupUrl} class="button secondary">{cta}</a>
+    <a href={href} class="button secondary">{cta}</a>
   </div>
 </section>

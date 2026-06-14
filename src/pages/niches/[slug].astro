@@ -12,7 +12,17 @@ export function getStaticPaths() {
 }
 
 const { niche } = Astro.props;
-const nicheSignup = `${signupUrl}?niche=${encodeURIComponent(niche.slug)}&source=retainr-v2`;
+const nicheSignup = `${signupUrl}?niche=${encodeURIComponent(niche.slug)}`;
+const recurringText = `The strongest ${niche.name} offers do not end after one delivery. Retainr helps you turn the first result into continued support, monthly reviews, implementation help, or a subscription-style service.`;
+const onboardingHeading = `What the signup flow should learn about each ${niche.name} client`;
+const onboardingText = `A generic signup form creates generic delivery. This page sends new users to Retainr with a niche parameter so the application can personalize setup around the exact service category. For ${niche.name}, that means preloading relevant package ideas, intake prompts, delivery milestones, and client portal language.`;
+const workspaceHeading = `Recommended workspace for ${niche.name}`;
+const packageText = `Create packages for ${niche.offers.join(", ")}`;
+const launchHeading = `How ${niche.name} should launch the first offer`;
+const launchText = `Once the offer is published, send traffic from your social profile, newsletter, community, sales calls, and content into the niche signup link. Retainr can use the niche parameter to make the setup and onboarding path feel specific to ${niche.name}, which improves the first impression and reduces generic admin before delivery starts.`;
+const signupRouteText = `Route every CTA to ${nicheSignup}`;
+const retentionHeading = "What should happen after the first delivery?";
+const retentionText = `The first delivery should create a measurable result and reveal what the client needs next. For ${niche.name}, that next step might be monthly reviews, new deliverables, ongoing advisory, optimization, accountability, support, education, or maintenance. Instead of leaving the client to ask what comes next, build that continuation into the offer ladder.`;
 ---
 
 <BaseLayout
@@ -76,5 +86,89 @@ const nicheSignup = `${signupUrl}?niche=${encodeURIComponent(niche.slug)}&source
     </div>
   </section>
 
-  <CtaBand title={`Built for ${niche.name}`} text="Use Retainr to sell, onboard, manage, and deliver expert services through one branded client experience." cta="Customize Signup" />
+  <section class="section ice">
+    <div class="container">
+      <div class="section-heading centered">
+        <span class="eyebrow">Recurring revenue</span>
+        <h2>Turn one-time clients into repeat buyers</h2>
+        <p>{recurringText}</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-icon">1</div>
+          <h3>Starter package</h3>
+          <p>Use the first offer to solve a narrow urgent problem, collect the right intake details, and prove the value of your expertise quickly.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">2</div>
+          <h3>Recurring plan</h3>
+          <p>Follow the starter result with a monthly plan for check-ins, reporting, new deliverables, support, or optimization.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">3</div>
+          <h3>Client portal</h3>
+          <p>Keep requests, files, tasks, approvals, and support in one branded workspace so clients know exactly where the relationship lives.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container page-grid">
+      <article class="page-section">
+        <span class="eyebrow">Onboarding design</span>
+        <h2>{onboardingHeading}</h2>
+        <p>{onboardingText}</p>
+        <ul class="check-list">
+          {niche.onboarding.map((item) => <li>{item}</li>)}
+          <li>Preferred communication cadence</li>
+          <li>Recurring service interest</li>
+          <li>First paid outcome the client wants</li>
+        </ul>
+      </article>
+      <article class="page-section">
+        <span class="eyebrow">Retainr setup</span>
+        <h2>{workspaceHeading}</h2>
+        <p>
+          Start with three productized offers, one onboarding checklist, one client-facing dashboard, and one retention offer. This keeps the business simple enough to launch quickly while giving clients a professional experience from the first click.
+        </p>
+        <ul class="check-list">
+          <li>{packageText}</li>
+          <li>Add intake questions that match the service promise</li>
+          <li>Connect payment before project kickoff</li>
+          <li>Use tickets and tasks for feedback, approvals, and follow-up work</li>
+        </ul>
+      </article>
+      <article class="page-section">
+        <span class="eyebrow">Launch plan</span>
+        <h2>{launchHeading}</h2>
+        <p>
+          Start with the most repeated client request you already receive. Turn that request into a fixed-scope package with a visible outcome, a clear timeline, and a short onboarding checklist. The first version should be simple enough to sell this week and structured enough that a client understands exactly what happens after payment.
+        </p>
+        <p>{launchText}</p>
+        <ul class="check-list">
+          <li>Choose one repeated client problem</li>
+          <li>Publish one fixed-scope package</li>
+          <li>{signupRouteText}</li>
+          <li>Use the client portal as the home for delivery and support</li>
+        </ul>
+      </article>
+      <article class="page-section">
+        <span class="eyebrow">Retention model</span>
+        <h2>{retentionHeading}</h2>
+        <p>{retentionText}</p>
+        <p>
+          Retainr makes that easier because the client relationship already has a workspace. You can introduce the recurring plan from inside the same branded experience where the client saw the first result, asked questions, uploaded files, and received deliverables. That continuity is what turns a one-time project into a retained relationship.
+        </p>
+        <ul class="check-list">
+          <li>Create a recurring plan tied to a concrete monthly outcome</li>
+          <li>Use tickets for questions and requests after the first project</li>
+          <li>Use tasks and approvals to keep delivery visible</li>
+          <li>Review renewals and expansion opportunities from the client record</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <CtaBand title={`Built for ${niche.name}`} text="Use Retainr to sell, onboard, manage, and deliver expert services through one branded client experience." cta="Customize Signup" href={nicheSignup} />
 </BaseLayout>

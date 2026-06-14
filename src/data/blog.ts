@@ -172,35 +172,92 @@ const audienceFor = (slug: string) => {
   return audiences[index];
 };
 
-const buildSections = (slug: string, title: string, category: string, audience: string) => [
-  {
-    title: "What changed for digital creators",
-    body: `${title} is no longer only a traffic or productivity topic. For ${audience}, this ${slug.includes("2024") || slug.includes("2025") ? "formerly date-bound" : "evergreen"} topic now has to connect directly to offers, onboarding, payment, delivery, and recurring client value.`,
-    points: [
-      "Build around a specific buyer and painful use case",
-      "Turn advice into a productized service with clear scope",
-      "Move every lead toward a paid recurring relationship",
-    ],
-  },
-  {
-    title: "How to apply it without adding more tools",
-    body: `The practical move is to keep your creator business simple: one landing page, one productized offer, one intake flow, and one client portal. That is where ${category.toLowerCase()} becomes revenue instead of another content task.`,
-    points: [
-      "Create a starter package that can be delivered repeatedly",
-      "Use a magic signup link for the exact offer",
-      "Attach tasks, files, support, and approvals to the client record",
-    ],
-  },
-  {
-    title: "Turn existing clients into recurring revenue",
-    body: `Existing clients are the best growth channel for niche freelancers. Use this topic to identify repeatable outcomes, then package those outcomes into monthly retainers, check-ins, reports, or implementation support.`,
-    points: [
-      "Audit current clients for repeated requests",
-      "Bundle the repeated work into a monthly plan",
-      "Use Retainr to sell, onboard, invoice, and deliver the plan",
-    ],
-  },
-];
+const buildSections = (slug: string, title: string, category: string, audience: string) => {
+  const dated = slug.includes("2024") || slug.includes("2025");
+  const topic = title.replace(/ for .+$/, "").toLowerCase();
+  return [
+    {
+      title: "What changed for digital creators",
+      body: `${title} is no longer only a traffic, productivity, or inspiration topic. For ${audience}, this ${dated ? "formerly date-bound" : "evergreen"} topic has to connect directly to how a client buys, what the first paid outcome looks like, and why the relationship should continue after the first delivery. The old creator playbook was to publish more, chase more attention, and hope the right clients appeared. The stronger approach is to turn attention into a packaged service, then use the service to create repeatable client value. Retainr sits at that handoff: a visitor becomes a lead, a lead buys a clear offer, and the client enters a branded delivery system instead of another loose email thread.`,
+      points: [
+        "Build around a specific buyer and painful use case",
+        "Turn advice into a productized service with clear scope",
+        "Connect every content asset to a next step, not just a view",
+        "Move every lead toward a paid recurring relationship",
+      ],
+    },
+    {
+      title: "The buyer this article should serve",
+      body: `The most useful reader is not a generic freelancer. It is an expert who already has proof that clients value their judgment: a registered dietitian with repeat coaching clients, an SEO consultant asked for monthly reporting, a cartoonist receiving custom illustration requests, an ebook novelist selling editing help, an AI consultant asked to automate the same workflow repeatedly, or a designer who keeps getting urgent brand asset requests. For these creators, ${topic} matters because it can become a packaged business motion. The goal is to define a narrow buyer, name the recurring problem, and make the next step obvious enough that a client can purchase without a long explanation call.`,
+      points: [
+        "Name the niche before naming the offer",
+        "Translate expertise into an outcome the client can recognize",
+        "Remove broad positioning that attracts unfocused inquiries",
+        "Use niche pages and signup parameters to personalize onboarding",
+      ],
+    },
+    {
+      title: "How to turn the idea into a sellable offer",
+      body: `Start by converting the article idea into a service package. A useful package has a promise, a boundary, a timeline, a price, and an intake flow. For example, a nutritionist can turn content about better planning into a four-week meal strategy package. An SEO expert can turn keyword guidance into a technical audit plus a monthly content roadmap. A designer can turn social media advice into a monthly creative desk. The offer should not include every possible deliverable. It should include enough to get the client to one visible result, then create a natural reason to continue through a retainer, check-in, report, or support plan.`,
+      points: [
+        "Write the offer around one outcome",
+        "Define what is included and what is not included",
+        "Add a starter version and a recurring version",
+        "Use Retainr packages to publish the offer and collect payment",
+      ],
+    },
+    {
+      title: "How to apply it without adding more tools",
+      body: `The practical move is to keep your creator business simple: one landing page, one productized offer, one intake flow, one payment path, and one client portal. That is where ${category.toLowerCase()} becomes revenue instead of another content task. If a creator needs a separate form builder, invoice tool, task board, file drive, support inbox, and spreadsheet to deliver one offer, the business gets harder every time it grows. Retainr lets the creator keep the visible brand experience together: the client buys from the creator, enters a branded portal, uploads the right information, sees project status, and knows where to ask for help.`,
+      points: [
+        "Create a starter package that can be delivered repeatedly",
+        "Use a magic signup link for the exact offer",
+        "Attach tasks, files, support, and approvals to the client record",
+        "Keep the client experience inside one branded workflow",
+      ],
+    },
+    {
+      title: "Niche examples you can adapt",
+      body: `For a dietitian, this topic can become a recurring nutrition accountability plan with weekly check-ins and a monthly progress review. For an SEO expert, it can become a monthly search visibility retainer with content briefs and technical fixes. For a dog walker, it can become a recurring care plan with route notes, pet profiles, and client updates. For an ebook novelist, it can become editing, launch, or reader community packages. For a cartoonist, it can become a monthly illustration subscription. For info product creators, designers, AI experts, and crypto educators, the same pattern applies: package the repeated work, create a clean intake, and give clients a portal where the service feels organized.`,
+      points: [
+        "Nutritionists: plans, check-ins, progress reviews",
+        "SEO experts: audits, keyword roadmaps, reporting retainers",
+        "Designers and cartoonists: creative queues and approval workflows",
+        "AI and crypto experts: education, implementation, and advisory packages",
+      ],
+    },
+    {
+      title: "Turn existing clients into recurring revenue",
+      body: `Existing clients are the best growth channel for niche freelancers because they already trust the creator and already understand the value. Use this topic to identify repeated requests: the monthly report clients ask for, the follow-up call they keep booking, the new content format they need every week, the same operational workflow they want improved, or the same educational support they want after the first project ends. Once the pattern is visible, turn it into a named recurring plan. The plan should promise continued progress, not vague access. Retainr then gives that plan a place to live: package, checkout, onboarding, tasks, support, approvals, and renewal context.`,
+      points: [
+        "Audit current clients for repeated requests",
+        "Bundle repeated work into a monthly plan",
+        "Use clear recurring deliverables instead of vague retainers",
+        "Use Retainr to sell, onboard, invoice, and deliver the plan",
+      ],
+    },
+    {
+      title: "Internal links and SEO structure",
+      body: `This article should not sit alone. A strong SEO page points readers to the next Retainr page that matches their intent. Readers learning about ${topic} should be able to continue to productized services, pricing, client onboarding, sales funnels, and niche signup pages. That link structure helps search engines understand that Retainr is not just a blog about freelancing; it is the platform for digital creators who turn expertise into recurring revenue. The best internal links are contextual and useful: link offer strategy to productize, buying intent to pricing, client intake to onboarding, and niche-specific examples to the relevant onboarding page.`,
+      points: [
+        "Link informational content to commercial pages",
+        "Use evergreen URLs without year-based slugs where possible",
+        "Keep legacy URLs live for backlinks and historical rankings",
+        "Make Retainr the obvious next step from every guide",
+      ],
+    },
+    {
+      title: "Implementation checklist",
+      body: `Use this checklist as the operating plan after reading. Pick one niche, choose one repeated client problem, publish one paid starter offer, and design one recurring plan that follows naturally from the result. Then connect the article, offer page, and signup link so the path from education to purchase is direct. This is how digital creators stop treating content as an isolated marketing activity and start using it as a revenue system. The article attracts intent, the offer captures demand, the portal delivers the service, and the recurring plan creates retention.`,
+      points: [
+        "Choose one niche and one paid outcome",
+        "Create one starter offer and one recurring upgrade",
+        "Add a niche-specific signup link with the right query parameter",
+        "Review the client experience every month and improve the package",
+      ],
+    },
+  ];
+};
 
 const canonicalSources = sourcePaths.map((path) => path.replace(/^\/blog\//, ""));
 const aliasSources = [
