@@ -135,7 +135,14 @@ const titleCase = (value: string) =>
     .replace(/\bAi\b/g, "AI")
     .replace(/\bSeo\b/g, "SEO")
     .replace(/\bRoi\b/g, "ROI")
-    .replace(/\bYoutube\b/g, "YouTube");
+    .replace(/\bYoutube\b/g, "YouTube")
+    .replace(/\bIndemand\b/g, "In-Demand")
+    .replace(/\bDatadriven\b/g, "Data-Driven")
+    .replace(/\bIndustryspecific\b/g, "Industry-Specific")
+    .replace(/\bMustknow\b/g, "Must-Know")
+    .replace(/\bMusttry\b/g, "Must-Try")
+    .replace(/\bRealworld\b/g, "Real-World")
+    .replace(/\bPsychologybacked\b/g, "Psychology-Backed");
 
 const evergreenSlug = (slug: string) =>
   slug
@@ -254,6 +261,156 @@ const buildSections = (slug: string, title: string, category: string, audience: 
         "Create one starter offer and one recurring upgrade",
         "Add a niche-specific signup link with the right query parameter",
         "Review the client experience every month and improve the package",
+      ],
+    },
+    {
+      title: "Offer ladder for this topic",
+      body: `A useful article should create more than awareness. It should help a creator design an offer ladder. The entry offer gives a client a low-friction way to experience the expert's judgment. The core offer delivers the main transformation. The recurring offer protects the result over time. For ${audience}, the entry offer might be an audit, review, planning session, creative sample, safety check, or first implementation sprint. The core offer might be a complete package with a fixed timeline. The recurring offer might be monthly reporting, continued support, optimization, accountability, new deliverables, or advisory access. Retainr makes that ladder practical because each offer can have its own package, payment path, onboarding questions, client portal, tasks, and support tickets.`,
+      points: [
+        "Entry offer: fast proof of expertise",
+        "Core offer: the main paid transformation",
+        "Recurring offer: monthly value and retention",
+        "Expansion offer: higher-touch service for the best clients",
+      ],
+    },
+    {
+      title: "How to position it for niche freelancers",
+      body: `The mistake many freelancers make is writing for everyone who might need help. That creates weak copy and weak leads. A stronger page names the category of client, the specific situation, and the cost of inaction. A nutritionist can speak to clients who keep restarting plans and need accountability. An SEO expert can speak to founders who publish content without a ranking system. A life coach can speak to clients who want structured digital programs instead of occasional calls. An ebook novelist can speak to authors who need a launch path, not just writing advice. A designer can speak to teams that need consistent creative output every month. The more specific the positioning, the easier the Retainr signup flow becomes because the onboarding questions can match the promise.`,
+      points: [
+        "Write for one kind of buyer at a time",
+        "Name the painful recurring situation",
+        "Explain the cost of staying disorganized",
+        "Match the signup flow to the promise on the page",
+      ],
+    },
+    {
+      title: "Content strategy that supports the offer",
+      body: `Content should work like a sales system, not a random publishing calendar. Start with one pillar page that explains the problem and the paid path. Then create supporting posts that answer objections, show examples, compare approaches, and explain the workflow. Every supporting article should link back to a service package or niche onboarding page. For a creator, this means the blog is not separate from revenue. A YouTube idea post can lead to a content planning retainer. A workflow automation post can lead to an AI implementation sprint. A self-publishing post can lead to editing, launch planning, or reader-community packages. A freelance skills post can lead to the high-demand skills guide and then to Retainr signup.`,
+      points: [
+        "Use pillar pages for broad commercial intent",
+        "Use supporting articles for objections and examples",
+        "Link every article to a relevant Retainr product page",
+        "Update old date-based articles into evergreen resources",
+      ],
+    },
+    {
+      title: "Client onboarding questions to ask",
+      body: `The right onboarding questions depend on the niche, but the logic is consistent. Ask for the outcome the client wants, the current state, the assets or access needed, the constraints, the approval process, and the preferred communication rhythm. Do not ask for every possible detail up front. Ask for the details required to start confidently, then use the client portal to gather follow-up information as the work progresses. This keeps the signup flow short enough to convert and structured enough to reduce back-and-forth. Retainr is useful here because the onboarding response can sit beside the client record, project, files, tickets, and tasks rather than disappearing into a form inbox.`,
+      points: [
+        "Desired outcome and deadline",
+        "Current state and existing assets",
+        "Required access, files, or context",
+        "Approval process and communication cadence",
+      ],
+    },
+    {
+      title: "Delivery workflow after payment",
+      body: `After payment, the client should immediately know what happens next. A good workflow has a welcome message, a clear intake checklist, a project area, task visibility, support instructions, and a first milestone. The creator should not manually rebuild that experience for every new client. For ${audience}, the first milestone might be a kickoff review, audit summary, creative draft, research brief, plan outline, or implementation checklist. Once that first milestone is delivered, the creator should introduce the continuation path while the value is fresh. This is how a one-time article reader or one-time buyer becomes a retained client.`,
+      points: [
+        "Welcome the client with next steps",
+        "Collect missing assets before work starts",
+        "Show the first milestone clearly",
+        "Introduce the recurring plan after the first result",
+      ],
+    },
+    {
+      title: "Pricing and packaging guidance",
+      body: `Pricing should be tied to clarity, not only effort. A low-priced offer can be useful if it qualifies the client and leads to a higher-value plan. A high-priced offer can work if the outcome is urgent, measurable, and hard for the client to solve alone. Recurring pricing should be based on continued value: monitoring, accountability, implementation, creative production, advisory, support, or optimization. The practical way to start is to publish three packages: starter, growth, and ongoing. The starter package proves fit. The growth package delivers the main project. The ongoing package turns the relationship into predictable revenue. Retainr's pricing configuration and service packages support that structure without forcing the creator into a generic checkout flow.`,
+      points: [
+        "Starter package for fast conversion",
+        "Growth package for the main transformation",
+        "Ongoing package for recurring revenue",
+        "Clear scope so clients know exactly what they buy",
+      ],
+    },
+    {
+      title: "Internal link map for Retainr SEO",
+      body: `For SEO, the page should connect to the rest of the Retainr site with intent-based links. A reader learning how to package expertise should go to Productize. A reader evaluating cost should go to Pricing. A reader worried about client handoff should go to Client Onboarding. A reader comparing tools should go to the alternatives page. A reader who matches a niche should go to the relevant niche signup page. This strengthens the site architecture and makes Retainr the obvious platform for digital creators who want recurring revenue. It also keeps old Webflow equity useful because legacy article URLs continue to point into the new conversion-focused architecture.`,
+      points: [
+        "Productize for offer-building intent",
+        "Pricing for purchase intent",
+        "Client onboarding for implementation intent",
+        "Niche pages for personalized signup intent",
+      ],
+    },
+    {
+      title: "Metrics to review monthly",
+      body: `A creator business improves when the owner reviews simple operational metrics. Track how many visitors click to signup, which packages convert, how long onboarding takes, how many support requests appear during delivery, how many clients accept a recurring offer, and where clients get confused. These metrics are more useful than vanity traffic numbers because they show whether the content is turning into revenue. The goal is not to publish endlessly. The goal is to improve the path from attention to paid relationship. Retainr supports that thinking because offers, clients, projects, tickets, and revenue live close enough together to reveal bottlenecks.`,
+      points: [
+        "Signup click-through rate",
+        "Package conversion rate",
+        "Time from payment to kickoff",
+        "Recurring plan acceptance rate",
+      ],
+    },
+    {
+      title: "Common mistakes to avoid",
+      body: `The first mistake is keeping the topic too generic. The second is sending all readers to a generic contact form. The third is selling custom work when the same request appears repeatedly. The fourth is treating delivery as separate from marketing. The fifth is failing to ask for the next recurring commitment after the first result. These mistakes are common because creators often grow from referrals and improvisation. Retainr helps replace improvisation with a system: packaged offer, branded signup, payment, onboarding, delivery, support, and renewal. That system protects the creator's time and gives the client a more professional experience.`,
+      points: [
+        "Do not send high-intent readers to vague contact forms",
+        "Do not rebuild onboarding manually for every buyer",
+        "Do not bury recurring plans until after the client disappears",
+        "Do not split client context across too many disconnected tools",
+      ],
+    },
+    {
+      title: "Practical next step",
+      body: `The fastest next step is to create one Retainr package from this article topic. Give it a specific name, choose the niche buyer, write the outcome, add the intake questions, set the payment terms, and publish the signup link. Then add that link to the article, your social profile, your email signature, and any content that attracts the same buyer. After three to five clients, review what they asked before buying, what confused them during onboarding, and what support they needed after delivery. Use those notes to improve the package and create the recurring version. This is how the article becomes an asset, not just a page.`,
+      points: [
+        "Create one package today",
+        "Add one niche-specific signup link",
+        "Deliver through one branded portal",
+        "Turn the repeated follow-up into a monthly offer",
+      ],
+    },
+    {
+      title: "Example client journey",
+      body: `Imagine a reader discovers this article while trying to solve a practical business problem. They are not ready for a vague consultation; they want a clear path. The article explains the strategy, then points them to a package that matches the problem. The package page explains the outcome, price, scope, and timeline. The signup link asks only for the context needed to start. Payment creates a client record. The portal shows the next step. The first milestone proves value. The creator then introduces the recurring plan as the obvious way to keep momentum. This journey is important because it turns search traffic into a client relationship without forcing the creator to manually qualify, invoice, onboard, and organize every buyer from scratch. Retainr should be visible at each step as the platform that makes the path feel professional.`,
+      points: [
+        "Article explains the problem and educates the buyer",
+        "Package converts the buyer into a client",
+        "Portal organizes delivery and support",
+        "Recurring plan extends the result over time",
+      ],
+    },
+    {
+      title: "How this differs by niche",
+      body: `The same system should not use the same wording for every creator. A registered dietitian needs language around goals, preferences, check-ins, and progress. An SEO expert needs URLs, access, competitors, analytics, and content priorities. A dog walker needs pet profiles, routes, care instructions, and emergency contacts. An ebook novelist needs manuscript stage, genre, word count, launch timing, and editorial goals. A cartoonist needs style references, usage rights, revision rules, and delivery formats. An info product creator needs audience, curriculum, assets, and launch channel. A designer needs brand context, creative references, and approval stakeholders. An AI expert needs process maps, tools, data sources, and success metrics. A crypto expert needs experience level, risk boundaries, education goals, and compliance-sensitive language. Retainr's niche pages and signup parameters make these differences actionable instead of generic.`,
+      points: [
+        "Use niche-specific intake language",
+        "Match package names to the buyer's mental model",
+        "Adjust deliverables without changing the operating system",
+        "Keep the creator's brand consistent across every niche",
+      ],
+    },
+    {
+      title: "How to refresh this page over time",
+      body: `Evergreen does not mean static. It means the URL should stay useful while the examples, positioning, and internal links improve. Review the article every quarter. Remove year-based claims that age quickly. Add new examples from digital creators. Update internal links when new niche pages or product pages are published. Expand sections that attract search impressions but do not convert. If clients ask the same question during sales calls, answer that question in the article and link to the right package. If a recurring plan becomes popular, mention it as an example. This lets Retainr preserve existing backlinks from the Webflow site while making the content more useful for today's creator economy.`,
+      points: [
+        "Keep URLs evergreen where possible",
+        "Preserve legacy URLs for backlinks",
+        "Refresh examples instead of rebuilding the article from scratch",
+        "Use client questions to decide what to expand next",
+      ],
+    },
+    {
+      title: "Why Retainr is the natural platform fit",
+      body: `The core promise of this article is operational: creators need a way to turn expertise into a business system. Many tools can publish content, collect forms, send invoices, or manage tasks. Retainr is different because the workflow is built around the client relationship. The buyer can purchase a service, enter a branded portal, submit details, follow progress, ask questions, and continue into a recurring plan. The creator can manage packages, clients, tasks, tickets, files, and payment context without rebuilding the workflow for every offer. That makes Retainr a stronger fit for niche freelancers than a generic website builder, form tool, invoice app, or task board. The article should make that conclusion obvious without forcing the reader through a hard sell.`,
+      points: [
+        "Retainr connects selling and delivery",
+        "Retainr keeps the creator's brand in front",
+        "Retainr supports recurring revenue workflows",
+        "Retainr reduces the admin between content and client retention",
+      ],
+    },
+    {
+      title: "Long-form summary",
+      body: `Use this article as both a strategy guide and a working sales asset. The strategy is to narrow the niche, package the repeated problem, create a buyer-specific signup path, deliver through one branded client portal, and introduce recurring value after the first result. The sales asset is the page itself: it captures search intent, educates the reader, links to relevant Retainr pages, and points the right audience toward signup. This is especially important for creators who already have clients but do not yet have a system for retaining them. The fastest growth is often not a completely new audience; it is a better offer for people who already trust the creator. Retainr helps turn that trust into structured revenue, clean delivery, and a client experience that feels far more professional than a patchwork of disconnected tools.`,
+      points: [
+        "Narrow the niche",
+        "Package the repeated problem",
+        "Deliver through Retainr",
+        "Convert first results into recurring revenue",
       ],
     },
   ];

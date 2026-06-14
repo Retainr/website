@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import CrispChat from "@/components/CrispChat.astro";
 import { companyLinks, loginUrl, navLinks, resourceLinks, signupUrl, solutionLinks } from "@/data/site";
 
 type Props = {
@@ -109,5 +110,6 @@ const canonical = new URL(path, Astro.site ?? "https://www.retainr.io").toString
         menuButton.setAttribute("aria-expanded", String(isOpen));
       });
     </script>
+    <CrispChat />
   </body>
 </html>
