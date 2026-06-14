@@ -60,6 +60,7 @@ const canonical = new URL(path, Astro.site ?? "https://www.retainr.io").toString
             <a href="/" class="logo" aria-label="Retainr home">
               <img src="/assets/retainr-logo.svg" alt="Retainr" width="148" height="42" />
             </a>
+            <h3>Join the Movement</h3>
             <p class="muted">Turn skills into profit with a branded system for selling and delivering services.</p>
             <a href={signupUrl} class="button">Get Started - Sign Up</a>
           </div>
@@ -83,12 +84,13 @@ const canonical = new URL(path, Astro.site ?? "https://www.retainr.io").toString
               {resourceLinks.map((link) => <a href={link.href}>{link.label}</a>)}
               <a href="https://status.retainr.io">Status Page</a>
             </div>
-            <h3>Join the Movement</h3>
-            <p class="muted">Begin promoting your freelance services and managing your orders.</p>
+
             <form class="email-form" action={signupUrl} method="get">
               <input type="email" name="email" placeholder="Enter work email" aria-label="Work email" required />
               <button class="button yellow" type="submit">Start Selling</button>
             </form>
+            <p class="muted">Begin promoting your freelance services and managing your orders.</p>
+
             <div class="social-links">
               <a href="https://x.com/Retainr_io">X</a>
               <a href="http://tiktok.com/@retainr.io">TikTok</a>

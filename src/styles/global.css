@@ -369,7 +369,7 @@ input {
 .page-section p,
 .muted {
   color: var(--muted);
-  line-height: 1.65;
+  line-height: 1.25;
 }
 
 .feature-grid {
@@ -679,6 +679,7 @@ input {
 }
 
 .email-form {
+  margin-top: 2.4rem;
   display: flex;
   gap: 8px;
   align-items: center;
