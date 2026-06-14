@@ -1,4 +1,4 @@
-# Retainr Website V2
+# Retainr.io Website
 
 Static Astro rebuild of `www.retainr.io` for GitHub Pages.
 
