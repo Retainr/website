@@ -224,8 +224,8 @@ input {
 .hero-title {
   margin: 0;
   max-width: 920px;
-  font-size: clamp(3rem, 8vw, 6.7rem);
-  line-height: 0.94;
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 1.05;
   letter-spacing: 0;
   font-weight: 950;
 }
@@ -361,8 +361,8 @@ input {
 .section-heading h2,
 .page-section h2 {
   margin: 0;
-  font-size: clamp(2rem, 4.5vw, 4.1rem);
-  line-height: 1;
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+  line-height: 1.15;
   letter-spacing: 0;
 }
 
@@ -492,8 +492,8 @@ input {
 
 .cta-inner h2 {
   margin: 0;
-  font-size: clamp(2.2rem, 5vw, 4.7rem);
-  line-height: 0.96;
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  line-height: 1.1;
 }
 
 .cta-inner p {
