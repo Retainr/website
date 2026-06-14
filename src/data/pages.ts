@@ -112,7 +112,7 @@ export const pages: MarketingPage[] = [
       {
         title: "Popular reads",
         body:
-          "Retainr's v2 blog index keeps the original editorial themes while making the content easier to scan.",
+          "Retainr.io's blog index keeps the original editorial themes while making the content easier to scan.",
         points: [
           "10 Reasons How Niche Targeting Can Benefit Your Small Agency",
           "15 Examples of Small Agencies Excelling in Niche Targeting",
@@ -130,7 +130,7 @@ export const pages: MarketingPage[] = [
     slug: "brand-assets",
     title: "Brand Assets",
     description:
-      "Retainr brand assets, logo guidance, color palette, and typography for the v2 static website.",
+      "Retainr brand assets, logo guidance, color palette, and typography.",
     eyebrow: "Styleguide",
     hero: "Retainr Styleguide",
     subhero:
@@ -140,7 +140,7 @@ export const pages: MarketingPage[] = [
       {
         title: "Color palette",
         body:
-          "The v2 site uses the same brand colors requested for this rebuild and applies them with more restraint for better readability.",
+          "Retainr uses a specific brand colors to be followed when citing the brand. The color palette reflects the company's core DNA and applies them with readability in mind.",
         points: ["#FF4D18", "#FFD540", "#FFFFFF", "#1d2130", "#EDF8FD", "#B7CD4B"],
       },
       {
