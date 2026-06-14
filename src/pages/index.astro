@@ -1,0 +1,113 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import Testimonials from "@/components/Testimonials.astro";
+import { homeFeatures, productHighlights, signupUrl } from "@/data/site";
+import { niches } from "@/data/niches";
+---
+
+<BaseLayout
+  title="Retainr: All-in-One Client Management Software for Freelancers and Agencies"
+  description="Cloud-based all-in-one client management software for web agencies and freelancers. Manage clients, productize services, take payments, automate delivery, and grow from one branded platform."
+  path="/"
+>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Client Management Platform Trusted by 1,000+ Agencies</span>
+        <h1>Turn <span>Services</span> Into Profitable <span>Products</span></h1>
+        <p>
+          Sell your services in seconds. Display your expertise to the world with the all-in-one client management solution for orders, payments, tasks, file storage, helpdesk, project delivery, referrals, and automation.
+        </p>
+        <div class="hero-actions">
+          <a href={signupUrl} class="button">Start Selling Today with $1</a>
+          <a href="/productize/" class="button ghost">See Productized Services</a>
+        </div>
+        <div class="hero-proof">
+          <div class="proof-pill"><strong>0%</strong><span>transaction fees</span></div>
+          <div class="proof-pill"><strong>100%</strong><span>white label</span></div>
+          <div class="proof-pill"><strong>24/7</strong><span>support team</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="product-frame">
+          <img src="/assets/dashboard-hero.png" alt="Retainr client management dashboard" loading="eager" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="brand-strip" aria-label="Trusted platform badges">
+    <div class="container">
+      <div class="brand-tile">AWS</div>
+      <div class="brand-tile">Stripe</div>
+      <div class="brand-tile">PayPal</div>
+      <div class="brand-tile">Zapier</div>
+      <div class="brand-tile">Analytics</div>
+    </div>
+  </section>
+
+  <section class="section ice">
+    <div class="container">
+      <div class="section-heading centered">
+        <span class="eyebrow">Sell. Earn. Automate.</span>
+        <h2>Turn what you do into profitable products</h2>
+        <p>Retainr keeps the current promise of the Webflow site and sharpens it into a faster, clearer, GitHub Pages-ready experience.</p>
+      </div>
+      <div class="feature-grid">
+        {homeFeatures.map((feature, index) => (
+          <article class="feature-card">
+            <div class="feature-icon">{index + 1}</div>
+            <h3>{feature.title}</h3>
+            <p>{feature.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-heading centered">
+        <span class="eyebrow">Scale Your Digital Agency</span>
+        <h2>Increase profitability with one client operating system</h2>
+      </div>
+      <div class="split-stack">
+        {productHighlights.map((item) => (
+          <article class="split-row">
+            <div class="split-copy">
+              <span class="eyebrow">{item.title}</span>
+              <h3>{item.kicker}</h3>
+              <p>{item.body}</p>
+              <a href={signupUrl} class="button">Get Started</a>
+            </div>
+            <div class="product-frame">
+              <img src={item.image} alt={item.title} loading="lazy" />
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="container">
+      <div class="section-heading centered">
+        <span class="eyebrow">Digital Creator Niches</span>
+        <h2>Custom signup paths for expert-led service businesses</h2>
+        <p>Each niche page routes creators to Retainr signup with audience context attached.</p>
+      </div>
+      <div class="niche-grid">
+        {niches.map((niche) => (
+          <a class="niche-card" href={`/niches/${niche.slug}/`}>
+            <h3>{niche.name}</h3>
+            <p>{niche.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Testimonials />
+  <CtaBand />
+</BaseLayout>

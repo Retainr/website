@@ -1,0 +1,101 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import Testimonials from "@/components/Testimonials.astro";
+import pricing from "@/config/pricing.json";
+import { signupUrl } from "@/data/site";
+---
+
+<BaseLayout
+  title="Retainr.io Pricing. Affordable Agency Management Software"
+  description="All-in-one client management software pricing for freelancers and digital agencies. Build your brand, manage clients, and sell services with zero transaction fees."
+  path="/pricing/"
+>
+  <section class="hero center">
+    <div class="container">
+      <div class="hero-copy" style="justify-items:center">
+        <span class="eyebrow">Pricing</span>
+        <h1 class="hero-title">Turn Freelance Services into Profits</h1>
+        <p>Start selling your freelance services. Choose the plan that best fits your needs.</p>
+        <div class="pricing-toggle" aria-label="Billing period">
+          <button type="button" class="active" data-billing="monthly">{pricing.billing.monthlyLabel}</button>
+          <button type="button" data-billing="yearly">{pricing.billing.yearlyLabel}</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="pricing-grid">
+        {pricing.plans.map((plan) => (
+          <article class:list={["pricing-card", { highlight: plan.highlight }]}>
+            <div class="trial">{pricing.trialLabel}</div>
+            <h3>{plan.name}</h3>
+            <p class="muted">{plan.description}</p>
+            <div class="price">
+              <span>{pricing.currency}</span>
+              <span data-monthly={plan.monthly} data-yearly={plan.yearly}>{plan.monthly}</span>
+              <small>/month</small>
+            </div>
+            <a href={signupUrl} class:list={["button", { yellow: plan.highlight }]}>{plan.cta}</a>
+            <ul class="check-list">
+              {plan.features.map((feature) => <li>{feature}</li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section ice">
+    <div class="container">
+      <div class="section-heading centered">
+        <span class="eyebrow">All features included</span>
+        <h2>Easy setup, works for every service business, zero technical skills required</h2>
+      </div>
+      <div class="included-grid">
+        {pricing.included.map((item) => (
+          <div class="metric-card">
+            <strong>{item}</strong>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-heading centered">
+        <span class="eyebrow">FAQ</span>
+        <h2>Common pricing questions</h2>
+      </div>
+      <div class="faq-grid">
+        {pricing.faq.map((item) => (
+          <article class="faq-item">
+            <h3>{item.question}</h3>
+            <p>{item.answer}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand title="Start Selling Today" text="Create an offer, package your service, start promoting, and receive payments with a branded client portal." />
+  <Testimonials />
+
+  <script>
+    const buttons = document.querySelectorAll("[data-billing]");
+    const prices = document.querySelectorAll("[data-monthly][data-yearly]");
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const billing = button.getAttribute("data-billing") || "monthly";
+        buttons.forEach((item) => item.classList.toggle("active", item === button));
+        prices.forEach((price) => {
+          const next = price.getAttribute(`data-${billing}`);
+          if (next) price.textContent = next;
+        });
+      });
+    });
+  </script>
+</BaseLayout>

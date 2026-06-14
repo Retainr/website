@@ -1,0 +1,80 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import { niches } from "@/data/niches";
+import { signupUrl } from "@/data/site";
+
+export function getStaticPaths() {
+  return niches.map((niche) => ({
+    params: { slug: niche.slug },
+    props: { niche },
+  }));
+}
+
+const { niche } = Astro.props;
+const nicheSignup = `${signupUrl}?niche=${encodeURIComponent(niche.slug)}&source=retainr-v2`;
+---
+
+<BaseLayout
+  title={`Retainr for ${niche.name}`}
+  description={`${niche.description} Start a customized Retainr signup onboarding flow for ${niche.name}.`}
+  path={`/niches/${niche.slug}/`}
+>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Retainr for {niche.name}</span>
+        <h1>{niche.hero}</h1>
+        <p>{niche.description}</p>
+        <div class="hero-actions">
+          <a href={nicheSignup} class="button">Customize Signup</a>
+          <a href="/pricing/" class="button ghost">View Pricing</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="product-frame">
+          <img src="/assets/onboarding.png" alt={`Retainr onboarding for ${niche.name}`} loading="eager" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ice">
+    <div class="container">
+      <div class="section-heading centered">
+        <span class="eyebrow">Offer ideas</span>
+        <h2>Package your expertise into offers clients can buy</h2>
+      </div>
+      <div class="feature-grid">
+        {niche.offers.map((offer, index) => (
+          <article class="feature-card">
+            <div class="feature-icon">{index + 1}</div>
+            <h3>{offer}</h3>
+            <p>Publish this as a clear service package, collect payment, and start delivery through Retainr.</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="split-row">
+        <div class="split-copy">
+          <span class="eyebrow">Custom onboarding</span>
+          <h2>Ask for the right details before work starts</h2>
+          <p>Retainr can shape the signup path around what this niche needs, then route the client into the correct portal, payment, and delivery workflow.</p>
+          <a href={nicheSignup} class="button">Start {niche.name} Signup</a>
+        </div>
+        <div class="page-section">
+          <h2>Suggested intake</h2>
+          <ul class="check-list">
+            {niche.onboarding.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand title={`Built for ${niche.name}`} text="Use Retainr to sell, onboard, manage, and deliver expert services through one branded client experience." cta="Customize Signup" />
+</BaseLayout>

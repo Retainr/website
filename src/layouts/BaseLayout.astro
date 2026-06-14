@@ -1,0 +1,108 @@
+---
+import "../styles/global.css";
+import { companyLinks, loginUrl, navLinks, signupUrl, solutionLinks } from "@/data/site";
+
+type Props = {
+  title: string;
+  description?: string;
+  path?: string;
+};
+
+const { title, description = "Retainr helps freelancers and agencies sell services, manage clients, and deliver work from one branded platform.", path = "/" } = Astro.props;
+const canonical = new URL(path, Astro.site ?? "https://www.retainr.io").toString();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content="/assets/dashboard-hero.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/png" href="/assets/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a href="/" class="logo" aria-label="Retainr home">
+          <img src="/assets/retainr-logo.svg" alt="Retainr" width="148" height="42" />
+        </a>
+        <nav class="nav-links" aria-label="Primary navigation">
+          {navLinks.map((link) => <a href={link.href}>{link.label}</a>)}
+        </nav>
+        <div class="nav-actions">
+          <a href={loginUrl} class="button ghost">Login</a>
+          <a href={signupUrl} class="button">Sell Today</a>
+        </div>
+        <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false">
+          <span></span>
+        </button>
+      </div>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <a href="/" class="logo" aria-label="Retainr home">
+              <img src="/assets/retainr-logo.svg" alt="Retainr" width="148" height="42" />
+            </a>
+            <p class="muted">Turn skills into profit with a branded system for selling and delivering services.</p>
+            <a href={signupUrl} class="button">Get Started - Sign Up</a>
+          </div>
+          <div class="footer-col">
+            <h3>Freelancers & Agencies Solutions</h3>
+            <div class="footer-links">
+              {solutionLinks.map((link) => <a href={link.href}>{link.label}</a>)}
+            </div>
+          </div>
+          <div class="footer-col">
+            <h3>Company</h3>
+            <div class="footer-links">
+              {companyLinks.map((link) => <a href={link.href}>{link.label}</a>)}
+              <a href={loginUrl}>Log In</a>
+              <a href={signupUrl}>Sign Up</a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h3>Join the Movement</h3>
+            <p class="muted">Begin promoting your freelance services and managing your orders.</p>
+            <form class="email-form" action={signupUrl} method="get">
+              <input type="email" name="email" placeholder="Enter work email" aria-label="Work email" required />
+              <button class="button yellow" type="submit">Start Selling</button>
+            </form>
+            <div class="social-links">
+              <a href="https://x.com/Retainr_io">X</a>
+              <a href="http://tiktok.com/@retainr.io">TikTok</a>
+              <a href="https://www.youtube.com/@Retainr">YouTube</a>
+              <a href="https://www.linkedin.com/company/retainr-io/">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>Retainr Solution (SimpliXio Pte Ltd). UEN 202428793Z.</span>
+          <span>We contribute 1% of revenue to Stripe Climate.</span>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const menuButton = document.querySelector(".menu-button");
+      menuButton?.addEventListener("click", () => {
+        const isOpen = document.body.classList.toggle("menu-open");
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+      });
+    </script>
+  </body>
+</html>

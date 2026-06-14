@@ -1,0 +1,96 @@
+{
+  "currency": "$",
+  "trialLabel": "Ending soon - $1 trial",
+  "billing": {
+    "monthlyLabel": "Monthly",
+    "yearlyLabel": "Yearly",
+    "yearlyNote": "Save when paid yearly"
+  },
+  "plans": [
+    {
+      "name": "Solo Freelancer",
+      "monthly": 25,
+      "yearly": 19,
+      "description": "Ideal for solopreneurs and entrepreneurs that need a white-label system to manage client projects.",
+      "features": [
+        "Max. 1 user",
+        "Unlimited clients",
+        "Own branded web app",
+        "White-label client portal",
+        "0% transaction fees",
+        "No Powered By badge"
+      ],
+      "cta": "Start Trial"
+    },
+    {
+      "name": "Teams",
+      "monthly": 77,
+      "yearly": 69,
+      "description": "Ideal for small businesses and agencies that need a white-label system to onboard and manage client projects.",
+      "features": [
+        "Everything in Solo Freelancer",
+        "Max. 6 users",
+        "Unlimited clients",
+        "Own branded web app",
+        "Projects, tickets, and tasks",
+        "Advanced branding"
+      ],
+      "cta": "Start Trial",
+      "highlight": true
+    },
+    {
+      "name": "Agencies & Startups",
+      "monthly": 199,
+      "yearly": 179,
+      "description": "Ideal for businesses that need a full-stack white-label solution to grow and scale their agency.",
+      "features": [
+        "Everything in Teams",
+        "Max. 18 users",
+        "Android and iOS app",
+        "Dedicated agent, monitored 24/7",
+        "4 x 1-hour startup coaching sessions",
+        "API and webhooks"
+      ],
+      "cta": "Start Now"
+    }
+  ],
+  "included": [
+    "Zero transaction fees",
+    "Unlimited leads and clients",
+    "Own branded web app",
+    "White-label client management portal",
+    "Projects and ticketing",
+    "Tasks and boards",
+    "Unlimited storage",
+    "Order feedback and approvals",
+    "Custom domain and SSL",
+    "Unbranded emails",
+    "Payment integration",
+    "API and webhooks",
+    "100% data security",
+    "Retainr Accelerator Program",
+    "24/7 customer support team"
+  ],
+  "faq": [
+    {
+      "question": "Will the mobile app have my agency or brand name?",
+      "answer": "Yes. Your branded app can carry your logo and brand name across the App Store and Play Store experience."
+    },
+    {
+      "question": "Can I add unlimited clients?",
+      "answer": "Yes. Retainr is built for unlimited clients and a clear team structure based on your plan."
+    },
+    {
+      "question": "Is it easy to add and sell services?",
+      "answer": "Yes. Create a service package, set payment details, publish the offer, and send clients directly to the right signup flow."
+    },
+    {
+      "question": "Who owns the data, customers, and subscribers?",
+      "answer": "You do. Your client data, customers, orders, and subscribers belong to your business."
+    },
+    {
+      "question": "Do you integrate with Zapier and Google Analytics?",
+      "answer": "Yes. Retainr includes webhook and API options so you can connect your agency stack and automate the work around delivery."
+    }
+  ]
+}

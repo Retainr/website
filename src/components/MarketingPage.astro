@@ -1,0 +1,71 @@
+---
+import type { MarketingPage } from "@/data/pages";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import CtaBand from "./CtaBand.astro";
+import Testimonials from "./Testimonials.astro";
+import { signupUrl } from "@/data/site";
+
+type Props = { page: MarketingPage };
+const { page } = Astro.props;
+const path = `/${page.slug}/`;
+---
+
+<BaseLayout title={page.title} description={page.description} path={path}>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">{page.eyebrow ?? "Retainr"}</span>
+        <h1>{page.hero}</h1>
+        <p>{page.subhero}</p>
+        <div class="hero-actions">
+          <a href={signupUrl} class="button">Start Selling Today</a>
+          <a href="/pricing/" class="button ghost">View Pricing</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="product-frame">
+          <img src={page.image ?? "/assets/dashboard-hero.png"} alt={`${page.hero} in Retainr`} loading="eager" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {page.slug === "brand-assets" && (
+    <section class="section ice">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Color palette</span>
+          <h2>Same Retainr colors, cleaner system</h2>
+        </div>
+        <div class="swatch-grid">
+          {["#FF4D18", "#FFD540", "#FFFFFF", "#1d2130", "#EDF8FD", "#B7CD4B"].map((hex) => (
+            <div class="swatch">
+              <div class="swatch-color" style={`background:${hex}`}></div>
+              <div class="swatch-label">{hex}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="section">
+    <div class="container page-grid">
+      {page.sections.map((section) => (
+        <article class="page-section">
+          <span class="eyebrow">Retainr v2</span>
+          <h2>{section.title}</h2>
+          <p>{section.body}</p>
+          {section.points && (
+            <ul class="check-list">
+              {section.points.map((point) => <li>{point}</li>)}
+            </ul>
+          )}
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <CtaBand />
+  <Testimonials />
+</BaseLayout>
