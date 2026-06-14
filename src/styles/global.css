@@ -575,7 +575,8 @@ input {
 .niche-grid,
 .testimonial-grid,
 .faq-grid,
-.metrics-grid {
+.metrics-grid,
+.blog-index-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
@@ -588,6 +589,25 @@ input {
 .page-section {
   display: grid;
   gap: 14px;
+}
+
+.article-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 24px;
+  align-items: start;
+}
+
+.article-body {
+  display: grid;
+  gap: 18px;
+}
+
+.article-sidebar {
+  position: sticky;
+  top: 104px;
+  display: grid;
+  gap: 18px;
 }
 
 .blog-card {
@@ -724,8 +744,17 @@ input {
   .niche-grid,
   .testimonial-grid,
   .faq-grid,
-  .metrics-grid {
+  .metrics-grid,
+  .blog-index-grid {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .article-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .article-sidebar {
+    position: static;
   }
 
   .split-row:nth-child(even) .split-copy {
@@ -759,6 +788,7 @@ input {
   .testimonial-grid,
   .faq-grid,
   .metrics-grid,
+  .blog-index-grid,
   .brand-strip .container,
   .swatch-grid {
     grid-template-columns: 1fr;

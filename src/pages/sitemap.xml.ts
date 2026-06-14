@@ -1,4 +1,5 @@
 import type { APIRoute } from "astro";
+import { blogArticles } from "@/data/blog";
 import { pages } from "@/data/pages";
 import { niches } from "@/data/niches";
 
@@ -8,6 +9,7 @@ const urls = [
   "/",
   "/pricing/",
   ...pages.map((page) => `/${page.slug}/`),
+  ...blogArticles.map((article) => `/blog/${article.slug}/`),
   ...niches.map((niche) => `/niches/${niche.slug}/`),
 ];
 

@@ -20,6 +20,9 @@ export const navLinks = [
 export const solutionLinks = [
   { href: "/productize/", label: "Productize Web Services" },
   { href: "/automation-for-agencies-freelancers/", label: "Automations & Integrations" },
+  { href: "/freelance/", label: "Scale Freelance Business" },
+  { href: "/accelerator/", label: "Scale Agency Growth" },
+  { href: "/billing-and-invoicing-for-web-agencies/", label: "Billing & Invoicing" },
   { href: "/client-onboarding/", label: "Client Onboarding" },
   { href: "/support-ticketing-solution-for-freelancers-and-web-agencies/", label: "Communication & Ticketing" },
   { href: "/whilte-label-agency-management-software/", label: "White Label Solution" },
@@ -31,12 +34,23 @@ export const solutionLinks = [
   { href: "/sales-funnels-freelancers/", label: "Sales Funnels & Lead Magnets" },
 ];
 
+export const resourceLinks = [
+  { href: "https://www.youtube.com/@Retainr", label: "Tutorial Videos" },
+  { href: "/help/", label: "Knowledge Base" },
+  { href: "/pitch-deck/", label: "Why Retainr?" },
+  { href: "/guides/agency-freelancing-skills-you-need-to-know/", label: "High In-Demand Freelance Skills" },
+  { href: "/feedback/", label: "Feedback" },
+];
+
 export const companyLinks = [
+  { href: "/affiliate/", label: "Ambassador Program" },
   { href: "/alternatives-compare-agency-client-management-software/", label: "Compare" },
+  { href: "/blog/", label: "Blog" },
   { href: "/brand-assets/", label: "Brand Assets" },
   { href: "/about-retainr/", label: "About Us" },
   { href: "/manifesto-retainr/", label: "Manifesto" },
   { href: "/privacy-policy/", label: "Privacy" },
+  { href: "/terms-conditions/", label: "Terms" },
 ];
 
 export const testimonials = [

@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import { companyLinks, loginUrl, navLinks, signupUrl, solutionLinks } from "@/data/site";
+import { companyLinks, loginUrl, navLinks, resourceLinks, signupUrl, solutionLinks } from "@/data/site";
 
 type Props = {
   title: string;
@@ -77,6 +77,11 @@ const canonical = new URL(path, Astro.site ?? "https://www.retainr.io").toString
             </div>
           </div>
           <div class="footer-col">
+            <h3>Resources</h3>
+            <div class="footer-links">
+              {resourceLinks.map((link) => <a href={link.href}>{link.label}</a>)}
+              <a href="https://status.retainr.io">Status Page</a>
+            </div>
             <h3>Join the Movement</h3>
             <p class="muted">Begin promoting your freelance services and managing your orders.</p>
             <form class="email-form" action={signupUrl} method="get">

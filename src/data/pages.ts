@@ -459,4 +459,221 @@ export const pages: MarketingPage[] = [
       },
     ],
   },
+  {
+    slug: "freelance",
+    title: "Scale Freelance Business",
+    description:
+      "Scale a freelance business with productized services, recurring retainers, and a branded client workflow.",
+    eyebrow: "Freelance Growth",
+    hero: "Scale your freelance business without more admin",
+    subhero:
+      "Retainr helps niche freelancers turn expertise into clear offers, onboard clients faster, and convert existing clients into recurring revenue.",
+    image: "/assets/dashboard-hero.png",
+    sections: [
+      {
+        title: "From custom work to repeatable revenue",
+        body:
+          "Freelancers grow faster when they stop reselling every project from scratch. Retainr helps you package the work clients already ask for into offers that can be bought again and again.",
+        points: ["Productized services", "Recurring retainers", "Client portal", "Order tracking"],
+      },
+      {
+        title: "Built for niche experts",
+        body:
+          "Nutritionists, SEO experts, life coaches, writers, cartoonists, designers, AI consultants, and crypto educators can all sell expert services with a professional operating layer.",
+      },
+    ],
+  },
+  {
+    slug: "accelerator",
+    title: "Scale Agency Growth",
+    description:
+      "Retainr Accelerator helps creators and small agencies package offers, sell online, and build recurring client systems.",
+    eyebrow: "Accelerator",
+    hero: "Scale agency growth with sharper offers and cleaner delivery",
+    subhero:
+      "Use Retainr as the operating system for your next stage: storefront, client portal, onboarding, payments, delivery, and support.",
+    image: "/assets/revenue-graph.png",
+    sections: [
+      {
+        title: "Make your agency easier to buy from",
+        body:
+          "The fastest growth usually comes from clearer packaging. Retainr gives agencies a way to present services as products with pricing, scope, and onboarding in one place.",
+        points: ["Offer design", "Sales links", "Payment collection", "Delivery workflow"],
+      },
+      {
+        title: "Grow from existing clients",
+        body:
+          "Use Retainr to identify repeat work, publish retainers, and invite clients into recurring plans without rebuilding the sales process.",
+      },
+    ],
+  },
+  {
+    slug: "billing-and-invoicing-for-web-agencies",
+    title: "Billing & Invoicing for Web Agencies",
+    description:
+      "Billing and invoicing workflows for web agencies, freelancers, and digital creators selling productized services.",
+    eyebrow: "Billing",
+    hero: "Billing and invoicing connected to client delivery",
+    subhero:
+      "Collect payment, start onboarding, and keep orders tied to projects so revenue and delivery stay aligned.",
+    image: "/assets/packages.png",
+    sections: [
+      {
+        title: "Stop separating payment from project work",
+        body:
+          "Payment links alone do not create a client experience. Retainr connects the offer, checkout, client record, project, support tickets, and files.",
+        points: ["Package pricing", "Recurring plans", "Payment integration", "Order history"],
+      },
+      {
+        title: "Make renewals easier",
+        body:
+          "When billing is connected to service delivery, it becomes easier to sell monthly support, optimization, reporting, or content retainers.",
+      },
+    ],
+  },
+  {
+    slug: "help",
+    title: "Retainr Knowledge Base",
+    description:
+      "Knowledge base for setting up Retainr, publishing offers, onboarding clients, and building recurring revenue.",
+    eyebrow: "Help",
+    hero: "Knowledge base for selling services with Retainr",
+    subhero:
+      "Quick guidance for creators and agencies setting up branded offers, signup flows, payments, support, and client portals.",
+    sections: [
+      {
+        title: "Start with your first offer",
+        body:
+          "Choose one repeatable service, write the outcome, set the scope, add pricing, and publish a signup link.",
+        points: ["Create package", "Connect payment", "Share signup link", "Start delivery"],
+      },
+      {
+        title: "Build client workflows",
+        body:
+          "Use Retainr to keep intake, tasks, files, support, and approvals organized after purchase.",
+      },
+    ],
+  },
+  {
+    slug: "pitch-deck",
+    title: "Why Retainr?",
+    description:
+      "Why Retainr is the platform for digital creators and niche freelancers turning expertise into recurring revenue.",
+    eyebrow: "Why Retainr",
+    hero: "The platform for digital creators who sell expertise",
+    subhero:
+      "Retainr combines a service storefront, client portal, onboarding, billing, workflow, and support desk so creators can sell and retain clients.",
+    image: "/assets/dashboard-hero.png",
+    sections: [
+      {
+        title: "The problem",
+        body:
+          "Digital creators often use one tool for content, another for payment, another for files, another for tasks, and another for support. Clients feel the fragmentation.",
+      },
+      {
+        title: "The Retainr answer",
+        body:
+          "Give creators a branded system that turns existing expertise into clear offers and existing clients into recurring revenue.",
+        points: ["Sell", "Onboard", "Deliver", "Support", "Retain"],
+      },
+    ],
+  },
+  {
+    slug: "affiliate",
+    title: "Retainr Ambassador Program",
+    description:
+      "Become a Retainr ambassador and promote the platform for digital creators, freelancers, and agencies.",
+    eyebrow: "Ambassador Program",
+    hero: "Promote the platform creators use to sell recurring services",
+    subhero:
+      "Help niche freelancers and digital creators find Retainr, then earn from introducing a platform that makes their business easier to run.",
+    image: "/assets/revenue-graph.png",
+    sections: [
+      {
+        title: "Who should promote Retainr?",
+        body:
+          "Educators, community operators, consultants, agencies, and creator economy partners who serve freelancers and expert-led businesses.",
+        points: ["Creator communities", "Agency coaches", "Freelance educators", "SaaS affiliates"],
+      },
+      {
+        title: "What to link to",
+        body:
+          "Use niche pages, pricing, productize, income, and client onboarding pages as high-intent entry points for your audience.",
+      },
+    ],
+  },
+  {
+    slug: "terms-conditions",
+    title: "Retainr Terms & Conditions",
+    description:
+      "Retainr terms and conditions for use of the website, platform, account, and related services.",
+    eyebrow: "Terms",
+    hero: "Terms & Conditions",
+    subhero:
+      "These terms summarize the rules for using Retainr's website and services. They should be reviewed with legal counsel before production use.",
+    sections: [
+      {
+        title: "Use of service",
+        body:
+          "Users are responsible for account activity, lawful use, accurate information, and maintaining security of login credentials.",
+      },
+      {
+        title: "Subscriptions and payments",
+        body:
+          "Paid plans, trials, renewals, cancellations, taxes, and billing responsibilities are governed by the active plan and checkout terms.",
+      },
+      {
+        title: "Content and data",
+        body:
+          "Customers retain ownership of their business content and client data, subject to platform operation, security, and legal requirements.",
+      },
+    ],
+  },
+  {
+    slug: "feedback",
+    title: "Retainr Feedback",
+    description:
+      "Send feedback and feature requests for Retainr's creator-focused client management platform.",
+    eyebrow: "Feedback",
+    hero: "Help shape Retainr for digital creators",
+    subhero:
+      "Tell us what would make Retainr better for selling, onboarding, delivering, and retaining clients.",
+    sections: [
+      {
+        title: "What feedback helps most",
+        body:
+          "Share the creator niche, the service you sell, the workflow problem, and the outcome you want clients to experience.",
+        points: ["Niche", "Offer", "Workflow issue", "Expected result"],
+      },
+      {
+        title: "Feature requests",
+        body:
+          "For public requests, mention @Retainr_io on X or use the support links in the footer.",
+      },
+    ],
+  },
+  {
+    slug: "guides/agency-freelancing-skills-you-need-to-know",
+    title: "High In-Demand Freelance Skills",
+    description:
+      "Evergreen guide to high-demand freelance skills for digital creators and niche experts building recurring revenue.",
+    eyebrow: "Guide",
+    hero: "High-demand freelance skills for recurring creator revenue",
+    subhero:
+      "The best skills are the ones you can package, sell repeatedly, and connect to measurable client outcomes.",
+    image: "/assets/packages.png",
+    sections: [
+      {
+        title: "Skills that package well",
+        body:
+          "SEO, nutrition coaching, design, AI automation, writing, conversion copy, analytics, community education, and crypto education all become stronger when sold as clear packages.",
+        points: ["Audit", "Plan", "Implementation", "Reporting", "Retainer"],
+      },
+      {
+        title: "How to choose your skill stack",
+        body:
+          "Pick a niche, define a repeated client problem, build a fixed-scope starter offer, then sell a recurring plan for support and improvement.",
+      },
+    ],
+  },
 ];

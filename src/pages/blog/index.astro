@@ -1,0 +1,56 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { blogCategories, primaryBlogArticles } from "@/data/blog";
+---
+
+<BaseLayout
+  title="Retainr Blog - Digital Creator Growth, Niche Freelancing, and Recurring Revenue"
+  description="Updated evergreen Retainr articles for digital creators, niche freelancers, nutritionists, SEO experts, designers, AI experts, and creators turning clients into recurring revenue."
+  path="/blog/"
+>
+  <section class="hero center">
+    <div class="container">
+      <div class="hero-copy" style="justify-items:center">
+        <span class="eyebrow">Retainr Blog</span>
+        <h1 class="hero-title">Evergreen growth guides for digital creators</h1>
+        <p>
+          Updated for 2026: practical articles for niche freelancers, indie experts, and creator-led service businesses that want to sell online content, package services, and turn existing clients into recurring revenue.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ice">
+    <div class="container">
+      <div class="section-heading centered">
+        <span class="eyebrow">Topics</span>
+        <h2>Built around search intent and service revenue</h2>
+      </div>
+      <div class="included-grid">
+        {blogCategories.map((category) => (
+          <div class="metric-card"><strong>{category}</strong></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">All articles</span>
+        <h2>Updated from the original Retainr article library</h2>
+        <p>Every legacy article URL remains available. Date-bound article ideas now also have evergreen aliases.</p>
+      </div>
+      <div class="blog-index-grid">
+        {primaryBlogArticles.map((article) => (
+          <article class="blog-card">
+            <span class="eyebrow">{article.category}</span>
+            <h3><a href={`/blog/${article.slug}/`}>{article.title}</a></h3>
+            <p>{article.description}</p>
+            <div class="muted">Updated {article.updatedAt} for {article.audience}</div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

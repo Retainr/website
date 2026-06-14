@@ -1,0 +1,88 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import { blogArticles, primaryBlogArticles } from "@/data/blog";
+import { signupUrl } from "@/data/site";
+
+export function getStaticPaths() {
+  return blogArticles.map((article) => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const related = primaryBlogArticles
+  .filter((item) => item.category === article.category && item.canonicalSlug !== article.canonicalSlug)
+  .slice(0, 3);
+const canonicalPath = `/blog/${article.canonicalSlug}/`;
+---
+
+<BaseLayout title={article.title} description={article.description} path={canonicalPath}>
+  <article>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">{article.category}</span>
+          <h1>{article.title}</h1>
+          <p>{article.description}</p>
+          <div class="hero-actions">
+            <a href={signupUrl} class="button">Start Selling Today</a>
+            <a href="/income/" class="button ghost">Turn Skills Into Revenue</a>
+          </div>
+          <div class="muted">Updated {article.updatedAt}. Written for {article.audience} and niche digital creators.</div>
+        </div>
+        <div class="page-section">
+          <h2>SEO note</h2>
+          <p>
+            This article keeps Retainr's original search footprint while focusing the advice on evergreen creator businesses, client retention, and recurring revenue.
+          </p>
+          {article.legacy && (
+            <p>
+              Evergreen version: <a href={canonicalPath}>{canonicalPath}</a>
+            </p>
+          )}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container article-layout">
+        <div class="article-body">
+          {article.sections.map((section) => (
+            <section class="page-section">
+              <h2>{section.title}</h2>
+              <p>{section.body}</p>
+              <ul class="check-list">
+                {section.points.map((point) => <li>{point}</li>)}
+              </ul>
+            </section>
+          ))}
+        </div>
+        <aside class="article-sidebar">
+          <div class="page-section">
+            <h2>Build the system</h2>
+            <p>Use these Retainr pages to move from article advice to a working revenue workflow.</p>
+            <div class="footer-links">
+              <a href="/productize/">Productize your services</a>
+              <a href="/pricing/">Compare pricing</a>
+              <a href="/client-onboarding/">Improve onboarding</a>
+              <a href="/sales-funnels-freelancers/">Build sales funnels</a>
+              <a href="/niches/ai-experts/">AI expert signup path</a>
+              <a href="/niches/seo-experts/">SEO expert signup path</a>
+              <a href="/niches/nutritionists/">Nutritionist signup path</a>
+            </div>
+          </div>
+          <div class="page-section">
+            <h2>Related reading</h2>
+            <div class="footer-links">
+              {related.map((item) => <a href={`/blog/${item.slug}/`}>{item.title}</a>)}
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </article>
+
+  <CtaBand title="Turn existing clients into recurring revenue" text="Package your repeated expertise into monthly offers, sell them with Retainr, and manage delivery from one branded client portal." />
+</BaseLayout>

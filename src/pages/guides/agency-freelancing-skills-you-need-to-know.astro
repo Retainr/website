@@ -1,0 +1,9 @@
+---
+import MarketingPage from "@/components/MarketingPage.astro";
+import { pages } from "@/data/pages";
+
+const page = pages.find((item) => item.slug === "guides/agency-freelancing-skills-you-need-to-know");
+if (!page) throw new Error("Guide page content is missing");
+---
+
+<MarketingPage page={page} />
