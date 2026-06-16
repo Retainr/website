@@ -11,6 +11,15 @@ import { testimonials } from "@/data/site";
     <div class="testimonial-grid">
       {testimonials.map((item) => (
         <article class="testimonial">
+          <!-- Quote Icon -->
+          <div class="quote-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 11H6C5.45 11 5 10.55 5 10V6C5 5.45 5.45 5 6 5H10C10.55 5 11 5.45 11 6V10C11 10.55 10.55 11 10 11Z" fill="#FF4D18"/>
+              <path d="M18 11H14C13.45 11 13 10.55 13 10V6C13 5.45 13.45 5 14 5H18C18.55 5 19 5.45 19 6V10C19 10.55 18.55 11 18 11Z" fill="#FF4D18"/>
+              <path d="M10 19H6C5.45 19 5 18.55 5 18V14C5 13.45 5.45 13 6 13H10C10.55 13 11 13.45 11 14V18C11 18.55 10.55 19 10 19Z" fill="#FF4D18"/>
+              <path d="M18 19H14C13.45 19 13 18.55 13 18V14C13 13.45 13.45 13 14 13H18C18.55 13 19 13.45 19 14V18C19 18.55 18.55 19 18 19Z" fill="#FF4D18"/>
+            </svg>
+          </div>
           <p>"{item.quote}"</p>
           <strong>{item.name}</strong>
           <div class="muted">{item.role}</div>

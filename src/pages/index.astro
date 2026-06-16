@@ -7,20 +7,21 @@ import { niches } from "@/data/niches";
 ---
 
 <BaseLayout
-  title="Retainr: All-in-One Client Management Software for Freelancers and Agencies"
+  title="Retainr: All-in-One Client Management Software for Freelancers and Creators"
   description="Cloud-based all-in-one client management software for web agencies and freelancers. Manage clients, productize services, take payments, automate delivery, and grow from one branded platform."
   path="/"
 >
+  <!-- Hero -->
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-copy">
-        <span class="eyebrow">Client Management Platform Trusted by 1,000+ Agencies</span>
-        <h1>Turn <span>Services</span> Into Profitable <span>Products</span></h1>
+        <span class="eyebrow">Client Management Platform Trusted by 1,000+ Creators</span>
+        <h1>Turn Your <span>Skills</span> Into Profitable <span>Products</span></h1>
         <p>
-          Sell your services in seconds. Display your expertise to the world with the all-in-one client management solution for orders, payments, tasks, file storage, helpdesk, project delivery, referrals, and automation.
+          Sell your freelance services in seconds. Display your expertise to the world with an all-in-one client management solution for orders, payments, tasks, file storage, helpdesk, project delivery, referrals, and automation.
         </p>
         <div class="hero-actions">
-          <a href={signupUrl} class="button">Start Selling Today with $1</a>
+          <a href={signupUrl} class="button">Start Freelancing with $1</a>
           <a href="/productize/" class="button ghost">See Productized Services</a>
         </div>
         <div class="hero-proof">
@@ -37,22 +38,67 @@ import { niches } from "@/data/niches";
     </div>
   </section>
 
-  <section class="brand-strip" aria-label="Trusted platform badges">
+  <!-- IMPROVED: Trusted Platform Badges -->
+  <section class="brand-strip" aria-label="Trusted integrations and platforms">
     <div class="container">
-      <div class="brand-tile">AWS</div>
-      <div class="brand-tile">Stripe</div>
-      <div class="brand-tile">PayPal</div>
-      <div class="brand-tile">Zapier</div>
-      <div class="brand-tile">Analytics</div>
+      <div class="brand-grid">
+        <!-- Stripe -->
+        <div class="brand-badge">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" fill="#635BFF"/>
+            <path d="M12.5 7.5H11.5V16.5H12.5V7.5Z" fill="#635BFF"/>
+            <path d="M15.5 10.5H8.5V11.5H15.5V10.5Z" fill="#635BFF"/>
+          </svg>
+          <span>Stripe</span>
+        </div>
+
+        <!-- PayPal -->
+        <div class="brand-badge">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7.5 19.5H16.5C17.88 19.5 19 18.38 19 17V7C19 5.62 17.88 4.5 16.5 4.5H7.5C6.12 4.5 5 5.62 5 7V17C5 18.38 6.12 19.5 7.5 19.5Z" fill="#003087"/>
+            <path d="M9 9.5H15M9 12.5H15M9 15.5H13" stroke="#009CDE" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span>PayPal</span>
+        </div>
+
+        <!-- Zapier -->
+        <div class="brand-badge">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#FF4A00"/>
+            <path d="M2 17L12 22L22 17" stroke="#FF4A00" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="#FF4A00" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+          <span>Zapier</span>
+        </div>
+
+        <!-- AWS -->
+        <div class="brand-badge">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2Z" fill="#FF9900"/>
+            <path d="M8 8H16M8 12H16M8 16H13" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          <span>AWS</span>
+        </div>
+
+        <!-- Analytics -->
+        <div class="brand-badge">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="18" height="18" rx="2" fill="#B7CD4B"/>
+            <path d="M7 17V10M12 17V7M17 17V13" stroke="#1d2130" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <span>Analytics</span>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- Features section (unchanged) -->
   <section class="section ice">
     <div class="container">
       <div class="section-heading centered">
         <span class="eyebrow">Sell. Earn. Automate.</span>
         <h2>Turn what you do into profitable products</h2>
-        <p>Retainr keeps the current promise of the Webflow site and sharpens it into a faster, clearer, GitHub Pages-ready experience.</p>
+        <p>Add trust to your clients. Add values to </p>
       </div>
       <div class="feature-grid">
         {homeFeatures.map((feature, index) => (
@@ -66,11 +112,12 @@ import { niches } from "@/data/niches";
     </div>
   </section>
 
+  <!-- Product Highlights (unchanged) -->
   <section class="section">
     <div class="container">
       <div class="section-heading centered">
         <span class="eyebrow">Scale Your Digital Agency</span>
-        <h2>Increase profitability with one client operating system</h2>
+        <h2>A proven system to maximise profitability</h2>
       </div>
       <div class="split-stack">
         {productHighlights.map((item) => (
@@ -90,18 +137,23 @@ import { niches } from "@/data/niches";
     </div>
   </section>
 
+  <!-- Niche section (from previous update) -->
   <section class="section dark">
     <div class="container">
       <div class="section-heading centered">
-        <span class="eyebrow">Digital Creator Niches</span>
-        <h2>Custom signup paths for expert-led service businesses</h2>
-        <p>Each niche page routes creators to Retainr signup with audience context attached.</p>
+        <span class="eyebrow">The Retainr Method by Niche</span>
+        <h2>Find your niche.<br />Build your retainer engine.</h2>
+        <p>Retainr is purpose-built for digital creators and niche freelancers who want to package their expertise, sell with clarity, deliver professionally, and turn one-time work into predictable monthly revenue.</p>
       </div>
       <div class="niche-grid">
         {niches.map((niche) => (
           <a class="niche-card" href={`/niches/${niche.slug}/`}>
-            <h3>{niche.name}</h3>
+            <div class="niche-visual" style="height: 120px; background: linear-gradient(135deg, var(--orange), var(--yellow)); border-radius: 6px 6px 0 0; display: flex; align-items: center; justify-content: center; color: white; font-size: 2.2rem; font-weight: 950; margin: -24px -24px 18px; position: relative; overflow: hidden;">
+              <span style="position: relative; z-index: 1;">{niche.name.split(" ")[0]}</span>
+            </div>
+            <h3 style="margin-top: 0;">{niche.name}</h3>
             <p>{niche.description}</p>
+            <span class="button ghost" style="display: inline-block; margin-top: 12px; font-size: 0.85rem; padding: 6px 14px;">See how it works →</span>
           </a>
         ))}
       </div>

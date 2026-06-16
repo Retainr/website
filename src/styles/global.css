@@ -304,27 +304,58 @@ input {
   width: 100%;
 }
 
+/* ============================================
+   BRAND STRIP / TRUSTED BADGES (Updated)
+   ============================================ */
 .brand-strip {
   padding: 18px 0 46px;
 }
 
-.brand-strip .container {
+.brand-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
 }
 
-.brand-tile {
-  min-height: 70px;
+.brand-badge {
   display: flex;
   align-items: center;
-  justify-content: center;
-  border: 1px solid var(--line);
-  border-radius: 8px;
+  gap: 12px;
+  padding: 16px 20px;
   background: var(--white);
-  color: rgba(29, 33, 48, 0.55);
-  font-weight: 950;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(29, 33, 48, 0.06);
+  font-weight: 700;
+  color: var(--ink);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
+.brand-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(29, 33, 48, 0.1);
+}
+
+.brand-badge span {
+  font-size: 1rem;
+}
+
+/* ============================================
+   TESTIMONIALS (Enhanced)
+   ============================================ */
+.testimonial .quote-icon {
+  margin-bottom: 12px;
+  opacity: 0.9;
+}
+
+.testimonial p {
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* ============================================
+   REST OF EXISTING STYLES (Unchanged)
+   ============================================ */
 
 .section {
   padding: 82px 0;
@@ -695,6 +726,9 @@ input {
   padding: 0 14px;
 }
 
+/* ============================================
+   RESPONSIVE
+   ============================================ */
 @media (max-width: 980px) {
   .menu-button {
     display: inline-flex;
@@ -790,7 +824,6 @@ input {
   .faq-grid,
   .metrics-grid,
   .blog-index-grid,
-  .brand-strip .container,
   .swatch-grid {
     grid-template-columns: 1fr;
   }

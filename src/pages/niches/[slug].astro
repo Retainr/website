@@ -12,22 +12,32 @@ export function getStaticPaths() {
 }
 
 const { niche } = Astro.props;
-const nicheSignup = `${signupUrl}?niche=${encodeURIComponent(niche.slug)}`;
-const recurringText = `The strongest ${niche.name} offers do not end after one delivery. Retainr helps you turn the first result into continued support, monthly reviews, implementation help, or a subscription-style service.`;
-const onboardingHeading = `What the signup flow should learn about each ${niche.name} client`;
-const onboardingText = `A generic signup form creates generic delivery. This page sends new users to Retainr with a niche parameter so the application can personalize setup around the exact service category. For ${niche.name}, that means preloading relevant package ideas, intake prompts, delivery milestones, and client portal language.`;
-const workspaceHeading = `Recommended workspace for ${niche.name}`;
-const packageText = `Create packages for ${niche.offers.join(", ")}`;
-const launchHeading = `How ${niche.name} should launch the first offer`;
-const launchText = `Once the offer is published, send traffic from your social profile, newsletter, community, sales calls, and content into the niche signup link. Retainr can use the niche parameter to make the setup and onboarding path feel specific to ${niche.name}, which improves the first impression and reduces generic admin before delivery starts.`;
-const signupRouteText = `Route every CTA to ${nicheSignup}`;
-const retentionHeading = "What should happen after the first delivery?";
-const retentionText = `The first delivery should create a measurable result and reveal what the client needs next. For ${niche.name}, that next step might be monthly reviews, new deliverables, ongoing advisory, optimization, accountability, support, education, or maintenance. Instead of leaving the client to ask what comes next, build that continuation into the offer ladder.`;
+const nicheSignupUrl = `${signupUrl}?niche=${niche.slug}`;
+
+const defaultBenefits = [
+  "Sell productized offers with branded checkout under your name",
+  "Magic signup links that land the right clients in the right package",
+  "Niche-specific onboarding that qualifies and prepares clients automatically",
+  "White-label client portal that builds trust and keeps everything in one place",
+  "Automatic recurring billing and renewal reminders for predictable revenue",
+  "Tasks, files, support tickets, and progress tracking tied to every client"
+];
+
+const benefits = niche.benefits || defaultBenefits;
+
+const defaultPainPoints = [
+  "Clients disappear or expect free ongoing advice after the first delivery",
+  "Scattered tools (email, forms, invoices, folders, chat) create chaos",
+  "One-off projects never turn into predictable monthly income",
+  "You spend more time on admin and chasing than on high-value work"
+];
+
+const painPoints = niche.painPoints || defaultPainPoints;
 ---
 
 <BaseLayout
-  title={`Retainr for ${niche.name}`}
-  description={`${niche.description} Start a customized Retainr signup onboarding flow for ${niche.name}.`}
+  title={`${niche.name} — Retainr | Turn Your Expertise Into Recurring Revenue`}
+  description={`${niche.subhero} Retainr is the branded client management system built for ${niche.name.toLowerCase()} who want to productize their services and build predictable monthly revenue.`}
   path={`/niches/${niche.slug}/`}
 >
   <section class="hero">
@@ -35,15 +45,41 @@ const retentionText = `The first delivery should create a measurable result and 
       <div class="hero-copy">
         <span class="eyebrow">Retainr for {niche.name}</span>
         <h1>{niche.hero}</h1>
-        <p>{niche.description}</p>
+        <p class="lead">{niche.subhero}</p>
         <div class="hero-actions">
-          <a href={nicheSignup} class="button">Customize Signup</a>
-          <a href="/pricing/" class="button ghost">View Pricing</a>
+          <a href={nicheSignupUrl} class="button">Start Your {niche.name.split(" ")[0]} Retainer Engine</a>
+          <a href="/pricing/" class="button ghost">See Pricing</a>
+        </div>
+        <div class="hero-proof" style="margin-top: 16px;">
+          <div class="proof-pill"><strong>0%</strong><span>transaction fees</span></div>
+          <div class="proof-pill"><strong>100%</strong><span>white label</span></div>
+          <div class="proof-pill"><strong>24/7</strong><span>support</span></div>
         </div>
       </div>
       <div class="hero-visual">
         <div class="product-frame">
-          <img src="/assets/onboarding.png" alt={`Retainr onboarding for ${niche.name}`} loading="eager" />
+          <img 
+            src={niche.image ?? "/assets/dashboard-hero.png"} 
+            alt={`${niche.name} using Retainr client portal`} 
+            loading="eager" 
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split-stack">
+      <div class="split-row">
+        <div class="split-copy">
+          <span class="eyebrow">The {niche.name.split(" ")[0]} Problem</span>
+          <h2>You’re great at what you do.<br />But the business side is chaos.</h2>
+          <ul class="check-list">
+            {painPoints.map((point) => <li>{point}</li>)}
+          </ul>
+        </div>
+        <div class="product-frame">
+          <img src="/assets/revenue-graph.png" alt="Retainr turns chaos into predictable revenue" loading="lazy" />
         </div>
       </div>
     </div>
@@ -52,15 +88,120 @@ const retentionText = `The first delivery should create a measurable result and 
   <section class="section ice">
     <div class="container">
       <div class="section-heading centered">
-        <span class="eyebrow">Offer ideas</span>
-        <h2>Package your expertise into offers clients can buy</h2>
+        <span class="eyebrow">The Retainr Method</span>
+        <h2>How {niche.name.split(" ")[0]} pros turn expertise into predictable revenue</h2>
+        <p>Retainr is not just software. It’s the operating system that makes your niche service business run on autopilot.</p>
       </div>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-icon">1</div>
+          <h3>Package Your Expertise</h3>
+          <p>Turn what you already do into clear, buyable offers with defined scope, timeline, and outcome. No more vague “I can help with that”.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">2</div>
+          <h3>Publish & Sell Instantly</h3>
+          <p>Launch beautiful branded offers with one click. Clients pay before work starts. You keep 100% — zero transaction fees.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">3</div>
+          <h3>Automated Onboarding</h3>
+          <p>Magic signup links + niche-specific intake questions. Clients arrive prepared. You start every engagement with the right context.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">4</div>
+          <h3>Deliver in Your Brand Portal</h3>
+          <p>Clients see tasks, upload files, track progress, and message you inside a beautiful white-label experience that feels like your own app.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">5</div>
+          <h3>Convert to Recurring</h3>
+          <p>After the first win, naturally invite clients into monthly retainers for support, optimization, accountability, or ongoing deliverables.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">6</div>
+          <h3>Watch Revenue Stabilize</h3>
+          <p>Automatic renewals, churn alerts, and health dashboards. Less chasing. More creating and delivering your best work.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-heading centered">
+        <span class="eyebrow">Ready-to-sell offers</span>
+        <h2>Example packages {niche.name.split(" ")[0]} are selling with Retainr today</h2>
+        <p>These are real offer types that convert well when paired with Retainr’s branded checkout and client portal.</p>
+      </div>
+
       <div class="feature-grid">
         {niche.offers.map((offer, index) => (
           <article class="feature-card">
-            <div class="feature-icon">{index + 1}</div>
+            <div class="feature-icon" style="background: var(--yellow); color: var(--ink);">{index + 1}</div>
             <h3>{offer}</h3>
-            <p>Publish this as a clear service package, collect payment, and start delivery through Retainr.</p>
+            <p>Clear scope. Fixed price. Easy to understand. Clients know exactly what they’re buying and what success looks like.</p>
+            <a href={nicheSignupUrl} class="button ghost" style="margin-top: auto; width: fit-content;">Sell this offer →</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section ice">
+    <div class="container split-row">
+      <div class="split-copy">
+        <span class="eyebrow">Niche-specific intake</span>
+        <h2>The right questions from the first click</h2>
+        <p>Every niche has different context that matters. Retainr lets you ask the questions that actually help you deliver great work — without rebuilding forms every time.</p>
+        
+        <ul class="check-list">
+          {niche.onboarding.map((q) => <li>{q}</li>)}
+        </ul>
+      </div>
+      <div>
+        <div class="product-frame">
+          <img src="/assets/onboarding.png" alt="Niche-specific client onboarding in Retainr" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-heading centered">
+        <span class="eyebrow">From one project to predictable income</span>
+        <h2>Turn every happy client into a retained client</h2>
+      </div>
+      <div class="page-grid" style="max-width: 860px; margin-inline: auto;">
+        <article class="page-section">
+          <h3 style="margin-top:0">The pattern that works</h3>
+          <p>{niche.recurringExample || "After delivering exceptional results in the first engagement, invite clients into a simple monthly retainer. The portal already exists, trust is high, and the next step feels natural instead of salesy."}</p>
+          <ul class="check-list">
+            <li>Starter package proves your value quickly</li>
+            <li>First delivery creates the perfect upsell moment</li>
+            <li>Monthly retainer protects the result and creates stability</li>
+            <li>Automatic billing + portal keeps clients happy and paying</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="container">
+      <div class="section-heading centered">
+        <span class="eyebrow" style="background: rgba(255,255,255,0.1); color: white; border-color: rgba(255,255,255,0.2);">Built for {niche.name.split(" ")[0]}</span>
+        <h2 style="color: white;">Why {niche.name.split(" ")[0]} choose Retainr over generic tools</h2>
+      </div>
+
+      <div class="feature-grid">
+        {benefits.map((benefit, i) => (
+          <article class="feature-card" style="background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15);">
+            <div class="feature-icon" style="background: var(--green); color: var(--ink);">{i + 1}</div>
+            <h3 style="color: white;">{benefit.split(". ")[0] || benefit}</h3>
+            <p style="color: rgba(255,255,255,0.85);">{benefit}</p>
           </article>
         ))}
       </div>
@@ -68,107 +209,22 @@ const retentionText = `The first delivery should create a measurable result and 
   </section>
 
   <section class="section">
-    <div class="container">
-      <div class="split-row">
-        <div class="split-copy">
-          <span class="eyebrow">Custom onboarding</span>
-          <h2>Ask for the right details before work starts</h2>
-          <p>Retainr can shape the signup path around what this niche needs, then route the client into the correct portal, payment, and delivery workflow.</p>
-          <a href={nicheSignup} class="button">Start {niche.name} Signup</a>
-        </div>
-        <div class="page-section">
-          <h2>Suggested intake</h2>
-          <ul class="check-list">
-            {niche.onboarding.map((item) => <li>{item}</li>)}
-          </ul>
-        </div>
-      </div>
+    <div class="container" style="max-width: 720px; text-align: center;">
+      <h2 style="font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.1;">Ready to turn your {niche.name.toLowerCase()} expertise into a retainer engine?</h2>
+      <p style="font-size: 1.2rem; color: var(--muted); max-width: 560px; margin: 20px auto 32px;">
+        Join {niche.name.split(" ")[0]} who are already using Retainr to sell clearer offers, onboard faster, deliver professionally, and build recurring revenue on autopilot.
+      </p>
+      <a href={nicheSignupUrl} class="button" style="font-size: 1.1rem; padding: 0 36px; min-height: 56px;">
+        Start Selling Today — {niche.name.split(" ")[0]} Plan
+      </a>
+      <p style="margin-top: 16px; font-size: 0.9rem; color: var(--muted);">No credit card required for the first 14 days. Cancel anytime.</p>
     </div>
   </section>
 
-  <section class="section ice">
-    <div class="container">
-      <div class="section-heading centered">
-        <span class="eyebrow">Recurring revenue</span>
-        <h2>Turn one-time clients into repeat buyers</h2>
-        <p>{recurringText}</p>
-      </div>
-      <div class="feature-grid">
-        <article class="feature-card">
-          <div class="feature-icon">1</div>
-          <h3>Starter package</h3>
-          <p>Use the first offer to solve a narrow urgent problem, collect the right intake details, and prove the value of your expertise quickly.</p>
-        </article>
-        <article class="feature-card">
-          <div class="feature-icon">2</div>
-          <h3>Recurring plan</h3>
-          <p>Follow the starter result with a monthly plan for check-ins, reporting, new deliverables, support, or optimization.</p>
-        </article>
-        <article class="feature-card">
-          <div class="feature-icon">3</div>
-          <h3>Client portal</h3>
-          <p>Keep requests, files, tasks, approvals, and support in one branded workspace so clients know exactly where the relationship lives.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container page-grid">
-      <article class="page-section">
-        <span class="eyebrow">Onboarding design</span>
-        <h2>{onboardingHeading}</h2>
-        <p>{onboardingText}</p>
-        <ul class="check-list">
-          {niche.onboarding.map((item) => <li>{item}</li>)}
-          <li>Preferred communication cadence</li>
-          <li>Recurring service interest</li>
-          <li>First paid outcome the client wants</li>
-        </ul>
-      </article>
-      <article class="page-section">
-        <span class="eyebrow">Retainr setup</span>
-        <h2>{workspaceHeading}</h2>
-        <p>
-          Start with three productized offers, one onboarding checklist, one client-facing dashboard, and one retention offer. This keeps the business simple enough to launch quickly while giving clients a professional experience from the first click.
-        </p>
-        <ul class="check-list">
-          <li>{packageText}</li>
-          <li>Add intake questions that match the service promise</li>
-          <li>Connect payment before project kickoff</li>
-          <li>Use tickets and tasks for feedback, approvals, and follow-up work</li>
-        </ul>
-      </article>
-      <article class="page-section">
-        <span class="eyebrow">Launch plan</span>
-        <h2>{launchHeading}</h2>
-        <p>
-          Start with the most repeated client request you already receive. Turn that request into a fixed-scope package with a visible outcome, a clear timeline, and a short onboarding checklist. The first version should be simple enough to sell this week and structured enough that a client understands exactly what happens after payment.
-        </p>
-        <p>{launchText}</p>
-        <ul class="check-list">
-          <li>Choose one repeated client problem</li>
-          <li>Publish one fixed-scope package</li>
-          <li>{signupRouteText}</li>
-          <li>Use the client portal as the home for delivery and support</li>
-        </ul>
-      </article>
-      <article class="page-section">
-        <span class="eyebrow">Retention model</span>
-        <h2>{retentionHeading}</h2>
-        <p>{retentionText}</p>
-        <p>
-          Retainr makes that easier because the client relationship already has a workspace. You can introduce the recurring plan from inside the same branded experience where the client saw the first result, asked questions, uploaded files, and received deliverables. That continuity is what turns a one-time project into a retained relationship.
-        </p>
-        <ul class="check-list">
-          <li>Create a recurring plan tied to a concrete monthly outcome</li>
-          <li>Use tickets for questions and requests after the first project</li>
-          <li>Use tasks and approvals to keep delivery visible</li>
-          <li>Review renewals and expansion opportunities from the client record</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <CtaBand title={`Built for ${niche.name}`} text="Use Retainr to sell, onboard, manage, and deliver expert services through one branded client experience." cta="Customize Signup" href={nicheSignup} />
+  <CtaBand 
+    title="Not sure if Retainr fits your exact workflow?"
+    text="Book a quick demo or start free and explore the niche-specific onboarding and retainer tools yourself."
+    cta="Start Free Trial"
+    href={nicheSignupUrl}
+  />
 </BaseLayout>
