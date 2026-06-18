@@ -1,6 +1,6 @@
-# Retainr.io Website
+# Retainr Website
 
-Static Astro rebuild of `www.retainr.io` for GitHub Pages.
+Static Astro rebuild of my Webflow's `www.retainr.io` for GitHub Pages.
 
 ## Commands
 
