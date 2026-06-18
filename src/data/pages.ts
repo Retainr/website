@@ -112,7 +112,7 @@ export const pages: MarketingPage[] = [
       {
         title: "Popular reads",
         body:
-          "Retainr.io's blog index keeps the original editorial themes while making the content easier to scan.",
+          "Retainr's blog index keeps the original editorial themes while making the content easier to scan.",
         points: [
           "10 Reasons How Niche Targeting Can Benefit Your Small Agency",
           "15 Examples of Small Agencies Excelling in Niche Targeting",
