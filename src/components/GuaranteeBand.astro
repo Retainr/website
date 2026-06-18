@@ -1,0 +1,77 @@
+---
+const {
+  title = "Risk-Free. Built for Results.",
+  subtitle = "We designed Retainr so you can test it with zero risk."
+} = Astro.props;
+---
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading centered" style="max-width: 720px; margin-bottom: 40px;">
+      <span class="eyebrow">Zero Risk</span>
+      <h2>{title}</h2>
+      <p>{subtitle}</p>
+    </div>
+
+    <div class="guarantee-grid">
+      <!-- Guarantee 1 -->
+      <article class="guarantee-card">
+        <div class="guarantee-icon">🛡️</div>
+        <h3>14-Day "Test Without Risk" Guarantee</h3>
+        <p>
+          Try Retainr for a full 14 days. If it doesn’t help you package and sell your services more clearly,
+          just email support and we’ll refund you — no questions asked.
+        </p>
+      </article>
+
+      <!-- Guarantee 2 -->
+      <article class="guarantee-card">
+        <div class="guarantee-icon">🏆</div>
+        <h3>"Get Your First Retainer" Promise</h3>
+        <p>
+          Use Retainr to publish at least one offer. If you don’t land a paying client within 60 days, 
+          we’ll give you a free 1:1 strategy call + extend your access at no extra cost.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .guarantee-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .guarantee-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 28px 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  }
+
+  .guarantee-icon {
+    font-size: 2.1rem;
+    margin-bottom: 14px;
+  }
+
+  .guarantee-card h3 {
+    margin: 0 0 12px;
+    font-size: 1.15rem;
+    line-height: 1.3;
+  }
+
+  .guarantee-card p {
+    color: var(--muted);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .guarantee-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

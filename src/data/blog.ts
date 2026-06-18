@@ -116,16 +116,12 @@ export type BlogArticle = {
 
 const updatedAt = "2026-06-14";
 const audiences = [
-  "indie nutritionists",
-  "registered dietitians",
-  "SEO experts",
-  "online life coaches",
-  "ebook novelists",
-  "cartoonists",
-  "info product creators",
-  "designers",
   "AI consultants",
-  "crypto educators",
+  "SEO experts",
+  "brand & web designers",
+  "digital life & business coaches",
+  "info product creators",
+  "illustrators & cartoonists",
 ];
 
 const titleCase = (value: string) =>
@@ -171,17 +167,21 @@ const categoryFor = (slug: string) => {
 };
 
 const audienceFor = (slug: string) => {
+  if (/seo|keyword|growth/i.test(slug)) return "SEO experts";
+  if (/ai|automation|workflow/i.test(slug)) return "AI consultants";
+  if (/design|brand|creative/i.test(slug)) return "brand & web designers";
+  if (/coach|coaching|accountability/i.test(slug)) return "digital life & business coaches";
+  if (/info.?product|course|template/i.test(slug)) return "info product creators";
+  if (/illustrat|cartoon|visual|character/i.test(slug)) return "illustrators & cartoonists";
+
   const index = Math.abs([...slug].reduce((sum, char) => sum + char.charCodeAt(0), 0)) % audiences.length;
-  if (/seo|keyword/i.test(slug)) return "SEO experts";
-  if (/book|publish|writing/i.test(slug)) return "ebook novelists";
-  if (/ai|automation/i.test(slug)) return "AI consultants";
-  if (/nutrition|health|wellness/i.test(slug)) return "registered dietitians";
   return audiences[index];
 };
 
 const buildSections = (slug: string, title: string, category: string, audience: string) => {
   const dated = slug.includes("2024") || slug.includes("2025");
   const topic = title.replace(/ for .+$/, "").toLowerCase();
+
   return [
     {
       title: "What changed for digital creators",
@@ -195,7 +195,7 @@ const buildSections = (slug: string, title: string, category: string, audience: 
     },
     {
       title: "The buyer this article should serve",
-      body: `The most useful reader is not a generic freelancer. It is an expert who already has proof that clients value their judgment: a registered dietitian with repeat coaching clients, an SEO consultant asked for monthly reporting, a cartoonist receiving custom illustration requests, an ebook novelist selling editing help, an AI consultant asked to automate the same workflow repeatedly, or a designer who keeps getting urgent brand asset requests. For these creators, ${topic} matters because it can become a packaged business motion. The goal is to define a narrow buyer, name the recurring problem, and make the next step obvious enough that a client can purchase without a long explanation call.`,
+      body: `The most useful reader is not a generic freelancer. It is an expert who already has proof that clients value their judgment: an AI consultant asked to automate the same workflow repeatedly, an SEO expert asked for monthly reporting, a designer who keeps getting urgent brand asset requests, a life coach running structured programs, an info product creator selling courses, or an illustrator receiving recurring character design requests. For these creators, ${topic} matters because it can become a packaged business motion. The goal is to define a narrow buyer, name the recurring problem, and make the next step obvious enough that a client can purchase without a long explanation call.`,
       points: [
         "Name the niche before naming the offer",
         "Translate expertise into an outcome the client can recognize",
@@ -205,7 +205,7 @@ const buildSections = (slug: string, title: string, category: string, audience: 
     },
     {
       title: "How to turn the idea into a sellable offer",
-      body: `Start by converting the article idea into a service package. A useful package has a promise, a boundary, a timeline, a price, and an intake flow. For example, a nutritionist can turn content about better planning into a four-week meal strategy package. An SEO expert can turn keyword guidance into a technical audit plus a monthly content roadmap. A designer can turn social media advice into a monthly creative desk. The offer should not include every possible deliverable. It should include enough to get the client to one visible result, then create a natural reason to continue through a retainer, check-in, report, or support plan.`,
+      body: `Start by converting the article idea into a service package. A useful package has a promise, a boundary, a timeline, a price, and an intake flow. For example, an AI consultant can turn workflow advice into a monthly optimization retainer. An SEO expert can turn keyword guidance into a technical audit plus a monthly content roadmap. A designer can turn social media advice into a monthly creative desk. The offer should not include every possible deliverable. It should include enough to get the client to one visible result, then create a natural reason to continue through a retainer, check-in, report, or support plan.`,
       points: [
         "Write the offer around one outcome",
         "Define what is included and what is not included",
@@ -225,12 +225,14 @@ const buildSections = (slug: string, title: string, category: string, audience: 
     },
     {
       title: "Niche examples you can adapt",
-      body: `For a dietitian, this topic can become a recurring nutrition accountability plan with weekly check-ins and a monthly progress review. For an SEO expert, it can become a monthly search visibility retainer with content briefs and technical fixes. For a dog walker, it can become a recurring care plan with route notes, pet profiles, and client updates. For an ebook novelist, it can become editing, launch, or reader community packages. For a cartoonist, it can become a monthly illustration subscription. For info product creators, designers, AI experts, and crypto educators, the same pattern applies: package the repeated work, create a clean intake, and give clients a portal where the service feels organized.`,
+      body: `For an AI consultant, this topic can become a recurring "Monthly AI Performance Retainer". For an SEO expert, it can become a monthly search visibility retainer. For a designer, it can become a monthly creative desk retainer. For a life coach, it can become ongoing accountability retainers. For info product creators, it can become implementation coaching retainers. For illustrators and cartoonists, it can become monthly visual content retainers. The same pattern applies across all six niches: package the repeated work, create a clean intake, and give clients a professional portal where the service feels organized.`,
       points: [
-        "Nutritionists: plans, check-ins, progress reviews",
-        "SEO experts: audits, keyword roadmaps, reporting retainers",
-        "Designers and cartoonists: creative queues and approval workflows",
-        "AI and crypto experts: education, implementation, and advisory packages",
+        "AI Consultants: audits, implementation sprints, monthly optimization retainers",
+        "SEO Experts: audits, keyword roadmaps, monthly growth retainers",
+        "Designers: brand sprints, landing pages, monthly creative retainers",
+        "Life Coaches: transformation programs and monthly accountability retainers",
+        "Info Product Creators: courses + monthly implementation coaching",
+        "Illustrators & Cartoonists: character design and monthly visual content retainers",
       ],
     },
     {
@@ -275,7 +277,7 @@ const buildSections = (slug: string, title: string, category: string, audience: 
     },
     {
       title: "How to position it for niche freelancers",
-      body: `The mistake many freelancers make is writing for everyone who might need help. That creates weak copy and weak leads. A stronger page names the category of client, the specific situation, and the cost of inaction. A nutritionist can speak to clients who keep restarting plans and need accountability. An SEO expert can speak to founders who publish content without a ranking system. A life coach can speak to clients who want structured digital programs instead of occasional calls. An ebook novelist can speak to authors who need a launch path, not just writing advice. A designer can speak to teams that need consistent creative output every month. The more specific the positioning, the easier the Retainr signup flow becomes because the onboarding questions can match the promise.`,
+      body: `The mistake many freelancers make is writing for everyone who might need help. That creates weak copy and weak leads. A stronger page names the category of client, the specific situation, and the cost of inaction. An AI consultant can speak to founders who keep rebuilding the same automations. An SEO expert can speak to teams publishing content without a ranking system. A designer can speak to brands that need consistent creative output every month. A life coach can speak to clients who want structured digital programs. An info product creator can speak to buyers who purchase courses but never implement. An illustrator can speak to clients who need ongoing visual assets. The more specific the positioning, the easier the Retainr signup flow becomes because the onboarding questions can match the promise.`,
       points: [
         "Write for one kind of buyer at a time",
         "Name the painful recurring situation",
@@ -375,7 +377,7 @@ const buildSections = (slug: string, title: string, category: string, audience: 
     },
     {
       title: "How this differs by niche",
-      body: `The same system should not use the same wording for every creator. A registered dietitian needs language around goals, preferences, check-ins, and progress. An SEO expert needs URLs, access, competitors, analytics, and content priorities. A dog walker needs pet profiles, routes, care instructions, and emergency contacts. An ebook novelist needs manuscript stage, genre, word count, launch timing, and editorial goals. A cartoonist needs style references, usage rights, revision rules, and delivery formats. An info product creator needs audience, curriculum, assets, and launch channel. A designer needs brand context, creative references, and approval stakeholders. An AI expert needs process maps, tools, data sources, and success metrics. A crypto expert needs experience level, risk boundaries, education goals, and compliance-sensitive language. Retainr's niche pages and signup parameters make these differences actionable instead of generic.`,
+      body: `The same system should not use the same wording for every creator. An AI consultant needs language around tools, workflows, success metrics, and ongoing optimization. An SEO expert needs URLs, access, competitors, analytics, and content priorities. A designer needs brand context, creative references, and approval stakeholders. A life coach needs goals, current situation, session format, and accountability structure. An info product creator needs audience size, curriculum stage, assets, and launch channel. An illustrator needs style references, usage rights, revision rules, and delivery formats. Retainr's niche pages and signup parameters make these differences actionable instead of generic.`,
       points: [
         "Use niche-specific intake language",
         "Match package names to the buyer's mental model",

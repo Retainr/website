@@ -479,7 +479,15 @@ export const pages: MarketingPage[] = [
       {
         title: "Built for niche experts",
         body:
-          "Nutritionists, SEO experts, life coaches, writers, cartoonists, designers, AI consultants, and crypto educators can all sell expert services with a professional operating layer.",
+          "Retainr is designed for digital creators who want to build predictable monthly revenue. The platform works especially well for these focused niches:",
+        points: [
+          "AI Consultants & Automation Specialists",
+          "SEO Experts & Growth Marketers",
+          "Brand & Web Designers",
+          "Digital Life & Business Coaches",
+          "Info Product & Online Course Creators",
+          "Illustrators, Cartoonists & Visual Creators",
+        ],
       },
     ],
   },
