@@ -4,7 +4,17 @@ import CtaBand from "@/components/CtaBand.astro";
 import Testimonials from "@/components/Testimonials.astro";
 import GuaranteeBand from "@/components/GuaranteeBand.astro";
 import { homeFeatures, productHighlights, signupUrl } from "@/data/site";
-import { niches } from "@/data/niches";
+import { niches, type Niche } from "@/data/niches";
+
+export function getStaticPaths() {
+  return niches.map((niche) => ({
+    params: { slug: niche.slug },
+    props: { niche },
+  }));
+}
+
+const { niche } = Astro.props as { niche: Niche };
+const nicheSignupUrl = `${signupUrl}?niche=${niche.slug}`;
 ---
 
 <BaseLayout
@@ -23,7 +33,7 @@ import { niches } from "@/data/niches";
           sell with confidence, deliver professionally, and turn one-time clients into predictable monthly revenue.
         </p>
         <div class="hero-actions">
-          <a href={signupUrl} class="button">Start Your Retainer Engine</a>
+          <a href={nicheSignupUrl} class="button">Start Your Retainer Engine</a>
           <a href="#method" class="button ghost">See The Method</a>
         </div>
         <div class="hero-proof">

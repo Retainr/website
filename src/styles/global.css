@@ -450,7 +450,6 @@ input {
 }
 
 .section.dark .section-heading p,
-.section.dark p,
 .section.dark .muted {
   color: rgba(255, 255, 255, 0.72);
 }
