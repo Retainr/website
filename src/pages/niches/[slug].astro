@@ -18,16 +18,17 @@ const nicheSignupUrl = `${signupUrl}?niche=${niche.slug}`;
 ---
 
 <BaseLayout
-  title="Retainr: The Retainr Method — Turn Your Skills Into Predictable Revenue"
-  description="The Retainr Method: Package your expertise, sell with clarity, deliver professionally, and turn one-time clients into recurring revenue — all from one branded platform."
-  path="/"
+  title={`${niche.name} | ${niche.hero}`}
+  description={niche.subhero}
+  path={`/niches/${niche.slug}/`}
 >
   <!-- Hero -->
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-copy">
-        <span class="eyebrow">Built for Digital Creators & Niche Experts</span>
-        <h1>Turn Your Expertise<br />Into a <span>Recurring Revenue Engine</span></h1>
+        <span class="eyebrow">The System for {niche.name}</span>
+        <h1>{niche.hero}</h1>
+        <p>{niche.subhero}</p>
         <p>
           The Retainr Method gives you a clear, repeatable system to package your skills, 
           sell with confidence, deliver professionally, and turn one-time clients into predictable monthly revenue.
