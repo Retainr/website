@@ -587,30 +587,6 @@ export const pages: MarketingPage[] = [
     ],
   },
   {
-    slug: "affiliate",
-    title: "Retainr Ambassador Program",
-    description:
-      "Become a Retainr ambassador and promote the platform for digital creators, freelancers, and agencies.",
-    eyebrow: "Ambassador Program",
-    hero: "Promote the platform creators use to sell recurring services",
-    subhero:
-      "Help niche freelancers and digital creators find Retainr, then earn from introducing a platform that makes their business easier to run.",
-    image: "/assets/revenue-graph.png",
-    sections: [
-      {
-        title: "Who should promote Retainr?",
-        body:
-          "Educators, community operators, consultants, agencies, and creator economy partners who serve freelancers and expert-led businesses.",
-        points: ["Creator communities", "Agency coaches", "Freelance educators", "SaaS affiliates"],
-      },
-      {
-        title: "What to link to",
-        body:
-          "Use niche pages, pricing, productize, income, and client onboarding pages as high-intent entry points for your audience.",
-      },
-    ],
-  },
-  {
     slug: "terms-conditions",
     title: "Retainr Terms & Conditions",
     description:

@@ -32,6 +32,7 @@ export const solutionLinks = [
   { href: "/saas-for-freelancers-to-sell-online-services/", label: "SaaS for Freelancers" },
   { href: "/income/", label: "Turn Skills Into Revenue" },
   { href: "/sales-funnels-freelancers/", label: "Sales Funnels & Lead Magnets" },
+  { href: "/cafe-productivity", label: "Cafe Productivity for Indie Freelancers"},
 ];
 
 export const resourceLinks = [
@@ -43,7 +44,6 @@ export const resourceLinks = [
 ];
 
 export const companyLinks = [
-  { href: "/affiliate/", label: "Ambassador Program" },
   { href: "/alternatives-compare-agency-client-management-software/", label: "Compare" },
   { href: "/blog/", label: "Blog" },
   { href: "/brand-assets/", label: "Brand Assets" },
