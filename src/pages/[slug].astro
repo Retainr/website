@@ -3,10 +3,12 @@ import MarketingPage from "@/components/MarketingPage.astro";
 import { pages } from "@/data/pages";
 
 export function getStaticPaths() {
-  return pages.filter((page) => page.slug !== "blog" && !page.slug.includes("/")).map((page) => ({
-    params: { slug: page.slug },
-    props: { page },
-  }));
+  return pages
+    .filter((page) => page.slug !== "blog" && !page.slug.includes("/"))
+    .map((page) => ({
+      params: { slug: page.slug },
+      props: { page },
+    }));
 }
 
 const { page } = Astro.props;

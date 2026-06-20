@@ -11,6 +11,7 @@ const path = `/${page.slug}/`;
 ---
 
 <BaseLayout title={page.title} description={page.description} path={path}>
+  <!-- Hero -->
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-copy">
@@ -30,6 +31,7 @@ const path = `/${page.slug}/`;
     </div>
   </section>
 
+  <!-- Special Section: Brand Assets -->
   {page.slug === "brand-assets" && (
     <section class="section ice">
       <div class="container">
@@ -49,6 +51,7 @@ const path = `/${page.slug}/`;
     </section>
   )}
 
+  <!-- Dynamic Page Sections -->
   <section class="section">
     <div class="container page-grid">
       {page.sections.map((section) => (
