@@ -684,64 +684,64 @@ export const pages: MarketingPage[] = [
       },
     ],
   },
-{
-  slug: "cafe-productivity",
-  title: "Cafe Productivity for Indie Freelancers | Retainr",
-  description: "Stay in deep work flow at cafes without client requests, admin, or scattered tools killing your focus. Retainr handles the backend so you can enjoy productive cafe sessions.",
-  eyebrow: "Deep Work Mode",
-  hero: "Stay in Flow at the Cafe.<br />Let Retainr Handle the Rest.",
-  subhero: "Indie freelancers love working from cafes. But client chaos usually kills the vibe. Retainr gives you a system so you can protect your deep work time while everything else runs smoothly in the background.",
-  image: "/assets/dashboard-hero.png",
-  sections: [
-    {
-      title: "The Cafe Productivity Problem",
-      body: "You finally found a good table, put on your headphones, and got into flow. Then a client emails. Another one needs onboarding. Someone wants to know where their file is. Suddenly your productive cafe session turns into scattered admin work.",
-      points: [
-        "Client messages break your concentration",
-        "Onboarding new clients feels impossible from a cafe",
-        "Payments and invoices pull you out of deep work",
-        "You end up managing your business instead of doing the work you enjoy"
-      ]
-    },
-    {
-      title: "The Retainr Method for Cafe Freelancers",
-      body: "Retainr is designed to protect your deep work time. While you're at the cafe focused on high-value work, Retainr quietly handles client operations in the background.",
-      points: [
-        "Package your services clearly so clients know exactly what they're buying",
-        "Use magic signup links so new clients onboard themselves",
-        "Collect payments upfront before the work starts",
-        "Deliver through a professional branded portal (clients feel taken care of)",
-        "Turn one-time projects into recurring retainers automatically",
-        "Get notified only when something actually needs your attention"
-      ]
-    },
-    {
-      title: "What Becomes Possible From a Cafe",
-      body: "With Retainr running in the background, your cafe sessions become truly productive instead of reactive.",
-      points: [
-        "Run your entire client operation from your laptop at a cafe",
-        "Onboard new clients without meetings or back-and-forth emails",
-        "Deliver work professionally without constant status updates",
-        "Get paid faster with upfront payments and automatic renewals",
-        "Protect long blocks of deep work time",
-        "Feel in control even when you're not at your desk"
-      ]
-    },
-    {
-      title: "Who This Is Perfect For",
-      body: "This approach works especially well for freelancers who value focused work and often work from cafes, co-working spaces, or while traveling.",
-      points: [
-        "Designers & Brand Creatives who need long focus blocks",
-        "Writers, Copywriters & Content Creators",
-        "Developers & Technical Consultants",
-        "Coaches & Consultants who do deep thinking work",
-        "Any indie freelancer tired of admin killing their flow"
-      ]
-    },
-    {
-      title: "Turn Cafe Days Into Your Most Productive Days",
-      body: "The goal isn't to work more. It's to protect the time when you're at your best. Retainr removes the friction so your cafe sessions actually move your business forward instead of just keeping it running.",
-    }
-  ]
-},
+  {
+    slug: "cafe-productivity",
+    title: "Cafe Productivity for Indie Freelancers | Retainr",
+    description: "Stay in deep work flow at cafes without client requests, admin, or scattered tools killing your focus. Retainr handles the backend so you can enjoy productive cafe sessions.",
+    eyebrow: "Deep Work Mode",
+    hero: "Stay in Flow at the Cafe.<br />Let Retainr Handle the Rest.",
+    subhero: "Indie freelancers love working from cafes. But client chaos usually kills the vibe. Retainr gives you a system so you can protect your deep work time while everything else runs smoothly in the background.",
+    image: "/assets/dashboard-hero.png",
+    sections: [
+      {
+        title: "The Cafe Productivity Problem",
+        body: "You finally found a good table, put on your headphones, and got into flow. Then a client emails. Another one needs onboarding. Someone wants to know where their file is. Suddenly your productive cafe session turns into scattered admin work.",
+        points: [
+          "Client messages break your concentration",
+          "Onboarding new clients feels impossible from a cafe",
+          "Payments and invoices pull you out of deep work",
+          "You end up managing your business instead of doing the work you enjoy"
+        ]
+      },
+      {
+        title: "The Retainr Method for Cafe Freelancers",
+        body: "Retainr is designed to protect your deep work time. While you're at the cafe focused on high-value work, Retainr quietly handles client operations in the background.",
+        points: [
+          "Package your services clearly so clients know exactly what they're buying",
+          "Use magic signup links so new clients onboard themselves",
+          "Collect payments upfront before the work starts",
+          "Deliver through a professional branded portal (clients feel taken care of)",
+          "Turn one-time projects into recurring retainers automatically",
+          "Get notified only when something actually needs your attention"
+        ]
+      },
+      {
+        title: "What Becomes Possible From a Cafe",
+        body: "With Retainr running in the background, your cafe sessions become truly productive instead of reactive.",
+        points: [
+          "Run your entire client operation from your laptop at a cafe",
+          "Onboard new clients without meetings or back-and-forth emails",
+          "Deliver work professionally without constant status updates",
+          "Get paid faster with upfront payments and automatic renewals",
+          "Protect long blocks of deep work time",
+          "Feel in control even when you're not at your desk"
+        ]
+      },
+      {
+        title: "Who This Is Perfect For",
+        body: "This approach works especially well for freelancers who value focused work and often work from cafes, co-working spaces, or while traveling.",
+        points: [
+          "Designers & Brand Creatives who need long focus blocks",
+          "Writers, Copywriters & Content Creators",
+          "Developers & Technical Consultants",
+          "Coaches & Consultants who do deep thinking work",
+          "Any indie freelancer tired of admin killing their flow"
+        ]
+      },
+      {
+        title: "Turn Cafe Days Into Your Most Productive Days",
+        body: "The goal isn't to work more. It's to protect the time when you're at your best. Retainr removes the friction so your cafe sessions actually move your business forward instead of just keeping it running.",
+      }
+    ]
+  },
 ];
