@@ -99,6 +99,26 @@ const sourcePaths = [
   "/blog/top-5-small-agency-affiliate-programs-for-lucrative-commissions",
   "/blog/top-5-tips-for-marketing-and-networking-as-a-freelancer-",
   "/blog/top-5-trends-for-the-future-of-marketing",
+  "/blog/how-nutritionists-can-sell-meal-plan-subscriptions",
+  "/blog/registered-dietitian-client-portal-for-recurring-care",
+  "/blog/how-seo-experts-can-productize-monthly-retainers",
+  "/blog/dog-walker-recurring-client-management-system",
+  "/blog/how-ebook-novelists-can-sell-editing-and-launch-services",
+  "/blog/cartoonist-client-portal-for-commissioned-art",
+  "/blog/info-product-creator-service-packages",
+  "/blog/designer-recurring-revenue-service-system",
+  "/blog/ai-consultant-automation-sprint-offers",
+  "/blog/crypto-education-client-onboarding-system",
+  "/blog/digital-coach-sell-online-programs-with-client-portal",
+  "/blog/course-creator-recurring-service-offers",
+  "/blog/copywriter-retainer-client-management",
+  "/blog/video-editor-productized-service-workflow",
+  "/blog/community-manager-recurring-client-packages",
+  "/blog/virtual-assistant-client-onboarding-and-retainers",
+  "/blog/notion-consultant-productized-workspace-services",
+  "/blog/fitness-coach-online-program-client-portal",
+  "/blog/podcast-producer-retainer-workflow",
+  "/blog/web-designer-care-plan-recurring-revenue",
 ];
 
 export type BlogArticle = {
@@ -413,6 +433,16 @@ const buildSections = (slug: string, title: string, category: string, audience: 
         "Package the repeated problem",
         "Deliver through Retainr",
         "Convert first results into recurring revenue",
+      ],
+    },
+    {
+      title: "Final action plan for the next seven days",
+      body: `Day one: choose the niche buyer and rewrite the offer promise in one sentence. Day two: define the starter package, the core package, and the recurring package. Day three: write the onboarding questions and remove anything that is not required to begin. Day four: publish the Retainr package and connect the signup link. Day five: add the link to this article and to every related content asset. Day six: invite past clients or warm leads into the new offer. Day seven: review responses and improve the copy, price, or intake. This small implementation cycle is more useful than another month of planning because it creates a live path from content to revenue. For ${audience}, that path is the difference between being seen as a helpful creator and being hired as the expert who owns a clear client process.`,
+      points: [
+        "Rewrite the offer promise",
+        "Publish the package",
+        "Connect the signup link",
+        "Invite warm clients into the recurring path",
       ],
     },
   ];

@@ -11,9 +11,10 @@ export const palette = [
 ];
 
 export const navLinks = [
+  { href: "/method/", label: "Method" },
+  { href: "/features/", label: "Features" },
   { href: "/pricing/", label: "Pricing" },
-  { href: "/productize/", label: "Productize" },
-  { href: "/automation-for-agencies-freelancers/", label: "Automation" },
+  { href: "/case-studies/", label: "Results" },
   { href: "/blog/", label: "Blog" },
 ];
 
@@ -32,7 +33,7 @@ export const solutionLinks = [
   { href: "/saas-for-freelancers-to-sell-online-services/", label: "SaaS for Freelancers" },
   { href: "/income/", label: "Turn Skills Into Revenue" },
   { href: "/sales-funnels-freelancers/", label: "Sales Funnels & Lead Magnets" },
-  { href: "/cafe-productivity", label: "Cafe Productivity for Indie Freelancers"},
+  { href: "/cafe-productivity/", label: "Cafe Productivity for Indie Freelancers" },
 ];
 
 export const resourceLinks = [
@@ -45,9 +46,12 @@ export const resourceLinks = [
 
 export const companyLinks = [
   { href: "/alternatives-compare-agency-client-management-software/", label: "Compare" },
+  { href: "/case-studies/", label: "Case Studies" },
   { href: "/blog/", label: "Blog" },
   { href: "/brand-assets/", label: "Brand Assets" },
+  { href: "/about/", label: "About" },
   { href: "/about-retainr/", label: "About Us" },
+  { href: "/contact/", label: "Contact" },
   { href: "/manifesto-retainr/", label: "Manifesto" },
   { href: "/privacy-policy/", label: "Privacy" },
   { href: "/terms-conditions/", label: "Terms" },

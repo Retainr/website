@@ -96,6 +96,9 @@ const path = `/${page.slug}/`;
           <li><a href="/niches/life-coaches/">Digital Life & Business Coaches</a> can sell transformation programs and monthly accountability retainers</li>
           <li><a href="/niches/info-products/">Info Product & Online Course Creators</a> can sell courses, templates, and monthly implementation coaching</li>
           <li><a href="/niches/cartoonists/">Illustrators, Cartoonists & Visual Creators</a> can sell character design packages and monthly visual content retainers</li>
+          <li><a href="/niches/nutritionists/">Nutritionists & Wellness Creators</a> can sell structured programmes and recurring accountability</li>
+          <li><a href="/niches/crypto-experts/">Crypto Experts & Web3 Educators</a> can sell education retainers with clearer boundaries</li>
+          <li><a href="/niches/podcast-producers/">Podcast Producers & Audio Editors</a> can sell monthly production workflows</li>
         </ul>
       </article>
 
@@ -151,6 +154,25 @@ const path = `/${page.slug}/`;
       </article>
     </div>
   </section>
+
+  {page.faqs && page.faqs.length > 0 && (
+    <section class="section ice">
+      <div class="container">
+        <div class="section-heading centered">
+          <span class="eyebrow">FAQ</span>
+          <h2>Common questions</h2>
+        </div>
+        <div class="faq-grid">
+          {page.faqs.map((item) => (
+            <article class="faq-item">
+              <h3>{item.question}</h3>
+              <p>{item.answer}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 
   <CtaBand />
   <Testimonials />

@@ -6,6 +6,19 @@
     "yearlyLabel": "Yearly",
     "yearlyNote": "Save when paid yearly"
   },
+  "featuredFeature": {
+    "eyebrow": "Coming feature",
+    "name": "Magic Prospections",
+    "headline": "Find targeted prospects for your exact freelance dev expertise",
+    "description": "Magic Prospections is Retainr's upcoming prospection and lead generation tool for freelance developers. It helps identify targeted companies, match them to your technical expertise, prepare cold outreach angles, and move promising replies into your Retainr client workflow.",
+    "bullets": [
+      "Target prospects by niche, technology stack, business type, and service fit",
+      "Generate cold email angles for your specific freelance development expertise",
+      "Track outreach, replies, and follow-up status before a lead becomes a client",
+      "Move warm prospects into Retainr signup, onboarding, billing, and delivery"
+    ],
+    "note": "Available first on the Magic Prospections plan as the lead-generation layer for dev freelancers who want more qualified conversations."
+  },
   "plans": [
     {
       "name": "Solo Freelancer",
@@ -39,16 +52,18 @@
       "highlight": true
     },
     {
-      "name": "Agencies & Startups",
+      "name": "Magic Prospections",
       "monthly": 199,
       "yearly": 179,
-      "description": "Ideal for businesses that need a full-stack white-label solution to grow and scale their agency.",
+      "description": "Upcoming lead generation and prospection system for freelance developers who want targeted prospects, cold outreach workflows, and a direct path from reply to paid client.",
       "features": [
         "Everything in Teams",
         "Max. 18 users",
+        "Magic Prospections for dev freelancers",
+        "Targeted prospect discovery by expertise and niche",
+        "Cold email angle generation and follow-up tracking",
         "Android and iOS app",
         "Dedicated agent, monitored 24/7",
-        "4 x 1-hour startup coaching sessions",
         "API and webhooks"
       ],
       "cta": "Start Now"

@@ -48,6 +48,28 @@ import { signupUrl } from "@/data/site";
     </div>
   </section>
 
+  {pricing.featuredFeature && (
+    <section class="section dark">
+      <div class="container">
+        <div class="section-heading centered">
+          <span class="eyebrow">{pricing.featuredFeature.eyebrow}</span>
+          <h2>{pricing.featuredFeature.headline}</h2>
+          <p>{pricing.featuredFeature.description}</p>
+        </div>
+        <div class="page-grid">
+          <article class="page-section">
+            <span class="eyebrow">{pricing.featuredFeature.name}</span>
+            <h2>Prospection built into the Retainr revenue method</h2>
+            <p>{pricing.featuredFeature.note}</p>
+            <ul class="check-list">
+              {pricing.featuredFeature.bullets.map((bullet) => <li>{bullet}</li>)}
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+  )}
+
   <section class="section ice">
     <div class="container">
       <div class="section-heading centered">

@@ -3,8 +3,12 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import CtaBand from "@/components/CtaBand.astro";
 import Testimonials from "@/components/Testimonials.astro";
 import GuaranteeBand from "@/components/GuaranteeBand.astro";
-import { homeFeatures, productHighlights, signupUrl } from "@/data/site";
-import { niches } from "@/data/niches";
+import NicheIcon from "@/components/NicheIcon.astro";
+import { signupUrl } from "@/data/site";
+import { featuredNiches, niches } from "@/data/niches";
+
+const nicheCount = niches.length;
+const featuredNicheCount = featuredNiches.length;
 ---
 
 <BaseLayout
@@ -102,15 +106,15 @@ import { niches } from "@/data/niches";
     <div class="container">
       <div class="section-heading centered">
         <span class="eyebrow">The Method by Niche</span>
-        <h2>Built for 6 specific types of digital creators.</h2>
-        <p>Retainr works best when focused. See how the method applies to your exact niche.</p>
+        <h2>Start with {featuredNicheCount} high-intent creator niches.</h2>
+        <p>Retainr supports {nicheCount} dedicated niche workflows, but the homepage focuses on the creator categories with the clearest path to recurring revenue.</p>
       </div>
 
       <div class="niche-grid">
-        {niches.map((niche) => (
+        {featuredNiches.map((niche) => (
           <a class="niche-card" href={`/niches/${niche.slug}/`}>
             <div class="niche-header">
-              <div class="niche-icon">{niche.icon}</div>
+              <NicheIcon niche={niche} />
               <h3>{niche.name}</h3>
             </div>
             <p class="niche-desc">{niche.tagline}</p>

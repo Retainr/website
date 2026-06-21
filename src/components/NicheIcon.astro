@@ -1,0 +1,217 @@
+---
+import type { Niche } from "@/data/niches";
+
+type Props = {
+  niche: Pick<Niche, "slug" | "name">;
+  variant?: "card" | "hero";
+};
+
+const { niche, variant = "card" } = Astro.props;
+
+const iconTypes: Record<string, string> = {
+  "ai-experts": "network",
+  "seo-experts": "growth",
+  designers: "design",
+  "life-coaches": "target",
+  "info-products": "book",
+  cartoonists: "creative",
+  nutritionists: "leaf",
+  "registered-dietitians": "leaf",
+  "dog-walkers": "paw",
+  "ebook-novelists": "write",
+  "digital-coaches": "target",
+  "course-creators": "book",
+  copywriters: "write",
+  "video-editors": "play",
+  "web-designers": "layout",
+  "crypto-experts": "crypto",
+  "fitness-coaches": "pulse",
+  "community-managers": "community",
+  "virtual-assistants": "ops",
+  "notion-consultants": "systems",
+  "podcast-producers": "audio",
+  "ugc-creators": "play",
+  "marketing-consultants": "funnel",
+};
+
+const type = iconTypes[niche.slug] ?? "systems";
+---
+
+<span class:list={["niche-icon", `niche-icon-${variant}`]} aria-hidden="true">
+  <svg viewBox="0 0 64 64" fill="none" focusable="false">
+    {type === "network" && (
+      <g>
+        <path d="M20 22h24v20H20z" />
+        <path d="M24 18v-5m16 5v-5M24 51v-5m16 5v-5M16 28h-5m5 12h-5m42-12h-5m5 12h-5" />
+        <circle cx="27" cy="31" r="3.5" />
+        <circle cx="39" cy="31" r="3.5" />
+        <path d="M27 38h10" />
+      </g>
+    )}
+    {type === "growth" && (
+      <g>
+        <path d="M14 47h36" />
+        <path d="M18 42l10-10 8 6 13-17" />
+        <path d="M41 21h8v8" />
+        <rect x="17" y="28" width="8" height="14" />
+        <rect x="31" y="34" width="8" height="8" />
+      </g>
+    )}
+    {type === "design" && (
+      <g>
+        <path d="M32 12l18 20-18 20-18-20 18-20Z" />
+        <path d="M22 32h20M32 12v40" />
+        <circle cx="32" cy="32" r="5" />
+      </g>
+    )}
+    {type === "target" && (
+      <g>
+        <circle cx="32" cy="32" r="19" />
+        <circle cx="32" cy="32" r="10" />
+        <circle cx="32" cy="32" r="3" />
+        <path d="M44 20l7-7M51 13v9M51 13h-9" />
+      </g>
+    )}
+    {type === "book" && (
+      <g>
+        <path d="M17 17h15c5 0 8 3 8 8v24H25c-5 0-8-3-8-8V17Z" />
+        <path d="M40 21h7v28h-7M25 26h8M25 34h8" />
+      </g>
+    )}
+    {type === "creative" && (
+      <g>
+        <path d="M18 44c4-15 14-25 28-30-5 14-15 24-30 28" />
+        <path d="M20 44c7 4 16 2 22-4" />
+        <circle cx="42" cy="21" r="3" />
+      </g>
+    )}
+    {type === "leaf" && (
+      <g>
+        <path d="M49 16C31 15 18 24 18 38c0 8 6 13 14 13 14 0 21-15 17-35Z" />
+        <path d="M18 48c7-12 17-20 30-27" />
+        <path d="M31 28c1 6 5 10 11 12" />
+      </g>
+    )}
+    {type === "paw" && (
+      <g>
+        <circle cx="22" cy="24" r="5" />
+        <circle cx="32" cy="19" r="5" />
+        <circle cx="42" cy="24" r="5" />
+        <path d="M21 44c0-8 5-14 11-14s11 6 11 14c0 5-4 8-11 8s-11-3-11-8Z" />
+      </g>
+    )}
+    {type === "write" && (
+      <g>
+        <path d="M18 46l5-14 20-20 9 9-20 20-14 5Z" />
+        <path d="M38 17l9 9M23 32l9 9M16 52h34" />
+      </g>
+    )}
+    {type === "play" && (
+      <g>
+        <rect x="15" y="18" width="34" height="28" rx="5" />
+        <path d="M28 26l12 6-12 6V26Z" />
+        <path d="M21 52h22" />
+      </g>
+    )}
+    {type === "layout" && (
+      <g>
+        <rect x="14" y="17" width="36" height="30" rx="4" />
+        <path d="M14 27h36M25 27v20M31 36h13" />
+      </g>
+    )}
+    {type === "crypto" && (
+      <g>
+        <path d="M32 12l18 10v20L32 52 14 42V22l18-10Z" />
+        <path d="M25 23h11c4 0 6 2 6 5 0 2-1 4-4 5 3 1 5 3 5 6 0 4-3 6-8 6H25V23Z" />
+        <path d="M29 18v10m7-10v10M29 38v10m7-10v10" />
+      </g>
+    )}
+    {type === "pulse" && (
+      <g>
+        <path d="M14 35h9l5-14 8 26 5-12h9" />
+        <circle cx="32" cy="32" r="20" />
+      </g>
+    )}
+    {type === "community" && (
+      <g>
+        <circle cx="24" cy="25" r="6" />
+        <circle cx="40" cy="25" r="6" />
+        <path d="M14 48c2-9 8-14 18-14s16 5 18 14" />
+        <path d="M20 48c1-5 5-8 12-8s11 3 12 8" />
+      </g>
+    )}
+    {type === "ops" && (
+      <g>
+        <rect x="17" y="17" width="30" height="34" rx="4" />
+        <path d="M24 27h16M24 36h16M24 45h10" />
+        <path d="M25 12h14v8H25z" />
+      </g>
+    )}
+    {type === "systems" && (
+      <g>
+        <rect x="15" y="15" width="14" height="14" />
+        <rect x="35" y="15" width="14" height="14" />
+        <rect x="15" y="35" width="14" height="14" />
+        <rect x="35" y="35" width="14" height="14" />
+        <path d="M29 22h6M22 29v6M42 29v6M29 42h6" />
+      </g>
+    )}
+    {type === "audio" && (
+      <g>
+        <rect x="25" y="13" width="14" height="28" rx="7" />
+        <path d="M18 30c0 8 6 14 14 14s14-6 14-14M32 44v8M24 52h16" />
+      </g>
+    )}
+    {type === "funnel" && (
+      <g>
+        <path d="M15 17h34L36 33v13l-8 5V33L15 17Z" />
+        <path d="M22 24h20" />
+      </g>
+    )}
+  </svg>
+</span>
+
+<style>
+  .niche-icon {
+    position: relative;
+    width: 62px;
+    height: 62px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(29, 33, 48, 0.12);
+    border-radius: 8px;
+    background:
+      linear-gradient(135deg, rgba(255, 77, 24, 0.95), rgba(255, 213, 64, 0.96)),
+      #ff4d18;
+    color: #1d2130;
+    flex-shrink: 0;
+    box-shadow: 0 16px 34px rgba(255, 77, 24, 0.22);
+    overflow: hidden;
+  }
+
+  .niche-icon::after {
+    content: "";
+    position: absolute;
+    inset: 9px;
+    border: 1px solid rgba(255, 255, 255, 0.42);
+    border-radius: 6px;
+  }
+
+  .niche-icon-hero {
+    width: min(58%, 190px);
+    height: auto;
+    aspect-ratio: 1;
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.28);
+  }
+
+  svg {
+    position: relative;
+    z-index: 1;
+    width: 62%;
+    height: 62%;
+    stroke: currentColor;
+    stroke-width: 3.3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+</style>

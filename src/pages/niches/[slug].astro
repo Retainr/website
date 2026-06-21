@@ -3,7 +3,8 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import CtaBand from "@/components/CtaBand.astro";
 import Testimonials from "@/components/Testimonials.astro";
 import GuaranteeBand from "@/components/GuaranteeBand.astro";
-import { homeFeatures, productHighlights, signupUrl } from "@/data/site";
+import NicheSignupVisual from "@/components/NicheSignupVisual.astro";
+import { signupUrl } from "@/data/site";
 import { niches, type Niche } from "@/data/niches";
 
 export function getStaticPaths() {
@@ -15,6 +16,9 @@ export function getStaticPaths() {
 
 const { niche } = Astro.props as { niche: Niche };
 const nicheSignupUrl = `${signupUrl}?niche=${niche.slug}`;
+const nicheCount = niches.length;
+const systemLabel = `The System for ${niche.name}`;
+const finalCtaText = `Start the ${niche.name} Method`;
 ---
 
 <BaseLayout
@@ -26,7 +30,7 @@ const nicheSignupUrl = `${signupUrl}?niche=${niche.slug}`;
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-copy">
-        <span class="eyebrow">The System for {niche.name}</span>
+        <span class="eyebrow">{systemLabel}</span>
         <h1>{niche.hero}</h1>
         <p>{niche.subhero}</p>
         <p>
@@ -108,12 +112,25 @@ const nicheSignupUrl = `${signupUrl}?niche=${niche.slug}`;
     </div>
   </section>
 
+  <section class="section ice">
+    <div class="container">
+      <div class="section-heading centered">
+        <span class="eyebrow">Audience Context</span>
+        <h2>Each niche page routes creators to Retainr signup with audience context attached.</h2>
+        <p>
+          The signup button carries the niche parameter into Retainr, so the onboarding journey can match the audience, offer type, and client information required for {niche.name}.
+        </p>
+      </div>
+      <NicheSignupVisual niche={niche} signupHref={nicheSignupUrl} />
+    </div>
+  </section>
+
   <!-- Niche Section -->
   <section class="section dark">
     <div class="container">
       <div class="section-heading centered">
         <span class="eyebrow">The Method by Niche</span>
-        <h2>Built for 6 specific types of digital creators.</h2>
+        <h2>Built for {nicheCount} specific types of digital creators.</h2>
         <p>Retainr works best when focused. See how the method applies to your exact niche.</p>
       </div>
 
@@ -139,5 +156,10 @@ const nicheSignupUrl = `${signupUrl}?niche=${niche.slug}`;
   />
 
   <Testimonials />
-  <CtaBand />
+  <CtaBand
+    title={`Build your ${niche.name} retainer engine`}
+    text="Use the Retainr Method to package the first offer, onboard clients cleanly, deliver in one branded portal, and convert one-time wins into recurring revenue."
+    cta={finalCtaText}
+    href={nicheSignupUrl}
+  />
 </BaseLayout>

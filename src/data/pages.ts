@@ -665,7 +665,7 @@ export const pages: MarketingPage[] = [
     title: "Cafe Productivity for Indie Freelancers | Retainr",
     description: "Stay in deep work flow at cafes without client requests, admin, or scattered tools killing your focus. Retainr handles the backend so you can enjoy productive cafe sessions.",
     eyebrow: "Deep Work Mode",
-    hero: "Stay in Flow at the Cafe.<br />Let Retainr Handle the Rest.",
+    hero: "Stay in Flow at the Cafe. Let Retainr Handle the Rest.",
     subhero: "Indie freelancers love working from cafes. But client chaos usually kills the vibe. Retainr gives you a system so you can protect your deep work time while everything else runs smoothly in the background.",
     image: "/assets/dashboard-hero.png",
     sections: [
@@ -719,5 +719,207 @@ export const pages: MarketingPage[] = [
         body: "The goal isn't to work more. It's to protect the time when you're at your best. Retainr removes the friction so your cafe sessions actually move your business forward instead of just keeping it running.",
       }
     ]
+  },
+  {
+    slug: "method",
+    title: "The Retainr Method | Turn Expertise Into Recurring Revenue",
+    description:
+      "A guided method for digital creators and niche freelancers to package expertise, sell clearly, onboard clients, deliver professionally, and retain revenue.",
+    eyebrow: "The Retainr Method",
+    hero: "A structured method for turning expertise into recurring revenue",
+    subhero:
+      "Retainr is not just a client portal. It is a repeatable operating method for creators who want clearer offers, better client journeys, and more predictable monthly revenue.",
+    image: "/assets/dashboard-hero.png",
+    sections: [
+      {
+        title: "Step 1: Choose one repeatable client outcome",
+        body:
+          "The method starts by narrowing your expertise into one outcome a client can understand and buy. Nutritionists might sell a 30-day meal planning sprint. SEO experts might sell a technical audit and monthly growth plan. Designers might sell a landing page sprint that converts into a care plan.",
+        points: ["Define the client outcome", "Name the niche", "Make the promise measurable", "Remove vague service language"],
+      },
+      {
+        title: "Step 2: Package the offer like a product",
+        body:
+          "A strong creator business does not ask every prospect to interpret a custom proposal. It gives buyers a clear package with scope, price, timeline, deliverables, and next steps. Retainr helps you publish that offer and connect it to payment, onboarding, and delivery.",
+        points: ["Starter offer", "Recurring plan", "Clear deliverables", "Payment before delivery"],
+      },
+      {
+        title: "Step 3: Onboard with the right questions",
+        body:
+          "Every niche needs different intake. A dietitian needs health goals and preferences. A crypto educator needs risk profile and knowledge level. A web designer needs brand assets and technical access. The Retainr Method routes each buyer into the right onboarding flow.",
+        points: ["Niche-specific forms", "Magic signup links", "Client files", "Project context"],
+      },
+      {
+        title: "Step 4: Deliver inside a branded portal",
+        body:
+          "Clients should never wonder where to upload files, ask questions, approve work, or see progress. Retainr keeps messages, files, tasks, tickets, orders, and invoices inside one branded client experience.",
+        points: ["White-label portal", "Project status", "Support tickets", "Approvals and files"],
+      },
+      {
+        title: "Step 5: Convert delivery into retention",
+        body:
+          "Recurring revenue becomes natural when the first delivery reveals the next ongoing need. Reports become monthly optimization. Coaching becomes implementation support. Design becomes care plans. Retainr helps creators attach those next steps to the client relationship.",
+        points: ["Renewals", "Monthly retainers", "Upsells", "Client lifetime value"],
+      },
+    ],
+    faqs: [
+      {
+        question: "Is Retainr only software?",
+        answer:
+          "No. The product supports the method: package, sell, onboard, deliver, support, and retain. The positioning is intentionally process-led so creators know how to use the platform to create revenue.",
+      },
+      {
+        question: "Does the method work for different niches?",
+        answer:
+          "Yes. The steps stay consistent, while offers and onboarding questions change by niche. That is why the site includes dedicated niche pages instead of speaking only to broad freelancers.",
+      },
+    ],
+  },
+  {
+    slug: "features",
+    title: "Retainr Features | Client Portal, Billing, Onboarding, Ticketing",
+    description:
+      "Explore Retainr features for digital creators and niche freelancers: productized offers, onboarding, client portal, billing, ticketing, automation, and retention.",
+    eyebrow: "Features",
+    hero: "Everything a creator needs to sell, deliver, and retain clients",
+    subhero:
+      "Retainr brings the client journey into one branded system so your expertise feels easier to buy and easier to continue.",
+    image: "/assets/packages.png",
+    sections: [
+      {
+        title: "Productized service storefront",
+        body:
+          "Publish clear packages for audits, sprints, care plans, coaching programmes, content batches, advisory retainers, and implementation support. Each offer can lead to the right signup flow and payment path.",
+        points: ["Service packages", "Recurring plans", "Custom offers", "Niche signup links"],
+      },
+      {
+        title: "Client onboarding and magic signup links",
+        body:
+          "Send prospects to the exact flow for their offer or niche. Replace long email threads with structured intake, required files, clear expectations, and a professional first impression.",
+        points: ["Custom onboarding", "Brief collection", "Client records", "Offer-specific questions"],
+      },
+      {
+        title: "White-label client portal",
+        body:
+          "Let clients interact with your brand, not a generic tool. Retainr gives freelancers and small teams a polished portal for projects, communication, files, orders, and support.",
+        points: ["Custom branding", "Custom domain", "Unbranded emails", "Client dashboard"],
+      },
+      {
+        title: "Projects, tasks, approvals, and support",
+        body:
+          "Delivery needs structure after the sale. Retainr connects orders to projects, lets teams manage tasks, keeps support tickets organized, and gives clients one clear place to ask for help.",
+        points: ["Project workflow", "Team collaboration", "Ticketing", "Approvals"],
+      },
+      {
+        title: "Billing, renewals, and revenue visibility",
+        body:
+          "Creators need more than a payment link. Retainr connects revenue to delivery so you can see what sold, what needs attention, and which clients are ready for ongoing support.",
+        points: ["Payments", "Recurring revenue", "Upsells", "Client lifetime value"],
+      },
+    ],
+  },
+  {
+    slug: "case-studies",
+    title: "Retainr Case Studies & Results",
+    description:
+      "See how niche freelancers and digital creators can use the Retainr Method to package expertise, improve delivery, and create recurring revenue.",
+    eyebrow: "Results",
+    hero: "From scattered services to structured client revenue",
+    subhero:
+      "These scenario-based case studies show the transformation Retainr is built for: clearer offers, cleaner onboarding, stronger delivery, and recurring revenue paths.",
+    image: "/assets/revenue-graph.png",
+    sections: [
+      {
+        title: "SEO consultant: audit to monthly growth retainer",
+        body:
+          "A solo SEO expert replaces custom proposals with a fixed technical audit, onboarding questions for analytics access, and a monthly growth retainer that covers content briefs, reporting, and implementation support.",
+        points: ["Clear audit package", "Structured access collection", "Monthly reporting", "Recurring optimization"],
+      },
+      {
+        title: "Dietitian: one-time plan to ongoing accountability",
+        body:
+          "An independent nutritionist sells a meal plan sprint, collects preferences and constraints before the first session, then converts successful clients into a recurring accountability and progress review plan.",
+        points: ["Intake questions", "Progress check-ins", "Plan updates", "Subscription support"],
+      },
+      {
+        title: "Designer: launch project to care plan",
+        body:
+          "A web designer sells a landing page sprint, manages assets and feedback in one portal, then offers a care plan for updates, testing, performance checks, and conversion improvements.",
+        points: ["Brand asset collection", "Feedback loop", "Launch handoff", "Monthly care plan"],
+      },
+      {
+        title: "AI consultant: workshop to implementation support",
+        body:
+          "An AI expert sells a workflow audit and implementation sprint, documents opportunities, ships automations, then keeps clients on a monthly optimization plan as tools and workflows change.",
+        points: ["Workflow audit", "Automation implementation", "Governance notes", "Optimization retainer"],
+      },
+      {
+        title: "Why the results compound",
+        body:
+          "Retainr improves more than one page or checkout. It improves the full client journey. Each client interaction becomes easier to repeat, every successful delivery creates a natural next offer, and the creator becomes less dependent on constant one-off selling.",
+        points: ["More repeatable delivery", "More confident buyers", "More recurring offers", "Less scattered admin"],
+      },
+    ],
+  },
+  {
+    slug: "contact",
+    title: "Contact Retainr",
+    description:
+      "Contact Retainr for product questions, support, partnerships, affiliate inquiries, and creator workflow feedback.",
+    eyebrow: "Contact",
+    hero: "Talk to Retainr about building your creator revenue system",
+    subhero:
+      "Have a product question, partnership idea, support need, or niche workflow you want Retainr to support? Start here.",
+    image: "/assets/dashboard-hero.png",
+    sections: [
+      {
+        title: "Product and pricing questions",
+        body:
+          "If you are choosing a plan, compare pricing first and then start with the offer you want to launch. The best Retainr setup begins with one package, one onboarding flow, and one recurring upgrade.",
+        points: ["Pricing", "Plans", "Setup questions", "Creator use cases"],
+      },
+      {
+        title: "Support and account help",
+        body:
+          "For product support, use the in-site chat or support links so the Retainr team can route your request. Include your account email, the client workflow affected, and any screenshots or reproduction steps.",
+        points: ["Crisp support chat", "Account context", "Workflow details", "Expected outcome"],
+      },
+      {
+        title: "Partnerships and affiliates",
+        body:
+          "Retainr works well for educators, creators, agencies, and consultants who teach others how to package expertise. Partnership conversations should focus on audience, offer, and the creator result you want to help people achieve.",
+        points: ["Affiliate programme", "Education partners", "Creator communities", "Niche workflows"],
+      },
+    ],
+  },
+  {
+    slug: "about",
+    title: "About Retainr | The Client Revenue Method for Creators",
+    description:
+      "Learn why Retainr is being rebuilt as a structured method for digital creators and niche freelancers who want recurring revenue.",
+    eyebrow: "About Retainr",
+    hero: "Retainr helps creators turn expertise into a system",
+    subhero:
+      "The mission is simple: help digital creators stop selling scattered services and start operating a clear client revenue engine.",
+    image: "/assets/dashboard-hero.png",
+    sections: [
+      {
+        title: "Why Retainr exists",
+        body:
+          "Many creators are excellent at their craft but weak at packaging, onboarding, delivery structure, and retention. Retainr exists to make the business side feel as intentional as the expertise being sold.",
+        points: ["Clear offers", "Professional onboarding", "Branded delivery", "Recurring revenue"],
+      },
+      {
+        title: "Who Retainr is for",
+        body:
+          "Retainr is built for digital creators and niche freelancers: SEO experts, nutritionists, designers, coaches, AI consultants, copywriters, authors, content specialists, crypto educators, and other experts who sell knowledge or creative output.",
+        points: ["Niche experts", "Solo operators", "Small teams", "Creator-led service businesses"],
+      },
+      {
+        title: "How Retainr is different",
+        body:
+          "The goal is not to look like another generic SaaS dashboard. Retainr is being shaped around a method: package the outcome, sell clearly, onboard cleanly, deliver in one place, and use that successful delivery to build retention.",
+      },
+    ],
   },
 ];

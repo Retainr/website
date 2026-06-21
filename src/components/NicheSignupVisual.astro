@@ -1,0 +1,204 @@
+---
+import type { Niche } from "@/data/niches";
+import NicheIcon from "./NicheIcon.astro";
+
+type Props = {
+  niche: Niche;
+  signupHref: string;
+};
+
+const { niche, signupHref } = Astro.props;
+const shortName = niche.name.split("&")[0].trim();
+const primaryOffer = niche.offers[0];
+const recurringOffer = niche.offers[niche.offers.length - 1];
+---
+
+<div class="niche-signup-visual" role="img" aria-label={`${niche.name} signup route with audience context attached`}>
+  <div class="visual-orbit">
+    <NicheIcon niche={niche} variant="hero" />
+    <div class="visual-ring one"></div>
+    <div class="visual-ring two"></div>
+  </div>
+
+  <div class="visual-panel">
+    <div class="visual-topline">
+      <span>{shortName}</span>
+      <strong>Audience context attached</strong>
+    </div>
+    <h3>{niche.name}</h3>
+    <p>{niche.tagline}</p>
+
+    <div class="visual-flow">
+      <div>
+        <span>Entry offer</span>
+        <strong>{primaryOffer}</strong>
+      </div>
+      <div>
+        <span>Recurring path</span>
+        <strong>{recurringOffer}</strong>
+      </div>
+    </div>
+
+    <div class="visual-checks">
+      {niche.onboarding.slice(0, 3).map((item) => <span>{item}</span>)}
+    </div>
+
+    <code>{signupHref}</code>
+  </div>
+</div>
+
+<style>
+  .niche-signup-visual {
+    position: relative;
+    display: grid;
+    grid-template-columns: 0.72fr 1.28fr;
+    gap: 22px;
+    align-items: stretch;
+    min-height: 420px;
+    border: 1px solid rgba(29, 33, 48, 0.1);
+    border-radius: 8px;
+    background:
+      linear-gradient(135deg, rgba(255, 77, 24, 0.08), rgba(255, 213, 64, 0.18)),
+      #ffffff;
+    box-shadow: 0 26px 74px rgba(29, 33, 48, 0.12);
+    padding: 22px;
+    overflow: hidden;
+  }
+
+  .niche-signup-visual::before {
+    content: "";
+    position: absolute;
+    inset: 16px;
+    border: 1px solid rgba(29, 33, 48, 0.08);
+    border-radius: 8px;
+    pointer-events: none;
+  }
+
+  .visual-orbit {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: 300px;
+    border-radius: 8px;
+    background:
+      radial-gradient(circle at 50% 46%, rgba(255, 213, 64, 0.78), transparent 38%),
+      linear-gradient(160deg, #1d2130, #2d3348);
+    overflow: hidden;
+  }
+
+  .visual-ring {
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 50%;
+  }
+
+  .visual-ring.one {
+    width: 78%;
+    aspect-ratio: 1;
+  }
+
+  .visual-ring.two {
+    width: 112%;
+    aspect-ratio: 1;
+  }
+
+  .visual-panel {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    align-content: center;
+    gap: 18px;
+    padding: 18px;
+  }
+
+  .visual-topline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    color: rgba(29, 33, 48, 0.62);
+    font-size: 0.82rem;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  .visual-topline strong {
+    border-radius: 999px;
+    background: rgba(183, 205, 75, 0.3);
+    color: #1d2130;
+    padding: 7px 10px;
+  }
+
+  .visual-panel h3 {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 4rem);
+    line-height: 0.98;
+    letter-spacing: 0;
+  }
+
+  .visual-panel p {
+    margin: 0;
+    max-width: 620px;
+    color: rgba(29, 33, 48, 0.72);
+    font-weight: 750;
+    line-height: 1.45;
+  }
+
+  .visual-flow {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .visual-flow div,
+  .visual-checks span {
+    border: 1px solid rgba(29, 33, 48, 0.1);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.78);
+    padding: 14px;
+  }
+
+  .visual-flow span {
+    display: block;
+    margin-bottom: 6px;
+    color: rgba(29, 33, 48, 0.55);
+    font-size: 0.76rem;
+    font-weight: 950;
+    text-transform: uppercase;
+  }
+
+  .visual-flow strong {
+    color: #1d2130;
+    line-height: 1.25;
+  }
+
+  .visual-checks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .visual-checks span {
+    font-size: 0.86rem;
+    font-weight: 850;
+  }
+
+  code {
+    width: 100%;
+    overflow-wrap: anywhere;
+    border: 1px solid rgba(255, 77, 24, 0.2);
+    border-radius: 8px;
+    background: rgba(237, 248, 253, 0.9);
+    color: #1d2130;
+    padding: 12px;
+    font-size: 0.86rem;
+    font-weight: 850;
+  }
+
+  @media (max-width: 860px) {
+    .niche-signup-visual,
+    .visual-flow {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
