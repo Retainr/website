@@ -3,9 +3,10 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import CtaBand from "@/components/CtaBand.astro";
 import Testimonials from "@/components/Testimonials.astro";
 import GuaranteeBand from "@/components/GuaranteeBand.astro";
+import NicheIcon from "@/components/NicheIcon.astro";
 import NicheSignupVisual from "@/components/NicheSignupVisual.astro";
 import { signupUrl } from "@/data/site";
-import { niches, type Niche } from "@/data/niches";
+import { featuredNiches, niches, type Niche } from "@/data/niches";
 
 export function getStaticPaths() {
   return niches.map((niche) => ({
@@ -17,6 +18,7 @@ export function getStaticPaths() {
 const { niche } = Astro.props as { niche: Niche };
 const nicheSignupUrl = `${signupUrl}?niche=${niche.slug}`;
 const nicheCount = niches.length;
+const featuredNicheCount = featuredNiches.length;
 const systemLabel = `The System for ${niche.name}`;
 const finalCtaText = `Start the ${niche.name} Method`;
 ---
@@ -130,15 +132,15 @@ const finalCtaText = `Start the ${niche.name} Method`;
     <div class="container">
       <div class="section-heading centered">
         <span class="eyebrow">The Method by Niche</span>
-        <h2>Built for {nicheCount} specific types of digital creators.</h2>
-        <p>Retainr works best when focused. See how the method applies to your exact niche.</p>
+        <h2>Explore {featuredNicheCount} high-intent creator workflows.</h2>
+        <p>Retainr supports {nicheCount} dedicated niche workflows, with the most commercially direct creator categories highlighted here.</p>
       </div>
 
       <div class="niche-grid">
-        {niches.map((niche) => (
+        {featuredNiches.map((niche) => (
           <a class="niche-card" href={`/niches/${niche.slug}/`}>
             <div class="niche-header">
-              <div class="niche-icon">{niche.icon}</div>
+              <NicheIcon niche={niche} />
               <h3>{niche.name}</h3>
             </div>
             <p class="niche-desc">{niche.tagline}</p>
