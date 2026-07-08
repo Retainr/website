@@ -511,33 +511,6 @@ input {
   margin: 0;
 }
 
-.split-stack {
-  display: grid;
-  gap: 54px;
-}
-
-.split-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 42px;
-  align-items: center;
-}
-
-.split-row:nth-child(even) .split-copy {
-  order: 2;
-}
-
-.split-copy {
-  display: grid;
-  gap: 16px;
-}
-
-.split-copy h3 {
-  margin: 0;
-  font-size: clamp(1.8rem, 4vw, 3.3rem);
-  line-height: 1.02;
-}
-
 .check-list {
   display: grid;
   gap: 10px;
@@ -547,26 +520,45 @@ input {
 }
 
 .check-list li {
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
+  position: relative;
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  column-gap: 12px;
+  align-items: start;
   color: rgba(29, 33, 48, 0.78);
   line-height: 1.45;
   font-weight: 700;
 }
 
 .check-list li::before {
-  flex: 0 0 auto;
-  width: 20px;
-  height: 20px;
+  width: 26px;
+  height: 26px;
+  margin-top: 0.1em;
   border-radius: 99px;
-  background: var(--green);
+  background:
+    radial-gradient(circle at 34% 28%, rgba(255, 255, 255, 0.78), transparent 24%),
+    linear-gradient(135deg, var(--green), var(--yellow));
+  box-shadow:
+    inset 0 -2px 0 rgba(29, 33, 48, 0.08),
+    0 10px 22px rgba(183, 205, 75, 0.28);
   color: var(--ink);
-  content: "✓";
+  content: "";
   display: grid;
   place-items: center;
-  font-size: 0.8rem;
-  font-weight: 950;
+}
+
+.check-list li::after {
+  position: absolute;
+  top: calc(0.1em + 8px);
+  left: 7px;
+  width: 11px;
+  height: 6px;
+  border-left: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+  border-radius: 1px;
+  content: "";
+  transform: rotate(-45deg);
+  transform-origin: center;
 }
 
 .cta-band {
@@ -666,7 +658,6 @@ input {
 .page-grid,
 .testimonial-grid,
 .faq-grid,
-.metrics-grid,
 .blog-index-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -822,7 +813,6 @@ input {
   }
 
   .hero-grid,
-  .split-row,
   .cta-inner,
   .footer-grid {
     grid-template-columns: 1fr;
@@ -839,7 +829,6 @@ input {
   .niche-grid,
   .testimonial-grid,
   .faq-grid,
-  .metrics-grid,
   .blog-index-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -850,10 +839,6 @@ input {
 
   .article-sidebar {
     position: static;
-  }
-
-  .split-row:nth-child(even) .split-copy {
-    order: 0;
   }
 
   .swatch-grid {
@@ -882,7 +867,6 @@ input {
   .niche-grid,
   .testimonial-grid,
   .faq-grid,
-  .metrics-grid,
   .blog-index-grid,
   .swatch-grid {
     grid-template-columns: 1fr;
