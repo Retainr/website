@@ -761,6 +761,18 @@ export const pages: MarketingPage[] = [
           "Recurring revenue becomes natural when the first delivery reveals the next ongoing need. Reports become monthly optimization. Coaching becomes implementation support. Design becomes care plans. Retainr helps creators attach those next steps to the client relationship.",
         points: ["Renewals", "Monthly retainers", "Upsells", "Client lifetime value"],
       },
+      {
+        title: "Step 6: Measure the client journey",
+        body:
+          "A method only improves when the creator can see where clients slow down. Retainr helps connect the offer, payment, onboarding, project, support requests, and renewal moment so creators can improve the complete journey instead of guessing from scattered tools.",
+        points: ["Signup conversion", "Onboarding friction", "Delivery status", "Renewal signals"],
+      },
+      {
+        title: "Step 7: Refine the offer into a programme",
+        body:
+          "The strongest creator businesses stop selling loose tasks and start selling a named process. After a few clients, the Retainr Method turns repeated questions, repeated deliverables, and repeated wins into a guided programme that feels easier to buy, easier to deliver, and easier to renew.",
+        points: ["Named method", "Repeatable scope", "Client milestones", "Programme positioning"],
+      },
     ],
     faqs: [
       {
@@ -816,6 +828,18 @@ export const pages: MarketingPage[] = [
           "Creators need more than a payment link. Retainr connects revenue to delivery so you can see what sold, what needs attention, and which clients are ready for ongoing support.",
         points: ["Payments", "Recurring revenue", "Upsells", "Client lifetime value"],
       },
+      {
+        title: "Prospection and lead generation path",
+        body:
+          "Magic Prospections extends the Retainr revenue method upstream for freelance developers. Instead of waiting for referrals, dev freelancers can target prospects by expertise, prepare cold outreach angles, and move warm replies into the same Retainr signup and delivery system.",
+        points: ["Targeted prospect lists", "Cold email angles", "Reply tracking", "Lead-to-client handoff"],
+      },
+      {
+        title: "Programme-style client experience",
+        body:
+          "Retainr is designed to make expertise feel guided. The same platform can present the offer, collect payment, gather intake, structure delivery, handle support, and introduce the next recurring plan without forcing the client through disconnected tools.",
+        points: ["Clear journey", "Guided milestones", "Centralized support", "Professional trust"],
+      },
     ],
   },
   {
@@ -852,6 +876,24 @@ export const pages: MarketingPage[] = [
         body:
           "An AI expert sells a workflow audit and implementation sprint, documents opportunities, ships automations, then keeps clients on a monthly optimization plan as tools and workflows change.",
         points: ["Workflow audit", "Automation implementation", "Governance notes", "Optimization retainer"],
+      },
+      {
+        title: "Course creator: product buyer to implementation client",
+        body:
+          "A course creator stops treating buyers as anonymous transactions. The first offer remains a digital product, but Retainr adds a structured implementation path: onboarding questions, support tickets, office hours, and a recurring plan for students who want help applying the material.",
+        points: ["Digital product upsell", "Student onboarding", "Implementation support", "Recurring office hours"],
+      },
+      {
+        title: "Podcast producer: episode work to monthly production system",
+        body:
+          "A podcast producer replaces episode-by-episode coordination with a monthly production retainer. Retainr keeps files, show notes, approvals, publishing cadence, and revision requests in one branded workflow so clients experience the service as a production system.",
+        points: ["Monthly production plan", "File collection", "Approval workflow", "Repurposing upsell"],
+      },
+      {
+        title: "What good results look like",
+        body:
+          "The result is not only a nicer dashboard. The result is a creator who can explain their offer clearly, collect the right information before work starts, reduce avoidable support friction, and ask for renewal from a position of demonstrated value.",
+        points: ["Faster first purchase", "Cleaner client intake", "Fewer scattered messages", "More natural renewal conversations"],
       },
       {
         title: "Why the results compound",
