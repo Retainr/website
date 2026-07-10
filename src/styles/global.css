@@ -31,6 +31,7 @@ body {
   background:
     radial-gradient(circle at 10% 0%, rgba(255, 213, 64, 0.2), transparent 25rem),
     radial-gradient(circle at 92% 4%, rgba(255, 77, 24, 0.1), transparent 23rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(237, 248, 253, 0.46) 66rem, rgba(255, 255, 255, 0) 96rem),
     var(--white);
 }
 
@@ -203,7 +204,21 @@ input {
 }
 
 .hero {
+  position: relative;
+  overflow: hidden;
   padding: 86px 0 58px;
+}
+
+.hero::before {
+  position: absolute;
+  right: max(20px, calc((100vw - 1160px) / 2));
+  bottom: 28px;
+  width: 14rem;
+  height: 14rem;
+  border: 1px solid rgba(255, 77, 24, 0.14);
+  border-radius: 999px;
+  content: "";
+  z-index: -1;
 }
 
 .hero-grid {
@@ -325,6 +340,51 @@ input {
   width: 100%;
 }
 
+.hero-ticket {
+  position: absolute;
+  display: grid;
+  gap: 2px;
+  max-width: 230px;
+  border: 1px solid rgba(29, 33, 48, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.94);
+  padding: 14px 16px;
+  box-shadow: 0 12px 0 rgba(255, 213, 64, 0.18), 0 22px 46px rgba(29, 33, 48, 0.12);
+}
+
+.hero-ticket::before {
+  position: absolute;
+  top: 14px;
+  left: -12px;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background: var(--green);
+  box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.54);
+  content: "";
+}
+
+.hero-ticket strong {
+  color: var(--ink);
+  font-size: 0.92rem;
+}
+
+.hero-ticket span {
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.hero-ticket-top {
+  top: -34px;
+  right: 30px;
+}
+
+.hero-ticket-bottom {
+  left: -24px;
+  bottom: -34px;
+}
+
 /* ============================================
    BRAND STRIP / TRUSTED BADGES
    ============================================ */
@@ -360,6 +420,135 @@ input {
 
 .brand-badge span {
   font-size: 1rem;
+}
+
+/* ============================================
+   RETAINR PRODUCT SHOWCASE
+   ============================================ */
+.retainr-showcase {
+  padding: 24px 0 88px;
+}
+
+.showcase-shell {
+  position: relative;
+  border: 1px solid rgba(29, 33, 48, 0.1);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 213, 64, 0.28), rgba(255, 255, 255, 0.86) 44%, rgba(237, 248, 253, 0.82)),
+    var(--white);
+  padding: 34px;
+  box-shadow: 0 16px 0 rgba(183, 205, 75, 0.16), 0 34px 80px rgba(29, 33, 48, 0.08);
+}
+
+.showcase-shell::before,
+.showcase-shell::after {
+  position: absolute;
+  width: 88px;
+  height: 88px;
+  border-radius: 18px;
+  content: "";
+  z-index: -1;
+}
+
+.showcase-shell::before {
+  top: -18px;
+  left: 28px;
+  background: var(--orange);
+}
+
+.showcase-shell::after {
+  right: 36px;
+  bottom: -24px;
+  background: var(--yellow);
+}
+
+.showcase-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr);
+  gap: 24px;
+  align-items: end;
+  margin-bottom: 28px;
+}
+
+.showcase-heading h2 {
+  margin: 0;
+  font-size: 2.25rem;
+  line-height: 1.08;
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
+}
+
+.showcase-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 18px;
+}
+
+.showcase-card {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  align-content: space-between;
+  gap: 18px;
+  min-height: 330px;
+  border: 1px solid rgba(29, 33, 48, 0.1);
+  border-radius: 8px;
+  background: var(--white);
+  padding: 22px;
+  box-shadow: 0 10px 0 rgba(255, 255, 255, 0.8), 0 18px 44px rgba(29, 33, 48, 0.08);
+}
+
+.showcase-card::before {
+  position: absolute;
+  inset: auto -44px -54px auto;
+  width: 150px;
+  height: 150px;
+  border-radius: 999px;
+  background: rgba(255, 77, 24, 0.08);
+  content: "";
+}
+
+.showcase-card-large {
+  grid-row: span 2;
+}
+
+.showcase-card img {
+  position: relative;
+  width: 100%;
+  border: 1px solid rgba(29, 33, 48, 0.1);
+  border-radius: 8px;
+  background: var(--white);
+  box-shadow: 0 18px 36px rgba(29, 33, 48, 0.08);
+}
+
+.showcase-card-large img {
+  align-self: end;
+  transform: rotate(-1.5deg);
+}
+
+.showcase-card:not(.showcase-card-large) img {
+  max-height: 170px;
+  object-fit: cover;
+  object-position: left top;
+}
+
+.showcase-copy {
+  position: relative;
+  display: grid;
+  gap: 10px;
+  z-index: 1;
+}
+
+.showcase-copy h3 {
+  margin: 0;
+  font-size: 1.42rem;
+  line-height: 1.12;
+}
+
+.showcase-copy p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
 }
 
 /* ============================================
@@ -848,6 +1037,34 @@ input {
     gap: 30px;
   }
 
+  .hero-ticket {
+    position: relative;
+    inset: auto;
+    max-width: none;
+    margin-top: 14px;
+  }
+
+  .hero-ticket-bottom {
+    margin-left: 22px;
+  }
+
+  .retainr-showcase {
+    padding-bottom: 70px;
+  }
+
+  .showcase-heading,
+  .showcase-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .showcase-heading {
+    align-items: start;
+  }
+
+  .showcase-card-large {
+    grid-row: auto;
+  }
+
   .hero h1,
   .hero-title {
     font-size: 3.55rem;
@@ -954,5 +1171,23 @@ input {
 
   .section {
     padding: 62px 0;
+  }
+
+  .showcase-shell {
+    padding: 22px;
+  }
+
+  .showcase-heading h2 {
+    font-size: 1.48rem;
+    line-height: 1.16;
+  }
+
+  .showcase-card {
+    min-height: auto;
+    padding: 18px;
+  }
+
+  .hero-ticket {
+    margin-inline: 0;
   }
 }
