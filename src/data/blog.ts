@@ -307,7 +307,7 @@ const buildSections = (slug: string, title: string, category: string, audience: 
     },
     {
       title: "Content strategy that supports the offer",
-      body: `Content should work like a sales system, not a random publishing calendar. Start with one pillar page that explains the problem and the paid path. Then create supporting posts that answer objections, show examples, compare approaches, and explain the workflow. Every supporting article should link back to a service package or niche onboarding page. For a creator, this means the blog is not separate from revenue. A YouTube idea post can lead to a content planning retainer. A workflow automation post can lead to an AI implementation sprint. A self-publishing post can lead to editing, launch planning, or reader-community packages. A freelance skills post can lead to the high-demand skills guide and then to Retainr signup.`,
+      body: `Content should work like a sales system, not a random publishing calendar. Start with one pillar page that explains the problem and the paid path. Then create supporting posts that answer objections, show examples, compare approaches, and explain the workflow. Every supporting article should link back to a service package or niche onboarding page. For a creator, this means the blog is not separate from revenue. A YouTube idea post can lead to a content planning retainer. A workflow automation post can lead to an AI implementation sprint. A self-publishing post can lead to editing, launch planning, or reader-community packages. A creator skills post can lead to the high-demand skills guide and then to Retainr signup.`,
       points: [
         "Use pillar pages for broad commercial intent",
         "Use supporting articles for objections and examples",

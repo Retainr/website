@@ -640,9 +640,9 @@ export const pages: MarketingPage[] = [
     slug: "guides/agency-freelancing-skills-you-need-to-know",
     title: "High-Demand Creator Skills for Recurring Revenue",
     description:
-      "Evergreen guide to high-demand freelance skills for digital creators and niche experts building recurring revenue.",
+      "Evergreen guide to high-demand creator skills for digital creators and niche experts building recurring revenue.",
     eyebrow: "Guide",
-    hero: "High-demand freelance skills for recurring creator revenue",
+    hero: "High-demand creator skills for recurring revenue",
     subhero:
       "The best skills are the ones you can package, sell repeatedly, and connect to measurable client outcomes.",
     image: "/assets/packages.png",
