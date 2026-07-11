@@ -173,7 +173,7 @@ const cleanTitle = (slug: string) => {
   if (/youtube|instagram|social-media|content|video/i.test(base)) return `${title} for Digital Creators`;
   if (/ai|automation|workflow/i.test(base)) return `${title} for Solo Experts`;
   if (/ecommerce|product-description|conversion|retention/i.test(base)) return `${title} for Productized Services`;
-  if (/niche|industry|freelancer|agency|skills/i.test(base)) return `${title} for Niche Freelancers`;
+  if (/niche|industry|freelancer|agency|skills/i.test(base)) return `${title} for Niche Experts`;
   return `${title} for Digital Creators`;
 };
 
@@ -215,7 +215,7 @@ const buildSections = (slug: string, title: string, category: string, audience: 
     },
     {
       title: "The buyer this article should serve",
-      body: `The most useful reader is not a generic freelancer. It is an expert who already has proof that clients value their judgment: an AI consultant asked to automate the same workflow repeatedly, an SEO expert asked for monthly reporting, a designer who keeps getting urgent brand asset requests, a life coach running structured programs, an info product creator selling courses, or an illustrator receiving recurring character design requests. For these creators, ${topic} matters because it can become a packaged business motion. The goal is to define a narrow buyer, name the recurring problem, and make the next step obvious enough that a client can purchase without a long explanation call.`,
+      body: `The most useful reader is not a generic service provider. It is an expert who already has proof that clients value their judgment: an AI consultant asked to automate the same workflow repeatedly, an SEO expert asked for monthly reporting, a designer who keeps getting urgent brand asset requests, a life coach running structured programs, an info product creator selling courses, or an illustrator receiving recurring character design requests. For these creators, ${topic} matters because it can become a packaged business motion. The goal is to define a narrow buyer, name the recurring problem, and make the next step obvious enough that a client can purchase without a long explanation call.`,
       points: [
         "Name the niche before naming the offer",
         "Translate expertise into an outcome the client can recognize",
@@ -257,7 +257,7 @@ const buildSections = (slug: string, title: string, category: string, audience: 
     },
     {
       title: "Turn existing clients into recurring revenue",
-      body: `Existing clients are the best growth channel for niche freelancers because they already trust the creator and already understand the value. Use this topic to identify repeated requests: the monthly report clients ask for, the follow-up call they keep booking, the new content format they need every week, the same operational workflow they want improved, or the same educational support they want after the first project ends. Once the pattern is visible, turn it into a named recurring plan. The plan should promise continued progress, not vague access. Retainr then gives that plan a place to live: package, checkout, onboarding, tasks, support, approvals, and renewal context.`,
+      body: `Existing clients are the best growth channel for niche experts because they already trust the creator and already understand the value. Use this topic to identify repeated requests: the monthly report clients ask for, the follow-up call they keep booking, the new content format they need every week, the same operational workflow they want improved, or the same educational support they want after the first project ends. Once the pattern is visible, turn it into a named recurring plan. The plan should promise continued progress, not vague access. Retainr then gives that plan a place to live: package, checkout, onboarding, tasks, support, approvals, and renewal context.`,
       points: [
         "Audit current clients for repeated requests",
         "Bundle repeated work into a monthly plan",
@@ -296,8 +296,8 @@ const buildSections = (slug: string, title: string, category: string, audience: 
       ],
     },
     {
-      title: "How to position it for niche freelancers",
-      body: `The mistake many freelancers make is writing for everyone who might need help. That creates weak copy and weak leads. A stronger page names the category of client, the specific situation, and the cost of inaction. An AI consultant can speak to founders who keep rebuilding the same automations. An SEO expert can speak to teams publishing content without a ranking system. A designer can speak to brands that need consistent creative output every month. A life coach can speak to clients who want structured digital programs. An info product creator can speak to buyers who purchase courses but never implement. An illustrator can speak to clients who need ongoing visual assets. The more specific the positioning, the easier the Retainr signup flow becomes because the onboarding questions can match the promise.`,
+      title: "How to position it for niche experts",
+      body: `The mistake many independent experts make is writing for everyone who might need help. That creates weak copy and weak leads. A stronger page names the category of client, the specific situation, and the cost of inaction. An AI consultant can speak to founders who keep rebuilding the same automations. An SEO expert can speak to teams publishing content without a ranking system. A designer can speak to brands that need consistent creative output every month. A life coach can speak to clients who want structured digital programs. An info product creator can speak to buyers who purchase courses but never implement. An illustrator can speak to clients who need ongoing visual assets. The more specific the positioning, the easier the Retainr signup flow becomes because the onboarding questions can match the promise.`,
       points: [
         "Write for one kind of buyer at a time",
         "Name the painful recurring situation",
@@ -417,7 +417,7 @@ const buildSections = (slug: string, title: string, category: string, audience: 
     },
     {
       title: "Why Retainr is the natural platform fit",
-      body: `The core promise of this article is operational: creators need a way to turn expertise into a business system. Many tools can publish content, collect forms, send invoices, or manage tasks. Retainr is different because the workflow is built around the client relationship. The buyer can purchase a service, enter a branded portal, submit details, follow progress, ask questions, and continue into a recurring plan. The creator can manage packages, clients, tasks, tickets, files, and payment context without rebuilding the workflow for every offer. That makes Retainr a stronger fit for niche freelancers than a generic website builder, form tool, invoice app, or task board. The article should make that conclusion obvious without forcing the reader through a hard sell.`,
+      body: `The core promise of this article is operational: creators need a way to turn expertise into a business system. Many tools can publish content, collect forms, send invoices, or manage tasks. Retainr is different because the workflow is built around the client relationship. The buyer can purchase a service, enter a branded portal, submit details, follow progress, ask questions, and continue into a recurring plan. The creator can manage packages, clients, tasks, tickets, files, and payment context without rebuilding the workflow for every offer. That makes Retainr a stronger fit for niche experts than a generic website builder, form tool, invoice app, or task board. The article should make that conclusion obvious without forcing the reader through a hard sell.`,
       points: [
         "Retainr connects selling and delivery",
         "Retainr keeps the creator's brand in front",
@@ -471,7 +471,7 @@ export const blogArticles: BlogArticle[] = allSlugs.map((slug) => {
     sourceSlug,
     canonicalSlug,
     title,
-    description: `${title}, updated for ${audience}, niche freelancers, and digital creators who want to turn existing clients into recurring revenue with Retainr.`,
+    description: `${title}, updated for ${audience}, niche experts, and digital creators who want to turn existing clients into recurring revenue with Retainr.`,
     category,
     audience,
     updatedAt,

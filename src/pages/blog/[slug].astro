@@ -20,7 +20,7 @@ const canonicalPath = `/blog/${article.canonicalSlug}/`;
 
 <BaseLayout title={article.title} description={article.description} path={canonicalPath}>
   <article>
-    <section class="hero">
+    <section class="hero marketing-hero blog-article-hero">
       <div class="container hero-grid">
         <div class="hero-copy">
           <span class="eyebrow">{article.category}</span>
@@ -28,15 +28,22 @@ const canonicalPath = `/blog/${article.canonicalSlug}/`;
           <p>{article.description}</p>
           <div class="hero-actions">
             <a href={signupUrl} class="button">Start Selling Today</a>
-            <a href="/income/" class="button ghost">Turn Skills Into Revenue</a>
+            <a href="/income/" class="button ghost">Turn Expertise Into Revenue</a>
           </div>
           <div class="muted">Updated {article.updatedAt}. Written for {article.audience} and niche digital creators.</div>
         </div>
-        <div class="page-section">
-          <h2>SEO note</h2>
+        <div class="blog-insight-panel">
+          <span class="trial">Retainr article path</span>
+          <h2>Turn search intent into a paid creator workflow.</h2>
           <p>
             This article keeps Retainr's original search footprint while focusing the advice on evergreen creator businesses, client retention, and recurring revenue.
           </p>
+          <div class="blog-path" aria-label="Retainr blog conversion path">
+            <span>Reader</span>
+            <span>Offer</span>
+            <span>Portal</span>
+            <span>Retainer</span>
+          </div>
           {article.legacy && (
             <p>
               Evergreen version: <a href={canonicalPath}>{canonicalPath}</a>

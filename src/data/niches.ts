@@ -760,9 +760,6 @@ export const featuredNicheSlugs = [
   "designers",
   "digital-coaches",
   "course-creators",
-  "crypto-experts",
-  "web-designers",
-  "podcast-producers",
 ];
 
 export const featuredNiches = featuredNicheSlugs

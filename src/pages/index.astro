@@ -169,23 +169,31 @@ const audienceSegments = [
   <!-- Niche Section -->
   <section class="section creator-niche-section">
     <div class="container">
-      <div class="section-heading centered">
-        <span class="eyebrow">The Method by Niche</span>
-        <h2>Start with {featuredNicheCount} high-intent creator niches.</h2>
-        <p>Retainr supports {nicheCount} dedicated niche workflows, but the homepage focuses on the creator categories with the clearest path to recurring revenue.</p>
-      </div>
+      <div class="niche-showcase">
+        <div class="niche-panel-copy">
+          <span class="eyebrow">The Method by Niche</span>
+          <h2>Start with {featuredNicheCount} high-intent creator niches.</h2>
+          <p>Retainr supports {nicheCount} dedicated niche workflows, but the homepage highlights the creator categories with the clearest path from expertise to recurring revenue.</p>
+          <div class="niche-routing-note">
+            <strong>Magic signup context</strong>
+            <span>Every niche page passes the audience into onboarding.</span>
+          </div>
+        </div>
 
-      <div class="niche-grid">
-        {featuredNiches.map((niche) => (
-          <a class="niche-card" href={`/niches/${niche.slug}/`}>
-            <div class="niche-header">
-              <NicheIcon niche={niche} />
-              <h3>{niche.name}</h3>
-            </div>
-            <p class="niche-desc">{niche.tagline}</p>
-            <span class="button ghost niche-cta">See how it works →</span>
-          </a>
-        ))}
+        <div class="niche-grid">
+          {featuredNiches.map((niche, index) => (
+            <a class="niche-card" href={`/niches/${niche.slug}/`}>
+              <span class="niche-index">0{index + 1}</span>
+              <div class="niche-header">
+                <NicheIcon niche={niche} />
+                <h3>{niche.name}</h3>
+              </div>
+              <p class="niche-desc">{niche.tagline}</p>
+              <span class="niche-route">signup?niche={niche.slug}</span>
+              <span class="button ghost niche-cta">See how it works →</span>
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   </section>
