@@ -19,6 +19,29 @@ const audienceSegments = [
   { label: "Info creators", href: "/niches/info-products/", offer: "Courses to implementation support" },
   { label: "Wellness experts", href: "/niches/nutritionists/", offer: "Plans to recurring care" },
 ];
+
+const operatingModules = [
+  {
+    label: "Unified Dashboard",
+    title: "Manage every client from one command center",
+    body: "Track orders, tasks, files, tickets, invoices, approvals, and delivery status without stitching together five tools.",
+  },
+  {
+    label: "White Label Portal",
+    title: "A client experience under your brand",
+    body: "Clients buy, onboard, upload context, request support, and follow progress inside a professional portal that keeps your expert brand visible.",
+  },
+  {
+    label: "Automation",
+    title: "Workflows that keep momentum moving",
+    body: "Use intake, magic links, support routing, Zapier, webhooks, and repeatable delivery steps to reduce manual admin after every sale.",
+  },
+  {
+    label: "Recurring Revenue",
+    title: "Turn one-time wins into retainers",
+    body: "Package starter offers, core services, and ongoing plans so existing clients have a natural path to continue with you.",
+  },
+];
 ---
 
 <BaseLayout
@@ -123,6 +146,45 @@ const audienceSegments = [
             <p>Connect packages, invoices, recurring payments, and project delivery so revenue is tied to the client workflow from the first click.</p>
           </div>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Retainr Operating System -->
+  <section class="section operating-system-section" aria-labelledby="operating-system-title">
+    <div class="container operating-system-grid">
+      <div class="operating-system-copy">
+        <span class="trial">Limited Time - $1 Trial</span>
+        <span class="eyebrow">What Matters. Unified Dashboard.</span>
+        <h2 id="operating-system-title">One Retainr workspace for selling, earning, and automating your creator business.</h2>
+        <p>
+          Keep the original Retainr promise visible: sell services in seconds, display your expertise,
+          manage clients, collect payments, automate delivery, and turn good work into recurring revenue.
+        </p>
+        <div class="operating-system-proof" aria-label="Retainr operating system proof points">
+          <strong>Sell. Earn. Automate.</strong>
+          <span>Packages, payments, onboarding, support, delivery, referrals, and renewals in one place.</span>
+        </div>
+      </div>
+
+      <div class="operating-system-visual" aria-label="Retainr product modules">
+        <div class="operating-browser">
+          <div class="operating-browser-bar">
+            <span></span>
+            <strong>retainr.io/client-portal</strong>
+          </div>
+          <img src="/assets/client-portal.svg" alt="Retainr white-label client portal interface" loading="lazy" />
+        </div>
+
+        <div class="operating-modules">
+          {operatingModules.map((module) => (
+            <article class="operating-module">
+              <span>{module.label}</span>
+              <h3>{module.title}</h3>
+              <p>{module.body}</p>
+            </article>
+          ))}
+        </div>
       </div>
     </div>
   </section>
