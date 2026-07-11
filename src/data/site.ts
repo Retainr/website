@@ -19,28 +19,28 @@ export const navLinks = [
 ];
 
 export const solutionLinks = [
-  { href: "/productize/", label: "Productize Web Services" },
+  { href: "/productize/", label: "Productize Niche Services" },
   { href: "/automation-for-agencies-freelancers/", label: "Automations & Integrations" },
-  { href: "/freelance/", label: "Scale Freelance Business" },
-  { href: "/accelerator/", label: "Scale Agency Growth" },
+  { href: "/freelance/", label: "Scale Creator Services" },
+  { href: "/accelerator/", label: "Build Recurring Revenue" },
   { href: "/billing-and-invoicing-for-web-agencies/", label: "Billing & Invoicing" },
   { href: "/client-onboarding/", label: "Client Onboarding" },
   { href: "/support-ticketing-solution-for-freelancers-and-web-agencies/", label: "Communication & Ticketing" },
   { href: "/whilte-label-agency-management-software/", label: "White Label Solution" },
   { href: "/client-portal-client-management-software/", label: "Portal Client Management" },
-  { href: "/freelancing-dashboard-workflow/", label: "Manage Your Freelance Workflow" },
+  { href: "/freelancing-dashboard-workflow/", label: "Manage Creator Workflow" },
   { href: "/team-collaboration/", label: "Team Collaboration" },
-  { href: "/saas-for-freelancers-to-sell-online-services/", label: "SaaS for Freelancers" },
-  { href: "/income/", label: "Turn Skills Into Revenue" },
+  { href: "/saas-for-freelancers-to-sell-online-services/", label: "Sell Online Services" },
+  { href: "/income/", label: "Turn Expertise Into Revenue" },
   { href: "/sales-funnels-freelancers/", label: "Sales Funnels & Lead Magnets" },
-  { href: "/cafe-productivity/", label: "Cafe Productivity for Indie Freelancers" },
+  { href: "/cafe-productivity/", label: "Cafe Productivity for Indie Creators" },
 ];
 
 export const resourceLinks = [
   { href: "https://www.youtube.com/@Retainr", label: "Tutorial Videos" },
   { href: "/help/", label: "Knowledge Base" },
   { href: "/pitch-deck/", label: "Why Retainr?" },
-  { href: "/guides/agency-freelancing-skills-you-need-to-know/", label: "High In-Demand Freelance Skills" },
+  { href: "/guides/agency-freelancing-skills-you-need-to-know/", label: "High-Demand Creator Skills" },
   { href: "/feedback/", label: "Feedback" },
 ];
 
