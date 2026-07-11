@@ -13,11 +13,11 @@ export type MarketingPage = {
 export const pages: MarketingPage[] = [
   {
     slug: "productize",
-    title: "Productize Freelance Services in Minutes",
+    title: "Productize Niche Creator Services in Minutes",
     description:
-      "Sell productized services in minutes with all-in-one client management software built for freelancers and agencies.",
-    eyebrow: "Productize Web Services",
-    hero: "Turn Your Skills Into Income",
+      "Sell productized niche services in minutes with Retainr's branded offer portal, client onboarding, payments, and delivery workflow.",
+    eyebrow: "Productize Niche Expertise",
+    hero: "Turn Your Expertise Into Buyable Offers",
     subhero:
       "Build a scalable business by packaging your services, publishing your offers, taking payment, and delivering work from one branded client portal.",
     image: "/assets/packages.png",
@@ -25,13 +25,13 @@ export const pages: MarketingPage[] = [
       {
         title: "Client management that turns services into products",
         body:
-          "Retainr turns a messy service workflow into a clear product experience. Clients can choose a package, pay, upload details, and track progress without email chaos.",
+          "Retainr turns messy specialist work into a clear product experience. Clients can choose a package, pay, upload details, and track progress without email chaos.",
         points: ["Productized offers", "Custom packages", "Branded checkout", "Client-ready delivery"],
       },
       {
         title: "Take your brand to the next level",
         body:
-          "Replace generic invoices and scattered folders with an experience that looks like your agency owns every step.",
+          "Replace generic invoices and scattered folders with an experience that keeps your creator or agency brand visible at every step.",
         points: ["White-label portal", "Custom domain", "Unbranded emails", "Professional client dashboard"],
       },
       {
@@ -43,11 +43,11 @@ export const pages: MarketingPage[] = [
   },
   {
     slug: "automation-for-agencies-freelancers",
-    title: "Automation for Agencies & Freelancers",
+    title: "Automation for Niche Creators and Service Teams",
     description:
-      "Automate your freelance business with client workflows, webhooks, integrations, and AI-ready agency operations.",
-    eyebrow: "Agency Automation",
-    hero: "Automate Your Freelance Business",
+      "Automate client workflows, onboarding, support, and delivery for productized niche service businesses.",
+    eyebrow: "Creator Automation",
+    hero: "Automate the Work Around Every Paid Offer",
     subhero:
       "Scale without effort by connecting client onboarding, order intake, delivery tasks, support, analytics, and external tools.",
     image: "/assets/revenue-graph.png",
@@ -61,7 +61,7 @@ export const pages: MarketingPage[] = [
       {
         title: "Connect your agency with web and AI integrations",
         body:
-          "Use Retainr as the client layer for your stack, then connect forms, analytics, automations, AI agents, and fulfillment tools around it.",
+          "Use Retainr as the client layer for your niche service stack, then connect forms, analytics, automations, AI agents, and fulfillment tools around it.",
       },
       {
         title: "Deliver a professional experience",
@@ -72,11 +72,11 @@ export const pages: MarketingPage[] = [
   },
   {
     slug: "alternatives-compare-agency-client-management-software",
-    title: "Freelance Software Comparison",
+    title: "Client Management Software for Niche Creators",
     description:
-      "Compare agency and freelance client management software options including Plutio, ManyRequests, AgencyHandy, Productive, and Retainr.",
+      "Compare client management software options for creators and agencies that sell productized services, branded portals, and recurring client work.",
     eyebrow: "Compare",
-    hero: "What client management software should a small agency choose?",
+    hero: "What client management software should a niche service business choose?",
     subhero:
       "The best agency platform is the one that lets you sell services, manage clients, deliver work, and keep your brand visible without stitching together too many tools.",
     image: "/assets/dashboard-hero.png",
@@ -84,7 +84,7 @@ export const pages: MarketingPage[] = [
       {
         title: "What to look for in agency management software",
         body:
-          "Most tools solve one slice of agency operations. Retainr is built around the complete client lifecycle: selling, onboarding, payment, project delivery, support, and repeat revenue.",
+          "Most tools solve one slice of service operations. Retainr is built around the complete client lifecycle: selling, onboarding, payment, project delivery, support, and repeat revenue.",
         points: ["Accessibility", "Integration", "Communication", "Customization", "Scalability"],
       },
       {
@@ -101,11 +101,11 @@ export const pages: MarketingPage[] = [
   },
   {
     slug: "blog",
-    title: "Retainr Blog - Learn How to Launch Your Agency",
+    title: "Retainr Blog - Build a Niche Creator Revenue System",
     description:
       "Insights, tips, and trends for freelancers, digital creators, and agencies building productized service businesses.",
     eyebrow: "Blog",
-    hero: "Insights, Tips, and Trends for Freelancers and Agencies",
+    hero: "Insights for Creators Who Turn Expertise Into Recurring Revenue",
     subhero:
       "Explore practical ways to niche down, package services, improve client experience, and turn creative expertise into recurring income.",
     sections: [
@@ -157,13 +157,13 @@ export const pages: MarketingPage[] = [
   },
   {
     slug: "about-retainr",
-    title: "About Retainr",
+    title: "About Retainr for Niche Creators",
     description:
-      "Learn why Retainr was built as the simplest way to turn freelance services into profitable products.",
+      "Learn why Retainr was built as the simplest way to turn niche expertise into profitable products and recurring client systems.",
     eyebrow: "About",
     hero: "About Retainr",
     subhero:
-      "Retainr exists to help freelancers, creators, and small agencies replace messy client operations with a branded system that sells and delivers services.",
+      "Retainr exists to help creators, independent experts, and small agencies replace messy client operations with a branded system that sells and delivers services.",
     image: "/assets/team-collab.png",
     sections: [
       {
@@ -186,18 +186,18 @@ export const pages: MarketingPage[] = [
   },
   {
     slug: "manifesto-retainr",
-    title: "Manifesto Retainr",
+    title: "Retainr Manifesto for Creator-Led Services",
     description:
-      "Why Retainr was built as a better freelance platform for productized services and branded client delivery.",
+      "Why Retainr was built as a better platform for creator-led productized services and branded client delivery.",
     eyebrow: "Manifesto",
-    hero: "Turn Your Freelance Services Into Profit",
+    hero: "Turn Trusted Expertise Into Profit",
     subhero:
       "The future belongs to experts who package their knowledge, sell clearly, and deliver through systems that protect their time.",
     sections: [
       {
         title: "The big idea",
         body:
-          "Freelancers should not need an enterprise stack to look professional. They need one practical system that helps them sell and deliver with confidence.",
+          "Independent experts should not need an enterprise stack to look professional. They need one practical system that helps them sell and deliver with confidence.",
       },
       {
         title: "The promise",

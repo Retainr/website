@@ -21,6 +21,7 @@ const nicheCount = niches.length;
 const featuredNicheCount = featuredNiches.length;
 const systemLabel = `The System for ${niche.name}`;
 const finalCtaText = `Start the ${niche.name} Method`;
+const offerLadder = niche.offers.slice(0, 3);
 ---
 
 <BaseLayout
@@ -57,15 +58,24 @@ const finalCtaText = `Start the ${niche.name} Method`;
     </div>
   </section>
 
-  <!-- Trusted Platform Badges -->
-  <section class="brand-strip" aria-label="Trusted integrations and platforms">
-    <div class="container">
-      <div class="brand-grid">
-        <div class="brand-badge"><span>Stripe</span></div>
-        <div class="brand-badge"><span>PayPal</span></div>
-        <div class="brand-badge"><span>Zapier</span></div>
-        <div class="brand-badge"><span>AWS</span></div>
-        <div class="brand-badge"><span>Analytics</span></div>
+  <!-- Niche Offer Ladder -->
+  <section class="audience-strip" aria-labelledby="niche-offer-ladder-title">
+    <div class="container audience-shell">
+      <div class="audience-copy">
+        <span class="eyebrow">Built for {niche.name}</span>
+        <h2 id="niche-offer-ladder-title">Turn your specialist work into a starter offer, core package, and recurring plan.</h2>
+        <p>
+          This page is not a generic freelancer funnel. It routes {niche.name} into Retainr with the niche context attached, so signup, onboarding, delivery, and recurring revenue can match the service being sold.
+        </p>
+      </div>
+
+      <div class="audience-stack" aria-label={`${niche.name} offer ladder`}>
+        {offerLadder.map((offer, index) => (
+          <a href={nicheSignupUrl} class="audience-pill">
+            <strong>{`Package ${index + 1}`}</strong>
+            <span>{offer}</span>
+          </a>
+        ))}
       </div>
     </div>
   </section>
