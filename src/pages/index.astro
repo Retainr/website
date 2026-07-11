@@ -9,6 +9,15 @@ import { featuredNiches, niches } from "@/data/niches";
 
 const nicheCount = niches.length;
 const featuredNicheCount = featuredNiches.length;
+
+const audienceSegments = [
+  { label: "AI consultants", href: "/niches/ai-experts/", offer: "AI audits to optimization retainers" },
+  { label: "SEO experts", href: "/niches/seo-experts/", offer: "Search audits to monthly growth plans" },
+  { label: "Designers", href: "/niches/designers/", offer: "Brand sprints to creative desks" },
+  { label: "Coaches", href: "/niches/digital-coaches/", offer: "Programs to accountability retainers" },
+  { label: "Info creators", href: "/niches/info-products/", offer: "Courses to implementation support" },
+  { label: "Wellness experts", href: "/niches/nutritionists/", offer: "Plans to recurring care" },
+];
 ---
 
 <BaseLayout
@@ -54,15 +63,24 @@ const featuredNicheCount = featuredNiches.length;
     </div>
   </section>
 
-  <!-- Trusted Platform Badges -->
-  <section class="brand-strip" aria-label="Trusted integrations and platforms">
-    <div class="container">
-      <div class="brand-grid">
-        <div class="brand-badge"><span>Stripe</span></div>
-        <div class="brand-badge"><span>PayPal</span></div>
-        <div class="brand-badge"><span>Zapier</span></div>
-        <div class="brand-badge"><span>AWS</span></div>
-        <div class="brand-badge"><span>Analytics</span></div>
+  <!-- Audience Positioning -->
+  <section class="audience-strip" aria-labelledby="audience-strip-title">
+    <div class="container audience-shell">
+      <div class="audience-copy">
+        <span class="eyebrow">Built for Niche Creators</span>
+        <h2 id="audience-strip-title">Not another CRM. Retainr is the storefront, onboarding path, and client portal for experts who sell outcomes.</h2>
+        <p>
+          The best Retainr customers already have expertise people trust. The missing piece is a branded system that turns that expertise into packages, paid signup links, delivery workflows, and recurring offers.
+        </p>
+      </div>
+
+      <div class="audience-stack" aria-label="Creator audiences Retainr serves">
+        {audienceSegments.map((segment) => (
+          <a href={segment.href} class="audience-pill">
+            <strong>{segment.label}</strong>
+            <span>{segment.offer}</span>
+          </a>
+        ))}
       </div>
     </div>
   </section>
@@ -110,7 +128,7 @@ const featuredNicheCount = featuredNiches.length;
       <div class="section-heading centered">
         <span class="eyebrow">Turn What You Do Into Profitable Products</span>
         <h2>A clear 6-step system to package, sell, deliver, and retain clients.</h2>
-        <p>Keep the original Retainr promise, then make it sharper for digital creators: one place to productize your expertise, onboard clients, automate delivery, and convert good work into predictable monthly revenue.</p>
+        <p>Keep the original Retainr promise, then make it sharper for niche creators: one place to productize your expertise, onboard clients, automate delivery, and convert good work into predictable monthly revenue.</p>
       </div>
 
       <div class="feature-grid">
