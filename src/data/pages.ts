@@ -31,7 +31,7 @@ export const pages: MarketingPage[] = [
       {
         title: "Take your brand to the next level",
         body:
-          "Replace generic invoices and scattered folders with an experience that keeps your creator or agency brand visible at every step.",
+          "Replace generic invoices and scattered folders with an experience that keeps your creator brand visible at every step.",
         points: ["White-label portal", "Custom domain", "Unbranded emails", "Professional client dashboard"],
       },
       {
@@ -74,7 +74,7 @@ export const pages: MarketingPage[] = [
     slug: "alternatives-compare-agency-client-management-software",
     title: "Client Management Software for Niche Creators",
     description:
-      "Compare client management software options for niche experts, creator-led service teams, and agencies that sell productized services, branded portals, and recurring client work.",
+      "Compare client management software options for niche experts and creator-led service teams that sell productized services, branded portals, and recurring client work.",
     eyebrow: "Compare",
     hero: "What client management software should a niche service business choose?",
     subhero:
@@ -112,16 +112,16 @@ export const pages: MarketingPage[] = [
       {
         title: "Popular reads",
         body:
-          "Retainr's blog index keeps the original editorial themes while making the content easier to scan.",
+          "Retainr's blog index keeps the original search footprint while reframing each topic around creator-led services and recurring client revenue.",
         points: [
-          "10 Reasons How Niche Targeting Can Benefit Your Small Agency",
-          "15 Examples of Small Agencies Excelling in Niche Targeting",
-          "Top 5 Industry-Specific Services Every Freelancer Needs",
-          "6 Key Steps to Penetrate Niche Markets Successfully",
-          "7 Inspiring Examples of Freelancers with Exceptional Industry-Focused Brands",
-          "How to Develop a Unique Selling Proposition for Your Small Agency",
-          "9 Steps to Choose the Right Industry Specialization as a Freelancer",
-          "How Industry-Specific Services Impact Freelancers' Success",
+          "How niche targeting helps creator-led service businesses",
+          "Examples of experts turning niche positioning into premium retainers",
+          "Industry-specific services every digital creator can productize",
+          "Key steps to enter a niche market with a clear paid offer",
+          "Examples of solo experts with memorable specialist brands",
+          "How to develop a unique selling proposition for a creator business",
+          "How to choose the right specialist positioning as an independent expert",
+          "How industry-specific services improve creator revenue",
         ],
       },
     ],
@@ -140,7 +140,7 @@ export const pages: MarketingPage[] = [
       {
         title: "Color palette",
         body:
-          "Retainr uses a specific brand colors to be followed when citing the brand. The color palette reflects the company's core DNA and applies them with readability in mind.",
+          "Retainr uses a specific color system when citing the brand. The palette reflects the company's core DNA and applies it with readability in mind.",
         points: ["#FF4D18", "#FFD540", "#FFFFFF", "#1d2130", "#EDF8FD", "#B7CD4B"],
       },
       {
@@ -151,7 +151,7 @@ export const pages: MarketingPage[] = [
       {
         title: "Typography",
         body:
-          "Inter is used for a crisp SaaS interface feel with strong headings, compact labels, and readable body copy.",
+          "Inter is used for a crisp product-interface feel with strong headings, compact labels, and readable body copy.",
       },
     ],
   },
@@ -163,13 +163,13 @@ export const pages: MarketingPage[] = [
     eyebrow: "About",
     hero: "About Retainr",
     subhero:
-      "Retainr exists to help creators, independent experts, and small agencies replace messy client operations with a branded system that sells and delivers services.",
+      "Retainr exists to help creators, independent experts, and small expert-led teams replace messy client operations with a branded system that sells and delivers services.",
     image: "/assets/team-collab.png",
     sections: [
       {
         title: "Our story",
         body:
-          "Freelancers are expected to sell, onboard, invoice, communicate, deliver, support, and retain clients while switching between too many disconnected tools. Retainr brings that work into one place.",
+          "Independent experts are expected to sell, onboard, invoice, communicate, deliver, support, and retain clients while switching between too many disconnected tools. Retainr brings that work into one place.",
       },
       {
         title: "Our mission",
@@ -202,7 +202,7 @@ export const pages: MarketingPage[] = [
       {
         title: "The promise",
         body:
-          "Retainr helps creators and agencies productize expertise, keep their brand front and center, and create a client experience that can scale.",
+          "Retainr helps creators and expert-led teams productize expertise, keep their brand front and center, and create a client experience that can scale.",
       },
       {
         title: "Why ditch the status quo",
@@ -929,7 +929,7 @@ export const pages: MarketingPage[] = [
       {
         title: "Partnerships and affiliates",
         body:
-          "Retainr works well for educators, creators, agencies, and consultants who teach others how to package expertise. Partnership conversations should focus on audience, offer, and the creator result you want to help people achieve.",
+          "Retainr works well for educators, creators, niche communities, and consultants who teach others how to package expertise. Partnership conversations should focus on audience, offer, and the creator result you want to help people achieve.",
         points: ["Affiliate programme", "Education partners", "Creator communities", "Niche workflows"],
       },
     ],
@@ -960,7 +960,7 @@ export const pages: MarketingPage[] = [
       {
         title: "How Retainr is different",
         body:
-          "The goal is not to look like another generic SaaS dashboard. Retainr is being shaped around a method: package the outcome, sell clearly, onboard cleanly, deliver in one place, and use that successful delivery to build retention.",
+          "The goal is not to look like another generic software dashboard. Retainr is being shaped around a method: package the outcome, sell clearly, onboard cleanly, deliver in one place, and use that successful delivery to build retention.",
       },
     ],
   },

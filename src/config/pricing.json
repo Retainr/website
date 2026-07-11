@@ -39,7 +39,7 @@
       "name": "Teams",
       "monthly": 77,
       "yearly": 69,
-      "description": "Ideal for small creator teams and agencies that need a white-label system to sell packages, onboard clients, and manage delivery.",
+      "description": "Ideal for small creator-led teams that need a white-label system to sell packages, onboard clients, and manage delivery.",
       "features": [
         "Everything in Solo Creator",
         "Max. 6 users",
@@ -88,7 +88,7 @@
   ],
   "faq": [
     {
-      "question": "Will the portal use my creator or agency brand?",
+      "question": "Will the portal use my creator brand?",
       "answer": "Yes. Your branded portal can carry your logo, brand name, custom domain, and client-facing experience."
     },
     {
@@ -105,7 +105,7 @@
     },
     {
       "question": "Do you integrate with Zapier and Google Analytics?",
-      "answer": "Yes. Retainr includes webhook and API options so you can connect your creator or agency stack and automate the work around delivery."
+      "answer": "Yes. Retainr includes webhook and API options so you can connect your creator stack and automate the work around delivery."
     }
   ]
 }

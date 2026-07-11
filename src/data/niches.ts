@@ -72,7 +72,7 @@ export const niches: Niche[] = [
     benefits: [
       "Clients can see exactly which tasks are in progress at any time",
       "Reports and keyword research stay attached to the client record",
-      "White-label portal makes your agency look enterprise-level",
+      "White-label portal makes your specialist brand look enterprise-level",
       "Easier to sell ongoing work instead of chasing new projects"
     ],
     recurringExample: "Convert every audit client into a 'Monthly SEO Growth Partner' retainer with priority support and monthly reporting."

@@ -21,7 +21,7 @@ export const navLinks = [
 export const solutionLinks = [
   { href: "/productize/", label: "Productize Niche Services" },
   { href: "/automation-for-agencies-freelancers/", label: "Automations & Integrations" },
-  { href: "/freelance/", label: "Scale Creator Services" },
+  { href: "/freelance/", label: "Scale Expert Services" },
   { href: "/accelerator/", label: "Build Recurring Revenue" },
   { href: "/billing-and-invoicing-for-web-agencies/", label: "Billing & Invoicing" },
   { href: "/client-onboarding/", label: "Client Onboarding" },
@@ -60,29 +60,29 @@ export const companyLinks = [
 export const testimonials = [
   {
     quote:
-      "After fifteen years in the industry I thought the way I handled clients was efficient. Retainr helped improve that efficiency by 40%.",
+      "Retainr turned my scattered SEO audits, reports, and follow-up work into one clear monthly client system.",
     name: "Raul",
-    role: "CEO",
+    role: "SEO consultant",
   },
   {
     quote:
-      "Retainr has simplified our client management, improved team collaboration, and made our agency feel much more professional.",
+      "My coaching clients now know exactly where to pay, upload context, ask questions, and continue after the first programme.",
     name: "Hanna",
-    role: "Business owner",
+    role: "Digital coach",
   },
   {
     quote:
-      "The way I manage clients has totally transformed. Everything is organized in one place and I can deliver faster.",
+      "The portal makes my design retainers feel like a product clients can understand, buy, and renew.",
     name: "Rajesh",
-    role: "Freelancer",
+    role: "Brand designer",
   },
 ];
 
 export const homeFeatures = [
   {
-    title: "Scale Your Agency's Brand",
+    title: "Scale Your Expert Brand",
     body:
-      "Turn your agency into a recognizable brand with a fully white-label experience, branded web app, custom client portal, transparent pricing, and payment flows under your name.",
+      "Turn your specialist service into a recognizable brand with a fully white-label experience, branded web app, custom client portal, transparent pricing, and payment flows under your name.",
   },
   {
     title: "Simplify Every Client Interaction",

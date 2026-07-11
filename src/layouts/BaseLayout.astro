@@ -9,7 +9,7 @@ type Props = {
   path?: string;
 };
 
-const { title, description = "Retainr helps niche creators, freelancers, and agencies sell services, manage clients, and deliver work from one branded platform.", path = "/" } = Astro.props;
+const { title, description = "Retainr helps digital creators and niche experts package expertise, sell paid services, onboard clients, and build recurring revenue from one branded platform.", path = "/" } = Astro.props;
 const canonical = new URL(path, Astro.site ?? "https://www.retainr.io").toString();
 ---
 
@@ -60,12 +60,12 @@ const canonical = new URL(path, Astro.site ?? "https://www.retainr.io").toString
             <a href="/" class="logo" aria-label="Retainr home">
               <img src="/assets/retainr-logo.svg" alt="Retainr" width="148" height="42" />
             </a>
-            <h3>Join the Movement</h3>
-            <p class="muted">Turn trusted expertise into packaged services, paid signup links, and recurring client revenue.</p>
+            <h3>Build Your Method</h3>
+            <p class="muted">Turn trusted expertise into packaged offers, paid signup links, guided delivery, and recurring client revenue.</p>
             <a href={signupUrl} class="button">Start Selling Today</a>
           </div>
           <div class="footer-col">
-            <h3>Creator & Agency Solutions</h3>
+            <h3>Creator Revenue Systems</h3>
             <div class="footer-links">
               {solutionLinks.map((link) => <a href={link.href}>{link.label}</a>)}
             </div>
