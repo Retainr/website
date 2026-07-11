@@ -8,7 +8,8 @@ import { signupUrl } from "@/data/site";
 import { featuredNiches, niches } from "@/data/niches";
 
 const nicheCount = niches.length;
-const featuredNicheCount = featuredNiches.length;
+const homepageNiches = featuredNiches.slice(0, 4);
+const homepageNicheCount = homepageNiches.length;
 
 const audienceSegments = [
   { label: "AI consultants", href: "/niches/ai-experts/", offer: "AI audits to optimization retainers" },
@@ -58,6 +59,10 @@ const audienceSegments = [
         <div class="hero-ticket hero-ticket-bottom">
           <strong>Limited Time - $1 Trial</strong>
           <span>Start selling services today</span>
+        </div>
+        <div class="hero-system-card">
+          <span>Retainr Method</span>
+          <strong>Package → Pay → Onboard → Retain</strong>
         </div>
       </div>
     </div>
@@ -160,7 +165,7 @@ const audienceSegments = [
         <article class="feature-card method-card">
           <div class="feature-icon">6</div>
           <h3>Stabilize & Retain</h3>
-          <p>Automatic billing, renewals, health dashboards, and churn prevention — all on autopilot.</p>
+          <p>Automatic billing, renewals, health dashboards, and churn prevention, all on autopilot.</p>
         </article>
       </div>
     </div>
@@ -172,8 +177,8 @@ const audienceSegments = [
       <div class="niche-showcase">
         <div class="niche-panel-copy">
           <span class="eyebrow">The Method by Niche</span>
-          <h2>Start with {featuredNicheCount} high-intent creator niches.</h2>
-          <p>Retainr supports {nicheCount} dedicated niche workflows, but the homepage highlights the creator categories with the clearest path from expertise to recurring revenue.</p>
+          <h2>Start with {homepageNicheCount} high-intent creator paths.</h2>
+          <p>Retainr supports {nicheCount} dedicated niche workflows. This first view stays focused on the creator categories with the clearest path from expertise to recurring revenue.</p>
           <div class="niche-routing-note">
             <strong>Magic signup context</strong>
             <span>Every niche page passes the audience into onboarding.</span>
@@ -181,7 +186,7 @@ const audienceSegments = [
         </div>
 
         <div class="niche-grid">
-          {featuredNiches.map((niche, index) => (
+          {homepageNiches.map((niche, index) => (
             <a class="niche-card" href={`/niches/${niche.slug}/`}>
               <span class="niche-index">0{index + 1}</span>
               <div class="niche-header">

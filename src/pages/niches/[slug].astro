@@ -18,7 +18,8 @@ export function getStaticPaths() {
 const { niche } = Astro.props as { niche: Niche };
 const nicheSignupUrl = `${signupUrl}?niche=${niche.slug}`;
 const nicheCount = niches.length;
-const featuredNicheCount = featuredNiches.length;
+const relatedNiches = featuredNiches.filter((item) => item.slug !== niche.slug).slice(0, 3);
+const relatedNicheCount = relatedNiches.length;
 const systemLabel = `The System for ${niche.name}`;
 const finalCtaText = `Start the ${niche.name} Method`;
 const offerLadder = niche.offers.slice(0, 3);
@@ -65,7 +66,7 @@ const offerLadder = niche.offers.slice(0, 3);
         <span class="eyebrow">Built for {niche.name}</span>
         <h2 id="niche-offer-ladder-title">Turn your specialist work into a starter offer, core package, and recurring plan.</h2>
         <p>
-          This page is not a generic service funnel. It routes {niche.name} into Retainr with the niche context attached, so signup, onboarding, delivery, and recurring revenue can match the service being sold.
+          This page is a niche-specific revenue path. It routes {niche.name} into Retainr with the audience context attached, so signup, onboarding, delivery, and recurring revenue can match the service being sold.
         </p>
       </div>
 
@@ -86,7 +87,7 @@ const offerLadder = niche.offers.slice(0, 3);
       <div class="section-heading centered">
         <span class="eyebrow">The Retainr Method</span>
         <h2>A clear 6-step system to turn your skills into predictable revenue.</h2>
-        <p>Stop chasing one-off projects. Use this repeatable method to package, sell, deliver, and retain clients — all inside one branded platform.</p>
+        <p>Stop chasing one-off projects. Use this repeatable method to package, sell, deliver, and retain clients inside one branded platform.</p>
       </div>
 
       <div class="feature-grid">
@@ -118,7 +119,7 @@ const offerLadder = niche.offers.slice(0, 3);
         <article class="feature-card">
           <div class="feature-icon">6</div>
           <h3>Stabilize & Retain</h3>
-          <p>Automatic billing, renewals, health dashboards, and churn prevention — all on autopilot.</p>
+          <p>Automatic billing, renewals, health dashboards, and churn prevention, all on autopilot.</p>
         </article>
       </div>
     </div>
@@ -142,18 +143,18 @@ const offerLadder = niche.offers.slice(0, 3);
     <div class="container">
       <div class="section-heading centered">
         <span class="eyebrow">The Method by Niche</span>
-        <h2>Explore {featuredNicheCount} high-intent creator workflows.</h2>
-        <p>Retainr supports {nicheCount} dedicated niche workflows, with the most commercially direct creator categories highlighted here.</p>
+        <h2>Explore {relatedNicheCount} related creator workflows.</h2>
+        <p>Retainr supports {nicheCount} dedicated niche workflows. These related paths show how the same method adapts to nearby expert-led creator businesses.</p>
       </div>
 
-      <div class="niche-grid">
-        {featuredNiches.map((niche) => (
-          <a class="niche-card" href={`/niches/${niche.slug}/`}>
+      <div class="niche-grid related-niche-grid">
+        {relatedNiches.map((relatedNiche) => (
+          <a class="niche-card" href={`/niches/${relatedNiche.slug}/`}>
             <div class="niche-header">
-              <NicheIcon niche={niche} />
-              <h3>{niche.name}</h3>
+              <NicheIcon niche={relatedNiche} />
+              <h3>{relatedNiche.name}</h3>
             </div>
-            <p class="niche-desc">{niche.tagline}</p>
+            <p class="niche-desc">{relatedNiche.tagline}</p>
             <span class="button ghost niche-cta">See how it works →</span>
           </a>
         ))}
