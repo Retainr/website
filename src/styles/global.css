@@ -657,6 +657,74 @@ input {
   line-height: 1.5;
 }
 
+.marketing-hero {
+  padding-bottom: 42px;
+}
+
+.marketing-hero h1 {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.page-method-band {
+  position: relative;
+  z-index: 1;
+  margin-top: -18px;
+  padding: 0 0 42px;
+}
+
+.page-method-shell {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 18px;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  background: var(--white);
+  padding: 16px 18px;
+  box-shadow: 8px 8px 0 rgba(255, 213, 64, 0.92), 0 20px 48px rgba(29, 33, 48, 0.08);
+}
+
+.page-method-label {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  border-radius: 7px;
+  background: var(--ink);
+  color: var(--white);
+  padding: 0 14px;
+  font-size: 0.82rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.page-method-steps {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.page-method-steps span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  border: 1px solid rgba(29, 33, 48, 0.12);
+  border-radius: 7px;
+  background: rgba(237, 248, 253, 0.72);
+  color: var(--ink);
+  font-size: 0.88rem;
+  font-weight: 850;
+}
+
+.page-method-steps strong {
+  color: var(--orange);
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+}
+
 /* ============================================
    TESTIMONIALS
    ============================================ */
@@ -1174,8 +1242,28 @@ input {
 }
 
 .page-section {
+  position: relative;
+  overflow: hidden;
   display: grid;
   gap: 14px;
+}
+
+.page-section::before {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 7px;
+  background: linear-gradient(90deg, var(--orange), var(--yellow), var(--green));
+  content: "";
+}
+
+.page-section:nth-child(3n + 2) {
+  background:
+    linear-gradient(135deg, rgba(237, 248, 253, 0.72), rgba(255, 255, 255, 0.96)),
+    var(--white);
+}
+
+.page-section:nth-child(3n) {
+  box-shadow: 0 8px 0 rgba(183, 205, 75, 0.18), 0 20px 48px rgba(29, 33, 48, 0.06);
 }
 
 .article-layout {
@@ -1352,7 +1440,8 @@ input {
   }
 
   .showcase-heading,
-  .showcase-grid {
+  .showcase-grid,
+  .page-method-shell {
     grid-template-columns: 1fr;
   }
 
@@ -1362,6 +1451,12 @@ input {
 
   .showcase-card-large {
     grid-row: auto;
+  }
+
+  .page-method-steps {
+    grid-template-columns: repeat(5, minmax(92px, 1fr));
+    overflow-x: auto;
+    padding-bottom: 3px;
   }
 
   .method-section::before {
@@ -1508,6 +1603,32 @@ input {
   .showcase-card {
     min-height: auto;
     padding: 18px;
+  }
+
+  .marketing-hero h1 {
+    max-width: 14ch;
+    font-size: 2rem;
+    line-height: 1.06;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .marketing-hero p {
+    max-width: 36ch;
+  }
+
+  .marketing-hero .hero-copy::after {
+    display: none;
+  }
+
+  .page-method-band {
+    margin-top: -8px;
+    padding-bottom: 30px;
+  }
+
+  .page-method-shell {
+    padding: 14px;
+    box-shadow: 5px 5px 0 rgba(255, 213, 64, 0.92), 0 18px 38px rgba(29, 33, 48, 0.08);
   }
 
   .method-section::before,

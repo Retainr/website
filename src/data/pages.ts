@@ -59,7 +59,7 @@ export const pages: MarketingPage[] = [
         points: ["Zapier workflows", "Webhooks", "API-ready operations", "Order-to-project automation"],
       },
       {
-        title: "Connect your agency with web and AI integrations",
+        title: "Connect your creator business with web and AI integrations",
         body:
           "Use Retainr as the client layer for your niche service stack, then connect forms, analytics, automations, AI agents, and fulfillment tools around it.",
       },
@@ -74,15 +74,15 @@ export const pages: MarketingPage[] = [
     slug: "alternatives-compare-agency-client-management-software",
     title: "Client Management Software for Niche Creators",
     description:
-      "Compare client management software options for creators and agencies that sell productized services, branded portals, and recurring client work.",
+      "Compare client management software options for niche experts, creator-led service teams, and agencies that sell productized services, branded portals, and recurring client work.",
     eyebrow: "Compare",
     hero: "What client management software should a niche service business choose?",
     subhero:
-      "The best agency platform is the one that lets you sell services, manage clients, deliver work, and keep your brand visible without stitching together too many tools.",
+      "The best platform is the one that lets a niche expert sell services, manage clients, deliver work, and keep their brand visible without stitching together too many tools.",
     image: "/assets/dashboard-hero.png",
     sections: [
       {
-        title: "What to look for in agency management software",
+        title: "What to look for in creator client management software",
         body:
           "Most tools solve one slice of service operations. Retainr is built around the complete client lifecycle: selling, onboarding, payment, project delivery, support, and repeat revenue.",
         points: ["Accessibility", "Integration", "Communication", "Customization", "Scalability"],
@@ -103,7 +103,7 @@ export const pages: MarketingPage[] = [
     slug: "blog",
     title: "Retainr Blog - Build a Niche Creator Revenue System",
     description:
-      "Insights, tips, and trends for freelancers, digital creators, and agencies building productized service businesses.",
+      "Insights, tips, and trends for niche experts, digital creators, and creator-led service teams building productized service businesses.",
     eyebrow: "Blog",
     hero: "Insights for Creators Who Turn Expertise Into Recurring Revenue",
     subhero:
@@ -245,9 +245,9 @@ export const pages: MarketingPage[] = [
   },
   {
     slug: "client-onboarding",
-    title: "Client Onboarding & Client Management Software for Agencies",
+    title: "Client Onboarding for Niche Creators and Service Experts",
     description:
-      "Client onboarding and client management software for freelancers and agency owners.",
+      "Client onboarding and client management software for niche creators, expert-led services, and branded client delivery.",
     eyebrow: "Client Onboarding",
     hero: "Transform your client relationships from day one",
     subhero:
@@ -269,9 +269,9 @@ export const pages: MarketingPage[] = [
   },
   {
     slug: "support-ticketing-solution-for-freelancers-and-web-agencies",
-    title: "Support Ticketing Solution for Freelancers and Web Agencies",
+    title: "Support Ticketing for Niche Creators and Service Teams",
     description:
-      "A support ticketing solution that keeps freelancer and agency communication in one place.",
+      "A support ticketing solution that keeps creator-client communication, delivery requests, files, and context in one branded place.",
     eyebrow: "Support Ticketing",
     hero: "Keep all your communication in one place",
     subhero:
@@ -293,9 +293,9 @@ export const pages: MarketingPage[] = [
   },
   {
     slug: "whilte-label-agency-management-software",
-    title: "White Label Agency Management Software",
+    title: "White Label Client Portal for Creator-Led Services",
     description:
-      "White-label agency management software for freelancers and agencies with branded portals, custom domains, and client delivery.",
+      "White-label client management software for niche creators, consultants, and service teams with branded portals, custom domains, and client delivery.",
     eyebrow: "White Label",
     hero: "Your Brand. Your Products.",
     subhero:
@@ -305,7 +305,7 @@ export const pages: MarketingPage[] = [
       {
         title: "Sell under your own brand",
         body:
-          "Retainr keeps your agency at the center. Clients buy from you, enter your portal, and experience delivery through your identity.",
+          "Retainr keeps your expertise and brand at the center. Clients buy from you, enter your portal, and experience delivery through your identity.",
         points: ["Custom domain", "Logo and colors", "Unbranded emails", "No Powered By badge"],
       },
       {
@@ -319,7 +319,7 @@ export const pages: MarketingPage[] = [
     slug: "client-portal-client-management-software",
     title: "Client Portal & Client Management Software",
     description:
-      "A branded client portal and client management software for selling, onboarding, and delivering freelance services.",
+      "A branded client portal and client management software for selling, onboarding, and delivering niche creator services.",
     eyebrow: "Client Portal",
     hero: "Make Your Client Experience Professional",
     subhero:
@@ -341,17 +341,17 @@ export const pages: MarketingPage[] = [
   },
   {
     slug: "freelancing-dashboard-workflow",
-    title: "Product Dashboards: Manage Your Freelance Workflow Software",
+    title: "Product Dashboards for Creator Service Workflows",
     description:
-      "Manage freelance workflow with clean dashboards for clients, projects, packages, orders, and delivery.",
+      "Manage creator service workflows with clean dashboards for clients, projects, packages, orders, support, and delivery.",
     eyebrow: "Workflow Dashboard",
-    hero: "Your Agency's Digital Workflow Solution",
+    hero: "Your Creator Service Workflow in One Dashboard",
     subhero:
-      "Manage freelance operations from a clean dashboard that connects sales, onboarding, projects, support, and revenue.",
+      "Manage niche service operations from a clean dashboard that connects sales, onboarding, projects, support, and revenue.",
     image: "/assets/dashboard-hero.png",
     sections: [
       {
-        title: "The easiest way to manage your freelance workflow",
+        title: "The easiest way to manage a productized service workflow",
         body:
           "A great workflow starts with visibility. Retainr gives your business a clear view of clients, orders, projects, tasks, tickets, and payments.",
         points: ["Orders", "Projects", "Tasks", "Tickets", "Files", "Revenue"],
@@ -367,7 +367,7 @@ export const pages: MarketingPage[] = [
     slug: "team-collaboration",
     title: "Team Collaboration - Client Management Software",
     description:
-      "Team collaboration and communication software for agencies that need aligned client delivery.",
+      "Team collaboration and communication software for creator-led service teams that need aligned client delivery.",
     eyebrow: "Team Collaboration",
     hero: "Team Communication, Simplified",
     subhero:
@@ -389,17 +389,17 @@ export const pages: MarketingPage[] = [
   },
   {
     slug: "saas-for-freelancers-to-sell-online-services",
-    title: "SaaS for Freelancers to Sell Online Services",
+    title: "Sell Online Services as Productized Creator Offers",
     description:
-      "SaaS designed for freelancers to sell online services with branded packages, payments, and client management.",
-    eyebrow: "SaaS for Freelancers",
-    hero: "SaaS designed for freelancers to sell services",
+      "Software for niche creators and service experts to sell online services with branded packages, payments, and client management.",
+    eyebrow: "Sell Online Services",
+    hero: "Turn Online Services Into Buyable Creator Offers",
     subhero:
       "Retainr gives digital creators the storefront, client portal, and service workflow needed to sell online services without assembling a stack.",
     image: "/assets/packages.png",
     sections: [
       {
-        title: "Make your experience as a freelancer exceptional",
+        title: "Make your niche service experience exceptional",
         body:
           "Sell like a software company while delivering the personal expertise clients are buying from you.",
         points: ["Service storefront", "Online payments", "Client dashboard", "Branded delivery"],
@@ -407,15 +407,15 @@ export const pages: MarketingPage[] = [
       {
         title: "Built for every digital service",
         body:
-          "Coaching, consulting, design, writing, SEO, AI implementation, creative packages, and agency retainers can all be packaged and sold in Retainr.",
+          "Coaching, consulting, design, writing, SEO, AI implementation, creative packages, and creator-led retainers can all be packaged and sold in Retainr.",
       },
     ],
   },
   {
     slug: "income",
-    title: "Turn Freelance Skills Into Recurring Revenue",
+    title: "Turn Creator Expertise Into Recurring Revenue",
     description:
-      "Transform your knowledge, skills, and freelance services into profitable products and recurring revenue.",
+      "Transform your knowledge, niche expertise, and service delivery into profitable products and recurring revenue.",
     eyebrow: "Income",
     hero: "Turn Your Skills Into Income",
     subhero:
@@ -423,13 +423,13 @@ export const pages: MarketingPage[] = [
     image: "/assets/revenue-graph.png",
     sections: [
       {
-        title: "The simplest way to turn skills into income",
+        title: "The simplest way to turn expertise into income",
         body:
           "Package what you already know into offers clients can understand and buy. Retainr handles the operational layer after the sale.",
         points: ["Productized offers", "Recurring retainers", "One-off services", "Subscriptions"],
       },
       {
-        title: "Built for freelancers who want freedom",
+        title: "Built for creators who want freedom",
         body:
           "Less admin means more time for selling, delivery, learning, and building the service business you actually want.",
       },
@@ -437,9 +437,9 @@ export const pages: MarketingPage[] = [
   },
   {
     slug: "sales-funnels-freelancers",
-    title: "Build Sales Funnels and Lead Magnets for Freelancers",
+    title: "Build Sales Funnels and Lead Magnets for Niche Creators",
     description:
-      "Build sales funnels and lead magnets as a freelancer to attract better clients and automate the sales process.",
+      "Build sales funnels and lead magnets as a niche creator to attract better clients and automate the sales process.",
     eyebrow: "Sales Funnels",
     hero: "Build Efficient Micro Sales Funnels",
     subhero:
@@ -461,19 +461,19 @@ export const pages: MarketingPage[] = [
   },
   {
     slug: "freelance",
-    title: "Scale Freelance Business",
+    title: "Scale a Niche Creator Service Business",
     description:
-      "Scale a freelance business with productized services, recurring retainers, and a branded client workflow.",
-    eyebrow: "Freelance Growth",
-    hero: "Scale your freelance business without more admin",
+      "Scale a niche creator service business with productized services, recurring retainers, and a branded client workflow.",
+    eyebrow: "Creator Service Growth",
+    hero: "Scale your creator service business without more admin",
     subhero:
-      "Retainr helps niche freelancers turn expertise into clear offers, onboard clients faster, and convert existing clients into recurring revenue.",
+      "Retainr helps niche experts turn expertise into clear offers, onboard clients faster, and convert existing clients into recurring revenue.",
     image: "/assets/dashboard-hero.png",
     sections: [
       {
         title: "From custom work to repeatable revenue",
         body:
-          "Freelancers grow faster when they stop reselling every project from scratch. Retainr helps you package the work clients already ask for into offers that can be bought again and again.",
+          "Niche experts grow faster when they stop reselling every project from scratch. Retainr helps you package the work clients already ask for into offers that can be bought again and again.",
         points: ["Productized services", "Recurring retainers", "Client portal", "Order tracking"],
       },
       {
@@ -493,19 +493,19 @@ export const pages: MarketingPage[] = [
   },
   {
     slug: "accelerator",
-    title: "Scale Agency Growth",
+    title: "Retainr Accelerator for Creator Revenue Systems",
     description:
-      "Retainr Accelerator helps creators and small agencies package offers, sell online, and build recurring client systems.",
+      "Retainr Accelerator helps creators and expert-led service teams package offers, sell online, and build recurring client systems.",
     eyebrow: "Accelerator",
-    hero: "Scale agency growth with sharper offers and cleaner delivery",
+    hero: "Scale recurring revenue with sharper offers and cleaner delivery",
     subhero:
       "Use Retainr as the operating system for your next stage: storefront, client portal, onboarding, payments, delivery, and support.",
     image: "/assets/revenue-graph.png",
     sections: [
       {
-        title: "Make your agency easier to buy from",
+        title: "Make your expertise easier to buy from",
         body:
-          "The fastest growth usually comes from clearer packaging. Retainr gives agencies a way to present services as products with pricing, scope, and onboarding in one place.",
+          "The fastest growth usually comes from clearer packaging. Retainr gives creators and service teams a way to present services as products with pricing, scope, and onboarding in one place.",
         points: ["Offer design", "Sales links", "Payment collection", "Delivery workflow"],
       },
       {
@@ -517,9 +517,9 @@ export const pages: MarketingPage[] = [
   },
   {
     slug: "billing-and-invoicing-for-web-agencies",
-    title: "Billing & Invoicing for Web Agencies",
+    title: "Billing & Invoicing for Creator-Led Services",
     description:
-      "Billing and invoicing workflows for web agencies, freelancers, and digital creators selling productized services.",
+      "Billing and invoicing workflows for niche experts, digital creators, and service teams selling productized services.",
     eyebrow: "Billing",
     hero: "Billing and invoicing connected to client delivery",
     subhero:
@@ -547,7 +547,7 @@ export const pages: MarketingPage[] = [
     eyebrow: "Help",
     hero: "Knowledge base for selling services with Retainr",
     subhero:
-      "Quick guidance for creators and agencies setting up branded offers, signup flows, payments, support, and client portals.",
+      "Quick guidance for niche creators and service teams setting up branded offers, signup flows, payments, support, and client portals.",
     sections: [
       {
         title: "Start with your first offer",
@@ -566,7 +566,7 @@ export const pages: MarketingPage[] = [
     slug: "pitch-deck",
     title: "Why Retainr?",
     description:
-      "Why Retainr is the platform for digital creators and niche freelancers turning expertise into recurring revenue.",
+      "Why Retainr is the platform for digital creators and niche experts turning expertise into recurring revenue.",
     eyebrow: "Why Retainr",
     hero: "The platform for digital creators who sell expertise",
     subhero:
@@ -638,7 +638,7 @@ export const pages: MarketingPage[] = [
   },
   {
     slug: "guides/agency-freelancing-skills-you-need-to-know",
-    title: "High In-Demand Freelance Skills",
+    title: "High-Demand Creator Skills for Recurring Revenue",
     description:
       "Evergreen guide to high-demand freelance skills for digital creators and niche experts building recurring revenue.",
     eyebrow: "Guide",
@@ -662,11 +662,11 @@ export const pages: MarketingPage[] = [
   },
   {
     slug: "cafe-productivity",
-    title: "Cafe Productivity for Indie Freelancers | Retainr",
+    title: "Cafe Productivity for Indie Creators | Retainr",
     description: "Stay in deep work flow at cafes without client requests, admin, or scattered tools killing your focus. Retainr handles the backend so you can enjoy productive cafe sessions.",
     eyebrow: "Deep Work Mode",
     hero: "Stay in Flow at the Cafe. Let Retainr Handle the Rest.",
-    subhero: "Indie freelancers love working from cafes. But client chaos usually kills the vibe. Retainr gives you a system so you can protect your deep work time while everything else runs smoothly in the background.",
+    subhero: "Indie creators love working from cafes. But client chaos usually kills the flow. Retainr gives you a system so you can protect deep work time while everything else runs smoothly in the background.",
     image: "/assets/dashboard-hero.png",
     sections: [
       {
@@ -680,7 +680,7 @@ export const pages: MarketingPage[] = [
         ]
       },
       {
-        title: "The Retainr Method for Cafe Freelancers",
+        title: "The Retainr Method for Cafe Creators",
         body: "Retainr is designed to protect your deep work time. While you're at the cafe focused on high-value work, Retainr quietly handles client operations in the background.",
         points: [
           "Package your services clearly so clients know exactly what they're buying",
@@ -705,13 +705,13 @@ export const pages: MarketingPage[] = [
       },
       {
         title: "Who This Is Perfect For",
-        body: "This approach works especially well for freelancers who value focused work and often work from cafes, co-working spaces, or while traveling.",
+        body: "This approach works especially well for independent creators who value focused work and often work from cafes, co-working spaces, or while traveling.",
         points: [
           "Designers & Brand Creatives who need long focus blocks",
           "Writers, Copywriters & Content Creators",
           "Developers & Technical Consultants",
           "Coaches & Consultants who do deep thinking work",
-          "Any indie freelancer tired of admin killing their flow"
+          "Any indie creator tired of admin killing their flow"
         ]
       },
       {
@@ -724,7 +724,7 @@ export const pages: MarketingPage[] = [
     slug: "method",
     title: "The Retainr Method | Turn Expertise Into Recurring Revenue",
     description:
-      "A guided method for digital creators and niche freelancers to package expertise, sell clearly, onboard clients, deliver professionally, and retain revenue.",
+      "A guided method for digital creators and niche experts to package expertise, sell clearly, onboard clients, deliver professionally, and retain revenue.",
     eyebrow: "The Retainr Method",
     hero: "A structured method for turning expertise into recurring revenue",
     subhero:
@@ -783,7 +783,7 @@ export const pages: MarketingPage[] = [
       {
         question: "Does the method work for different niches?",
         answer:
-          "Yes. The steps stay consistent, while offers and onboarding questions change by niche. That is why the site includes dedicated niche pages instead of speaking only to broad freelancers.",
+          "Yes. The steps stay consistent, while offers and onboarding questions change by niche. That is why the site includes dedicated niche pages instead of speaking only to a broad service-provider category.",
       },
     ],
   },
@@ -791,7 +791,7 @@ export const pages: MarketingPage[] = [
     slug: "features",
     title: "Retainr Features | Client Portal, Billing, Onboarding, Ticketing",
     description:
-      "Explore Retainr features for digital creators and niche freelancers: productized offers, onboarding, client portal, billing, ticketing, automation, and retention.",
+      "Explore Retainr features for digital creators and niche service experts: productized offers, onboarding, client portal, billing, ticketing, automation, and retention.",
     eyebrow: "Features",
     hero: "Everything a creator needs to sell, deliver, and retain clients",
     subhero:
@@ -813,7 +813,7 @@ export const pages: MarketingPage[] = [
       {
         title: "White-label client portal",
         body:
-          "Let clients interact with your brand, not a generic tool. Retainr gives freelancers and small teams a polished portal for projects, communication, files, orders, and support.",
+          "Let clients interact with your brand, not a generic tool. Retainr gives niche experts and small service teams a polished portal for projects, communication, files, orders, and support.",
         points: ["Custom branding", "Custom domain", "Unbranded emails", "Client dashboard"],
       },
       {
@@ -831,7 +831,7 @@ export const pages: MarketingPage[] = [
       {
         title: "Prospection and lead generation path",
         body:
-          "Magic Prospections extends the Retainr revenue method upstream for freelance developers. Instead of waiting for referrals, dev freelancers can target prospects by expertise, prepare cold outreach angles, and move warm replies into the same Retainr signup and delivery system.",
+          "Magic Prospections extends the Retainr revenue method upstream for technical creators and freelance developers. Instead of waiting for referrals, experts can target prospects by expertise, prepare cold outreach angles, and move warm replies into the same Retainr signup and delivery system.",
         points: ["Targeted prospect lists", "Cold email angles", "Reply tracking", "Lead-to-client handoff"],
       },
       {
@@ -846,7 +846,7 @@ export const pages: MarketingPage[] = [
     slug: "case-studies",
     title: "Retainr Case Studies & Results",
     description:
-      "See how niche freelancers and digital creators can use the Retainr Method to package expertise, improve delivery, and create recurring revenue.",
+      "See how niche experts and digital creators can use the Retainr Method to package expertise, improve delivery, and create recurring revenue.",
     eyebrow: "Results",
     hero: "From scattered services to structured client revenue",
     subhero:
@@ -938,7 +938,7 @@ export const pages: MarketingPage[] = [
     slug: "about",
     title: "About Retainr | The Client Revenue Method for Creators",
     description:
-      "Learn why Retainr is being rebuilt as a structured method for digital creators and niche freelancers who want recurring revenue.",
+      "Learn why Retainr is being rebuilt as a structured method for digital creators and niche experts who want recurring revenue.",
     eyebrow: "About Retainr",
     hero: "Retainr helps creators turn expertise into a system",
     subhero:
@@ -954,7 +954,7 @@ export const pages: MarketingPage[] = [
       {
         title: "Who Retainr is for",
         body:
-          "Retainr is built for digital creators and niche freelancers: SEO experts, nutritionists, designers, coaches, AI consultants, copywriters, authors, content specialists, crypto educators, and other experts who sell knowledge or creative output.",
+          "Retainr is built for digital creators and niche experts: SEO experts, nutritionists, designers, coaches, AI consultants, copywriters, authors, content specialists, crypto educators, and other experts who sell knowledge or creative output.",
         points: ["Niche experts", "Solo operators", "Small teams", "Creator-led service businesses"],
       },
       {
