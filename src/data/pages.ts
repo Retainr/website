@@ -112,7 +112,7 @@ export const pages: MarketingPage[] = [
       {
         title: "Popular reads",
         body:
-          "Retainr's blog index keeps the original search footprint while reframing each topic around creator-led services and recurring client revenue.",
+          "Use these guides to sharpen niche positioning, package paid outcomes, improve client delivery, and build recurring revenue around work clients already value.",
         points: [
           "How niche targeting helps creator-led service businesses",
           "Examples of experts turning niche positioning into premium retainers",

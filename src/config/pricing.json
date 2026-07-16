@@ -21,6 +21,7 @@
   },
   "plans": [
     {
+      "slug": "solo-creator",
       "name": "Solo Creator",
       "monthly": 25,
       "yearly": 19,
@@ -36,6 +37,7 @@
       "cta": "Start Trial"
     },
     {
+      "slug": "teams",
       "name": "Teams",
       "monthly": 77,
       "yearly": 69,
@@ -52,6 +54,7 @@
       "highlight": true
     },
     {
+      "slug": "magic-prospections",
       "name": "Magic Prospections",
       "monthly": 199,
       "yearly": 179,
@@ -66,7 +69,7 @@
         "Dedicated agent, monitored 24/7",
         "API and webhooks"
       ],
-      "cta": "Start Now"
+      "cta": "Join Early Access"
     }
   ],
   "included": [

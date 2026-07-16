@@ -346,13 +346,13 @@ const buildSections = (slug: string, title: string, category: string, audience: 
       ],
     },
     {
-      title: "Internal link map for Retainr SEO",
-      body: `For SEO, the page should connect to the rest of the Retainr site with intent-based links. A reader learning how to package expertise should go to Productize. A reader evaluating cost should go to Pricing. A reader worried about client handoff should go to Client Onboarding. A reader comparing tools should go to the alternatives page. A reader who matches a niche should go to the relevant niche signup page. This strengthens the site architecture and makes Retainr the obvious platform for digital creators who want recurring revenue. It also keeps old Webflow equity useful because legacy article URLs continue to point into the new conversion-focused architecture.`,
+      title: "Turn the advice into a working client system",
+      body: `The next step is to turn the useful idea into an offer a client can act on. Use Productize to define the outcome, scope, and continuation plan. Review Pricing when you are ready to choose the operating setup. Use Client Onboarding to decide what context, files, and expectations should be collected before delivery starts. Then choose the niche playbook closest to your work so the offer language and signup path feel specific to the buyer. These pieces create a practical route from learning to purchase, and from a successful first engagement to recurring client revenue.`,
       points: [
-        "Productize for offer-building intent",
-        "Pricing for purchase intent",
-        "Client onboarding for implementation intent",
-        "Niche pages for personalized signup intent",
+        "Productize the first paid outcome",
+        "Choose the operating plan that fits",
+        "Design a clear client onboarding path",
+        "Use the closest niche playbook for specificity",
       ],
     },
     {
