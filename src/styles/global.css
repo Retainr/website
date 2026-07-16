@@ -310,6 +310,26 @@ input {
   color: var(--orange);
 }
 
+.home-hero {
+  padding-top: 64px;
+}
+
+.home-hero .hero-copy {
+  gap: 14px;
+}
+
+.home-hero h1 {
+  font-size: 4rem;
+}
+
+.home-hero .hero-subtitle {
+  font-size: 2.15rem;
+}
+
+.home-hero .hero-copy > p {
+  font-size: 1.12rem;
+}
+
 .hero p,
 .lead {
   margin: 0;
@@ -1416,7 +1436,7 @@ input {
 .page-section p,
 .muted {
   color: var(--muted);
-  line-height: 1.25;
+  line-height: 1.6;
 }
 
 .feature-grid {
@@ -1690,17 +1710,12 @@ input {
 }
 
 .included-grid,
-.page-grid,
 .testimonial-grid,
 .faq-grid,
 .blog-index-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
-}
-
-.page-grid {
-  grid-template-columns: 1fr;
 }
 
 .page-section {
@@ -1726,6 +1741,390 @@ input {
 
 .page-section:nth-child(3n) {
   box-shadow: 0 8px 0 rgba(183, 205, 75, 0.18), 0 20px 48px rgba(29, 33, 48, 0.06);
+}
+
+/* Guided marketing pages */
+.programme-section {
+  background: var(--white);
+}
+
+.programme-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.7fr) minmax(0, 1.3fr);
+  gap: 72px;
+  align-items: start;
+}
+
+.programme-intro {
+  position: sticky;
+  top: 118px;
+  display: grid;
+  gap: 18px;
+}
+
+.programme-intro h2,
+.revenue-blueprint h2,
+.editorial-copy h2 {
+  margin: 0;
+  font-size: 2.45rem;
+  line-height: 1.08;
+}
+
+.programme-intro p,
+.revenue-blueprint p,
+.editorial-copy p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  color: var(--orange);
+  font-weight: 900;
+}
+
+.programme-steps {
+  position: relative;
+  display: grid;
+}
+
+.programme-steps::before {
+  position: absolute;
+  top: 28px;
+  bottom: 28px;
+  left: 27px;
+  width: 2px;
+  background: rgba(29, 33, 48, 0.12);
+  content: "";
+}
+
+.programme-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  gap: 24px;
+  padding: 0 0 44px;
+}
+
+.programme-step:last-child {
+  padding-bottom: 0;
+}
+
+.programme-step-number {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  background: var(--yellow);
+  box-shadow: 4px 4px 0 var(--ink);
+  font-weight: 950;
+}
+
+.programme-step:nth-child(3n + 2) .programme-step-number {
+  background: var(--green);
+}
+
+.programme-step:nth-child(3n) .programme-step-number {
+  background: var(--orange);
+  color: var(--white);
+}
+
+.programme-step-copy {
+  display: grid;
+  gap: 13px;
+  padding-top: 4px;
+}
+
+.programme-step-copy h2 {
+  margin: 0;
+  font-size: 1.65rem;
+  line-height: 1.16;
+}
+
+.programme-step-copy p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.compact-check-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 18px;
+}
+
+.compact-check-list li {
+  grid-template-columns: 22px minmax(0, 1fr);
+  column-gap: 9px;
+  font-size: 0.92rem;
+}
+
+.compact-check-list li::before {
+  width: 20px;
+  height: 20px;
+}
+
+.compact-check-list li::after {
+  top: calc(0.02em + 6px);
+  left: 5px;
+  width: 9px;
+  height: 5px;
+  border-left-width: 2px;
+  border-bottom-width: 2px;
+}
+
+.revenue-blueprint-section {
+  position: relative;
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--white);
+}
+
+.revenue-blueprint-section::after {
+  position: absolute;
+  right: -70px;
+  bottom: -110px;
+  width: 300px;
+  height: 300px;
+  border: 42px solid rgba(255, 213, 64, 0.18);
+  border-radius: 50%;
+  content: "";
+}
+
+.revenue-blueprint {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 64px;
+  align-items: center;
+}
+
+.revenue-blueprint-copy {
+  display: grid;
+  gap: 18px;
+}
+
+.revenue-blueprint-copy p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.revenue-path {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.revenue-path li {
+  display: grid;
+  gap: 8px;
+  min-height: 150px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 22px;
+}
+
+.revenue-path strong {
+  color: var(--yellow);
+  font-size: 1.25rem;
+}
+
+.revenue-path span {
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.5;
+}
+
+.editorial-section {
+  background: var(--ice);
+}
+
+.editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 72px;
+}
+
+.editorial-copy {
+  display: grid;
+  gap: 18px;
+  align-content: start;
+}
+
+.editorial-copy-accent {
+  border-left: 8px solid var(--orange);
+  padding-left: 34px;
+}
+
+.niche-proof-section {
+  background: var(--white);
+}
+
+.niche-proof-links {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-block: 1px solid var(--line);
+}
+
+.niche-proof-links a {
+  display: grid;
+  gap: 8px;
+  min-height: 128px;
+  padding: 24px 20px;
+  border-right: 1px solid var(--line);
+}
+
+.niche-proof-links a:last-child {
+  border-right: 0;
+}
+
+.niche-proof-links a:hover strong,
+.next-links a:hover {
+  color: var(--orange);
+}
+
+.niche-proof-links span {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.next-links {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  padding-top: 24px;
+}
+
+.next-links a {
+  font-weight: 900;
+}
+
+/* Pricing conversion flow */
+.pricing-hero {
+  padding: 64px 0 36px;
+}
+
+.pricing-hero::after,
+.pricing-hero .hero-copy::after {
+  display: none;
+}
+
+.pricing-hero .hero-title {
+  max-width: 980px;
+  font-size: 4rem;
+}
+
+.pricing-section {
+  padding-top: 30px;
+}
+
+.pricing-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.pricing-toolbar > div:first-child {
+  display: grid;
+  gap: 4px;
+}
+
+.pricing-toolbar span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.pricing-card.highlight {
+  border: 2px solid var(--ink);
+  box-shadow: 8px 8px 0 var(--yellow), 0 24px 72px rgba(29, 33, 48, 0.1);
+}
+
+.prospection-section {
+  background:
+    repeating-linear-gradient(90deg, rgba(29, 33, 48, 0.035) 0 1px, transparent 1px 82px),
+    linear-gradient(135deg, rgba(255, 213, 64, 0.3), rgba(237, 248, 253, 0.88));
+  border-block: 1px solid var(--line);
+}
+
+.prospection-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+  gap: 64px;
+  align-items: center;
+}
+
+.prospection-copy {
+  display: grid;
+  gap: 18px;
+}
+
+.prospection-copy h2 {
+  margin: 0;
+  font-size: 2.8rem;
+  line-height: 1.05;
+}
+
+.prospection-copy p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.prospection-visual {
+  display: grid;
+  gap: 14px;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  background: var(--white);
+  padding: 26px;
+  box-shadow: 10px 10px 0 var(--ink);
+}
+
+.prospection-node {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  padding: 8px 0 18px;
+}
+
+.prospection-node strong {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 8px;
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+.prospection-node:nth-child(3) strong {
+  background: var(--green);
+}
+
+.prospection-node:nth-child(4) strong {
+  background: var(--orange);
+  color: var(--white);
+}
+
+.prospection-node span {
+  font-weight: 800;
+  line-height: 1.35;
 }
 
 .article-layout {
@@ -1931,9 +2330,37 @@ input {
   .audience-shell,
   .operating-system-grid,
   .niche-showcase,
+  .programme-layout,
+  .revenue-blueprint,
+  .editorial-grid,
+  .prospection-layout,
   .cta-inner,
   .footer-grid {
     grid-template-columns: 1fr;
+  }
+
+  .programme-layout,
+  .revenue-blueprint,
+  .editorial-grid,
+  .prospection-layout {
+    gap: 42px;
+  }
+
+  .programme-intro {
+    position: static;
+    max-width: 680px;
+  }
+
+  .niche-proof-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .niche-proof-links a:nth-child(2) {
+    border-right: 0;
+  }
+
+  .niche-proof-links a:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--line);
   }
 
   .hero-grid {
@@ -2023,6 +2450,10 @@ input {
     font-size: 3.55rem;
   }
 
+  .pricing-hero .hero-title {
+    font-size: 3.4rem;
+  }
+
   .hero-subtitle {
     font-size: 2.1rem;
   }
@@ -2058,6 +2489,10 @@ input {
     grid-template-columns: 1fr;
   }
 
+  .pricing-toolbar {
+    align-items: flex-start;
+  }
+
   .article-sidebar {
     position: static;
   }
@@ -2090,6 +2525,14 @@ input {
   .hero h1,
   .hero-title {
     font-size: 3.18rem;
+  }
+
+  .pricing-hero {
+    padding-top: 46px;
+  }
+
+  .pricing-hero .hero-title {
+    font-size: 2.65rem;
   }
 
   .hero-subtitle {
@@ -2137,8 +2580,68 @@ input {
     width: 100%;
   }
 
+  .pricing-toolbar {
+    flex-direction: column;
+  }
+
+  .pricing-toggle {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .section {
     padding: 62px 0;
+  }
+
+  .programme-step {
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .programme-step-number {
+    width: 44px;
+    height: 44px;
+  }
+
+  .programme-steps::before {
+    left: 21px;
+  }
+
+  .programme-step-copy h2,
+  .prospection-copy h2 {
+    font-size: 1.5rem;
+  }
+
+  .programme-intro h2,
+  .revenue-blueprint h2,
+  .editorial-copy h2 {
+    font-size: 1.8rem;
+  }
+
+  .compact-check-list,
+  .revenue-path,
+  .niche-proof-links {
+    grid-template-columns: 1fr;
+  }
+
+  .niche-proof-links a,
+  .niche-proof-links a:nth-child(2) {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .niche-proof-links a:last-child {
+    border-bottom: 0;
+  }
+
+  .editorial-copy-accent {
+    border-left-width: 6px;
+    padding-left: 20px;
+  }
+
+  .prospection-visual {
+    padding: 20px;
+    box-shadow: 6px 6px 0 var(--ink);
   }
 
   .showcase-shell {

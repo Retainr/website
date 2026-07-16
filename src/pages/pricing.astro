@@ -11,22 +11,28 @@ import { signupUrl } from "@/data/site";
   description="Choose a Retainr plan for selling niche services, onboarding clients, managing delivery, and turning trusted expertise into recurring revenue."
   path="/pricing/"
 >
-  <section class="hero center">
+  <section class="hero center pricing-hero">
     <div class="container">
       <div class="hero-copy" style="justify-items:center">
         <span class="eyebrow">Pricing for Creator Revenue Systems</span>
         <h1 class="hero-title">Choose the plan that turns expertise into recurring client revenue.</h1>
-        <p>Start with one productized offer, one branded signup path, and one portal where clients can pay, onboard, request support, and continue into retainers.</p>
+        <p>Start with the clients who already trust your work. Package what they need next, deliver it through your brand, and grow into predictable monthly revenue.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pricing-section">
+    <div class="container">
+      <div class="pricing-toolbar">
+        <div>
+          <strong>Simple plans. Zero transaction fees.</strong>
+          <span>Switch billing anytime as your client base grows.</span>
+        </div>
         <div class="pricing-toggle" aria-label="Billing period">
           <button type="button" class="active" data-billing="monthly">{pricing.billing.monthlyLabel}</button>
           <button type="button" data-billing="yearly">{pricing.billing.yearlyLabel}</button>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
       <div class="pricing-grid">
         {pricing.plans.map((plan) => (
           <article class:list={["pricing-card", { highlight: plan.highlight }]}>
@@ -38,7 +44,7 @@ import { signupUrl } from "@/data/site";
               <span data-monthly={plan.monthly} data-yearly={plan.yearly}>{plan.monthly}</span>
               <small>/month</small>
             </div>
-            <a href={signupUrl} class:list={["button", { yellow: plan.highlight }]}>{plan.cta}</a>
+            <a href={`${signupUrl}?plan=${plan.slug}`} class:list={["button", { yellow: plan.highlight }]}>{plan.cta}</a>
             <ul class="check-list">
               {plan.features.map((feature) => <li>{feature}</li>)}
             </ul>
@@ -49,22 +55,25 @@ import { signupUrl } from "@/data/site";
   </section>
 
   {pricing.featuredFeature && (
-    <section class="section dark">
+    <section class="section prospection-section">
       <div class="container">
-        <div class="section-heading centered">
-          <span class="eyebrow">{pricing.featuredFeature.eyebrow}</span>
-          <h2>{pricing.featuredFeature.headline}</h2>
-          <p>{pricing.featuredFeature.description}</p>
-        </div>
-        <div class="page-grid">
-          <article class="page-section">
+        <div class="prospection-layout">
+          <article class="prospection-copy">
             <span class="eyebrow">{pricing.featuredFeature.name}</span>
-            <h2>Prospection built into the Retainr revenue method</h2>
+            <h2>{pricing.featuredFeature.headline}</h2>
+            <p>{pricing.featuredFeature.description}</p>
             <p>{pricing.featuredFeature.note}</p>
             <ul class="check-list">
               {pricing.featuredFeature.bullets.map((bullet) => <li>{bullet}</li>)}
             </ul>
           </article>
+          <div class="prospection-visual" aria-label="Magic Prospections workflow">
+            <span class="trial">{pricing.featuredFeature.eyebrow}</span>
+            <div class="prospection-node"><strong>01</strong><span>Define your exact expertise and ideal buyer</span></div>
+            <div class="prospection-node"><strong>02</strong><span>Find matched companies and relevant outreach angles</span></div>
+            <div class="prospection-node"><strong>03</strong><span>Move warm replies into Retainr onboarding</span></div>
+            <a href={`${signupUrl}?plan=magic-prospections`} class="button">Join Early Access</a>
+          </div>
         </div>
       </div>
     </section>

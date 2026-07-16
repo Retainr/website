@@ -75,73 +75,54 @@ const methodSteps = ["Package", "Sell", "Onboard", "Deliver", "Retain"];
   )}
 
   <!-- Dynamic Page Sections -->
-  <section class="section">
-    <div class="container page-grid">
-      {page.sections.map((section) => (
-        <article class="page-section">
-          <span class="eyebrow">Retainr</span>
-          <h2>{section.title}</h2>
-          <p>{section.body}</p>
-          {section.points && (
-            <ul class="check-list">
-              {section.points.map((point) => <li>{point}</li>)}
-            </ul>
-          )}
-        </article>
-      ))}
+  <section class="section programme-section">
+    <div class="container programme-layout">
+      <aside class="programme-intro">
+        <span class="eyebrow">The Retainr Method</span>
+        <h2>Move from a clear offer to a client relationship that lasts.</h2>
+        <p>Each part of the experience should remove uncertainty for the buyer and make the next step obvious.</p>
+        <a href="/method/" class="text-link">Explore the complete method <span aria-hidden="true">→</span></a>
+      </aside>
+      <div class="programme-steps">
+        {page.sections.map((section, index) => (
+          <article class="programme-step">
+            <div class="programme-step-number">{String(index + 1).padStart(2, "0")}</div>
+            <div class="programme-step-copy">
+              <h2>{section.title}</h2>
+              <p>{section.body}</p>
+              {section.points && (
+                <ul class="check-list compact-check-list">
+                  {section.points.map((point) => <li>{point}</li>)}
+                </ul>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
 
-      <!-- Creator Revenue System -->
-      <article class="page-section">
+  <section class="section revenue-blueprint-section">
+    <div class="container revenue-blueprint">
+      <article class="revenue-blueprint-copy">
         <span class="eyebrow">Creator revenue system</span>
-        <h2>How this page connects to recurring revenue</h2>
+        <h2>Build beyond the first sale.</h2>
         <p>
           Retainr is built for digital creators and niche experts who already have trusted expertise but need a better system for selling it. The goal is not just to publish a page, collect a lead, or close one project. The goal is to turn a buyer into a client, a client into a repeat client, and repeat work into a clear recurring offer that can be managed without scattered tools.
         </p>
-        <ul class="check-list">
-          <li>Package the service into a specific offer clients can understand quickly</li>
-          <li>Send buyers into a branded signup and onboarding flow</li>
-          <li>Attach orders, files, tasks, tickets, approvals, and payment context to one client record</li>
-          <li>Use the first delivery to introduce the next recurring plan</li>
-        </ul>
       </article>
+      <ol class="revenue-path" aria-label="Retainr recurring revenue path">
+        <li><strong>Package</strong><span>Make the first outcome easy to understand and buy.</span></li>
+        <li><strong>Onboard</strong><span>Collect payment, context, files, and expectations.</span></li>
+        <li><strong>Deliver</strong><span>Keep progress, requests, and approvals in one branded place.</span></li>
+        <li><strong>Retain</strong><span>Turn the next ongoing need into a natural monthly plan.</span></li>
+      </ol>
+    </div>
+  </section>
 
-      <!-- Updated Niche Examples -->
-      <article class="page-section">
-        <span class="eyebrow">Niche examples</span>
-        <h2>Who can use this workflow?</h2>
-        <p>
-          This workflow is designed specifically for digital creators and niche service experts who want to turn their expertise into predictable monthly revenue. Each of these niches has a different service promise, but they all benefit from the same operating model: sell a clear package, collect the right client information, deliver through a professional portal, and create a reason to continue.
-        </p>
-        <ul class="check-list">
-          <li><a href="/niches/ai-experts/">AI Consultants & Automation Specialists</a> can sell audits, implementation sprints, and monthly optimization retainers</li>
-          <li><a href="/niches/seo-experts/">SEO Experts & Growth Marketers</a> can sell audits, content roadmaps, and monthly growth retainers</li>
-          <li><a href="/niches/designers/">Brand & Web Designers</a> can sell brand sprints, landing pages, and monthly creative retainers</li>
-          <li><a href="/niches/life-coaches/">Digital Life & Business Coaches</a> can sell transformation programs and monthly accountability retainers</li>
-          <li><a href="/niches/info-products/">Info Product & Online Course Creators</a> can sell courses, templates, and monthly implementation coaching</li>
-          <li><a href="/niches/cartoonists/">Illustrators, Cartoonists & Visual Creators</a> can sell character design packages and monthly visual content retainers</li>
-          <li><a href="/niches/nutritionists/">Nutritionists & Wellness Creators</a> can sell structured programmes and recurring accountability</li>
-          <li><a href="/niches/crypto-experts/">Crypto Experts & Web3 Educators</a> can sell education retainers with clearer boundaries</li>
-          <li><a href="/niches/podcast-producers/">Podcast Producers & Audio Editors</a> can sell monthly production workflows</li>
-        </ul>
-      </article>
-
-      <!-- Next Steps -->
-      <article class="page-section">
-        <span class="eyebrow">Next steps</span>
-        <h2>Build the full Retainr path</h2>
-        <p>
-          A strong Retainr page should always lead somewhere useful. If a visitor is comparing tools, send them to pricing. If they are learning to package services, send them to productize. If they want to improve conversion, send them to sales funnels and client onboarding. This internal link structure makes Retainr the obvious platform for creators who want to turn existing clients into recurring revenue.
-        </p>
-        <ul class="check-list">
-          <li><a href="/productize/">Productize your service offer</a></li>
-          <li><a href="/pricing/">Choose a Retainr plan</a></li>
-          <li><a href="/client-onboarding/">Improve client onboarding</a></li>
-          <li><a href="/income/">Turn expertise into revenue</a></li>
-        </ul>
-      </article>
-
-      <!-- Client Experience -->
-      <article class="page-section">
+  <section class="section editorial-section">
+    <div class="container editorial-grid">
+      <article class="editorial-copy">
         <span class="eyebrow">Client experience</span>
         <h2>What clients should feel after clicking through</h2>
         <p>
@@ -150,7 +131,7 @@ const methodSteps = ["Package", "Sell", "Onboard", "Deliver", "Retain"];
         <p>
           For digital creators, this matters because trust is often personal. A client hires an AI consultant, SEO expert, designer, coach, info product creator, or illustrator because they believe in that expert. The software should reinforce that trust by keeping the expert's brand visible and the process clear from first payment to renewal.
         </p>
-        <ul class="check-list">
+        <ul class="check-list compact-check-list">
           <li>Clients see the purchased service and next steps immediately</li>
           <li>Requests, uploads, tickets, and approvals stay attached to the project</li>
           <li>Recurring plans feel like a natural continuation, not a surprise upsell</li>
@@ -158,23 +139,43 @@ const methodSteps = ["Package", "Sell", "Onboard", "Deliver", "Retain"];
         </ul>
       </article>
 
-      <!-- Implementation Playbook -->
-      <article class="page-section">
+      <article class="editorial-copy editorial-copy-accent">
         <span class="eyebrow">Implementation playbook</span>
-        <h2>How to launch this page as a working offer</h2>
+        <h2>How to launch a working offer</h2>
         <p>
           Start with one offer that already sells manually. Write the outcome in plain language, define the deliverables, decide what information is required from the client, and publish the offer with a signup link. After the first delivery, identify the work that should repeat monthly: reporting, check-ins, support, new creative output, implementation, optimization, or advisory access. That repeated work becomes the recurring revenue plan.
         </p>
         <p>
-          Retainr should then become the place where this offer is sold and operated. The package creates the buying moment, onboarding gathers the right context, the portal centralizes the relationship, tickets handle support, and tasks keep delivery moving. This is the difference between having a page that only explains a feature and having a page that creates a complete revenue path.
+          Retainr should then become the place where this offer is sold and operated. The package creates the buying moment, onboarding gathers the right context, the portal centralizes the relationship, tickets handle support, and tasks keep delivery moving. This is the difference between explaining a service and operating a complete revenue path.
         </p>
-        <ul class="check-list">
+        <ul class="check-list compact-check-list">
           <li>Publish one starter package and one recurring upgrade</li>
           <li>Use niche-specific onboarding questions wherever possible</li>
           <li>Connect pricing, sales funnel, onboarding, and income pages through internal links</li>
           <li>Review client questions monthly and turn repeated questions into better intake prompts</li>
         </ul>
       </article>
+    </div>
+  </section>
+
+  <section class="section niche-proof-section">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">Built for specialist work</span>
+        <h2>One method, adapted to the way your expertise creates value.</h2>
+        <p>Start with the playbook closest to your business. Every path leads to niche-aware Retainr signup and onboarding.</p>
+      </div>
+      <div class="niche-proof-links">
+        <a href="/niches/ai-experts/"><strong>AI consultants</strong><span>Audits to optimization retainers</span></a>
+        <a href="/niches/seo-experts/"><strong>SEO experts</strong><span>Roadmaps to monthly growth</span></a>
+        <a href="/niches/designers/"><strong>Designers</strong><span>Sprints to creative desks</span></a>
+        <a href="/niches/digital-coaches/"><strong>Digital coaches</strong><span>Programs to accountability plans</span></a>
+      </div>
+      <div class="next-links" aria-label="Continue exploring Retainr">
+        <a href="/productize/">Productize your offer <span aria-hidden="true">→</span></a>
+        <a href="/client-onboarding/">Improve onboarding <span aria-hidden="true">→</span></a>
+        <a href="/pricing/">Choose a plan <span aria-hidden="true">→</span></a>
+      </div>
     </div>
   </section>
 
