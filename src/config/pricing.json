@@ -1,6 +1,5 @@
 {
   "currency": "$",
-  "trialLabel": "Ending soon - $1 trial",
   "billing": {
     "monthlyLabel": "Monthly",
     "yearlyLabel": "Yearly",
@@ -23,6 +22,7 @@
     {
       "slug": "solo-creator",
       "name": "Solo Creator",
+      "badge": "Ending soon - $1 trial",
       "monthly": 25,
       "yearly": 19,
       "description": "Ideal for independent experts who need a white-label system to sell one niche offer, onboard clients, and manage delivery.",
@@ -39,6 +39,7 @@
     {
       "slug": "teams",
       "name": "Teams",
+      "badge": "Ending soon - $1 trial",
       "monthly": 77,
       "yearly": 69,
       "description": "Ideal for small creator-led teams that need a white-label system to sell packages, onboard clients, and manage delivery.",
@@ -56,6 +57,7 @@
     {
       "slug": "magic-prospections",
       "name": "Magic Prospections",
+      "badge": "Coming soon - early access",
       "monthly": 199,
       "yearly": 179,
       "description": "Upcoming lead generation and prospection system for technical creators who want targeted prospects, cold outreach workflows, and a direct path from reply to paid client.",

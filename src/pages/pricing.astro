@@ -4,6 +4,12 @@ import CtaBand from "@/components/CtaBand.astro";
 import Testimonials from "@/components/Testimonials.astro";
 import pricing from "@/config/pricing.json";
 import { signupUrl } from "@/data/site";
+
+const pricedPlans = pricing.plans.map((plan) => ({
+  ...plan,
+  yearlySavings: (plan.monthly - plan.yearly) * 12,
+  yearlyTotal: plan.yearly * 12,
+}));
 ---
 
 <BaseLayout
@@ -26,17 +32,17 @@ import { signupUrl } from "@/data/site";
       <div class="pricing-toolbar">
         <div>
           <strong>Simple plans. Zero transaction fees.</strong>
-          <span>Switch billing anytime as your client base grows.</span>
+          <span>Compare monthly and yearly pricing before you begin signup.</span>
         </div>
         <div class="pricing-toggle" aria-label="Billing period">
-          <button type="button" class="active" data-billing="monthly">{pricing.billing.monthlyLabel}</button>
-          <button type="button" data-billing="yearly">{pricing.billing.yearlyLabel}</button>
+          <button type="button" class="active" data-billing="monthly" aria-pressed="true">{pricing.billing.monthlyLabel}</button>
+          <button type="button" data-billing="yearly" aria-pressed="false">{pricing.billing.yearlyLabel} <span>Save up to $240</span></button>
         </div>
       </div>
       <div class="pricing-grid">
-        {pricing.plans.map((plan) => (
-          <article class:list={["pricing-card", { highlight: plan.highlight }]}>
-            <div class="trial">{pricing.trialLabel}</div>
+        {pricedPlans.map((plan) => (
+          <article class:list={["pricing-card", { highlight: plan.highlight }]} data-plan-card={plan.slug}>
+            <div class="trial">{plan.badge}</div>
             <h3>{plan.name}</h3>
             <p class="muted">{plan.description}</p>
             <div class="price">
@@ -44,7 +50,19 @@ import { signupUrl } from "@/data/site";
               <span data-monthly={plan.monthly} data-yearly={plan.yearly}>{plan.monthly}</span>
               <small>/month</small>
             </div>
-            <a href={`${signupUrl}?plan=${plan.slug}`} class:list={["button", { yellow: plan.highlight }]}>{plan.cta}</a>
+            <p
+              class="price-detail"
+              data-price-detail
+              data-monthly-detail="Billed monthly"
+              data-yearly-detail={`${pricing.currency}${plan.yearlyTotal} billed yearly`}
+            >Billed monthly</p>
+            <p class="price-saving" data-price-saving hidden>{`Save ${pricing.currency}${plan.yearlySavings} each year`}</p>
+            <a
+              href={`${signupUrl}?plan=${plan.slug}&billing=monthly`}
+              data-plan-cta
+              data-signup-base={`${signupUrl}?plan=${plan.slug}`}
+              class:list={["button", { yellow: plan.highlight }]}
+            >{plan.cta}</a>
             <ul class="check-list">
               {plan.features.map((feature) => <li>{feature}</li>)}
             </ul>
@@ -72,7 +90,7 @@ import { signupUrl } from "@/data/site";
             <div class="prospection-node"><strong>01</strong><span>Define your exact expertise and ideal buyer</span></div>
             <div class="prospection-node"><strong>02</strong><span>Find matched companies and relevant outreach angles</span></div>
             <div class="prospection-node"><strong>03</strong><span>Move warm replies into Retainr onboarding</span></div>
-            <a href={`${signupUrl}?plan=magic-prospections`} class="button">Join Early Access</a>
+            <a href={`${signupUrl}?plan=magic-prospections&intent=early-access`} class="button">Join Early Access</a>
           </div>
         </div>
       </div>
@@ -112,19 +130,44 @@ import { signupUrl } from "@/data/site";
     </div>
   </section>
 
-  <CtaBand title="Start Selling Today" text="Create one niche offer, package the first paid outcome, start promoting the signup link, and manage delivery from a branded client portal." />
+  <CtaBand
+    title="Start with one offer and one client journey"
+    text="Use the $1 trial to package the first paid outcome, inspect your signup flow, and manage delivery from a branded client portal."
+    href={`${signupUrl}?plan=solo-creator&billing=monthly`}
+  />
   <Testimonials />
 
   <script>
     const buttons = document.querySelectorAll("[data-billing]");
     const prices = document.querySelectorAll("[data-monthly][data-yearly]");
+    const details = document.querySelectorAll<HTMLElement>("[data-price-detail]");
+    const savings = document.querySelectorAll<HTMLElement>("[data-price-saving]");
+    const planCtas = document.querySelectorAll<HTMLAnchorElement>("[data-plan-cta]");
+
     buttons.forEach((button) => {
       button.addEventListener("click", () => {
         const billing = button.getAttribute("data-billing") || "monthly";
-        buttons.forEach((item) => item.classList.toggle("active", item === button));
+        buttons.forEach((item) => {
+          const active = item === button;
+          item.classList.toggle("active", active);
+          item.setAttribute("aria-pressed", String(active));
+        });
         prices.forEach((price) => {
           const next = price.getAttribute(`data-${billing}`);
           if (next) price.textContent = next;
+        });
+        details.forEach((detail) => {
+          detail.textContent = detail.dataset[`${billing}Detail`] || "";
+        });
+        savings.forEach((saving) => {
+          saving.hidden = billing !== "yearly";
+        });
+        planCtas.forEach((cta) => {
+          const base = cta.dataset.signupBase;
+          if (!base) return;
+          const destination = new URL(base);
+          destination.searchParams.set("billing", billing);
+          cta.href = destination.toString();
         });
       });
     });

@@ -1823,6 +1823,14 @@ input {
   padding: 10px 14px;
 }
 
+.pricing-toggle button span {
+  display: block;
+  margin-top: 2px;
+  color: inherit;
+  font-size: 0.68rem;
+  opacity: 0.72;
+}
+
 .pricing-toggle button.active {
   background: var(--ink);
   color: var(--white);
@@ -1858,6 +1866,25 @@ input {
 .price small {
   color: var(--muted);
   font-size: 1rem;
+}
+
+.price-detail,
+.price-saving {
+  margin: -10px 0 0;
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.price-detail {
+  color: var(--muted);
+}
+
+.price-saving {
+  width: fit-content;
+  border-radius: 5px;
+  background: rgba(183, 205, 75, 0.24);
+  color: var(--ink);
+  padding: 6px 8px;
 }
 
 .trial {
