@@ -5,8 +5,8 @@ import { testimonials } from "@/data/site";
 <section class="section">
   <div class="container">
     <div class="section-heading centered">
-      <span class="eyebrow">Wall of Love</span>
-      <h2>See why niche creators and expert-led service teams love Retainr</h2>
+      <span class="eyebrow">Customer-Reported Outcomes</span>
+      <h2>What Retainr customers say changed in their client operation</h2>
     </div>
     <div class="testimonial-grid">
       {testimonials.map((item) => (
@@ -19,7 +19,7 @@ import { testimonials } from "@/data/site";
               <path d="M18 19H14C13.45 19 13 18.55 13 18V14C13 13.45 13.45 13 14 13H18C18.55 13 19 13.45 19 14V18C19 18.55 18.55 19 18 19Z" fill="#FF4D18"/>
             </svg>
           </div>
-          <p>"{item.quote}"</p>
+          <p>{item.quote}</p>
           <strong>{item.name}</strong>
           <div class="muted">{item.role}</div>
         </article>

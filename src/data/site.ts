@@ -14,7 +14,7 @@ export const navLinks = [
   { href: "/method/", label: "Method" },
   { href: "/features/", label: "Features" },
   { href: "/pricing/", label: "Pricing" },
-  { href: "/case-studies/", label: "Results" },
+  { href: "/case-studies/", label: "Use Cases" },
   { href: "/blog/", label: "Blog" },
 ];
 
@@ -46,7 +46,7 @@ export const resourceLinks = [
 
 export const companyLinks = [
   { href: "/alternatives-compare-agency-client-management-software/", label: "Compare" },
-  { href: "/case-studies/", label: "Case Studies" },
+  { href: "/case-studies/", label: "Creator Use Cases" },
   { href: "/blog/", label: "Blog" },
   { href: "/brand-assets/", label: "Brand Assets" },
   { href: "/about/", label: "About" },
@@ -60,21 +60,21 @@ export const companyLinks = [
 export const testimonials = [
   {
     quote:
-      "Retainr turned my scattered SEO audits, reports, and follow-up work into one clear monthly client system.",
+      "Reports simpler client management, better small-team collaboration, and clearer visibility into client relationships.",
     name: "Raul",
-    role: "SEO consultant",
+    role: "CEO",
   },
   {
     quote:
-      "My coaching clients now know exactly where to pay, upload context, ask questions, and continue after the first programme.",
+      "Says Retainr helped the business retain clients while supporting growth.",
     name: "Hanna",
-    role: "Digital coach",
+    role: "Business owner",
   },
   {
     quote:
-      "The portal makes my design retainers feel like a product clients can understand, buy, and renew.",
+      "Reports a more efficient, organized way to keep client interactions in one place.",
     name: "Rajesh",
-    role: "Brand designer",
+    role: "Freelancer",
   },
 ];
 

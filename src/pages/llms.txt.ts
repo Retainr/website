@@ -20,7 +20,7 @@ ${link("/", "Retainr", "Product overview and the promise to turn client work int
 ${link("/method/", "The Retainr Method", "The step-by-step operating method for packaging, selling, onboarding, delivery, and retention.")}
 ${link("/features/", "Features", "Client portal, packages, payments, onboarding, tasks, files, support, and automation.")}
 ${link("/pricing/", "Pricing", "Config-driven plans for solo creators, teams, and Magic Prospections early access.")}
-${link("/case-studies/", "Results", "Examples of creator and specialist client revenue workflows.")}
+${link("/case-studies/", "Creator Use Cases", "Scenario-based examples of creator and specialist client revenue workflows.")}
 ${link("/about-retainr/", "About Retainr", "Company purpose, intended audience, and product mission.")}
 
 ## Core Workflows

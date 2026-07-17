@@ -844,13 +844,13 @@ export const pages: MarketingPage[] = [
   },
   {
     slug: "case-studies",
-    title: "Retainr Case Studies & Results",
+    title: "Retainr Creator Use Cases",
     description:
       "See how niche experts and digital creators can use the Retainr Method to package expertise, improve delivery, and create recurring revenue.",
-    eyebrow: "Results",
+    eyebrow: "Creator Use Cases",
     hero: "From scattered services to structured client revenue",
     subhero:
-      "These scenario-based case studies show the transformation Retainr is built for: clearer offers, cleaner onboarding, stronger delivery, and recurring revenue paths.",
+      "These scenario-based playbooks show the transformation Retainr is built for: clearer offers, cleaner onboarding, stronger delivery, and recurring revenue paths.",
     image: "/assets/revenue-graph.png",
     sections: [
       {
