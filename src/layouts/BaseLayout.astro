@@ -7,10 +7,19 @@ type Props = {
   title: string;
   description?: string;
   path?: string;
+  image?: string;
+  type?: "website" | "article";
 };
 
-const { title, description = "Retainr helps digital creators and niche experts package expertise, sell paid services, onboard clients, and build recurring revenue from one branded platform.", path = "/" } = Astro.props;
+const {
+  title,
+  description = "Retainr helps digital creators and niche experts package expertise, sell paid services, onboard clients, and build recurring revenue from one branded platform.",
+  path = "/",
+  image = "/assets/dashboard-hero.png",
+  type = "website",
+} = Astro.props;
 const canonical = new URL(path, Astro.site ?? "https://www.retainr.io").toString();
+const socialImage = new URL(image, Astro.site ?? "https://www.retainr.io").toString();
 ---
 
 <!doctype html>
@@ -21,10 +30,12 @@ const canonical = new URL(path, Astro.site ?? "https://www.retainr.io").toString
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={type} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content="/assets/dashboard-hero.png" />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:alt" content={title} />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={socialImage} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/png" href="/assets/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />

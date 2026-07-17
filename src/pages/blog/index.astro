@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { blogCategories, primaryBlogArticles } from "@/data/blog";
+
+const featuredBlogArticles = primaryBlogArticles.filter((article) => article.featured).slice(0, 6);
 ---
 
 <BaseLayout
@@ -14,7 +16,7 @@ import { blogCategories, primaryBlogArticles } from "@/data/blog";
         <span class="eyebrow">Retainr Blog</span>
         <h1 class="hero-title">Evergreen growth guides for digital creators</h1>
         <p>
-          Updated for 2026: practical articles for niche experts, indie creators, and creator-led service businesses that want to sell online content, package services, and turn existing clients into recurring revenue.
+          Practical, source-aware resources for niche experts who want to package services, use current tools responsibly, and turn successful client work into recurring revenue.
         </p>
       </div>
     </div>
@@ -34,6 +36,31 @@ import { blogCategories, primaryBlogArticles } from "@/data/blog";
     </div>
   </section>
 
+  <section class="section featured-guides-section">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">Start here</span>
+        <h2>Field guides built to solve the whole problem</h2>
+        <p>Detailed workflows, decision points, checklists, current tool guidance, and a direct path from advice to implementation.</p>
+      </div>
+      <div class="featured-blog-grid">
+        {featuredBlogArticles.map((article) => (
+          <article class="featured-blog-card">
+            <a class="blog-card-image" href={`/blog/${article.slug}/`} aria-label={`Read ${article.title}`}>
+              <img src={article.image} alt={article.imageAlt} loading="lazy" />
+            </a>
+            <div class="featured-blog-copy">
+              <span class="eyebrow">{article.category}</span>
+              <h3><a href={`/blog/${article.slug}/`}>{article.title}</a></h3>
+              <p>{article.description}</p>
+              <a class="text-link" href={`/blog/${article.slug}/`}>Read the field guide <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <section class="section">
     <div class="container">
       <div class="section-heading">
@@ -41,16 +68,72 @@ import { blogCategories, primaryBlogArticles } from "@/data/blog";
         <h2>Updated from the original Retainr article library</h2>
         <p>Practical, evergreen guidance for packaging expertise, improving the client journey, and building revenue that continues after the first project.</p>
       </div>
-      <div class="blog-index-grid">
+      <div class="blog-tools" role="search" aria-label="Search Retainr guides">
+        <label>
+          <span>Search guides</span>
+          <input type="search" placeholder="Try AI SEO, onboarding, retainers..." data-blog-search />
+        </label>
+        <label>
+          <span>Topic</span>
+          <select data-blog-category>
+            <option value="">All topics</option>
+            {blogCategories.map((category) => <option value={category}>{category}</option>)}
+          </select>
+        </label>
+      </div>
+      <p class="blog-results" aria-live="polite" data-blog-results>{primaryBlogArticles.length} guides</p>
+      <div class="blog-index-grid" data-blog-grid>
         {primaryBlogArticles.map((article) => (
-          <article class="blog-card">
-            <span class="eyebrow">{article.category}</span>
-            <h3><a href={`/blog/${article.slug}/`}>{article.title}</a></h3>
-            <p>{article.description}</p>
-            <div class="muted">Updated {article.updatedAt} for {article.audience}</div>
+          <article
+            class="blog-card"
+            data-blog-card
+            data-category={article.category}
+            data-search={`${article.title} ${article.description} ${article.category} ${article.audience}`.toLowerCase()}
+          >
+            <a class="blog-card-image" href={`/blog/${article.slug}/`} aria-label={`Read ${article.title}`}>
+              <img src={article.image} alt={article.imageAlt} loading="lazy" />
+            </a>
+            <div class="blog-card-copy">
+              <span class="eyebrow">{article.category}</span>
+              <h3><a href={`/blog/${article.slug}/`}>{article.title}</a></h3>
+              <p>{article.description}</p>
+              <div class="muted">Reviewed {article.updatedAt} for {article.audience}</div>
+            </div>
           </article>
         ))}
       </div>
+      <div class="blog-empty" data-blog-empty hidden>
+        <h3>No guide matches that search yet.</h3>
+        <p>Try a broader problem, niche, or topic.</p>
+      </div>
     </div>
   </section>
+
+  <script>
+    const search = document.querySelector<HTMLInputElement>("[data-blog-search]");
+    const category = document.querySelector<HTMLSelectElement>("[data-blog-category]");
+    const cards = Array.from(document.querySelectorAll<HTMLElement>("[data-blog-card]"));
+    const resultLabel = document.querySelector<HTMLElement>("[data-blog-results]");
+    const emptyState = document.querySelector<HTMLElement>("[data-blog-empty]");
+
+    const filterGuides = () => {
+      const query = search?.value.trim().toLowerCase() ?? "";
+      const selectedCategory = category?.value ?? "";
+      let visible = 0;
+
+      cards.forEach((card) => {
+        const matchesQuery = !query || (card.dataset.search ?? "").includes(query);
+        const matchesCategory = !selectedCategory || card.dataset.category === selectedCategory;
+        const show = matchesQuery && matchesCategory;
+        card.hidden = !show;
+        if (show) visible += 1;
+      });
+
+      if (resultLabel) resultLabel.textContent = `${visible} ${visible === 1 ? "guide" : "guides"}`;
+      if (emptyState) emptyState.hidden = visible !== 0;
+    };
+
+    search?.addEventListener("input", filterGuides);
+    category?.addEventListener("change", filterGuides);
+  </script>
 </BaseLayout>
