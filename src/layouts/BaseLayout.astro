@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import CrispChat from "@/components/CrispChat.astro";
+import ConversionTracking from "@/components/ConversionTracking.astro";
 import { companyLinks, loginUrl, navLinks, resourceLinks, signupUrl, solutionLinks } from "@/data/site";
 
 type Props = {
@@ -124,6 +125,7 @@ const socialImage = new URL(image, Astro.site ?? "https://www.retainr.io").toStr
         menuButton.setAttribute("aria-expanded", String(isOpen));
       });
     </script>
+    <ConversionTracking />
     <CrispChat />
   </body>
 </html>

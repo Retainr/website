@@ -1,0 +1,37 @@
+<script is:inline>
+  (() => {
+    if (window.__retainrConversionTracking) return;
+    window.__retainrConversionTracking = true;
+
+    const recordSignupIntent = (destination, label) => {
+      const detail = {
+        event: "retainr_signup_intent",
+        page_path: window.location.pathname,
+        cta_label: label || "Signup",
+        niche: destination.searchParams.get("niche") || undefined,
+        plan: destination.searchParams.get("plan") || undefined,
+        billing: destination.searchParams.get("billing") || undefined,
+      };
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(detail);
+      window.dispatchEvent(new CustomEvent("retainr:signup-intent", { detail }));
+    };
+
+    document.addEventListener("click", (event) => {
+      const element = event.target instanceof Element ? event.target.closest("a") : null;
+      if (!(element instanceof HTMLAnchorElement) || !element.href.startsWith("https://app.retainr.io/signup")) return;
+
+      recordSignupIntent(new URL(element.href), element.textContent?.trim());
+    }, { capture: true });
+
+    document.addEventListener("submit", (event) => {
+      const form = event.target;
+      if (!(form instanceof HTMLFormElement)) return;
+
+      const destination = new URL(form.action, window.location.href);
+      if (!destination.href.startsWith("https://app.retainr.io/signup")) return;
+      recordSignupIntent(destination, "Footer email signup");
+    }, { capture: true });
+  })();
+</script>
