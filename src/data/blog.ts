@@ -1,3 +1,5 @@
+import { flagshipBlogArticles } from "./flagshipBlog";
+
 const sourcePaths = [
   "/blog/10-best-ai-productivity-tools",
   "/blog/10-best-ai-tools-for-business-efficiency-in-2024",
@@ -131,10 +133,14 @@ export type BlogArticle = {
   audience: string;
   updatedAt: string;
   legacy: boolean;
+  featured: boolean;
+  image: string;
+  imageAlt: string;
   sections: { title: string; body: string; points: string[] }[];
+  sources: { label: string; url: string }[];
 };
 
-const updatedAt = "2026-06-14";
+const updatedAt = "2026-07-17";
 const audiences = [
   "AI consultants",
   "SEO experts",
@@ -198,9 +204,74 @@ const audienceFor = (slug: string) => {
   return audiences[index];
 };
 
+const imageFor = (category: string) => {
+  if (category === "Automation") return "/assets/team-collab.png";
+  if (category === "Creator Marketing") return "/assets/revenue-graph.png";
+  if (category === "Selling Online") return "/assets/packages.png";
+  if (category === "Partnerships") return "/assets/support-mockup.svg";
+  if (category === "Niche Strategy") return "/assets/onboarding.png";
+  return "/assets/dashboard-hero.png";
+};
+
+const currentToolsFor = (slug: string, category: string) => {
+  if (/seo|keyword|search|industry|niche/i.test(slug)) {
+    return [
+      "Google Search Console for query, page, indexing, and conversion-path diagnosis",
+      "Google Trends for comparing language and seasonality, not predicting demand alone",
+      "Bing Webmaster Tools for additional crawl and search visibility signals",
+      "Google Analytics for qualified journeys and commercial outcomes",
+      "A structured content brief with primary-source citations and explicit update dates",
+      "Retainr for connecting high-intent guides to niche packages and onboarding",
+    ];
+  }
+
+  if (category === "Automation") {
+    return [
+      "ChatGPT or Claude for bounded research, transformation, and draft-review tasks",
+      "Perplexity for source discovery followed by verification against primary sources",
+      "Zapier or Make for accessible app-to-app workflows",
+      "n8n for teams that need more control over technical automation",
+      "A human review checklist for facts, permissions, privacy, and failure handling",
+      "Retainr for the client-facing package, intake, delivery, and support record",
+    ];
+  }
+
+  if (category === "Creator Marketing") {
+    return [
+      "Native platform analytics such as YouTube Studio and Instagram Insights",
+      "Google Trends for language and seasonal demand checks",
+      "A lightweight editorial calendar based on buyer questions",
+      "Descript or CapCut for transcript-led editing and repurposing workflows",
+      "Google Analytics for journeys that continue beyond views and followers",
+      "Retainr for turning qualified attention into a paid client path",
+    ];
+  }
+
+  if (category === "Selling Online") {
+    return [
+      "Stripe or the payment provider supported by your operating region",
+      "Google Analytics for purchase and assisted-conversion journeys",
+      "Microsoft Clarity for consent-aware usability observation",
+      "A reusable offer brief covering buyer, outcome, scope, proof, and next step",
+      "A client feedback loop for improving the package after delivery",
+      "Retainr for package checkout, onboarding, delivery, and recurring plans",
+    ];
+  }
+
+  return [
+    "Google Trends and first-party client questions for demand language",
+    "A simple CRM or pipeline with one recorded next action per lead",
+    "A reusable offer brief and niche-specific onboarding checklist",
+    "An AI assistant for bounded drafting with human review and data controls",
+    "Native analytics for the channel where the intended buyer finds you",
+    "Retainr for packages, payment, client delivery, support, and retention",
+  ];
+};
+
 const buildSections = (slug: string, title: string, category: string, audience: string) => {
   const dated = slug.includes("2024") || slug.includes("2025");
   const topic = title.replace(/ for .+$/, "").toLowerCase();
+  const currentTools = currentToolsFor(slug, category);
 
   return [
     {
@@ -244,6 +315,11 @@ const buildSections = (slug: string, title: string, category: string, audience: 
       ],
     },
     {
+      title: "Current tools worth considering",
+      body: `Tools change faster than the operating principles in this guide. This stack was reviewed on ${updatedAt} for ${audience}. Choose the smallest combination that supports the job, document what information each tool receives, and keep the client-facing journey coherent. A named tool is an example, not a requirement: replace it when another option better fits your region, privacy needs, budget, or technical control. The durable workflow is still to research carefully, make the expert decision, publish a clear offer, measure a real outcome, and preserve the client context.`,
+      points: currentTools,
+    },
+    {
       title: "Niche examples you can adapt",
       body: `For an AI consultant, this topic can become a recurring "Monthly AI Performance Retainer". For an SEO expert, it can become a monthly search visibility retainer. For a designer, it can become a monthly creative desk retainer. For a life coach, it can become ongoing accountability retainers. For info product creators, it can become implementation coaching retainers. For illustrators and cartoonists, it can become monthly visual content retainers. The same pattern applies across all six niches: package the repeated work, create a clean intake, and give clients a professional portal where the service feels organized.`,
       points: [
@@ -266,13 +342,13 @@ const buildSections = (slug: string, title: string, category: string, audience: 
       ],
     },
     {
-      title: "Internal links and SEO structure",
-      body: `This article should not sit alone. A strong SEO page points readers to the next Retainr page that matches their intent. Readers learning about ${topic} should be able to continue to productized services, pricing, client onboarding, sales funnels, and niche signup pages. That link structure helps search engines understand that Retainr is not just a blog about freelancing; it is the platform for digital creators who turn expertise into recurring revenue. The best internal links are contextual and useful: link offer strategy to productize, buying intent to pricing, client intake to onboarding, and niche-specific examples to the relevant onboarding page.`,
+      title: "Choose the reader's next useful step",
+      body: `Advice becomes useful when the reader can apply it. Someone learning about ${topic} may need to define a productized offer, compare operating costs, improve client onboarding, build a simple sales path, or see an example for their niche. Link each recommendation to the next action that resolves the reader's uncertainty. Offer strategy should continue to Productize, buying questions to Pricing, intake problems to Client Onboarding, and specialist examples to the relevant niche playbook. The goal is a coherent learning path that helps the reader move from understanding to implementation without another broad search.`,
       points: [
-        "Link informational content to commercial pages",
-        "Use evergreen URLs without year-based slugs where possible",
-        "Keep legacy URLs live for backlinks and historical rankings",
-        "Make Retainr the obvious next step from every guide",
+        "Link every recommendation to a relevant action",
+        "Use Productize when the reader needs to shape the offer",
+        "Use Client Onboarding when the delivery handoff is unclear",
+        "Use niche playbooks when a concrete specialist example helps",
       ],
     },
     {
@@ -406,18 +482,18 @@ const buildSections = (slug: string, title: string, category: string, audience: 
       ],
     },
     {
-      title: "How to refresh this page over time",
-      body: `Evergreen does not mean static. It means the URL should stay useful while the examples, positioning, and internal links improve. Review the article every quarter. Remove year-based claims that age quickly. Add new examples from digital creators. Update internal links when new niche pages or product pages are published. Expand sections that attract search impressions but do not convert. If clients ask the same question during sales calls, answer that question in the article and link to the right package. If a recurring plan becomes popular, mention it as an example. This lets Retainr preserve existing backlinks from the Webflow site while making the content more useful for today's creator economy.`,
+      title: "Keep the workflow useful as tools change",
+      body: `Evergreen guidance still needs maintenance. Review the workflow quarterly and replace tool-specific advice when the product, pricing, privacy model, or audience changes. Keep the durable decision logic and update examples, screenshots, and links. If clients ask the same question during sales calls, answer it directly. If a recurring package becomes more effective, add the example and explain why. A stable guide should become more useful through delivery evidence instead of receiving a cosmetic date change.`,
       points: [
-        "Keep URLs evergreen where possible",
-        "Preserve legacy URLs for backlinks",
-        "Refresh examples instead of rebuilding the article from scratch",
-        "Use client questions to decide what to expand next",
+        "Review named tools, prices, and product capabilities quarterly",
+        "Keep durable principles separate from temporary examples",
+        "Update screenshots when the real workflow changes",
+        "Use client questions and delivery evidence to guide revisions",
       ],
     },
     {
       title: "Why Retainr is the natural platform fit",
-      body: `The core promise of this article is operational: creators need a way to turn expertise into a business system. Many tools can publish content, collect forms, send invoices, or manage tasks. Retainr is different because the workflow is built around the client relationship. The buyer can purchase a service, enter a branded portal, submit details, follow progress, ask questions, and continue into a recurring plan. The creator can manage packages, clients, tasks, tickets, files, and payment context without rebuilding the workflow for every offer. That makes Retainr a stronger fit for niche experts than a generic website builder, form tool, invoice app, or task board. The article should make that conclusion obvious without forcing the reader through a hard sell.`,
+      body: `The practical need is operational: creators need a way to turn expertise into a business system. Many tools can publish content, collect forms, send invoices, or manage tasks. Retainr is built around the complete client relationship. The buyer can purchase a service, enter a branded portal, submit details, follow progress, ask questions, and continue into a recurring plan. The creator can manage packages, clients, tasks, tickets, files, and payment context without rebuilding the workflow for every offer. This is especially useful when the same specialist service is sold repeatedly and the first result creates an ongoing client need.`,
       points: [
         "Retainr connects selling and delivery",
         "Retainr keeps the creator's brand in front",
@@ -458,7 +534,7 @@ const aliasSources = [
 ];
 const allSlugs = [...canonicalSources, ...aliasSources];
 
-export const blogArticles: BlogArticle[] = allSlugs.map((slug) => {
+const migratedBlogArticles: BlogArticle[] = allSlugs.map((slug) => {
   const sourceSlug = canonicalSources.includes(slug)
     ? slug
     : canonicalSources.find((item) => evergreenSlug(item) === slug) ?? slug;
@@ -476,9 +552,18 @@ export const blogArticles: BlogArticle[] = allSlugs.map((slug) => {
     audience,
     updatedAt,
     legacy: slug !== canonicalSlug,
+    featured: false,
+    image: imageFor(category),
+    imageAlt: `${title} illustrated with the Retainr client workflow`,
     sections: buildSections(sourceSlug, title, category, audience),
+    sources: [],
   };
 });
+
+export const blogArticles: BlogArticle[] = [
+  ...flagshipBlogArticles,
+  ...migratedBlogArticles,
+];
 
 export const primaryBlogArticles = blogArticles.filter((article) => article.slug === article.canonicalSlug);
 
