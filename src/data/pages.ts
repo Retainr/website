@@ -300,7 +300,7 @@ export const pages: MarketingPage[] = [
     hero: "Your Brand. Your Products.",
     subhero:
       "Sell everything under your own logo, email, domain, client portal, service links, and branded app experience.",
-    image: "/assets/client-portal.svg",
+    image: "/assets/client-portal.webp",
     sections: [
       {
         title: "Sell under your own brand",
@@ -324,7 +324,7 @@ export const pages: MarketingPage[] = [
     hero: "Make Your Client Experience Professional",
     subhero:
       "Give clients one place to buy, pay, upload details, track work, request support, and stay aligned with your team.",
-    image: "/assets/client-portal.svg",
+    image: "/assets/client-portal.webp",
     sections: [
       {
         title: "A single home for every client",

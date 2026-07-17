@@ -697,7 +697,7 @@ export const flagshipBlogArticles: FlagshipBlogArticle[] = [
       "Design a branded client workspace for payment, onboarding, delivery, files, support, and renewals without creating a fragile tool chain.",
     category: "Client Operations",
     audience: "niche freelancers and small service teams",
-    image: "/assets/client-portal.svg",
+    image: "/assets/client-portal.webp",
     imageAlt: "Retainr white-label client portal interface",
     sections: [
       {
