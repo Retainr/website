@@ -1,0 +1,59 @@
+---
+type Props = {
+  audience?: string;
+  title: string;
+  intro: string;
+  challenges: string[];
+  outcomes: string[];
+  ctaHref?: string;
+  ctaLabel?: string;
+};
+
+const {
+  audience = "Independent experts",
+  title,
+  intro,
+  challenges,
+  outcomes,
+  ctaHref,
+  ctaLabel = "Build this client workflow",
+} = Astro.props;
+
+const rows = challenges.slice(0, 3).map((challenge, index) => ({
+  challenge,
+  outcome: outcomes[index] ?? outcomes[0],
+}));
+const headingId = `workday-${audience.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
+---
+
+<section class="section workday-section" aria-labelledby={headingId}>
+  <div class="container workday-shell">
+    <div class="workday-heading">
+      <div>
+        <span class="eyebrow">A Better Working Day</span>
+        <h2 id={headingId}>{title}</h2>
+      </div>
+      <p>{intro}</p>
+    </div>
+
+    <div class="workday-comparison" role="table" aria-label={`How Retainr improves work for ${audience}`}>
+      <div class="workday-row workday-labels" role="row">
+        <span aria-hidden="true"></span>
+        <strong role="columnheader">Without a client system</strong>
+        <strong role="columnheader">With Retainr</strong>
+      </div>
+      {rows.map((row, index) => (
+        <div class="workday-row" role="row">
+          <span class="workday-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+          <p class="workday-challenge" role="cell">{row.challenge}</p>
+          <p class="workday-outcome" role="cell">{row.outcome}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="workday-summary">
+      <p><strong>The practical result:</strong> less time reconstructing context, more attention available for paid expert work and better client decisions.</p>
+      {ctaHref && <a href={ctaHref} class="button ghost">{ctaLabel}</a>}
+    </div>
+  </div>
+</section>

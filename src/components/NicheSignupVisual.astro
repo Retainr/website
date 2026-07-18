@@ -13,7 +13,7 @@ const primaryOffer = niche.offers[0];
 const recurringOffer = niche.offers[niche.offers.length - 1];
 ---
 
-<div class="niche-signup-visual" role="img" aria-label={`${niche.name} signup route with audience context attached`}>
+<div class="niche-signup-visual" role="img" aria-label={`${niche.name} offer and onboarding path`}>
   <div class="visual-orbit">
     <NicheIcon niche={niche} variant="hero" />
     <div class="visual-ring one"></div>
@@ -23,7 +23,7 @@ const recurringOffer = niche.offers[niche.offers.length - 1];
   <div class="visual-panel">
     <div class="visual-topline">
       <span>{shortName}</span>
-      <strong>Audience context attached</strong>
+      <strong>Ready for the right intake</strong>
     </div>
     <h3>{niche.name}</h3>
     <p>{niche.tagline}</p>
@@ -43,7 +43,7 @@ const recurringOffer = niche.offers[niche.offers.length - 1];
       {niche.onboarding.slice(0, 3).map((item) => <span>{item}</span>)}
     </div>
 
-    <code>{signupHref}</code>
+    <code aria-label="Niche-specific signup link">{signupHref}</code>
   </div>
 </div>
 

@@ -3,6 +3,8 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import CtaBand from "@/components/CtaBand.astro";
 import Testimonials from "@/components/Testimonials.astro";
 import GuaranteeBand from "@/components/GuaranteeBand.astro";
+import MethodSteps from "@/components/MethodSteps.astro";
+import WorkdayRelief from "@/components/WorkdayRelief.astro";
 import NicheIcon from "@/components/NicheIcon.astro";
 import { signupUrl } from "@/data/site";
 import { featuredNiches, niches } from "@/data/niches";
@@ -42,6 +44,18 @@ const operatingModules = [
     body: "Package starter offers, core services, and ongoing plans so existing clients have a natural path to continue with you.",
   },
 ];
+
+const workdayChallenges = [
+  "A client says yes, then waits while you rebuild the proposal, invoice, intake form, and project board by hand.",
+  "Project context is split across email, DMs, payment links, folders, and task tools, so every update begins with a search.",
+  "A completed project goes quiet because the next useful service was never made visible or easy to buy.",
+];
+
+const workdayOutcomes = [
+  "Send one package link that carries the scope, payment, and onboarding into the right client workflow.",
+  "Keep the client, order, files, requests, decisions, and delivery status connected inside your branded portal.",
+  "Present the relevant support or optimization plan while the result, context, and relationship are still active.",
+];
 ---
 
 <BaseLayout
@@ -53,12 +67,12 @@ const operatingModules = [
   <section class="hero home-hero">
     <div class="container hero-grid">
       <div class="hero-copy">
-        <span class="eyebrow">The Client Revenue Platform for Creator-Led Businesses</span>
+        <span class="eyebrow">The Client Revenue System for Independent Experts</span>
         <h1>Turn Client Work Into <span>Recurring Revenue</span></h1>
         <h2 class="hero-subtitle">Package. Sell. Retain.</h2>
         <p>
-          Retainr gives niche experts one branded system to package services, get paid, onboard clients,
-          deliver the work, and turn a successful first engagement into the next monthly plan.
+          Stop rebuilding the business around every new project. Retainr connects your offer, payment,
+          onboarding, delivery, support, and next recurring plan in one client journey under your brand.
         </p>
         <div class="hero-actions">
           <a href={signupUrl} class="button">Start Your $1 Trial</a>
@@ -94,8 +108,8 @@ const operatingModules = [
   <section class="audience-strip" aria-labelledby="audience-strip-title">
     <div class="container audience-shell">
       <div class="audience-copy">
-        <span class="eyebrow">Built for Niche Creators</span>
-        <h2 id="audience-strip-title">Not another client database. Retainr is the storefront, onboarding path, and client portal for experts who sell outcomes.</h2>
+        <span class="eyebrow">Built for Niche Freelancers and Creators</span>
+        <h2 id="audience-strip-title">Not another client database. Retainr is the buying path, operating method, and client portal for experts who sell outcomes.</h2>
         <p>
           The best Retainr customers already have expertise people trust. The missing piece is a branded system that turns that expertise into packages, paid signup links, delivery workflows, and recurring offers.
         </p>
@@ -188,49 +202,17 @@ const operatingModules = [
     </div>
   </section>
 
-  <!-- The Retainr Method -->
-  <section id="method" class="section method-section">
-    <div class="container">
-      <div class="section-heading centered">
-        <span class="eyebrow">Turn What You Do Into Profitable Products</span>
-        <h2>A clear 6-step system to package, sell, deliver, and retain clients.</h2>
-        <p>Productize your expertise, onboard clients, automate delivery, and turn a strong first result into predictable monthly revenue.</p>
-      </div>
+  <WorkdayRelief
+    audience="freelancers and independent experts"
+    title="Give clients clarity without giving admin your day."
+    intro="AI can speed up production, but it also raises client expectations. Retainr protects the value clients keep paying for: clear judgment, reliable delivery, and continuity."
+    challenges={workdayChallenges}
+    outcomes={workdayOutcomes}
+    ctaHref="/method/"
+    ctaLabel="See the complete method"
+  />
 
-      <div class="feature-grid method-grid">
-        <article class="feature-card method-card">
-          <div class="feature-icon">1</div>
-          <h3>Package Your Expertise</h3>
-          <p>Turn what you already do into clear, buyable offers clients can understand in seconds.</p>
-        </article>
-        <article class="feature-card method-card">
-          <div class="feature-icon">2</div>
-          <h3>Publish & Sell Instantly</h3>
-          <p>Launch branded offers, take payment upfront, and remove the awkward sales conversation.</p>
-        </article>
-        <article class="feature-card method-card">
-          <div class="feature-icon">3</div>
-          <h3>Automated Onboarding</h3>
-          <p>Magic signup links + niche-specific intake questions so clients arrive ready to work.</p>
-        </article>
-        <article class="feature-card method-card">
-          <div class="feature-icon">4</div>
-          <h3>Deliver in Your Brand Portal</h3>
-          <p>Give clients a professional white-label experience that builds trust and reduces admin.</p>
-        </article>
-        <article class="feature-card method-card">
-          <div class="feature-icon">5</div>
-          <h3>Convert to Recurring</h3>
-          <p>Turn successful one-time deliveries into natural monthly retainers.</p>
-        </article>
-        <article class="feature-card method-card">
-          <div class="feature-icon">6</div>
-          <h3>Stabilize & Retain</h3>
-          <p>Automatic billing, renewals, health dashboards, and churn prevention, all on autopilot.</p>
-        </article>
-      </div>
-    </div>
-  </section>
+  <MethodSteps />
 
   <!-- Niche Section -->
   <section class="section creator-niche-section">

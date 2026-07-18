@@ -245,7 +245,7 @@ body.menu-open .menu-button span::after {
   color: var(--orange);
   font-size: 0.78rem;
   font-weight: 900;
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
 }
 
 .eyebrow::before {
@@ -317,7 +317,7 @@ body.menu-open .menu-button span::after {
   content: "WHITE LABEL";
   font-size: 0.72rem;
   font-weight: 950;
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
   transform: rotate(-5deg);
   box-shadow: 5px 5px 0 var(--ink);
 }
@@ -542,13 +542,138 @@ body.menu-open .menu-button span::after {
 .hero-system-card span {
   font-size: 0.72rem;
   font-weight: 950;
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
 .hero-system-card strong {
   font-size: 1rem;
   line-height: 1.2;
+}
+
+/* ============================================
+   FREELANCER WORKDAY COMPARISON
+   ============================================ */
+.workday-section {
+  background: var(--ink);
+  color: var(--white);
+}
+
+.workday-shell {
+  display: grid;
+  gap: 34px;
+}
+
+.workday-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.7fr);
+  gap: 64px;
+  align-items: end;
+}
+
+.workday-heading > div {
+  display: grid;
+  gap: 16px;
+}
+
+.workday-heading h2 {
+  margin: 0;
+  max-width: 16ch;
+  color: var(--white);
+  font-size: 3rem;
+  line-height: 1.05;
+}
+
+.workday-heading p,
+.workday-summary p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 1.08rem;
+  line-height: 1.65;
+}
+
+.workday-comparison {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.workday-row {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr) minmax(0, 1fr);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.workday-row > * {
+  margin: 0;
+  padding: 24px 28px;
+}
+
+.workday-row > * + * {
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.workday-labels > * {
+  padding-block: 14px;
+}
+
+.workday-labels strong {
+  color: var(--yellow);
+  font-size: 0.78rem;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.workday-number {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  color: var(--green);
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.workday-challenge,
+.workday-outcome {
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.workday-challenge {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.workday-outcome {
+  position: relative;
+  color: var(--white);
+  font-weight: 700;
+}
+
+.workday-outcome::before {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 12px;
+  border-radius: 999px;
+  background: var(--green);
+  content: "";
+}
+
+.workday-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.workday-summary p {
+  max-width: 720px;
+}
+
+.workday-summary strong {
+  color: var(--white);
+}
+
+.workday-summary .button {
+  flex: 0 0 auto;
 }
 
 /* ============================================
@@ -970,7 +1095,7 @@ body.menu-open .menu-button span::after {
   padding: 6px 9px;
   font-size: 0.72rem;
   font-weight: 950;
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
@@ -1030,7 +1155,7 @@ body.menu-open .menu-button span::after {
   padding: 0 14px;
   font-size: 0.82rem;
   font-weight: 950;
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
@@ -1057,7 +1182,7 @@ body.menu-open .menu-button span::after {
 .page-method-steps strong {
   color: var(--orange);
   font-size: 0.74rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
 }
 
 .blog-article-hero .hero-copy::after {
@@ -2618,6 +2743,7 @@ body.menu-open .menu-button span::after {
   .hero-grid,
   .audience-shell,
   .operating-system-grid,
+  .workday-heading,
   .niche-showcase,
   .programme-layout,
   .revenue-blueprint,
@@ -2626,6 +2752,15 @@ body.menu-open .menu-button span::after {
   .cta-inner,
   .footer-grid {
     grid-template-columns: 1fr;
+  }
+
+  .workday-heading {
+    gap: 20px;
+  }
+
+  .workday-heading h2 {
+    max-width: 18ch;
+    font-size: 2.4rem;
   }
 
   .programme-layout,
@@ -2862,9 +2997,36 @@ body.menu-open .menu-button span::after {
 
   .hero-actions,
   .email-form,
+  .workday-summary,
   .footer-bottom {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .workday-labels {
+    display: none;
+  }
+
+  .workday-row {
+    grid-template-columns: 44px minmax(0, 1fr);
+  }
+
+  .workday-row > * {
+    padding: 18px;
+  }
+
+  .workday-number {
+    grid-row: 1 / 3;
+    padding-inline: 10px;
+  }
+
+  .workday-outcome {
+    grid-column: 2;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .workday-heading h2 {
+    font-size: 2rem;
   }
 
   .button,
@@ -2957,6 +3119,14 @@ body.menu-open .menu-button span::after {
     font-size: 2rem;
     line-height: 1.06;
     overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .niche-hero h1 {
+    max-width: 100%;
+    font-size: 2.5rem;
+    line-height: 1.02;
+    overflow-wrap: break-word;
     word-break: normal;
   }
 

@@ -1,0 +1,33 @@
+---
+import { retainrMethodSteps } from "@/data/method";
+
+type Props = {
+  title?: string;
+  intro?: string;
+};
+
+const {
+  title = "A clear 6-step system to package, sell, deliver, and retain clients.",
+  intro = "Build one repeatable client journey, then improve it with every delivery instead of rebuilding the process for every project.",
+} = Astro.props;
+---
+
+<section id="method" class="section method-section" aria-labelledby="method-title">
+  <div class="container">
+    <div class="section-heading centered">
+      <span class="eyebrow">The Retainr Method</span>
+      <h2 id="method-title">{title}</h2>
+      <p>{intro}</p>
+    </div>
+
+    <div class="feature-grid method-grid">
+      {retainrMethodSteps.map((step, index) => (
+        <article class="feature-card method-card">
+          <div class="feature-icon">{index + 1}</div>
+          <h3>{step.title}</h3>
+          <p>{step.body}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
