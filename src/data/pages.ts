@@ -49,13 +49,13 @@ export const pages: MarketingPage[] = [
     eyebrow: "Creator Automation",
     hero: "Automate the Work Around Every Paid Offer",
     subhero:
-      "Scale without effort by connecting client onboarding, order intake, delivery tasks, support, analytics, and external tools.",
+      "Reduce repeated admin by connecting client onboarding, order intake, delivery tasks, support, analytics, and external tools.",
     image: "/assets/revenue-graph.png",
     sections: [
       {
         title: "Boost your work efficiency",
         body:
-          "Turn repeated admin into repeatable workflows. Retainr helps every lead, order, and support request move to the right place automatically.",
+          "Turn repeated admin into repeatable workflows. Retainr helps route leads, orders, and support requests into a clear next step.",
         points: ["Zapier workflows", "Webhooks", "API-ready operations", "Order-to-project automation"],
       },
       {
@@ -687,7 +687,7 @@ export const pages: MarketingPage[] = [
           "Use magic signup links so new clients onboard themselves",
           "Collect payments upfront before the work starts",
           "Deliver through a professional branded portal (clients feel taken care of)",
-          "Turn one-time projects into recurring retainers automatically",
+          "Present a relevant recurring plan after a successful project",
           "Get notified only when something actually needs your attention"
         ]
       },
@@ -724,11 +724,11 @@ export const pages: MarketingPage[] = [
     slug: "method",
     title: "The Retainr Method | Turn Expertise Into Recurring Revenue",
     description:
-      "A guided method for digital creators and niche experts to package expertise, sell clearly, onboard clients, deliver professionally, and retain revenue.",
+      "A guided method for niche freelancers, digital creators, and independent experts to package expertise, sell clearly, onboard clients, and build recurring revenue.",
     eyebrow: "The Retainr Method",
     hero: "A structured method for turning expertise into recurring revenue",
     subhero:
-      "Retainr is not just a client portal. It is a repeatable operating method for creators who want clearer offers, better client journeys, and more predictable monthly revenue.",
+      "Retainr is not just a client portal. It is a repeatable operating method for independent experts who want clearer offers, calmer client delivery, and more predictable monthly revenue.",
     image: "/assets/dashboard-hero.png",
     sections: [
       {
@@ -791,9 +791,9 @@ export const pages: MarketingPage[] = [
     slug: "features",
     title: "Retainr Features | Client Portal, Billing, Onboarding, Ticketing",
     description:
-      "Explore Retainr features for digital creators and niche service experts: productized offers, onboarding, client portal, billing, ticketing, automation, and retention.",
+      "Explore Retainr features for niche freelancers, digital creators, and independent experts: productized offers, onboarding, client portal, billing, ticketing, automation, and retention.",
     eyebrow: "Features",
-    hero: "Everything a creator needs to sell, deliver, and retain clients",
+    hero: "Everything an independent expert needs to sell, deliver, and retain clients",
     subhero:
       "Retainr brings the client journey into one branded system so your expertise feels easier to buy and easier to continue.",
     image: "/assets/packages.png",
@@ -844,10 +844,10 @@ export const pages: MarketingPage[] = [
   },
   {
     slug: "case-studies",
-    title: "Retainr Creator Use Cases",
+    title: "Retainr Freelancer and Creator Use Cases",
     description:
       "See how niche experts and digital creators can use the Retainr Method to package expertise, improve delivery, and create recurring revenue.",
-    eyebrow: "Creator Use Cases",
+    eyebrow: "Freelancer and Creator Use Cases",
     hero: "From scattered services to structured client revenue",
     subhero:
       "These scenario-based playbooks show the transformation Retainr is built for: clearer offers, cleaner onboarding, stronger delivery, and recurring revenue paths.",

@@ -13,14 +13,14 @@ const pricedPlans = pricing.plans.map((plan) => ({
 ---
 
 <BaseLayout
-  title="Retainr Pricing for Niche Creators and Productized Service Experts"
-  description="Choose a Retainr plan for selling niche services, onboarding clients, managing delivery, and turning trusted expertise into recurring revenue."
+  title="Retainr Pricing for Niche Freelancers and Independent Experts"
+  description="Choose a Retainr plan for selling niche services, onboarding clients, managing delivery, and turning trusted freelance expertise into recurring revenue."
   path="/pricing/"
 >
   <section class="hero center pricing-hero">
     <div class="container">
       <div class="hero-copy" style="justify-items:center">
-        <span class="eyebrow">Pricing for Creator Revenue Systems</span>
+        <span class="eyebrow">Pricing for Independent Client Businesses</span>
         <h1 class="hero-title">Choose the plan that turns expertise into recurring client revenue.</h1>
         <p>Start with the clients who already trust your work. Package what they need next, deliver it through your brand, and grow into predictable monthly revenue.</p>
       </div>
@@ -130,12 +130,12 @@ const pricedPlans = pricing.plans.map((plan) => ({
     </div>
   </section>
 
+  <Testimonials />
   <CtaBand
     title="Start with one offer and one client journey"
     text="Use the $1 trial to package the first paid outcome, inspect your signup flow, and manage delivery from a branded client portal."
     href={`${signupUrl}?plan=solo-creator&billing=monthly`}
   />
-  <Testimonials />
 
   <script>
     const buttons = document.querySelectorAll("[data-billing]");
