@@ -21,6 +21,7 @@ const {
 } = Astro.props;
 const canonical = new URL(path, Astro.site ?? "https://www.retainr.io").toString();
 const socialImage = new URL(image, Astro.site ?? "https://www.retainr.io").toString();
+const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
 ---
 
 <!doctype html>
@@ -45,13 +46,17 @@ const socialImage = new URL(image, Astro.site ?? "https://www.retainr.io").toStr
     <title>{title}</title>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header">
       <div class="container nav">
         <a href="/" class="logo" aria-label="Retainr home">
           <img src="/assets/retainr-logo.svg" alt="Retainr" width="148" height="42" />
         </a>
         <nav class="nav-links" aria-label="Primary navigation">
-          {navLinks.map((link) => <a href={link.href}>{link.label}</a>)}
+          {navLinks.map((link) => {
+            const linkPath = link.href.replace(/\/+$/, "") || "/";
+            return <a href={link.href} aria-current={currentPath === linkPath ? "page" : undefined}>{link.label}</a>;
+          })}
         </nav>
         <div class="nav-actions">
           <a href={loginUrl} class="button ghost">Login</a>
@@ -62,7 +67,7 @@ const socialImage = new URL(image, Astro.site ?? "https://www.retainr.io").toStr
         </button>
       </div>
     </header>
-    <main>
+    <main id="main-content">
       <slot />
     </main>
     <footer class="site-footer">
@@ -119,10 +124,32 @@ const socialImage = new URL(image, Astro.site ?? "https://www.retainr.io").toStr
       </div>
     </footer>
     <script>
-      const menuButton = document.querySelector(".menu-button");
+      const menuButton = document.querySelector<HTMLButtonElement>(".menu-button");
+      const closeMenu = () => {
+        document.body.classList.remove("menu-open");
+        menuButton?.setAttribute("aria-expanded", "false");
+        menuButton?.setAttribute("aria-label", "Open navigation");
+      };
+
       menuButton?.addEventListener("click", () => {
         const isOpen = document.body.classList.toggle("menu-open");
         menuButton.setAttribute("aria-expanded", String(isOpen));
+        menuButton.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+      });
+
+      document.querySelectorAll(".nav-links a, .nav-actions a").forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeMenu();
+          menuButton?.focus();
+        }
+      });
+
+      window.matchMedia("(min-width: 981px)").addEventListener("change", (event) => {
+        if (event.matches) closeMenu();
       });
     </script>
     <ConversionTracking />

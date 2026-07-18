@@ -41,6 +41,26 @@ body.menu-open {
   overflow: hidden;
 }
 
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+  padding: 12px 16px;
+  border: 2px solid var(--ink);
+  border-radius: 7px;
+  background: var(--yellow);
+  color: var(--ink);
+  font-weight: 900;
+  box-shadow: 4px 4px 0 var(--ink);
+  transform: translateY(-160%);
+  transition: transform 160ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -108,6 +128,14 @@ input {
   color: var(--orange);
 }
 
+.nav-links a[aria-current="page"] {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--orange);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 8px;
+}
+
 .menu-button {
   display: none;
   width: 44px;
@@ -140,6 +168,28 @@ input {
 .menu-button span::after {
   position: absolute;
   top: 7px;
+}
+
+.menu-button span,
+.menu-button span::before,
+.menu-button span::after {
+  transition: transform 160ms ease, top 160ms ease, opacity 160ms ease;
+}
+
+body.menu-open .menu-button span {
+  background: transparent;
+}
+
+body.menu-open .menu-button span::before {
+  top: 0;
+  transform: rotate(45deg);
+  background: var(--ink);
+}
+
+body.menu-open .menu-button span::after {
+  top: 0;
+  transform: rotate(-45deg);
+  background: var(--ink);
 }
 
 .button {
