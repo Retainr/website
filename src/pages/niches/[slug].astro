@@ -27,13 +27,30 @@ const finalCtaText = "Start Your $1 Trial";
 const offerLadder = niche.offers.slice(0, 3);
 const nicheChallenges = niche.painPoints ?? [];
 const nicheOutcomes = niche.benefits ?? [];
+const nicheUrl = new URL(`/niches/${niche.slug}/`, Astro.site ?? "https://www.retainr.io").toString();
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: `Retainr for ${niche.name}`,
+  description: niche.subhero,
+  url: nicheUrl,
+  provider: {
+    "@id": "https://www.retainr.io/#organization",
+  },
+  audience: {
+    "@type": "Audience",
+    audienceType: niche.name,
+  },
+  serviceType: "Client revenue management platform",
+};
 ---
 
 <BaseLayout
-  title={`${niche.name} | ${niche.hero}`}
+  title={`${niche.name} | Retainr`}
   description={niche.subhero}
   path={`/niches/${niche.slug}/`}
 >
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(serviceSchema)}></script>
   <!-- Hero -->
   <section class="hero niche-hero">
     <div class="container hero-grid">

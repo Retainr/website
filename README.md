@@ -16,4 +16,4 @@ Update pricing in `src/config/pricing.json`. The pricing page reads plans, billi
 
 ## Routes
 
-The original Retainr routes are generated from `src/data/pages.ts`. Niche onboarding pages are generated from `src/data/niches.ts` under `/niches/<slug>/` and point to `https://app.retainr.io/signup?niche=<slug>&source=retainr-v2`.
+The original Retainr routes are generated from `src/data/pages.ts`. Niche onboarding pages are generated from `src/data/niches.ts` under `/niches/<slug>/` and point to `https://app.retainr.io/signup?niche=<slug>`.
