@@ -3,15 +3,77 @@ import type { MarketingPage } from "@/data/pages";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import CtaBand from "./CtaBand.astro";
 import Testimonials from "./Testimonials.astro";
+import { assetDimensions } from "@/data/assets";
 import { signupUrl } from "@/data/site";
 
 type Props = { page: MarketingPage };
 const { page } = Astro.props;
 const path = `/${page.slug}/`;
 const methodSteps = ["Package", "Sell", "Onboard", "Deliver", "Retain"];
+const heroImage = page.image ?? "/assets/dashboard-hero.png";
+const heroImageDimensions = assetDimensions(heroImage);
+const informationalSlugs = new Set([
+  "brand-assets",
+  "about-retainr",
+  "manifesto-retainr",
+  "privacy-policy",
+  "help",
+  "terms-conditions",
+  "feedback",
+  "contact",
+]);
+const noConversionSlugs = new Set(["brand-assets", "privacy-policy", "help", "terms-conditions", "feedback", "contact"]);
+const isInformationalPage = informationalSlugs.has(page.slug);
+const showConversionFramework = !isInformationalPage;
+const showFinalCta = !noConversionSlugs.has(page.slug);
+const pageActions: Record<string, { label: string; href: string; download?: boolean }[]> = {
+  "brand-assets": [
+    { label: "Download Retainr Logo", href: "/assets/retainr-logo.svg", download: true },
+    { label: "About Retainr", href: "/about-retainr/" },
+  ],
+  "privacy-policy": [
+    { label: "Contact Retainr", href: "mailto:contact@retainr.io" },
+    { label: "Read Terms", href: "/terms-conditions/" },
+  ],
+  "terms-conditions": [
+    { label: "Contact Retainr", href: "mailto:contact@retainr.io" },
+    { label: "Read Privacy Policy", href: "/privacy-policy/" },
+  ],
+  help: [
+    { label: "Watch Tutorials", href: "https://www.youtube.com/@Retainr" },
+    { label: "Contact Support", href: "mailto:contact@retainr.io" },
+  ],
+  feedback: [
+    { label: "Send Feedback", href: "mailto:contact@retainr.io?subject=Retainr%20feedback" },
+    { label: "Request a Feature", href: "https://x.com/intent/tweet?text=@Retainr_io%20I%20have%20a%20feature%20suggestion%20for%20improving%20your%20platform." },
+  ],
+  contact: [
+    { label: "Email Retainr", href: "mailto:contact@retainr.io" },
+    { label: "Visit Knowledge Base", href: "/help/" },
+  ],
+};
+const heroActions = pageActions[page.slug] ?? [
+  { label: "Start Your $1 Trial", href: signupUrl },
+  { label: "View Pricing", href: "/pricing/" },
+];
+const faqSchema = page.faqs?.length
+  ? {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: page.faqs.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    }
+  : undefined;
 ---
 
 <BaseLayout title={page.title} description={page.description} path={path}>
+  {faqSchema && <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>}
   <!-- Hero -->
   <section class="hero marketing-hero">
     <div class="container hero-grid">
@@ -20,13 +82,36 @@ const methodSteps = ["Package", "Sell", "Onboard", "Deliver", "Retain"];
         <h1>{page.hero}</h1>
         <p>{page.subhero}</p>
         <div class="hero-actions">
-          <a href={signupUrl} class="button">Start Your $1 Trial</a>
-          <a href="/pricing/" class="button ghost">View Pricing</a>
+          {heroActions.map((action, index) => (
+            <a href={action.href} class:list={["button", { ghost: index > 0 }]} download={action.download || undefined}>
+              {action.label}
+            </a>
+          ))}
         </div>
       </div>
+      {isInformationalPage ? (
+        <div class="hero-visual informational-hero-visual">
+          <div class="informational-hero-panel">
+            <img src="/assets/retainr-logo.svg" alt="Retainr" width="148" height="42" />
+            <span>{page.eyebrow ?? "Retainr"}</span>
+            <strong>{page.description}</strong>
+            <div aria-hidden="true">
+              <i></i><i></i><i></i>
+            </div>
+          </div>
+        </div>
+      ) : (
       <div class="hero-visual">
         <div class="product-frame">
-          <img src={page.image ?? "/assets/dashboard-hero.png"} alt={`${page.hero} in Retainr`} loading="eager" />
+          <img
+            src={heroImage}
+            alt={`${page.hero} in Retainr`}
+            width={heroImageDimensions.width}
+            height={heroImageDimensions.height}
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+          />
         </div>
         <div class="hero-ticket hero-ticket-top">
           <strong>Magic Link</strong>
@@ -34,13 +119,14 @@ const methodSteps = ["Package", "Sell", "Onboard", "Deliver", "Retain"];
         </div>
         <div class="hero-ticket hero-ticket-bottom">
           <strong>White Label</strong>
-          <span>Keep the creator brand at the center</span>
+          <span>Keep your specialist brand at the center</span>
         </div>
       </div>
+      )}
     </div>
   </section>
 
-  <section class="page-method-band" aria-label="Retainr method steps">
+  {showConversionFramework && <section class="page-method-band" aria-label="Retainr method steps">
     <div class="container page-method-shell">
       <span class="page-method-label">Retainr Method</span>
       <div class="page-method-steps">
@@ -52,7 +138,7 @@ const methodSteps = ["Package", "Sell", "Onboard", "Deliver", "Retain"];
         ))}
       </div>
     </div>
-  </section>
+  </section>}
 
   <!-- Special Section: Brand Assets -->
   {page.slug === "brand-assets" && (
@@ -75,13 +161,24 @@ const methodSteps = ["Package", "Sell", "Onboard", "Deliver", "Retain"];
   )}
 
   <!-- Dynamic Page Sections -->
-  <section class="section programme-section">
+  <section class:list={["section", "programme-section", { "informational-content-section": isInformationalPage }]}>
     <div class="container programme-layout">
       <aside class="programme-intro">
-        <span class="eyebrow">The Retainr Method</span>
-        <h2>Move from a clear offer to a client relationship that lasts.</h2>
-        <p>Each part of the experience should remove uncertainty for the buyer and make the next step obvious.</p>
-        <a href="/method/" class="text-link">Explore the complete method <span aria-hidden="true">→</span></a>
+        {isInformationalPage ? (
+          <>
+            <span class="eyebrow">{page.eyebrow ?? "Retainr"}</span>
+            <h2>Clear information, organized for quick reference.</h2>
+            <p>Use the sections alongside this summary to find the relevant details without navigating through sales content.</p>
+            <a href="/contact/" class="text-link">Contact Retainr <span aria-hidden="true">→</span></a>
+          </>
+        ) : (
+          <>
+            <span class="eyebrow">The Retainr Method</span>
+            <h2>Move from a clear offer to a client relationship that lasts.</h2>
+            <p>Each part of the experience should remove uncertainty for the buyer and make the next step obvious.</p>
+            <a href="/method/" class="text-link">Explore the complete method <span aria-hidden="true">→</span></a>
+          </>
+        )}
       </aside>
       <div class="programme-steps">
         {page.sections.map((section, index) => (
@@ -102,7 +199,7 @@ const methodSteps = ["Package", "Sell", "Onboard", "Deliver", "Retain"];
     </div>
   </section>
 
-  <section class="section revenue-blueprint-section">
+  {showConversionFramework && <section class="section revenue-blueprint-section">
     <div class="container revenue-blueprint">
       <article class="revenue-blueprint-copy">
         <span class="eyebrow">Independent client business</span>
@@ -118,9 +215,9 @@ const methodSteps = ["Package", "Sell", "Onboard", "Deliver", "Retain"];
         <li><strong>Retain</strong><span>Turn the next ongoing need into a natural monthly plan.</span></li>
       </ol>
     </div>
-  </section>
+  </section>}
 
-  <section class="section editorial-section">
+  {showConversionFramework && <section class="section editorial-section">
     <div class="container editorial-grid">
       <article class="editorial-copy">
         <span class="eyebrow">Client experience</span>
@@ -156,9 +253,9 @@ const methodSteps = ["Package", "Sell", "Onboard", "Deliver", "Retain"];
         </ul>
       </article>
     </div>
-  </section>
+  </section>}
 
-  <section class="section niche-proof-section">
+  {showConversionFramework && <section class="section niche-proof-section">
     <div class="container">
       <div class="section-heading">
         <span class="eyebrow">Built for specialist work</span>
@@ -177,7 +274,7 @@ const methodSteps = ["Package", "Sell", "Onboard", "Deliver", "Retain"];
         <a href="/pricing/">Choose a plan <span aria-hidden="true">→</span></a>
       </div>
     </div>
-  </section>
+  </section>}
 
   {page.faqs && page.faqs.length > 0 && (
     <section class="section ice">
@@ -198,6 +295,6 @@ const methodSteps = ["Package", "Sell", "Onboard", "Deliver", "Retain"];
     </section>
   )}
 
-  <Testimonials />
-  <CtaBand />
+  {showConversionFramework && <Testimonials />}
+  {showFinalCta && <CtaBand />}
 </BaseLayout>

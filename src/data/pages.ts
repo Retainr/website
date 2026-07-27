@@ -74,7 +74,7 @@ export const pages: MarketingPage[] = [
     slug: "alternatives-compare-agency-client-management-software",
     title: "Client Management Software for Niche Creators",
     description:
-      "Compare client management software options for niche experts and creator-led service teams that sell productized services, branded portals, and recurring client work.",
+      "Compare client management software for niche freelancers selling productized services, branded client experiences, and recurring work.",
     eyebrow: "Compare",
     hero: "What client management software should a niche service business choose?",
     subhero:
@@ -128,9 +128,9 @@ export const pages: MarketingPage[] = [
   },
   {
     slug: "brand-assets",
-    title: "Brand Assets",
+    title: "Brand Assets | Retainr Logo, Colors, and Brand Kit",
     description:
-      "Retainr brand assets, logo guidance, color palette, and typography.",
+      "Download Retainr logo assets and use the approved color palette, typography, and brand guidance for press, partnerships, and product coverage.",
     eyebrow: "Styleguide",
     hero: "Retainr Styleguide",
     subhero:
@@ -213,33 +213,70 @@ export const pages: MarketingPage[] = [
   },
   {
     slug: "privacy-policy",
-    title: "Retainr - Privacy Policy",
+    title: "Privacy Policy | Retainr Data and Cookie Practices",
     description:
       "Privacy policy for Retainr, covering personal information, client data, security, and contact options.",
     eyebrow: "Privacy",
     hero: "Privacy Policy",
     subhero:
-      "Retainr is designed for client work, so privacy, ownership, and data protection must be clear from the start.",
+      "This policy explains how Retainr collects, uses, stores, and protects personal information when people visit the website or use the platform.",
     sections: [
       {
-        title: "Information we collect",
+        title: "Scope and lawful basis",
         body:
-          "Retainr may collect account details, contact information, billing information, usage data, and service data needed to provide the platform.",
+          "Retainr, operated by SimpliXio Pte. Ltd., processes personal information to provide the platform and related services. Depending on the relationship, processing may be based on consent, performance of a contract, legitimate operational needs, or legal obligations. When a Retainr customer collects information from its own clients, that customer determines why the information is collected and should be contacted about its use.",
+      },
+      {
+        title: "Information Retainr may collect",
+        body:
+          "Information may be collected through the website, application, email, telephone, or live chat. This can include names, email addresses, telephone numbers, organization details, billing and account information, IP addresses, language preferences, support messages, service usage, and files or other content uploaded while using the platform.",
+        points: ["Account and contact details", "Billing and subscription information", "Technical and usage data", "Client-service content submitted to the platform"],
       },
       {
         title: "How we use information",
         body:
-          "Information is used to provide the service, process payments, support users, improve product performance, prevent abuse, and meet legal obligations.",
+          "Personal information is used to operate and secure the service, create and maintain accounts, process subscriptions, provide support, communicate about the service, diagnose performance, prevent misuse, improve product experience, and meet applicable legal requirements. Marketing communications should be sent only where Retainr has an appropriate basis and should provide a way to change communication preferences.",
       },
       {
-        title: "Data security",
+        title: "Storage and information security",
         body:
-          "Retainr applies access controls, encryption practices, operational monitoring, and reasonable safeguards to protect customer and client information.",
+          "Retainr uses cloud infrastructure and operational safeguards to protect information against accidental loss, unauthorized access, alteration, or disclosure. Access is limited to people with a genuine business need and confidentiality obligations. No internet service can guarantee absolute security, but suspected breaches are investigated and notifications are made where legally required.",
       },
       {
-        title: "Your choices",
+        title: "Cookies and analytics",
         body:
-          "You can request access, updates, deletion, or export of personal information subject to account, security, and legal requirements.",
+          "The website and platform may use session or persistent cookies and similar technologies for navigation, authentication, preferences, security, and service analysis. Analytics and support services may receive technical information such as IP address, browser, device, approximate country, language, pages visited, and interaction events. Current website integrations include Crisp chat and may include analytics or advertising tools where configured.",
+        points: ["Browser controls can restrict or remove cookies", "Some features may depend on essential cookies", "Third-party tools apply their own privacy terms", "Consent choices apply where required"],
+      },
+      {
+        title: "Customers, processors, and third-party services",
+        body:
+          "Retainr customers may collect and manage information about their own clients through the platform. Questions about why a customer collected that information should be directed to the customer. Retainr may use service providers to host, support, secure, analyze, or process payments for the platform. Information sent to a third-party website or integration is then also governed by that provider's terms and privacy practices.",
+      },
+      {
+        title: "Retention and account closure",
+        body:
+          "Retention depends on the type of information, the service being provided, customer instructions, operational needs, and legal requirements. When information is no longer needed, Retainr may delete, anonymize, or securely dispose of it. Account closure can result in deletion of messages, files, content, and account records, so customers should export information they are required to retain before ending service.",
+      },
+      {
+        title: "Sharing and disclosure",
+        body:
+          "Retainr does not sell customer contact data. Information may be disclosed to authorized service providers, at a customer's direction, with consent, to protect the platform and its users, during a legitimate corporate transaction, or where disclosure is required by law. Service providers should receive only the information reasonably required for their role.",
+      },
+      {
+        title: "Children",
+        body:
+          "The platform is not directed to children under 16. A child should not use Retainr without verifiable consent from a parent or guardian. If Retainr learns that information was collected from a child without the required consent, reasonable steps will be taken to remove it and prevent continued use.",
+      },
+      {
+        title: "Your privacy choices",
+        body:
+          "Depending on applicable law, individuals may request access, correction, deletion, restriction, objection, portability, or withdrawal of consent. Requests can require identity verification and may be limited by security, contractual, record-keeping, or legal obligations. Customers seeking to exercise rights over information controlled by a Retainr customer should contact that customer first.",
+      },
+      {
+        title: "Contact and policy changes",
+        body:
+          "Privacy questions and requests can be sent to contact@retainr.io. Retainr may update this policy as the platform, service providers, or legal requirements change. Material updates will be published on this page, and continued use remains subject to the policy then in effect.",
       },
     ],
   },
@@ -292,7 +329,7 @@ export const pages: MarketingPage[] = [
     ],
   },
   {
-    slug: "whilte-label-agency-management-software",
+    slug: "white-label-agency-management-software",
     title: "White Label Client Portal for Creator-Led Services",
     description:
       "White-label client management software for niche creators, consultants, and service teams with branded portals, custom domains, and client delivery.",
@@ -541,7 +578,7 @@ export const pages: MarketingPage[] = [
   },
   {
     slug: "help",
-    title: "Retainr Knowledge Base",
+    title: "Knowledge Base | Retainr Setup and Client Workflows",
     description:
       "Knowledge base for setting up Retainr, publishing offers, onboarding clients, and building recurring revenue.",
     eyebrow: "Help",
@@ -564,7 +601,7 @@ export const pages: MarketingPage[] = [
   },
   {
     slug: "pitch-deck",
-    title: "Why Retainr?",
+    title: "Why Retainr? | Recurring Revenue for Freelancers",
     description:
       "Why Retainr is the platform for digital creators and niche experts turning expertise into recurring revenue.",
     eyebrow: "Why Retainr",
@@ -594,28 +631,74 @@ export const pages: MarketingPage[] = [
     eyebrow: "Terms",
     hero: "Terms & Conditions",
     subhero:
-      "These terms summarize the rules for using Retainr's website and services. They should be reviewed with legal counsel before production use.",
+      "Effective 20 August 2024. These terms govern access to the Retainr website and service operated by SimpliXio Pte. Ltd.",
     sections: [
       {
-        title: "Use of service",
+        title: "Agreement and service operator",
         body:
-          "Users are responsible for account activity, lawful use, accurate information, and maintaining security of login credentials.",
+          "These terms govern the relationship between users of retainr.io and the Retainr service and SimpliXio Pte. Ltd., 160 Robinson Road, #14-04 SBF Center, Singapore S068914. By accessing or using the service, a visitor or account holder accepts these terms. Anyone who does not agree should not use the service.",
       },
       {
-        title: "Subscriptions and payments",
+        title: "Subscriptions and billing cycles",
         body:
-          "Paid plans, trials, renewals, cancellations, taxes, and billing responsibilities are governed by the active plan and checkout terms.",
+          "Paid parts of the service are billed in advance on the monthly or annual cycle selected at checkout. Subscriptions renew on the same cycle until cancelled by the user or Retainr. Users must provide accurate billing information and authorize charges to the selected payment method. If an automatic charge fails, Retainr may request manual payment by a stated deadline.",
+        points: ["Monthly or annual billing", "Automatic renewal until cancellation", "Accurate billing information is required", "Account management or support can be used to cancel renewal"],
       },
       {
-        title: "Content and data",
+        title: "Trials, fee changes, and refunds",
         body:
-          "Customers retain ownership of their business content and client data, subject to platform operation, security, and legal requirements.",
+          "Retainr may offer a trial at its discretion and may require billing details to activate it. The checkout flow states when the selected subscription will be charged. Retainr may change trial availability or subscription fees, with fee changes taking effect at the end of the current billing cycle after reasonable notice. Refund requests may be considered case by case at Retainr's discretion.",
+      },
+      {
+        title: "Accounts and security",
+        body:
+          "Account holders must provide accurate, complete, and current information and are responsible for activity performed through their account. Passwords and other credentials must be protected and must not be disclosed to unauthorized third parties. Suspected unauthorized use or a security incident should be reported promptly to Retainr.",
+      },
+      {
+        title: "Customer content",
+        body:
+          "Users remain responsible for the legality, reliability, accuracy, permissions, and appropriateness of content they upload, store, link, or share through the service. Users must own that content or have the authority needed to use it. The service requires a limited license to host, reproduce, display, transmit, and otherwise process customer content as needed to operate and provide Retainr.",
+      },
+      {
+        title: "Intellectual property and infringement",
+        body:
+          "Retainr's original service, features, functionality, brand, and non-customer content remain the property of Retainr or its licensors and are protected by applicable intellectual-property laws. Users may not use Retainr trademarks or trade dress without prior written consent. Copyright concerns should be sent to contact@retainr.io with enough information to identify the work, location, rights holder, and alleged infringement.",
+      },
+      {
+        title: "Third-party websites and services",
+        body:
+          "Retainr may link to or integrate with services not owned or controlled by Retainr. Those providers apply their own terms, privacy practices, availability, and security controls. Retainr is not responsible for third-party content or practices, and users should review the applicable terms before connecting an account or sending information.",
+      },
+      {
+        title: "Suspension and termination",
+        body:
+          "Retainr may suspend or terminate access where a user breaches these terms or where action is reasonably required to protect the service, users, or legal compliance. When service ends, the right to use the platform ceases. Users should export information they are required to retain before closing an account, because stored content and records may be deleted in accordance with platform policy.",
+      },
+      {
+        title: "Service availability and warranties",
+        body:
+          "The service is provided on an as-is and as-available basis to the extent permitted by law. Retainr does not promise uninterrupted availability, that every defect will be corrected immediately, that the service will be free from every harmful component, or that use will produce a particular commercial result. Users remain responsible for evaluating whether the service fits their requirements.",
+      },
+      {
+        title: "Limitation of liability",
+        body:
+          "To the extent permitted by applicable law, Retainr and its directors, employees, partners, agents, suppliers, and affiliates exclude liability for indirect, incidental, special, consequential, exemplary, or punitive loss arising from use of or inability to use the service, third-party conduct or content, content obtained through the service, or unauthorized access to or alteration of transmissions or content.",
+      },
+      {
+        title: "Governing terms and severability",
+        body:
+          "The currently published Retainr terms state that they are governed by the laws of the United States of America without regard to conflict-of-law rules. If a provision is found invalid or unenforceable, the remaining provisions continue in effect. A failure to enforce a provision is not a waiver, and these terms replace prior agreements concerning the same subject matter.",
+      },
+      {
+        title: "Changes and contact",
+        body:
+          "Retainr may revise these terms. Continued use after revised terms take effect means the user accepts the revised terms; users who do not agree should stop using the service. Questions can be sent to contact@retainr.io, by telephone at +65 3158 1144, or by post to SimpliXio Pte. Ltd., 160 Robinson Road, #14-04 SBF Center, Singapore S068914.",
       },
     ],
   },
   {
     slug: "feedback",
-    title: "Retainr Feedback",
+    title: "Feedback | Share Product Ideas with Retainr",
     description:
       "Send feedback and feature requests for Retainr's creator-focused client management platform.",
     eyebrow: "Feedback",
@@ -663,7 +746,7 @@ export const pages: MarketingPage[] = [
   {
     slug: "cafe-productivity",
     title: "Cafe Productivity for Indie Creators | Retainr",
-    description: "Stay in deep work flow at cafes without client requests, admin, or scattered tools killing your focus. Retainr handles the backend so you can enjoy productive cafe sessions.",
+    description: "Protect deep work at cafes without client requests, admin, or scattered tools interrupting your focus. Retainr keeps the client workflow organized.",
     eyebrow: "Deep Work Mode",
     hero: "Stay in Flow at the Cafe. Let Retainr Handle the Rest.",
     subhero: "Indie creators love working from cafes. But client chaos usually kills the flow. Retainr gives you a system so you can protect deep work time while everything else runs smoothly in the background.",
@@ -724,7 +807,7 @@ export const pages: MarketingPage[] = [
     slug: "method",
     title: "The Retainr Method | Turn Expertise Into Recurring Revenue",
     description:
-      "A guided method for niche freelancers, digital creators, and independent experts to package expertise, sell clearly, onboard clients, and build recurring revenue.",
+      "A guided method for niche freelancers to package expertise, sell clearly, onboard clients, and build recurring revenue.",
     eyebrow: "The Retainr Method",
     hero: "A structured method for turning expertise into recurring revenue",
     subhero:
@@ -791,7 +874,7 @@ export const pages: MarketingPage[] = [
     slug: "features",
     title: "Retainr Features | Client Portal, Billing, Onboarding, Ticketing",
     description:
-      "Explore Retainr features for niche freelancers, digital creators, and independent experts: productized offers, onboarding, client portal, billing, ticketing, automation, and retention.",
+      "Explore Retainr features for productized offers, client onboarding, white-label portals, billing, ticketing, automation, and retention.",
     eyebrow: "Features",
     hero: "Everything an independent expert needs to sell, deliver, and retain clients",
     subhero:
@@ -829,9 +912,9 @@ export const pages: MarketingPage[] = [
         points: ["Payments", "Recurring revenue", "Upsells", "Client lifetime value"],
       },
       {
-        title: "Prospection and lead generation path",
+        title: "Prospecting and lead generation path",
         body:
-          "Magic Prospections extends the Retainr revenue method upstream for technical creators and freelance developers. Instead of waiting for referrals, experts can target prospects by expertise, prepare cold outreach angles, and move warm replies into the same Retainr signup and delivery system.",
+          "The upcoming Magic Prospections workflow extends the Retainr method upstream for technical freelancers and developers. It is designed to help experts target prospects by expertise, prepare outreach angles, and move warm replies into the same Retainr signup and delivery system.",
         points: ["Targeted prospect lists", "Cold email angles", "Reply tracking", "Lead-to-client handoff"],
       },
       {
@@ -844,10 +927,10 @@ export const pages: MarketingPage[] = [
   },
   {
     slug: "case-studies",
-    title: "Retainr Freelancer and Creator Use Cases",
+    title: "Retainr Freelancer Use Cases and Client Workflows",
     description:
       "See how niche experts and digital creators can use the Retainr Method to package expertise, improve delivery, and create recurring revenue.",
-    eyebrow: "Freelancer and Creator Use Cases",
+    eyebrow: "Scenario-Based Freelancer Use Cases",
     hero: "From scattered services to structured client revenue",
     subhero:
       "These scenario-based playbooks show the transformation Retainr is built for: clearer offers, cleaner onboarding, stronger delivery, and recurring revenue paths.",
@@ -905,7 +988,7 @@ export const pages: MarketingPage[] = [
   },
   {
     slug: "contact",
-    title: "Contact Retainr",
+    title: "Contact Retainr | Product, Support, and Accounts",
     description:
       "Contact Retainr for product questions, support, partnerships, affiliate inquiries, and creator workflow feedback.",
     eyebrow: "Contact",
@@ -931,36 +1014,6 @@ export const pages: MarketingPage[] = [
         body:
           "Retainr works well for educators, creators, niche communities, and consultants who teach others how to package expertise. Partnership conversations should focus on audience, offer, and the creator result you want to help people achieve.",
         points: ["Affiliate programme", "Education partners", "Creator communities", "Niche workflows"],
-      },
-    ],
-  },
-  {
-    slug: "about",
-    title: "About Retainr | The Client Revenue Method for Creators",
-    description:
-      "Learn why Retainr is being rebuilt as a structured method for digital creators and niche experts who want recurring revenue.",
-    eyebrow: "About Retainr",
-    hero: "Retainr helps creators turn expertise into a system",
-    subhero:
-      "The mission is simple: help digital creators stop selling scattered services and start operating a clear client revenue engine.",
-    image: "/assets/dashboard-hero.png",
-    sections: [
-      {
-        title: "Why Retainr exists",
-        body:
-          "Many creators are excellent at their craft but weak at packaging, onboarding, delivery structure, and retention. Retainr exists to make the business side feel as intentional as the expertise being sold.",
-        points: ["Clear offers", "Professional onboarding", "Branded delivery", "Recurring revenue"],
-      },
-      {
-        title: "Who Retainr is for",
-        body:
-          "Retainr is built for digital creators and niche experts: SEO experts, nutritionists, designers, coaches, AI consultants, copywriters, authors, content specialists, crypto educators, and other experts who sell knowledge or creative output.",
-        points: ["Niche experts", "Solo operators", "Small teams", "Creator-led service businesses"],
-      },
-      {
-        title: "How Retainr is different",
-        body:
-          "The goal is not to look like another generic software dashboard. Retainr is being shaped around a method: package the outcome, sell clearly, onboard cleanly, deliver in one place, and use that successful delivery to build retention.",
       },
     ],
   },
