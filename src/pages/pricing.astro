@@ -10,6 +10,18 @@ const pricedPlans = pricing.plans.map((plan) => ({
   yearlySavings: (plan.monthly - plan.yearly) * 12,
   yearlyTotal: plan.yearly * 12,
 }));
+const pricingFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: pricing.faq.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
+};
 ---
 
 <BaseLayout
@@ -17,6 +29,7 @@ const pricedPlans = pricing.plans.map((plan) => ({
   description="Choose a Retainr plan for selling niche services, onboarding clients, managing delivery, and turning trusted freelance expertise into recurring revenue."
   path="/pricing/"
 >
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(pricingFaqSchema)}></script>
   <section class="hero center pricing-hero">
     <div class="container">
       <div class="hero-copy" style="justify-items:center">

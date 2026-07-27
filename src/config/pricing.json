@@ -6,28 +6,28 @@
     "yearlyNote": "Save when paid yearly"
   },
   "featuredFeature": {
-    "eyebrow": "Coming feature",
+    "eyebrow": "Coming soon",
     "name": "Magic Prospections",
     "headline": "Find targeted prospects for your exact niche service",
-    "description": "Magic Prospections is Retainr's upcoming prospection and lead generation tool for freelance developers and technical creators. It helps identify targeted companies, match them to your expertise, prepare cold outreach angles, and move promising replies into your Retainr client workflow.",
+    "description": "Magic Prospections is Retainr's upcoming prospecting and lead generation tool for freelance developers and technical specialists. It is designed to help identify relevant companies, match them to your expertise, prepare outreach angles, and move promising replies into your Retainr client workflow.",
     "bullets": [
       "Target prospects by niche, technology stack, business type, and service fit",
       "Generate cold email angles for your specific niche expertise",
       "Track outreach, replies, and follow-up status before a lead becomes a client",
       "Move warm prospects into Retainr signup, onboarding, billing, and delivery"
     ],
-    "note": "Available first on the Magic Prospections plan as the lead-generation layer for technical creators who want more qualified conversations."
+    "note": "Planned first for the Magic Prospections plan as a lead-generation layer for technical freelancers who want more qualified conversations."
   },
   "plans": [
     {
       "slug": "solo-creator",
-      "name": "Solo Creator",
+      "name": "Solo Freelancer",
       "badge": "Ending soon - $1 trial",
       "monthly": 25,
       "yearly": 19,
       "description": "Ideal for independent experts who need a white-label system to sell one niche offer, onboard clients, and manage delivery.",
       "features": [
-        "Max. 1 creator",
+        "Max. 1 user",
         "Unlimited clients",
         "Own branded offer portal",
         "White-label client portal",
@@ -42,9 +42,9 @@
       "badge": "Ending soon - $1 trial",
       "monthly": 77,
       "yearly": 69,
-      "description": "Ideal for small creator-led teams that need a white-label system to sell packages, onboard clients, and manage delivery.",
+      "description": "Ideal for small specialist teams that need a white-label system to sell packages, onboard clients, and manage delivery.",
       "features": [
-        "Everything in Solo Creator",
+        "Everything in Solo Freelancer",
         "Max. 6 users",
         "Unlimited clients",
         "Own branded offer portal",
@@ -60,11 +60,11 @@
       "badge": "Coming soon - early access",
       "monthly": 199,
       "yearly": 179,
-      "description": "Upcoming lead generation and prospection system for technical creators who want targeted prospects, cold outreach workflows, and a direct path from reply to paid client.",
+      "description": "Upcoming prospecting system for technical freelancers who want targeted prospects, cold outreach workflows, and a direct path from reply to paid client.",
       "features": [
         "Everything in Teams",
         "Max. 18 users",
-        "Magic Prospections for technical creators",
+        "Magic Prospections for technical freelancers",
         "Targeted prospect discovery by expertise and niche",
         "Cold email angle generation and follow-up tracking",
         "Android and iOS app",
@@ -81,19 +81,19 @@
     "White-label client management portal",
     "Projects and ticketing",
     "Tasks and boards",
-    "Unlimited storage",
+    "Unlimited storage, up to 1 GB per file",
     "Order feedback and approvals",
     "Custom domain and SSL",
     "Unbranded emails",
     "Payment integration",
     "API and webhooks",
     "Data security and privacy controls",
-    "Retainr creator revenue method",
+    "Retainr recurring revenue method",
     "24/7 customer support team"
   ],
   "faq": [
     {
-      "question": "Will the portal use my creator brand?",
+      "question": "Will the portal use my brand?",
       "answer": "Yes. Your branded portal can carry your logo, brand name, custom domain, and client-facing experience."
     },
     {
