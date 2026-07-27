@@ -18,6 +18,20 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -73,8 +87,16 @@ svg {
 }
 
 button,
-input {
+input,
+select,
+textarea {
   font: inherit;
+}
+
+:where(a, button, input, select, textarea):focus-visible {
+  border-radius: 4px;
+  outline: 3px solid rgba(255, 77, 24, 0.38);
+  outline-offset: 3px;
 }
 
 .container {
@@ -446,6 +468,66 @@ body.menu-open .menu-button span::after {
   background: var(--green);
   content: "";
   z-index: -1;
+}
+
+.informational-hero-panel {
+  position: relative;
+  display: grid;
+  min-height: 360px;
+  align-content: center;
+  gap: 20px;
+  overflow: hidden;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  background: var(--ice);
+  padding: clamp(34px, 6vw, 68px);
+  box-shadow: 12px 12px 0 var(--ink), 0 32px 82px rgba(29, 33, 48, 0.13);
+}
+
+.informational-hero-panel::before {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 10px;
+  background: linear-gradient(90deg, var(--orange) 0 38%, var(--yellow) 38% 70%, var(--green) 70%);
+  content: "";
+}
+
+.informational-hero-panel img {
+  width: min(210px, 56%);
+}
+
+.informational-hero-panel > span {
+  color: var(--orange);
+  font-size: 0.82rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.informational-hero-panel > strong {
+  max-width: 34ch;
+  font-size: 1.45rem;
+  line-height: 1.42;
+}
+
+.informational-hero-panel > div {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr 1fr;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.informational-hero-panel i {
+  height: 9px;
+  border-radius: 999px;
+  background: var(--orange);
+}
+
+.informational-hero-panel i:nth-child(2) {
+  background: var(--yellow);
+}
+
+.informational-hero-panel i:nth-child(3) {
+  background: var(--green);
 }
 
 .product-frame {
@@ -1124,6 +1206,11 @@ body.menu-open .menu-button span::after {
 .marketing-hero h1 {
   max-width: 100%;
   overflow-wrap: anywhere;
+}
+
+.blog-article-hero h1 {
+  font-size: 3.75rem;
+  line-height: 1;
 }
 
 .page-method-band {
@@ -2112,6 +2199,13 @@ body.menu-open .menu-button span::after {
   background: var(--white);
 }
 
+.informational-content-section {
+  border-top: 1px solid var(--line);
+  background:
+    linear-gradient(90deg, rgba(237, 248, 253, 0.68) 0 30%, rgba(255, 255, 255, 0) 30%),
+    var(--white);
+}
+
 .programme-layout {
   display: grid;
   grid-template-columns: minmax(260px, 0.7fr) minmax(0, 1.3fr);
@@ -2953,6 +3047,14 @@ body.menu-open .menu-button span::after {
   .hero h1,
   .hero-title {
     font-size: 3.18rem;
+  }
+
+  .blog-article-hero h1 {
+    font-size: 2.7rem;
+  }
+
+  .informational-hero-panel > strong {
+    font-size: 1.2rem;
   }
 
   .pricing-hero {

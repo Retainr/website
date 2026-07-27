@@ -10,6 +10,7 @@ type Props = {
   path?: string;
   image?: string;
   type?: "website" | "article";
+  robots?: string;
 };
 
 const {
@@ -18,10 +19,43 @@ const {
   path = "/",
   image = "/assets/dashboard-hero.png",
   type = "website",
+  robots = "index, follow, max-image-preview:large",
 } = Astro.props;
 const canonical = new URL(path, Astro.site ?? "https://www.retainr.io").toString();
 const socialImage = new URL(image, Astro.site ?? "https://www.retainr.io").toString();
 const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
+const isCurrentPath = (href: string) => {
+  const linkPath = href.replace(/\/+$/, "") || "/";
+  return linkPath === "/" ? currentPath === "/" : currentPath === linkPath || currentPath.startsWith(`${linkPath}/`);
+};
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.retainr.io/#organization",
+      name: "Retainr",
+      url: "https://www.retainr.io/",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.retainr.io/assets/retainr-logo.svg",
+      },
+      sameAs: [
+        "https://x.com/Retainr_io",
+        "https://www.youtube.com/@Retainr",
+        "https://www.linkedin.com/company/retainr-io/",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.retainr.io/#website",
+      name: "Retainr",
+      url: "https://www.retainr.io/",
+      publisher: { "@id": "https://www.retainr.io/#organization" },
+      inLanguage: "en",
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -29,7 +63,11 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
+    <meta name="theme-color" content="#FF4D18" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:site_name" content="Retainr" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content={type} />
@@ -37,12 +75,15 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
     <meta property="og:image" content={socialImage} />
     <meta property="og:image:alt" content={title} />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImage} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/png" href="/assets/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(organizationSchema)}></script>
     <title>{title}</title>
   </head>
   <body>
@@ -52,17 +93,16 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
         <a href="/" class="logo" aria-label="Retainr home">
           <img src="/assets/retainr-logo.svg" alt="Retainr" width="148" height="42" />
         </a>
-        <nav class="nav-links" aria-label="Primary navigation">
+        <nav id="primary-navigation" class="nav-links" aria-label="Primary navigation">
           {navLinks.map((link) => {
-            const linkPath = link.href.replace(/\/+$/, "") || "/";
-            return <a href={link.href} aria-current={currentPath === linkPath ? "page" : undefined}>{link.label}</a>;
+            return <a href={link.href} aria-current={isCurrentPath(link.href) ? "page" : undefined}>{link.label}</a>;
           })}
         </nav>
-        <div class="nav-actions">
+        <div id="navigation-actions" class="nav-actions">
           <a href={loginUrl} class="button ghost">Login</a>
           <a href={signupUrl} class="button">Sell Today</a>
         </div>
-        <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false">
+        <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation navigation-actions">
           <span></span>
         </button>
       </div>
@@ -142,7 +182,7 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
       });
 
       document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
+        if (event.key === "Escape" && document.body.classList.contains("menu-open")) {
           closeMenu();
           menuButton?.focus();
         }
