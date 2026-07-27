@@ -1,20 +1,21 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { assetDimensions } from "@/data/assets";
 import { blogCategories, primaryBlogArticles } from "@/data/blog";
 
 const featuredBlogArticles = primaryBlogArticles.filter((article) => article.featured).slice(0, 6);
 ---
 
 <BaseLayout
-  title="Retainr Blog - Digital Creator Growth, Niche Expertise, and Recurring Revenue"
-  description="Updated evergreen Retainr articles for digital creators, niche experts, nutritionists, SEO experts, designers, AI experts, and creators turning clients into recurring revenue."
+  title="Retainr Blog | Freelance Systems and Recurring Revenue"
+  description="Evergreen guides for niche freelancers and digital creators on AI search, client onboarding, productized services, and recurring revenue."
   path="/blog/"
 >
   <section class="hero center">
     <div class="container">
       <div class="hero-copy" style="justify-items:center">
         <span class="eyebrow">Retainr Blog</span>
-        <h1 class="hero-title">Evergreen growth guides for digital creators</h1>
+        <h1 class="hero-title">Evergreen growth guides for niche freelancers</h1>
         <p>
           Practical, source-aware resources for niche experts who want to package services, use current tools responsibly, and turn successful client work into recurring revenue.
         </p>
@@ -47,7 +48,14 @@ const featuredBlogArticles = primaryBlogArticles.filter((article) => article.fea
         {featuredBlogArticles.map((article) => (
           <article class="featured-blog-card">
             <a class="blog-card-image" href={`/blog/${article.slug}/`} aria-label={`Read ${article.title}`}>
-              <img src={article.image} alt={article.imageAlt} loading="lazy" />
+              <img
+                src={article.image}
+                alt={article.imageAlt}
+                width={assetDimensions(article.image).width}
+                height={assetDimensions(article.image).height}
+                loading="lazy"
+                decoding="async"
+              />
             </a>
             <div class="featured-blog-copy">
               <span class="eyebrow">{article.category}</span>
@@ -91,7 +99,14 @@ const featuredBlogArticles = primaryBlogArticles.filter((article) => article.fea
             data-search={`${article.title} ${article.description} ${article.category} ${article.audience}`.toLowerCase()}
           >
             <a class="blog-card-image" href={`/blog/${article.slug}/`} aria-label={`Read ${article.title}`}>
-              <img src={article.image} alt={article.imageAlt} loading="lazy" />
+              <img
+                src={article.image}
+                alt={article.imageAlt}
+                width={assetDimensions(article.image).width}
+                height={assetDimensions(article.image).height}
+                loading="lazy"
+                decoding="async"
+              />
             </a>
             <div class="blog-card-copy">
               <span class="eyebrow">{article.category}</span>

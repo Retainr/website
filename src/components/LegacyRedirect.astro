@@ -1,0 +1,30 @@
+---
+type Props = {
+  title: string;
+  destination: string;
+};
+
+const { title, destination } = Astro.props;
+const canonical = new URL(destination, Astro.site ?? "https://www.retainr.io").toString();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="refresh" content={`0; url=${canonical}`} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonical} />
+    <title>{title} | Retainr</title>
+    <script is:inline define:vars={{ canonical }}>
+      window.location.replace(canonical);
+    </script>
+  </head>
+  <body>
+    <main>
+      <h1>This guide has moved</h1>
+      <p><a href={canonical}>Continue to the updated evergreen guide.</a></p>
+    </main>
+  </body>
+</html>

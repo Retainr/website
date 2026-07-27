@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import CtaBand from "@/components/CtaBand.astro";
+import LegacyRedirect from "@/components/LegacyRedirect.astro";
+import { assetDimensions } from "@/data/assets";
 import { blogArticles, primaryBlogArticles } from "@/data/blog";
 import { signupUrl } from "@/data/site";
 
@@ -17,6 +19,7 @@ const related = primaryBlogArticles
   .slice(0, 3);
 const canonicalPath = `/blog/${article.canonicalSlug}/`;
 const canonicalUrl = new URL(canonicalPath, Astro.site ?? "https://www.retainr.io").toString();
+const articleImageDimensions = assetDimensions(article.image);
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
@@ -25,23 +28,26 @@ const articleSchema = {
   image: new URL(article.image, Astro.site ?? "https://www.retainr.io").toString(),
   dateModified: article.updatedAt,
   mainEntityOfPage: canonicalUrl,
+  inLanguage: "en",
+  keywords: [article.category, article.audience, "freelancer client management", "recurring revenue"],
+  isPartOf: {
+    "@type": "Blog",
+    name: "Retainr Blog",
+    url: "https://www.retainr.io/blog/",
+  },
   author: {
     "@type": "Organization",
     name: "Retainr",
     url: "https://www.retainr.io/about-retainr/",
   },
-  publisher: {
-    "@type": "Organization",
-    name: "Retainr",
-    logo: {
-      "@type": "ImageObject",
-      url: "https://www.retainr.io/assets/retainr-logo.svg",
-    },
-  },
+  publisher: { "@id": "https://www.retainr.io/#organization" },
   about: article.category,
 };
 ---
 
+{article.legacy ? (
+  <LegacyRedirect title={article.title} destination={canonicalPath} />
+) : (
 <BaseLayout title={article.title} description={article.description} path={canonicalPath} image={article.image} type="article">
   <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>
   <article>
@@ -55,10 +61,19 @@ const articleSchema = {
             <a href={signupUrl} class="button">Start Your $1 Trial</a>
             <a href="/income/" class="button ghost">Turn Expertise Into Revenue</a>
           </div>
-          <div class="muted">Reviewed {article.updatedAt} by the Retainr editorial team. Written for {article.audience} and niche digital creators.</div>
+          <div class="muted">Reviewed {article.updatedAt} by the Retainr editorial team. Written for {article.audience} and niche freelancers.</div>
         </div>
         <div class="blog-insight-panel">
-          <img class="article-hero-image" src={article.image} alt={article.imageAlt} loading="eager" />
+          <img
+            class="article-hero-image"
+            src={article.image}
+            alt={article.imageAlt}
+            width={articleImageDimensions.width}
+            height={articleImageDimensions.height}
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+          />
           <div class="blog-insight-copy">
             <span class="trial">Practical Retainr guide</span>
             <h2>Turn useful advice into a client journey that continues.</h2>
@@ -71,11 +86,6 @@ const articleSchema = {
               <span>Portal</span>
               <span>Retainer</span>
             </div>
-            {article.legacy && (
-              <p>
-                Evergreen version: <a href={canonicalPath}>{canonicalPath}</a>
-              </p>
-            )}
           </div>
         </div>
       </div>
@@ -113,7 +123,7 @@ const articleSchema = {
             <div class="article-link-list">
               <a href="/method/">The Retainr Method</a>
               <a href="/features/">Retainr Features</a>
-              <a href="/case-studies/">Creator Use Cases</a>
+              <a href="/case-studies/">Freelancer Use Cases</a>
               <a href="/niches/designers/">Brand &amp; Web Designers</a>
               <a href="/niches/seo-experts/">SEO Experts &amp; Growth Marketers</a>
               <a href="/niches/ai-experts/">AI Consultants &amp; Automation Specialists</a>
@@ -134,3 +144,4 @@ const articleSchema = {
 
   <CtaBand title="Turn existing clients into recurring revenue" text="Package your repeated expertise into monthly offers, sell them with Retainr, and manage delivery from one branded client portal." />
 </BaseLayout>
+)}

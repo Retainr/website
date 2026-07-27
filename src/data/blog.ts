@@ -140,7 +140,8 @@ export type BlogArticle = {
   sources: { label: string; url: string }[];
 };
 
-const updatedAt = "2026-07-17";
+const updatedAt = "2026-07-27";
+const reviewedAtLabel = "27 July 2026";
 const audiences = [
   "AI consultants",
   "SEO experts",
@@ -163,10 +164,19 @@ const titleCase = (value: string) =>
     .replace(/\bIndustryspecific\b/g, "Industry-Specific")
     .replace(/\bMustknow\b/g, "Must-Know")
     .replace(/\bMusttry\b/g, "Must-Try")
+    .replace(/\bMusthave\b/g, "Must-Have")
     .replace(/\bRealworld\b/g, "Real-World")
+    .replace(/\bGamechanging\b/g, "Game-Changing")
+    .replace(/\bHavent\b/g, "Haven't")
     .replace(/\bPsychologybacked\b/g, "Psychology-Backed");
 
 const evergreenSlug = (slug: string) =>
+  slug
+    .replace(/-(?:in-|for-)?20\d{2}/g, "")
+    .replace(/-(a146f|fde00)$/g, "")
+    .replace(/-+$/g, "");
+
+const previousEvergreenSlug = (slug: string) =>
   slug
     .replace(/-in-20\d{2}/g, "")
     .replace(/-20\d{2}/g, "")
@@ -175,12 +185,21 @@ const evergreenSlug = (slug: string) =>
 
 const cleanTitle = (slug: string) => {
   const base = evergreenSlug(slug).replace(/^blog\//, "");
-  const title = titleCase(base);
-  if (/youtube|instagram|social-media|content|video/i.test(base)) return `${title} for Digital Creators`;
-  if (/ai|automation|workflow/i.test(base)) return `${title} for Solo Experts`;
-  if (/ecommerce|product-description|conversion|retention/i.test(base)) return `${title} for Productized Services`;
-  if (/niche|industry|freelancer|agency|skills/i.test(base)) return `${title} for Niche Experts`;
-  return `${title} for Digital Creators`;
+  return titleCase(base)
+    .replace(
+      "7 Inspiring Examples Of Freelancers With Exceptional Industryfocused Brands",
+      "7 Freelancer Brands Built Around Industry Expertise"
+    )
+    .replace(
+      "9 Steps To Choose The Right Industry Specialization As A Freelancer",
+      "Choose a Freelance Industry Specialization in 9 Steps"
+    )
+    .replace("Industryfocused", "Industry-Focused");
+};
+
+const conciseDescription = (value: string) => {
+  if (value.length <= 158) return value;
+  return `${value.slice(0, 155).replace(/\s+\S*$/, "")}...`;
 };
 
 const categoryFor = (slug: string) => {
@@ -258,6 +277,17 @@ const currentToolsFor = (slug: string, category: string) => {
     ];
   }
 
+  if (category === "Partnerships") {
+    return [
+      "A lightweight partner brief defining audience fit, deliverables, usage, and disclosure",
+      "Native platform analytics for verified reach and audience response",
+      "Unique landing pages or campaign links for attributable enquiries",
+      "A simple pipeline with owner, next action, deadline, and commercial status",
+      "Written approval for claims, creative, licensing, and publication timing",
+      "Retainr for packaging partner services, onboarding, delivery, and repeat campaigns",
+    ];
+  }
+
   return [
     "Google Trends and first-party client questions for demand language",
     "A simple CRM or pipeline with one recorded next action per lead",
@@ -268,257 +298,497 @@ const currentToolsFor = (slug: string, category: string) => {
   ];
 };
 
+const editorialSources = {
+  aiRisk: {
+    label: "NIST AI Risk Management Framework",
+    url: "https://www.nist.gov/itl/ai-risk-management-framework",
+  },
+  copyright: {
+    label: "U.S. Copyright Office: What is Copyright?",
+    url: "https://www.copyright.gov/what-is-copyright/",
+  },
+  endorsements: {
+    label: "FTC guidance on endorsements, influencers, and reviews",
+    url: "https://www.ftc.gov/business-guidance/advertising-marketing/endorsements-influencers-reviews",
+  },
+  kdp: {
+    label: "Amazon KDP paperback formatting guidance",
+    url: "https://kdp.amazon.com/en_US/help/topic/G201834190",
+  },
+  nutritionScope: {
+    label: "Academy of Nutrition and Dietetics scope and standards of practice",
+    url: "https://www.eatrightpro.org/practice/practice-competence/scope-and-standards-of-practice",
+  },
+  search: {
+    label: "Google Search Central guide for developers",
+    url: "https://developers.google.com/search/docs/fundamentals/get-started-developers",
+  },
+  smallBusinessResearch: {
+    label: "U.S. Small Business Administration market research guidance",
+    url: "https://www.sba.gov/business-guide/plan-your-business/market-research-competitive-analysis",
+  },
+  storeAnalytics: {
+    label: "Shopify analytics documentation",
+    url: "https://help.shopify.com/en/manual/reports-and-analytics/shopify-reports",
+  },
+  youtubeAnalytics: {
+    label: "YouTube Help: interpret impressions and click-through rate",
+    url: "https://support.google.com/youtube/answer/16767369?hl=en",
+  },
+  youtubeRetention: {
+    label: "YouTube Help: measure audience retention",
+    url: "https://support.google.com/youtube/answer/9314415?hl=en",
+  },
+} as const;
+
+const sourcesFor = (slug: string, category: string) => {
+  if (/nutrition|dietitian|meal-plan/i.test(slug)) {
+    return [editorialSources.nutritionScope, editorialSources.smallBusinessResearch];
+  }
+
+  if (/book|ebook|novelist|self-publish/i.test(slug)) {
+    return [editorialSources.kdp, editorialSources.copyright];
+  }
+
+  if (/seo|keyword|search/i.test(slug)) {
+    return [editorialSources.search, editorialSources.smallBusinessResearch];
+  }
+
+  if (/youtube/i.test(slug)) {
+    return [editorialSources.youtubeAnalytics, editorialSources.youtubeRetention];
+  }
+
+  if (category === "Automation") {
+    return [editorialSources.aiRisk, editorialSources.smallBusinessResearch];
+  }
+
+  if (category === "Partnerships") {
+    return [editorialSources.endorsements, editorialSources.copyright];
+  }
+
+  if (category === "Creator Marketing") {
+    return [editorialSources.endorsements, editorialSources.smallBusinessResearch];
+  }
+
+  if (category === "Selling Online") {
+    return [editorialSources.storeAnalytics, editorialSources.smallBusinessResearch];
+  }
+
+  if (/design|brand|illustrat|cartoon|copywrit|video-editor|ugc/i.test(slug)) {
+    return [editorialSources.copyright, editorialSources.smallBusinessResearch];
+  }
+
+  return [editorialSources.smallBusinessResearch];
+};
+
+type ArticlePlan = {
+  buyer: string;
+  problem: string;
+  starterOffer: string;
+  coreOffer: string;
+  recurringOffer: string;
+  firstMilestone: string;
+  proof: string;
+  metric: string;
+  inputs: string[];
+  workflow: string[];
+  risks: string[];
+};
+
+const articlePlanFor = (slug: string, audience: string): ArticlePlan => {
+  if (/youtube.*ad|advertis.*youtube/i.test(slug)) {
+    return {
+      buyer: "a specialist business already spending on YouTube but unable to connect campaign activity to qualified enquiries",
+      problem: "creative, targeting, landing-page intent, and follow-up are being reviewed separately, so nobody can explain why useful attention does or does not become revenue",
+      starterOffer: "YouTube campaign diagnosis",
+      coreOffer: "campaign message, creative, landing-page, and measurement sprint",
+      recurringOffer: "monthly creative testing and lead-quality review",
+      firstMilestone: "a campaign map showing the audience, promise, creative hypothesis, conversion event, and first test",
+      proof: "a before-and-after campaign decision log that connects each change to lead quality rather than views alone",
+      metric: "qualified enquiry cost and the share of enquiries that become sales conversations",
+      inputs: ["campaign objective and budget", "audience and exclusions", "current creative", "landing page", "conversion definition", "sales follow-up process"],
+      workflow: ["Audit one campaign", "Name the failed assumption", "Design one controlled test", "Confirm conversion tracking", "Review lead quality", "Record the next decision"],
+      risks: ["optimizing for cheap views", "changing several variables at once", "weak disclosure or consent", "sending paid traffic to a generic home page"],
+    };
+  }
+
+  if (/youtube/i.test(slug)) {
+    return {
+      buyer: "an expert-led channel that publishes consistently but does not turn the right viewers into enquiries, buyers, or repeat clients",
+      problem: "topic choice, packaging, search intent, retention, and the commercial next step are disconnected",
+      starterOffer: "YouTube channel and content-path audit",
+      coreOffer: "buyer-question content system with titles, formats, scripts, and conversion paths",
+      recurringOffer: "monthly channel strategy, review, and repurposing desk",
+      firstMilestone: "a prioritized content map built from buyer questions, channel evidence, and one clear next action per video",
+      proof: "a content decision sheet showing why each topic exists, who it serves, and what qualified action it produced",
+      metric: "qualified actions per video, supported by retention and returning-viewer signals",
+      inputs: ["channel goal", "ideal buyer", "past video performance", "current offers", "production capacity", "conversion destination"],
+      workflow: ["Collect buyer questions", "Group by intent", "Choose a format", "Write the promise", "Publish with one next step", "Review qualified response"],
+      risks: ["copying trend lists", "judging success by views alone", "publishing without an offer path", "using titles the video does not satisfy"],
+    };
+  }
+
+  if (/instagram|social-media|content-calendar|content-marketing|video-marketing|reels/i.test(slug)) {
+    return {
+      buyer: "a niche expert whose content activity creates attention but not a dependable path to paid specialist work",
+      problem: "publishing is organized around frequency and formats instead of buyer questions, proof, and the next commercial decision",
+      starterOffer: "content-to-client journey audit",
+      coreOffer: "channel strategy, editorial system, and conversion-path implementation",
+      recurringOffer: "monthly content operations and performance review",
+      firstMilestone: "a four-week content map that pairs each buyer question with proof, format, owner, and next action",
+      proof: "a small set of posts that can be traced to useful replies, email signups, service-page visits, or qualified enquiries",
+      metric: "qualified actions and assisted enquiries per content theme",
+      inputs: ["buyer questions", "current offers", "channel analytics", "available proof", "production capacity", "approval constraints"],
+      workflow: ["Collect real questions", "Assign intent", "Choose proof", "Create once", "Adapt by channel", "Measure the next action"],
+      risks: ["posting for volume", "reusing identical creative everywhere", "mistaking engagement for demand", "sending every reader to the same generic link"],
+    };
+  }
+
+  if (/ai|automation|workflow|process|streamline|technologies/i.test(slug)) {
+    return {
+      buyer: "a specialist business with repeated manual work, unclear handoffs, and enough variation that blind automation would create new risk",
+      problem: "the team is choosing tools before documenting the trigger, decision, owner, exception, and client-visible outcome",
+      starterOffer: "workflow opportunity and risk audit",
+      coreOffer: "one bounded automation sprint with human review and rollback",
+      recurringOffer: "monthly automation monitoring, optimization, and exception support",
+      firstMilestone: "a current-state workflow map with time cost, failure points, data sensitivity, and the first safe automation boundary",
+      proof: "a run log comparing time, error rate, exception handling, and client outcome before and after implementation",
+      metric: "verified time saved per successful run after review and exception costs",
+      inputs: ["trigger and desired outcome", "current steps", "systems involved", "data classification", "decision owner", "failure and rollback process"],
+      workflow: ["Map the current state", "Measure the baseline", "Choose one bounded step", "Add human review", "Test exceptions", "Monitor in production"],
+      risks: ["automating a broken process", "exposing client data", "invented AI output", "missing ownership when a workflow fails"],
+    };
+  }
+
+  if (/ecommerce|product-description|conversion|retention/i.test(slug)) {
+    return {
+      buyer: "an online seller with traffic or customers but avoidable friction between product understanding, purchase, delivery, and the next order",
+      problem: "the offer, proof, checkout, post-purchase experience, and retention work are optimized as separate tasks",
+      starterOffer: "offer and conversion-friction review",
+      coreOffer: "product-page, checkout, onboarding, and retention sprint",
+      recurringOffer: "monthly conversion and customer-retention review",
+      firstMilestone: "a prioritized friction map based on buyer intent, evidence, usability, and commercial impact",
+      proof: "a change log that connects a specific hypothesis to conversion quality, support burden, repeat purchase, or refund behaviour",
+      metric: "qualified conversion and repeat-customer value, not raw click-through rate",
+      inputs: ["buyer and use case", "product economics", "traffic sources", "page and checkout data", "support questions", "repeat-purchase pattern"],
+      workflow: ["Clarify the promise", "Remove uncertainty", "Strengthen proof", "Reduce checkout friction", "Improve first delivery", "Offer the next useful purchase"],
+      risks: ["testing without enough signal", "discounting instead of clarifying value", "hiding material terms", "optimizing clicks that create poor-fit buyers"],
+    };
+  }
+
+  if (/affiliate|sponsorship|collab|collaboration/i.test(slug)) {
+    return {
+      buyer: "a niche publisher, specialist, or small brand that wants commercially useful partnerships without damaging audience trust",
+      problem: "audience fit, deliverables, disclosure, attribution, usage rights, and follow-up are not agreed before work begins",
+      starterOffer: "partner-fit and campaign brief",
+      coreOffer: "campaign strategy, production, launch, and performance review",
+      recurringOffer: "quarterly or monthly partner campaign programme",
+      firstMilestone: "a signed brief defining the shared audience, promise, deliverables, rights, disclosure, success criteria, and decision owners",
+      proof: "a transparent campaign recap covering reach, qualified response, attribution limits, lessons, and next recommendation",
+      metric: "qualified response and attributable commercial value within the agreed measurement window",
+      inputs: ["shared audience", "commercial objective", "deliverables", "usage rights", "disclosure requirements", "measurement window"],
+      workflow: ["Check audience fit", "Agree the brief", "Approve claims", "Publish with disclosure", "Measure qualified response", "Document the next campaign"],
+      risks: ["poor audience fit", "unclear disclosure", "unlimited usage rights", "promising attribution the data cannot support"],
+    };
+  }
+
+  if (/networking|freelance-jobs|connections/i.test(slug)) {
+    return {
+      buyer: "an independent expert who needs better-fit conversations but does not want to rely on high-volume cold outreach",
+      problem: "networking activity is not tied to a memorable specialty, useful proof, or a recorded next action",
+      starterOffer: "positioning and warm-pipeline review",
+      coreOffer: "referral system, proof assets, reactivation messages, and follow-up workflow",
+      recurringOffer: "monthly pipeline review and partner development",
+      firstMilestone: "a list of warm accounts and complementary partners, each with a relevant problem, proof asset, and next action",
+      proof: "a compact case note that a past client or partner can understand and confidently forward",
+      metric: "qualified conversations and introductions that progress to a defined next step",
+      inputs: ["specialty", "best client type", "past clients", "proof assets", "complementary partners", "open conversations"],
+      workflow: ["Clarify the specialty", "Choose warm accounts", "Create proof", "Send a relevant note", "Follow up once", "Record the next action"],
+      risks: ["collecting contacts without follow-up", "asking for referrals before giving context", "generic outreach", "failing to close the loop"],
+    };
+  }
+
+  if (/niche|industry|specialization|market-segmentation|target-industries|freelance-skills/i.test(slug)) {
+    return {
+      buyer: "a freelancer or small specialist team with broad capability but weak differentiation and inconsistent lead quality",
+      problem: "the niche is being chosen from trend lists instead of repeated pain, budget, access, proof, and the potential for ongoing work",
+      starterOffer: "niche opportunity and positioning audit",
+      coreOffer: "specialist offer, proof, messaging, and acquisition sprint",
+      recurringOffer: "monthly market learning and offer optimization",
+      firstMilestone: "a scored shortlist comparing urgency, buyer access, proof, delivery fit, budget, and recurring need",
+      proof: "three real buyer conversations and one paid pilot that test the positioning before a full rebrand",
+      metric: "qualified lead rate and close rate for the chosen buyer-problem pair",
+      inputs: ["past profitable work", "repeated requests", "buyer access", "available proof", "delivery strengths", "ongoing client needs"],
+      workflow: ["Review past wins", "List repeated pain", "Score candidate niches", "Interview buyers", "Sell one pilot", "Refine from evidence"],
+      risks: ["choosing only by market size", "rebranding before validation", "confusing an industry with a problem", "targeting buyers you cannot reach"],
+    };
+  }
+
+  if (/nutrition|dietitian|meal-plan/i.test(slug)) {
+    return {
+      buyer: "an independent nutrition professional who needs a respectful, organized path from first programme purchase to appropriate ongoing support",
+      problem: "programme scope, intake, client communication, files, progress, and continuation are split across email, forms, and calendars",
+      starterOffer: "paid nutrition planning or education session",
+      coreOffer: "structured programme with defined educational deliverables and check-ins",
+      recurringOffer: "ongoing education, accountability, and plan-review membership within professional scope",
+      firstMilestone: "a confirmed intake, scope statement, first educational plan, and clear next check-in",
+      proof: "client-reported experience and process completion without promising health outcomes",
+      metric: "onboarding completion, programme engagement, and appropriate continuation rate",
+      inputs: ["client goal", "relevant history within scope", "constraints and preferences", "programme boundaries", "communication cadence", "consent and privacy needs"],
+      workflow: ["Define scope", "Collect essential context", "Confirm suitability", "Deliver the first plan", "Review progress", "Offer appropriate continuation"],
+      risks: ["making clinical claims outside scope", "collecting unnecessary sensitive data", "unclear emergency boundaries", "promising guaranteed outcomes"],
+    };
+  }
+
+  if (/dog-walker|pet/i.test(slug)) {
+    return {
+      buyer: "an independent dog walker or pet-care specialist managing repeat bookings, household instructions, keys, updates, and schedule changes",
+      problem: "recurring service details and client communication are scattered, making each booking feel manual",
+      starterOffer: "single walk or meet-and-greet package",
+      coreOffer: "multi-visit weekly care package",
+      recurringOffer: "monthly reserved walking or care plan",
+      firstMilestone: "a completed pet profile, access instructions, service window, emergency contact, and confirmed first visit",
+      proof: "reliable visit records and clear owner updates rather than exaggerated care claims",
+      metric: "repeat booking rate, schedule utilization, and avoidable support messages",
+      inputs: ["pet routine", "behaviour and safety notes", "access instructions", "service window", "emergency contact", "update preference"],
+      workflow: ["Confirm fit", "Collect care details", "Schedule the first visit", "Send the update", "Review recurring needs", "Reserve the monthly plan"],
+      risks: ["unclear access responsibility", "missing safety information", "overbooking travel windows", "informal schedule changes"],
+    };
+  }
+
+  if (/book|ebook|novelist|self-publish/i.test(slug)) {
+    return {
+      buyer: "an independent author who needs a visible route from manuscript stage to publication and reader growth",
+      problem: "editing, design, metadata, launch assets, approvals, and post-launch work are treated as disconnected purchases",
+      starterOffer: "manuscript or launch-readiness review",
+      coreOffer: "defined editing, production, or launch implementation package",
+      recurringOffer: "monthly launch support, reader communication, or backlist growth plan",
+      firstMilestone: "a stage-specific roadmap with responsibilities, files, decisions, dates, and the next approval",
+      proof: "a transparent production case note showing the starting stage, decisions, deliverables, and completed outcome",
+      metric: "milestone completion, qualified reader actions, and profitable follow-on work",
+      inputs: ["manuscript stage", "genre and reader", "publishing route", "editorial needs", "rights and assets", "launch timing"],
+      workflow: ["Assess the stage", "Choose the next milestone", "Define deliverables", "Collect files", "Run approvals", "Plan the next release activity"],
+      risks: ["selling launch tactics before the book is ready", "unclear rights", "unbounded revisions", "promising sales outcomes"],
+    };
+  }
+
+  if (/seo|keyword|search/i.test(slug)) {
+    return {
+      buyer: "a business with commercial search demand but no dependable system for diagnosis, prioritization, implementation, and review",
+      problem: "rankings, content, technical work, and revenue are discussed without an agreed baseline or decision cadence",
+      starterOffer: "search opportunity and technical diagnosis",
+      coreOffer: "prioritized SEO implementation roadmap",
+      recurringOffer: "monthly search performance, content, and technical improvement retainer",
+      firstMilestone: "a baseline covering indexation, query demand, priority pages, technical blockers, competitors, and conversion paths",
+      proof: "a decision log showing what changed, why it changed, and how qualified search journeys responded",
+      metric: "qualified organic conversions and commercial page progress, supported by visibility signals",
+      inputs: ["business priorities", "site access", "Search Console", "analytics", "priority markets", "implementation capacity"],
+      workflow: ["Confirm commercial goals", "Build the baseline", "Prioritize constraints", "Ship one improvement set", "Measure qualified impact", "Choose the next cycle"],
+      risks: ["guaranteeing rankings", "publishing without expertise", "measuring traffic alone", "recommending work the client cannot implement"],
+    };
+  }
+
+  if (/design|cartoon|illustrat|creative/i.test(slug)) {
+    return {
+      buyer: "a client who values specialist creative judgment but needs clearer scope, feedback, approvals, usage, and ongoing output",
+      problem: "creative requests arrive informally, revisions expand without decisions, and recurring needs are never packaged",
+      starterOffer: "creative direction or visual-system review",
+      coreOffer: "fixed-scope design or illustration sprint",
+      recurringOffer: "monthly creative desk with defined capacity and response times",
+      firstMilestone: "an approved brief covering audience, objective, references, deliverables, decision maker, usage, and revision rules",
+      proof: "a case note showing the brief, creative reasoning, approval path, and delivered system without exposing confidential work",
+      metric: "approval-cycle time, revision efficiency, and recurring capacity utilization",
+      inputs: ["audience and objective", "brand assets", "references", "deliverables", "usage rights", "decision maker"],
+      workflow: ["Confirm the brief", "Set boundaries", "Explore direction", "Review with one owner", "Deliver final assets", "Plan recurring production"],
+      risks: ["subjective briefs", "multiple unaligned approvers", "unclear usage rights", "unlimited revisions"],
+    };
+  }
+
+  if (/coach|course|info-product|fitness/i.test(slug)) {
+    return {
+      buyer: "an expert selling knowledge who needs a defined transformation, useful accountability, and a professional client journey",
+      problem: "content access is mistaken for implementation, while intake, milestones, support, and continuation remain unclear",
+      starterOffer: "diagnostic or roadmap session",
+      coreOffer: "structured programme with milestones, feedback, and defined support",
+      recurringOffer: "monthly implementation, accountability, or advisory membership",
+      firstMilestone: "a shared outcome, baseline, programme boundary, first action, and review cadence",
+      proof: "process evidence and client-reported progress without guaranteed transformation claims",
+      metric: "milestone completion, appropriate engagement, and continuation after the core programme",
+      inputs: ["desired outcome", "starting point", "constraints", "programme fit", "support expectations", "review cadence"],
+      workflow: ["Confirm fit", "Set the outcome", "Choose milestones", "Deliver the first action", "Review evidence", "Offer continued support"],
+      risks: ["vague transformation claims", "unlimited access", "too much content", "no boundary between education and regulated advice"],
+    };
+  }
+
+  return {
+    buyer: `${audience} with a repeated client problem that can be delivered more clearly than an open-ended custom engagement`,
+    problem: "the valuable expertise is real, but the offer, intake, delivery, proof, and continuation path have not been turned into one repeatable system",
+    starterOffer: "paid diagnosis or planning session",
+    coreOffer: "fixed-scope implementation package",
+    recurringOffer: "monthly review, support, optimization, or production plan",
+    firstMilestone: "a confirmed scope, completed intake, delivery plan, and first visible result",
+    proof: "a concise case note showing the starting condition, expert decision, delivered result, and next recommendation",
+    metric: "qualified conversion, time to first value, and recurring-plan acceptance",
+    inputs: ["desired outcome", "current state", "constraints", "required assets", "decision owner", "preferred cadence"],
+    workflow: ["Diagnose the problem", "Define the outcome", "Package the work", "Collect context", "Deliver the first result", "Offer the next useful cycle"],
+    risks: ["generic positioning", "unclear scope", "manual onboarding", "waiting too long to introduce ongoing value"],
+  };
+};
+
 const buildSections = (slug: string, title: string, category: string, audience: string) => {
-  const dated = slug.includes("2024") || slug.includes("2025");
-  const topic = title.replace(/ for .+$/, "").toLowerCase();
+  const topic = title.toLowerCase();
   const currentTools = currentToolsFor(slug, category);
+  const plan = articlePlanFor(slug, audience);
 
   return [
     {
-      title: "What changed for digital creators",
-      body: `${title} is no longer only a traffic, productivity, or inspiration topic. For ${audience}, this ${dated ? "formerly date-bound" : "evergreen"} topic has to connect directly to how a client buys, what the first paid outcome looks like, and why the relationship should continue after the first delivery. The old creator playbook was to publish more, chase more attention, and hope the right clients appeared. The stronger approach is to turn attention into a packaged service, then use the service to create repeatable client value. Retainr sits at that handoff: a visitor becomes a lead, a lead buys a clear offer, and the client enters a branded delivery system instead of another loose email thread.`,
+      title: `The practical answer to ${topic}`,
+      body: `${title} should help ${audience} make a better decision, not simply provide another list. The useful starting point is ${plan.buyer}. Their real constraint is that ${plan.problem}. Begin with the buyer, establish what a good outcome means, and choose the smallest workflow that can produce evidence. Then turn the repeated work into a defined service. This creates a direct line from useful guidance to a paid result without asking the reader to assemble a complicated stack or interpret broad advice.`,
       points: [
-        "Build around a specific buyer and painful use case",
-        "Turn advice into a productized service with clear scope",
-        "Connect every content asset to a next step, not just a view",
-        "Move every lead toward a paid recurring relationship",
+        `Best-fit buyer: ${plan.buyer}`,
+        `Immediate problem: ${plan.problem}`,
+        `First useful result: ${plan.firstMilestone}`,
+        `Primary measure: ${plan.metric}`,
       ],
     },
     {
-      title: "The buyer this article should serve",
-      body: `The most useful reader is not a generic service provider. It is an expert who already has proof that clients value their judgment: an AI consultant asked to automate the same workflow repeatedly, an SEO expert asked for monthly reporting, a designer who keeps getting urgent brand asset requests, a life coach running structured programs, an info product creator selling courses, or an illustrator receiving recurring character design requests. For these creators, ${topic} matters because it can become a packaged business motion. The goal is to define a narrow buyer, name the recurring problem, and make the next step obvious enough that a client can purchase without a long explanation call.`,
+      title: "Diagnose before choosing tactics or tools",
+      body: `Do not begin by copying a tool list or a competitor's playbook. Reconstruct the current path from trigger to outcome. Identify who owns each decision, what evidence is available, where work waits, what causes rework, and what the client sees. A diagnosis protects the expert from solving the wrong problem and gives the client a defensible reason to act. It also creates a baseline for demonstrating value later. If the baseline cannot be explained in plain language, the work is not ready to be automated, scaled, or sold as a recurring plan.`,
       points: [
-        "Name the niche before naming the offer",
-        "Translate expertise into an outcome the client can recognize",
-        "Remove broad positioning that attracts unfocused inquiries",
-        "Use niche pages and signup parameters to personalize onboarding",
+        "Map the current process before proposing the future process",
+        "Separate observed evidence from assumptions",
+        "Name the decision owner and the person doing the work",
+        "Measure the baseline with the same definition you will use later",
       ],
     },
     {
-      title: "How to turn the idea into a sellable offer",
-      body: `Start by converting the article idea into a service package. A useful package has a promise, a boundary, a timeline, a price, and an intake flow. For example, an AI consultant can turn workflow advice into a monthly optimization retainer. An SEO expert can turn keyword guidance into a technical audit plus a monthly content roadmap. A designer can turn social media advice into a monthly creative desk. The offer should not include every possible deliverable. It should include enough to get the client to one visible result, then create a natural reason to continue through a retainer, check-in, report, or support plan.`,
-      points: [
-        "Write the offer around one outcome",
-        "Define what is included and what is not included",
-        "Add a starter version and a recurring version",
-        "Use Retainr packages to publish the offer and collect payment",
-      ],
+      title: "Use this step-by-step workflow",
+      body: `The workflow below turns ${topic} into a sequence a freelancer can deliver and improve. Keep one owner and one definition of done for each stage. Save inputs, decisions, outputs, and approvals with the client record so a future review does not depend on memory. The sequence is deliberately small: it should create the first useful evidence before the client commits to a larger programme. Adapt the terminology to the niche, but do not skip the baseline, review, or recorded next decision.`,
+      points: plan.workflow,
     },
     {
-      title: "How to apply it without adding more tools",
-      body: `The practical move is to keep your creator business simple: one landing page, one productized offer, one intake flow, one payment path, and one client portal. That is where ${category.toLowerCase()} becomes revenue instead of another content task. If a creator needs a separate form builder, invoice tool, task board, file drive, support inbox, and spreadsheet to deliver one offer, the business gets harder every time it grows. Retainr lets the creator keep the visible brand experience together: the client buys from the creator, enters a branded portal, uploads the right information, sees project status, and knows where to ask for help.`,
-      points: [
-        "Create a starter package that can be delivered repeatedly",
-        "Use a magic signup link for the exact offer",
-        "Attach tasks, files, support, and approvals to the client record",
-        "Keep the client experience inside one branded workflow",
-      ],
-    },
-    {
-      title: "Current tools worth considering",
-      body: `Tools change faster than the operating principles in this guide. This stack was reviewed on ${updatedAt} for ${audience}. Choose the smallest combination that supports the job, document what information each tool receives, and keep the client-facing journey coherent. A named tool is an example, not a requirement: replace it when another option better fits your region, privacy needs, budget, or technical control. The durable workflow is still to research carefully, make the expert decision, publish a clear offer, measure a real outcome, and preserve the client context.`,
+      title: "Choose a current stack without creating tool debt",
+      body: `This tool set was reviewed on ${reviewedAtLabel}. Treat every named product as an option, not a permanent requirement. Check availability, data handling, regional support, pricing, export, and client permissions before adoption. Prefer the smallest stack that preserves an authoritative record and gives the client one obvious place to act. AI can accelerate research, classification, transformation, and drafting, but the specialist remains responsible for facts, judgment, consent, and the final recommendation.`,
       points: currentTools,
     },
     {
-      title: "Niche examples you can adapt",
-      body: `For an AI consultant, this topic can become a recurring "Monthly AI Performance Retainer". For an SEO expert, it can become a monthly search visibility retainer. For a designer, it can become a monthly creative desk retainer. For a life coach, it can become ongoing accountability retainers. For info product creators, it can become implementation coaching retainers. For illustrators and cartoonists, it can become monthly visual content retainers. The same pattern applies across all six niches: package the repeated work, create a clean intake, and give clients a professional portal where the service feels organized.`,
+      title: "Package a low-friction starting point",
+      body: `The first paid offer should reduce uncertainty for both sides. For this topic, a strong entry point is a ${plan.starterOffer}. It should name the buyer, the question being answered, the evidence reviewed, the deliverable, the timeline, the price, and what is explicitly outside scope. The client is not buying a vague consultation; they are buying a decision they can use. A compact starter offer also gives the freelancer a repeatable way to qualify fit without preparing a free custom strategy for every enquiry.`,
       points: [
-        "AI Consultants: audits, implementation sprints, monthly optimization retainers",
-        "SEO Experts: audits, keyword roadmaps, monthly growth retainers",
-        "Designers: brand sprints, landing pages, monthly creative retainers",
-        "Life Coaches: transformation programs and monthly accountability retainers",
-        "Info Product Creators: courses + monthly implementation coaching",
-        "Illustrators & Cartoonists: character design and monthly visual content retainers",
+        `Name the offer: ${plan.starterOffer}`,
+        "Promise one decision or deliverable",
+        "Publish the scope, timeline, price, and exclusions",
+        "Credit part of the fee toward the core offer only when commercially sensible",
       ],
     },
     {
-      title: "Turn existing clients into recurring revenue",
-      body: `Existing clients are the best growth channel for niche experts because they already trust the creator and already understand the value. Use this topic to identify repeated requests: the monthly report clients ask for, the follow-up call they keep booking, the new content format they need every week, the same operational workflow they want improved, or the same educational support they want after the first project ends. Once the pattern is visible, turn it into a named recurring plan. The plan should promise continued progress, not vague access. Retainr then gives that plan a place to live: package, checkout, onboarding, tasks, support, approvals, and renewal context.`,
+      title: "Turn the diagnosis into the core package",
+      body: `When the diagnosis confirms fit, the core offer can become a ${plan.coreOffer}. Price it around the clarity of the outcome, responsibility, expertise, and delivery capacity rather than hours alone. Define the number of review cycles, client responsibilities, dependencies, change process, and completion criteria. A productized package is not rigid; it is predictable. It gives the expert enough structure to deliver well and gives the client enough visibility to trust the process.`,
       points: [
-        "Audit current clients for repeated requests",
-        "Bundle repeated work into a monthly plan",
-        "Use clear recurring deliverables instead of vague retainers",
-        "Use Retainr to sell, onboard, invoice, and deliver the plan",
+        `Core offer: ${plan.coreOffer}`,
+        `First milestone: ${plan.firstMilestone}`,
+        "State client responsibilities before payment",
+        "Define how new requests affect scope, timing, or price",
       ],
     },
     {
-      title: "Choose the reader's next useful step",
-      body: `Advice becomes useful when the reader can apply it. Someone learning about ${topic} may need to define a productized offer, compare operating costs, improve client onboarding, build a simple sales path, or see an example for their niche. Link each recommendation to the next action that resolves the reader's uncertainty. Offer strategy should continue to Productize, buying questions to Pricing, intake problems to Client Onboarding, and specialist examples to the relevant niche playbook. The goal is a coherent learning path that helps the reader move from understanding to implementation without another broad search.`,
+      title: "Collect only the onboarding context you will use",
+      body: `Work backward from the first milestone and ask only for information that changes how delivery begins. Long generic questionnaires create abandonment and still miss the detail the specialist needs. Route the buyer from the exact offer or niche page, explain why sensitive information is required, and collect follow-up context only when it becomes relevant. For this workflow, the initial intake should cover the items below. Keep the answers with the project, files, decisions, and support history rather than in an isolated form inbox.`,
+      points: plan.inputs,
+    },
+    {
+      title: "Design the first 48 hours after purchase",
+      body: `Confidence is shaped immediately after payment. Confirm what was purchased, show the next action, acknowledge the completed intake within one business day, and either schedule or deliver the first milestone within the promised window. If something blocks progress, name the exact missing item and its consequence. Retainr can keep the package, payment context, intake, tasks, files, and support path together so the client does not have to search across several messages before work has even begun.`,
       points: [
-        "Link every recommendation to a relevant action",
-        "Use Productize when the reader needs to shape the offer",
-        "Use Client Onboarding when the delivery handoff is unclear",
-        "Use niche playbooks when a concrete specialist example helps",
+        "Confirm the order and next action immediately",
+        "Review the intake within one business day",
+        "Show the first milestone and its owner",
+        "Keep one named place for files, questions, and approvals",
       ],
     },
     {
-      title: "Implementation checklist",
-      body: `Use this checklist as the operating plan after reading. Pick one niche, choose one repeated client problem, publish one paid starter offer, and design one recurring plan that follows naturally from the result. Then connect the article, offer page, and signup link so the path from education to purchase is direct. This is how digital creators stop treating content as an isolated marketing activity and start using it as a revenue system. The article attracts intent, the offer captures demand, the portal delivers the service, and the recurring plan creates retention.`,
+      title: "Add quality control where expert judgment matters",
+      body: `A repeatable system still needs explicit review. Decide what can be automated, what requires specialist approval, what the client approves, and what happens when evidence is weak. Document assumptions and changes so success is not reconstructed after the fact. The most important failure modes for this topic are listed below. Turn each one into a checklist item, approval gate, permission rule, or scope boundary. Quality control should reduce hidden risk without turning the workflow into bureaucracy.`,
+      points: plan.risks.map((risk) => `Prevent ${risk}`),
+    },
+    {
+      title: "Create proof a buyer can evaluate",
+      body: `Proof should reveal the expert decision, not only a polished final output. For this topic, use ${plan.proof}. Explain the starting condition, the relevant constraint, what changed, what did not change, the measurement window, and the next recommendation. Protect confidential information and avoid implying causation the evidence cannot establish. A small library of clear case notes helps future buyers self-qualify and gives existing clients a concrete reason to discuss the next engagement.`,
       points: [
-        "Choose one niche and one paid outcome",
-        "Create one starter offer and one recurring upgrade",
-        "Add a niche-specific signup link with the right query parameter",
-        "Review the client experience every month and improve the package",
+        "Show the starting condition and commercial context",
+        "Explain the expert decision and tradeoff",
+        "Use the same metric definition before and after",
+        "End with who should use this approach and who should not",
       ],
     },
     {
-      title: "Offer ladder for this topic",
-      body: `A useful article should create more than awareness. It should help a creator design an offer ladder. The entry offer gives a client a low-friction way to experience the expert's judgment. The core offer delivers the main transformation. The recurring offer protects the result over time. For ${audience}, the entry offer might be an audit, review, planning session, creative sample, safety check, or first implementation sprint. The core offer might be a complete package with a fixed timeline. The recurring offer might be monthly reporting, continued support, optimization, accountability, new deliverables, or advisory access. Retainr makes that ladder practical because each offer can have its own package, payment path, onboarding questions, client portal, tasks, and support tickets.`,
+      title: "Introduce recurring value after the first result",
+      body: `The continuation offer for this workflow is a ${plan.recurringOffer}. Introduce it when the first result makes the next need visible, not as a surprise at the end of the project. Explain what will be reviewed or delivered each cycle, how priorities are chosen, what response time applies, and how the client can pause or change scope. The retainer should protect or extend a result; vague access to the freelancer is not a strong recurring product.`,
       points: [
-        "Entry offer: fast proof of expertise",
-        "Core offer: the main paid transformation",
-        "Recurring offer: monthly value and retention",
-        "Expansion offer: higher-touch service for the best clients",
+        `Recurring offer: ${plan.recurringOffer}`,
+        `Ongoing measure: ${plan.metric}`,
+        "Set a defined cycle, capacity, and response time",
+        "Review fit before each renewal or scope change",
       ],
     },
     {
-      title: "How to position it for niche experts",
-      body: `The mistake many independent experts make is writing for everyone who might need help. That creates weak copy and weak leads. A stronger page names the category of client, the specific situation, and the cost of inaction. An AI consultant can speak to founders who keep rebuilding the same automations. An SEO expert can speak to teams publishing content without a ranking system. A designer can speak to brands that need consistent creative output every month. A life coach can speak to clients who want structured digital programs. An info product creator can speak to buyers who purchase courses but never implement. An illustrator can speak to clients who need ongoing visual assets. The more specific the positioning, the easier the Retainr signup flow becomes because the onboarding questions can match the promise.`,
+      title: "Start with clients and warm relationships you already have",
+      body: `Before building a large acquisition campaign, review completed projects, active clients, past enquiries, and complementary partners. Look for the recurring version of a problem you have already solved. Send a short note with shared context, one relevant observation, the named offer, and a low-pressure next step. This is more credible than a generic announcement because the recipient can connect the offer to a real need. Record the next action and close the loop respectfully when there is no fit.`,
       points: [
-        "Write for one kind of buyer at a time",
-        "Name the painful recurring situation",
-        "Explain the cost of staying disorganized",
-        "Match the signup flow to the promise on the page",
+        "Review past work for repeated follow-on needs",
+        "Contact the people for whom the offer is genuinely relevant",
+        "Lead with context and an observation, not a brochure",
+        "Follow up once with useful information, then close the loop",
       ],
     },
     {
-      title: "Content strategy that supports the offer",
-      body: `Content should work like a sales system, not a random publishing calendar. Start with one pillar page that explains the problem and the paid path. Then create supporting posts that answer objections, show examples, compare approaches, and explain the workflow. Every supporting article should link back to a service package or niche onboarding page. For a creator, this means the blog is not separate from revenue. A YouTube idea post can lead to a content planning retainer. A workflow automation post can lead to an AI implementation sprint. A self-publishing post can lead to editing, launch planning, or reader-community packages. A creator skills post can lead to the high-demand skills guide and then to Retainr signup.`,
+      title: "Measure the client journey, not vanity activity",
+      body: `Use ${plan.metric} as the primary commercial measure, then add operational signals that explain it: qualified enquiries, package conversion, intake completion, time to first milestone, approval delay, avoidable support, and recurring-plan acceptance. Review a small scorecard monthly. If a metric changes, inspect the underlying clients and decisions before declaring success. Good measurement should help the freelancer decide what to improve next, not create a dashboard no one uses.`,
       points: [
-        "Use pillar pages for broad commercial intent",
-        "Use supporting articles for objections and examples",
-        "Link every article to a relevant Retainr product page",
-        "Update old date-based articles into evergreen resources",
+        `Primary commercial measure: ${plan.metric}`,
+        "Package-page to paid-client conversion",
+        "Time from payment to first useful milestone",
+        "Recurring-plan acceptance and retention",
       ],
     },
     {
-      title: "Client onboarding questions to ask",
-      body: `The right onboarding questions depend on the niche, but the logic is consistent. Ask for the outcome the client wants, the current state, the assets or access needed, the constraints, the approval process, and the preferred communication rhythm. Do not ask for every possible detail up front. Ask for the details required to start confidently, then use the client portal to gather follow-up information as the work progresses. This keeps the signup flow short enough to convert and structured enough to reduce back-and-forth. Retainr is useful here because the onboarding response can sit beside the client record, project, files, tickets, and tasks rather than disappearing into a form inbox.`,
+      title: "Automate administration without automating trust",
+      body: `Automate predictable state changes: order confirmation, missing-input reminders, project creation, standard tasks, due-date alerts, and internal handoffs. Keep diagnosis, sensitive communication, exception handling, and material recommendations human. Every automation needs an owner, a visible failure state, and a way to recover. The goal is not maximal automation; it is to protect the specialist's time while preserving a client experience that feels attentive and accountable.`,
       points: [
-        "Desired outcome and deadline",
-        "Current state and existing assets",
-        "Required access, files, or context",
-        "Approval process and communication cadence",
+        "Automate confirmations and predictable reminders",
+        "Keep judgment and sensitive messages human",
+        "Assign an owner for failures and exceptions",
+        "Review whether each automation actually saves verified time",
       ],
     },
     {
-      title: "Delivery workflow after payment",
-      body: `After payment, the client should immediately know what happens next. A good workflow has a welcome message, a clear intake checklist, a project area, task visibility, support instructions, and a first milestone. The creator should not manually rebuild that experience for every new client. For ${audience}, the first milestone might be a kickoff review, audit summary, creative draft, research brief, plan outline, or implementation checklist. Once that first milestone is delivered, the creator should introduce the continuation path while the value is fresh. This is how a one-time article reader or one-time buyer becomes a retained client.`,
+      title: "A seven-day implementation plan",
+      body: `Day one: interview the current workflow and record the baseline. Day two: define the ${plan.starterOffer}. Day three: write the scope, exclusions, price, and intake. Day four: build the package and niche-aware signup path in Retainr. Day five: prepare the first milestone and quality checklist. Day six: invite a small number of relevant past clients or warm prospects. Day seven: review every question and hesitation, then improve the offer before increasing promotion. This produces a live learning loop instead of another month of planning.`,
       points: [
-        "Welcome the client with next steps",
-        "Collect missing assets before work starts",
-        "Show the first milestone clearly",
-        "Introduce the recurring plan after the first result",
+        "Publish one diagnostic or starter package",
+        "Create one buyer-specific intake path",
+        "Prepare the first milestone before selling",
+        "Improve the package from real buyer questions",
       ],
     },
     {
-      title: "Pricing and packaging guidance",
-      body: `Pricing should be tied to clarity, not only effort. A low-priced offer can be useful if it qualifies the client and leads to a higher-value plan. A high-priced offer can work if the outcome is urgent, measurable, and hard for the client to solve alone. Recurring pricing should be based on continued value: monitoring, accountability, implementation, creative production, advisory, support, or optimization. The practical way to start is to publish three packages: starter, growth, and ongoing. The starter package proves fit. The growth package delivers the main project. The ongoing package turns the relationship into predictable revenue. Retainr's pricing configuration and service packages support that structure without forcing the creator into a generic checkout flow.`,
+      title: "Common mistakes that make useful advice hard to apply",
+      body: `The most common failure is treating ${topic} as an isolated tactic. Other failures include using a generic buyer, choosing tools before diagnosis, hiding the commercial next step, collecting excessive intake, leaving approvals informal, and calling undefined access a retainer. Correct these by keeping one visible sequence from promise to proof. The buyer should understand what they are purchasing, what happens next, where decisions live, how progress is reviewed, and what continuing value is available.`,
       points: [
-        "Starter package for fast conversion",
-        "Growth package for the main transformation",
-        "Ongoing package for recurring revenue",
-        "Clear scope so clients know exactly what they buy",
+        "Do not broaden the buyer to make the market look larger",
+        "Do not confuse a list of tools with an operating method",
+        "Do not begin work without scope and decision ownership",
+        "Do not wait until the relationship ends to explain continuation",
       ],
     },
     {
-      title: "Turn the advice into a working client system",
-      body: `The next step is to turn the useful idea into an offer a client can act on. Use Productize to define the outcome, scope, and continuation plan. Review Pricing when you are ready to choose the operating setup. Use Client Onboarding to decide what context, files, and expectations should be collected before delivery starts. Then choose the niche playbook closest to your work so the offer language and signup path feel specific to the buyer. These pieces create a practical route from learning to purchase, and from a successful first engagement to recurring client revenue.`,
+      title: "Turn this guide into a working client system",
+      body: `The durable value of this guide is the operating path it supports. Use Productize to turn the problem into a named offer. Use the niche playbooks to match language and onboarding to the specialist audience. Use Client Onboarding to collect the minimum context required for ${plan.firstMilestone}. Then use Retainr to keep the package, payment, project, files, tasks, support, approvals, and ${plan.recurringOffer} in one branded client journey. The objective is a better client experience and a business that does not have to rebuild its process after every sale.`,
       points: [
-        "Productize the first paid outcome",
-        "Choose the operating plan that fits",
-        "Design a clear client onboarding path",
-        "Use the closest niche playbook for specificity",
-      ],
-    },
-    {
-      title: "Metrics to review monthly",
-      body: `A creator business improves when the owner reviews simple operational metrics. Track how many visitors click to signup, which packages convert, how long onboarding takes, how many support requests appear during delivery, how many clients accept a recurring offer, and where clients get confused. These metrics are more useful than vanity traffic numbers because they show whether the content is turning into revenue. The goal is not to publish endlessly. The goal is to improve the path from attention to paid relationship. Retainr supports that thinking because offers, clients, projects, tickets, and revenue live close enough together to reveal bottlenecks.`,
-      points: [
-        "Signup click-through rate",
-        "Package conversion rate",
-        "Time from payment to kickoff",
-        "Recurring plan acceptance rate",
-      ],
-    },
-    {
-      title: "Common mistakes to avoid",
-      body: `The first mistake is keeping the topic too generic. The second is sending all readers to a generic contact form. The third is selling custom work when the same request appears repeatedly. The fourth is treating delivery as separate from marketing. The fifth is failing to ask for the next recurring commitment after the first result. These mistakes are common because creators often grow from referrals and improvisation. Retainr helps replace improvisation with a system: packaged offer, branded signup, payment, onboarding, delivery, support, and renewal. That system protects the creator's time and gives the client a more professional experience.`,
-      points: [
-        "Do not send high-intent readers to vague contact forms",
-        "Do not rebuild onboarding manually for every buyer",
-        "Do not bury recurring plans until after the client disappears",
-        "Do not split client context across too many disconnected tools",
-      ],
-    },
-    {
-      title: "Practical next step",
-      body: `The fastest next step is to create one Retainr package from this article topic. Give it a specific name, choose the niche buyer, write the outcome, add the intake questions, set the payment terms, and publish the signup link. Then add that link to the article, your social profile, your email signature, and any content that attracts the same buyer. After three to five clients, review what they asked before buying, what confused them during onboarding, and what support they needed after delivery. Use those notes to improve the package and create the recurring version. This is how the article becomes an asset, not just a page.`,
-      points: [
-        "Create one package today",
-        "Add one niche-specific signup link",
-        "Deliver through one branded portal",
-        "Turn the repeated follow-up into a monthly offer",
-      ],
-    },
-    {
-      title: "Example client journey",
-      body: `Imagine a reader discovers this article while trying to solve a practical business problem. They are not ready for a vague consultation; they want a clear path. The article explains the strategy, then points them to a package that matches the problem. The package page explains the outcome, price, scope, and timeline. The signup link asks only for the context needed to start. Payment creates a client record. The portal shows the next step. The first milestone proves value. The creator then introduces the recurring plan as the obvious way to keep momentum. This journey is important because it turns search traffic into a client relationship without forcing the creator to manually qualify, invoice, onboard, and organize every buyer from scratch. Retainr should be visible at each step as the platform that makes the path feel professional.`,
-      points: [
-        "Article explains the problem and educates the buyer",
-        "Package converts the buyer into a client",
-        "Portal organizes delivery and support",
-        "Recurring plan extends the result over time",
-      ],
-    },
-    {
-      title: "How this differs by niche",
-      body: `The same system should not use the same wording for every creator. An AI consultant needs language around tools, workflows, success metrics, and ongoing optimization. An SEO expert needs URLs, access, competitors, analytics, and content priorities. A designer needs brand context, creative references, and approval stakeholders. A life coach needs goals, current situation, session format, and accountability structure. An info product creator needs audience size, curriculum stage, assets, and launch channel. An illustrator needs style references, usage rights, revision rules, and delivery formats. Retainr's niche pages and signup parameters make these differences actionable instead of generic.`,
-      points: [
-        "Use niche-specific intake language",
-        "Match package names to the buyer's mental model",
-        "Adjust deliverables without changing the operating system",
-        "Keep the creator's brand consistent across every niche",
-      ],
-    },
-    {
-      title: "Keep the workflow useful as tools change",
-      body: `Evergreen guidance still needs maintenance. Review the workflow quarterly and replace tool-specific advice when the product, pricing, privacy model, or audience changes. Keep the durable decision logic and update examples, screenshots, and links. If clients ask the same question during sales calls, answer it directly. If a recurring package becomes more effective, add the example and explain why. A stable guide should become more useful through delivery evidence instead of receiving a cosmetic date change.`,
-      points: [
-        "Review named tools, prices, and product capabilities quarterly",
-        "Keep durable principles separate from temporary examples",
-        "Update screenshots when the real workflow changes",
-        "Use client questions and delivery evidence to guide revisions",
-      ],
-    },
-    {
-      title: "Why Retainr is the natural platform fit",
-      body: `The practical need is operational: creators need a way to turn expertise into a business system. Many tools can publish content, collect forms, send invoices, or manage tasks. Retainr is built around the complete client relationship. The buyer can purchase a service, enter a branded portal, submit details, follow progress, ask questions, and continue into a recurring plan. The creator can manage packages, clients, tasks, tickets, files, and payment context without rebuilding the workflow for every offer. This is especially useful when the same specialist service is sold repeatedly and the first result creates an ongoing client need.`,
-      points: [
-        "Retainr connects selling and delivery",
-        "Retainr keeps the creator's brand in front",
-        "Retainr supports recurring revenue workflows",
-        "Retainr reduces the admin between content and client retention",
-      ],
-    },
-    {
-      title: "Long-form summary",
-      body: `Use this article as both a strategy guide and a working sales asset. The strategy is to narrow the niche, package the repeated problem, create a buyer-specific signup path, deliver through one branded client portal, and introduce recurring value after the first result. The sales asset is the page itself: it captures search intent, educates the reader, links to relevant Retainr pages, and points the right audience toward signup. This is especially important for creators who already have clients but do not yet have a system for retaining them. The fastest growth is often not a completely new audience; it is a better offer for people who already trust the creator. Retainr helps turn that trust into structured revenue, clean delivery, and a client experience that feels far more professional than a patchwork of disconnected tools.`,
-      points: [
-        "Narrow the niche",
-        "Package the repeated problem",
-        "Deliver through Retainr",
-        "Convert first results into recurring revenue",
-      ],
-    },
-    {
-      title: "Final action plan for the next seven days",
-      body: `Day one: choose the niche buyer and rewrite the offer promise in one sentence. Day two: define the starter package, the core package, and the recurring package. Day three: write the onboarding questions and remove anything that is not required to begin. Day four: publish the Retainr package and connect the signup link. Day five: add the link to this article and to every related content asset. Day six: invite past clients or warm leads into the new offer. Day seven: review responses and improve the copy, price, or intake. This small implementation cycle is more useful than another month of planning because it creates a live path from content to revenue. For ${audience}, that path is the difference between being seen as a helpful creator and being hired as the expert who owns a clear client process.`,
-      points: [
-        "Rewrite the offer promise",
-        "Publish the package",
-        "Connect the signup link",
-        "Invite warm clients into the recurring path",
+        "Productize the first paid decision",
+        "Choose the niche page closest to the buyer",
+        "Collect only the inputs needed to begin",
+        "Make the recurring value visible after the first result",
       ],
     },
   ];
@@ -532,12 +802,15 @@ const aliasSources = [
       .filter((slug, index) => slug !== canonicalSources[index] && !canonicalSources.includes(slug))
   ),
 ];
-const allSlugs = [...canonicalSources, ...aliasSources];
+const previousAliasSources = canonicalSources
+  .map(previousEvergreenSlug)
+  .filter((slug, index) => slug !== canonicalSources[index] && !canonicalSources.includes(slug));
+const allSlugs = [...new Set([...canonicalSources, ...aliasSources, ...previousAliasSources])];
 
 const migratedBlogArticles: BlogArticle[] = allSlugs.map((slug) => {
   const sourceSlug = canonicalSources.includes(slug)
     ? slug
-    : canonicalSources.find((item) => evergreenSlug(item) === slug) ?? slug;
+    : canonicalSources.find((item) => evergreenSlug(item) === slug || previousEvergreenSlug(item) === slug) ?? slug;
   const canonicalSlug = evergreenSlug(sourceSlug);
   const title = cleanTitle(sourceSlug);
   const category = categoryFor(sourceSlug);
@@ -547,7 +820,9 @@ const migratedBlogArticles: BlogArticle[] = allSlugs.map((slug) => {
     sourceSlug,
     canonicalSlug,
     title,
-    description: `${title}, updated for ${audience}, niche experts, and digital creators who want to turn existing clients into recurring revenue with Retainr.`,
+    description: conciseDescription(
+      `A current, practical guide for ${audience}: ${title}. Choose useful tools, deliver proof, and package valuable recurring work.`
+    ),
     category,
     audience,
     updatedAt,
@@ -556,7 +831,7 @@ const migratedBlogArticles: BlogArticle[] = allSlugs.map((slug) => {
     image: imageFor(category),
     imageAlt: `${title} illustrated with the Retainr client workflow`,
     sections: buildSections(sourceSlug, title, category, audience),
-    sources: [],
+    sources: sourcesFor(sourceSlug, category),
   };
 });
 

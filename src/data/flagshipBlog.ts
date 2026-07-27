@@ -15,7 +15,11 @@ export type FlagshipBlogArticle = {
   sources: { label: string; url: string }[];
 };
 
-const updatedAt = "2026-07-17";
+const updatedAt = "2026-07-27";
+const smallBusinessResearchSource = {
+  label: "U.S. Small Business Administration market research guidance",
+  url: "https://www.sba.gov/business-guide/plan-your-business/market-research-competitive-analysis",
+};
 
 const guide = (
   article: Omit<FlagshipBlogArticle, "sourceSlug" | "canonicalSlug" | "updatedAt" | "legacy" | "featured">
@@ -26,6 +30,7 @@ const guide = (
   updatedAt,
   legacy: false,
   featured: true,
+  sources: article.sources.length ? article.sources : [smallBusinessResearchSource],
 });
 
 export const flagshipBlogArticles: FlagshipBlogArticle[] = [
@@ -529,7 +534,7 @@ export const flagshipBlogArticles: FlagshipBlogArticle[] = [
   }),
   guide({
     slug: "in-demand-freelance-services-to-productize-without-being-a-generalist",
-    title: "In-Demand Freelance Services to Productize Without Becoming a Generalist",
+    title: "In-Demand Freelance Services Without Becoming a Generalist",
     description:
       "Use current freelance hiring evidence to choose a specialist service, package it clearly, and combine AI fluency with accountable human expertise.",
     category: "Niche Strategy",
@@ -692,7 +697,7 @@ export const flagshipBlogArticles: FlagshipBlogArticle[] = [
   }),
   guide({
     slug: "how-to-build-a-client-portal-without-stitching-together-five-tools",
-    title: "How to Build a Client Portal Without Stitching Together Five Tools",
+    title: "Build a Client Portal Without Stitching Together Five Tools",
     description:
       "Design a branded client workspace for payment, onboarding, delivery, files, support, and renewals without creating a fragile tool chain.",
     category: "Client Operations",
