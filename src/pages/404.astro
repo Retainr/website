@@ -1,0 +1,25 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Page Not Found | Retainr"
+  description="The requested Retainr page could not be found. Continue to the Retainr Method, pricing, niche playbooks, or evergreen guides."
+  path="/404/"
+  robots="noindex, follow"
+>
+  <section class="hero center">
+    <div class="container">
+      <div class="hero-copy" style="justify-items:center">
+        <span class="eyebrow">404</span>
+        <h1 class="hero-title">This page is not part of the client journey.</h1>
+        <p>Use one of the paths below to get back to a working Retainr resource.</p>
+        <div class="hero-actions">
+          <a href="/" class="button">Return Home</a>
+          <a href="/method/" class="button ghost">Explore The Method</a>
+          <a href="/blog/" class="button ghost">Browse Guides</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

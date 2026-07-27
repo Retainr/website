@@ -5,7 +5,7 @@ import { niches } from "@/data/niches";
 
 const site = "https://www.retainr.io";
 
-const siteUpdatedAt = "2026-07-17";
+const siteUpdatedAt = "2026-07-27";
 
 const entries = new Map<string, string>([
   ["/", siteUpdatedAt],
