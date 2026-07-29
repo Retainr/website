@@ -140,8 +140,8 @@ export type BlogArticle = {
   sources: { label: string; url: string }[];
 };
 
-const updatedAt = "2026-07-27";
-const reviewedAtLabel = "27 July 2026";
+const updatedAt = "2026-07-29";
+const reviewedAtLabel = "29 July 2026";
 const audiences = [
   "AI consultants",
   "SEO experts",

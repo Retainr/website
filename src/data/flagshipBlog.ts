@@ -15,10 +15,200 @@ export type FlagshipBlogArticle = {
   sources: { label: string; url: string }[];
 };
 
-const updatedAt = "2026-07-27";
+const updatedAt = "2026-07-29";
 const smallBusinessResearchSource = {
   label: "U.S. Small Business Administration market research guidance",
   url: "https://www.sba.gov/business-guide/plan-your-business/market-research-competitive-analysis",
+};
+
+type ExtensionPlan = {
+  starterOffer: string;
+  evidence: string;
+  metric: string;
+  continuation: string;
+  inputs: string[];
+  risks: string[];
+};
+
+const extensionPlans: Record<string, ExtensionPlan> = {
+  "how-to-rank-in-ai-search-without-chasing-algorithm-hacks": {
+    starterOffer: "AI search eligibility and citation audit",
+    evidence: "an indexed-page map that connects buyer questions, first-hand evidence, cited sources, internal links, and the relevant offer",
+    metric: "qualified search journeys and assisted conversions from pages that earn useful visibility",
+    continuation: "monthly AI search evidence, citation, and content-maintenance review",
+    inputs: ["crawl and indexing status", "Search Console query data", "real buyer questions", "first-hand examples", "entity details and sources", "the commercial next step"],
+    risks: ["publishing near-duplicate AI bait", "treating llms.txt as an indexing shortcut", "citing secondary summaries for changing claims", "measuring occasional citations without business outcomes"],
+  },
+  "how-to-get-freelance-clients-without-cold-calling": {
+    starterOffer: "warm pipeline and referral opportunity review",
+    evidence: "a prioritized account list that records shared context, a relevant problem, the proof to send, and one respectful next action",
+    metric: "qualified conversations that progress to a defined commercial decision",
+    continuation: "monthly reactivation, proof, and referral-partner operating rhythm",
+    inputs: ["past clients and enquiries", "completed project results", "current offers", "warm professional relationships", "complementary specialists", "open next actions"],
+    risks: ["sending generic availability announcements", "asking for referrals without useful context", "following up repeatedly without new value", "tracking contacts without recording the next decision"],
+  },
+  "how-to-build-recurring-revenue-without-a-large-audience": {
+    starterOffer: "existing-client continuation opportunity map",
+    evidence: "a revenue-capacity model showing the client need, service cadence, delivery load, margin, and reason the work should continue",
+    metric: "relevant continuation-offer acceptance and retained revenue after the first 90 days",
+    continuation: "a defined monthly support, production, care, or optimization plan",
+    inputs: ["current and past clients", "repeated follow-on needs", "revenue target", "delivery capacity", "service economics", "proof from completed work"],
+    risks: ["building a vague membership", "setting a revenue target without capacity math", "discounting to manufacture recurrence", "launching to strangers before reviewing trusted relationships"],
+  },
+  "how-to-use-ai-for-client-work-without-losing-your-voice": {
+    starterOffer: "AI-assisted delivery workflow and voice audit",
+    evidence: "a before-and-after sample with the source material, AI role, human decisions, corrections, approval owner, and final client-ready output",
+    metric: "verified production time saved after review, correction, and exception handling",
+    continuation: "monitored AI-assisted content or delivery operations with scheduled quality review",
+    inputs: ["approved source material", "voice and terminology examples", "client confidentiality rules", "factual review owner", "acceptable AI tasks", "final approval criteria"],
+    risks: ["placing confidential client data in an unapproved tool", "publishing invented facts or citations", "letting generated phrasing erase expert judgment", "automating final approval without ownership"],
+  },
+  "how-to-write-client-proposals-without-starting-from-scratch": {
+    starterOffer: "proposal system and qualification sprint",
+    evidence: "a modular proposal assembled from a qualified brief, named assumptions, relevant proof, scope boundaries, and an explicit decision path",
+    metric: "time from qualified enquiry to decision, supported by revision count and close quality",
+    continuation: "monthly sales-material and qualification review based on real objections",
+    inputs: ["buyer problem and desired outcome", "decision process", "scope and dependencies", "relevant case evidence", "price and payment terms", "change and approval rules"],
+    risks: ["templating before qualification", "hiding assumptions in polished language", "sending irrelevant case studies", "treating every revision as free discovery"],
+  },
+  "how-to-sell-seo-retainers-without-guaranteeing-rankings": {
+    starterOffer: "search opportunity, risk, and baseline audit",
+    evidence: "a baseline that records search demand, technical constraints, content gaps, conversion paths, dependencies, and the decisions the specialist controls",
+    metric: "qualified organic demand and commercial contribution alongside agreed leading search indicators",
+    continuation: "monthly search growth, content maintenance, and technical prioritization programme",
+    inputs: ["Search Console and analytics access", "commercial priorities", "site and content history", "technical ownership", "conversion definitions", "compliance constraints"],
+    risks: ["guaranteeing positions outside the consultant's control", "reporting traffic without lead quality", "ignoring implementation dependencies", "publishing content without original evidence or conversion intent"],
+  },
+  "in-demand-freelance-services-to-productize-without-being-a-generalist": {
+    starterOffer: "productization opportunity and paid-pilot review",
+    evidence: "a scored shortlist comparing repeated pain, buyer access, proof, delivery fit, margin, urgency, and potential for continued work",
+    metric: "paid-pilot conversion, delivery margin, and repeat demand for the chosen buyer-problem pair",
+    continuation: "monthly optimization or support around the outcome proven by the first package",
+    inputs: ["best past projects", "repeated client questions", "delivery time and margin", "available proof", "buyer access", "follow-on needs"],
+    risks: ["choosing from trend lists alone", "bundling unrelated skills", "naming a niche without a repeated problem", "scaling promotion before one paid pilot works"],
+  },
+  "how-to-follow-up-with-leads-without-being-pushy": {
+    starterOffer: "open-pipeline and follow-up reset",
+    evidence: "a decision ledger showing the shared context, buyer question, promised next step, useful new information, timing, and close-the-loop rule",
+    metric: "qualified opportunities that progress to a clear yes, no, or later decision",
+    continuation: "weekly pipeline review with one recorded next action per active opportunity",
+    inputs: ["original enquiry context", "buyer objective", "last agreed action", "decision timing", "relevant proof or clarification", "permission to continue"],
+    risks: ["sending empty check-ins", "manufacturing false urgency", "using the same cadence for every buyer", "keeping silent leads open indefinitely"],
+  },
+  "how-to-build-a-client-portal-without-stitching-together-five-tools": {
+    starterOffer: "client journey and tool-fragmentation audit",
+    evidence: "a current-state map showing every client action, system handoff, duplicated record, permission boundary, delay, and proposed source of truth",
+    metric: "time to the client's next action, avoidable support volume, and time spent reconstructing context",
+    continuation: "monthly client-operations maintenance and workflow improvement",
+    inputs: ["offer and payment path", "intake forms", "project and file systems", "support channels", "approval steps", "client access requirements"],
+    risks: ["adding a portal without removing duplicate paths", "migrating records without ownership", "weak permissions for sensitive files", "forcing clients to learn an internal tool structure"],
+  },
+  "how-to-turn-one-off-clients-into-retainers-without-discounting": {
+    starterOffer: "post-project opportunity and continuity review",
+    evidence: "a completion review that shows the delivered result, remaining risk, next valuable outcome, appropriate cadence, and cost of leaving the need unmanaged",
+    metric: "relevant continuation-offer acceptance and retention without reducing the established rate",
+    continuation: "a monthly protection, support, production, care, or optimization plan",
+    inputs: ["delivered result", "unresolved risks", "new baseline", "client priorities", "required cadence", "capacity and response boundaries"],
+    risks: ["selling access instead of an outcome", "introducing the retainer only after the project closes", "discounting unchanged work", "proposing recurrence where the need is genuinely complete"],
+  },
+  "how-to-productize-a-service-without-building-a-course": {
+    starterOffer: "service package design and delivery rehearsal",
+    evidence: "a live offer showing the buyer, outcome, scope, timeline, price, intake, first milestone, exclusions, and the next service when successful",
+    metric: "qualified package conversion, delivery margin, and time to first client value",
+    continuation: "a recurring done-for-you, done-with-you, review, or support service",
+    inputs: ["repeated client problem", "expert decisions required", "deliverables and exclusions", "delivery capacity", "proof", "follow-on need"],
+    risks: ["turning expertise into lessons when clients need implementation", "standardizing the wrong work", "hiding scope to appear flexible", "building automation before rehearsing delivery"],
+  },
+  "how-to-onboard-clients-without-back-and-forth-email": {
+    starterOffer: "client onboarding friction and readiness audit",
+    evidence: "an offer-specific onboarding path that records what is collected, why it matters, who reviews it, the first milestone, and what happens when an input is missing",
+    metric: "time from payment to a complete first milestone, supported by intake completion and clarification volume",
+    continuation: "monthly client-operations and onboarding optimization",
+    inputs: ["purchased offer", "required decisions", "minimum starting assets", "client and internal owners", "first milestone", "exception and escalation path"],
+    risks: ["using one generic questionnaire", "asking for information before explaining why", "collecting sensitive data without controls", "starting delivery with unresolved dependencies"],
+  },
+};
+
+const deepeningSections = (
+  article: Pick<FlagshipBlogArticle, "slug" | "audience">
+) => {
+  const plan = extensionPlans[article.slug];
+
+  if (!plan) return [];
+  const starterArticle = /^[aeiou]/i.test(plan.starterOffer) ? "an" : "a";
+
+  return [
+    {
+      title: "Choose one operational definition of success",
+      body: `Before changing the workflow described in this guide, write down the decision or behaviour that should improve and the evidence that would justify that conclusion. The primary measure is ${plan.metric}. Record the definition, baseline, measurement window, and owner before changing the process. Add a small number of diagnostic signals only when they explain the commercial result. This prevents ${article.audience} from replacing vague activity with a more elaborate dashboard that still cannot guide the next decision.`,
+      points: [
+        `Primary measure: ${plan.metric}`,
+        "Record the baseline before changing the process",
+        "Use the same definition before and after",
+        "Name who reviews the evidence and decides what happens next",
+      ],
+    },
+    {
+      title: "Turn the advice into a fixed starting engagement",
+      body: `A reader should be able to use this guide independently, but some buyers will need expert diagnosis and implementation. A credible first paid step is ${starterArticle} ${plan.starterOffer}. Publish who it is for, the question it resolves, the evidence reviewed, the deliverable, timeline, price, and exclusions. Keep it small enough to create a real decision before a larger commitment. This gives the client a useful result and lets the specialist qualify fit without writing unpaid custom strategy for every enquiry.`,
+      points: [
+        `Starter offer: ${plan.starterOffer}`,
+        "Promise one decision, plan, or visible result",
+        "State price, timeline, dependencies, and exclusions",
+        "Connect the package directly to its own onboarding path",
+      ],
+    },
+    {
+      title: "Collect the minimum evidence required to begin",
+      body: `Work backward from the first useful decision and request only information that changes how work starts. Explain why each sensitive input is required, who can access it, and how missing context affects the timeline. Review the intake within one business day and ask focused follow-up questions inside the client record. Long generic questionnaires create abandonment while still missing the evidence the expert needs. For this workflow, the starting brief should cover the following inputs.`,
+      points: plan.inputs,
+    },
+    {
+      title: "Run a pre-mortem before automating or scaling",
+      body: `Imagine the work has produced a poor client outcome despite being delivered on time. Identify the assumptions, access gaps, approval failures, and misleading measures most likely to cause it. Turn each risk into a scope boundary, checklist item, review gate, permission rule, or visible exception path. The goal is not bureaucracy. It is to preserve the judgment the client is paying for while making repeated delivery safer and easier to improve.`,
+      points: plan.risks.map((risk) => `Prevent ${risk}`),
+    },
+    {
+      title: "Use AI as an assistant with a named human owner",
+      body: `AI can accelerate research, classification, transformation, drafting, and repetitive analysis, but it should not obscure responsibility. Decide which inputs are permitted, what claims require verification, where first-hand expertise must replace generated language, and who approves the final output. Keep confidential client material out of unapproved systems. Save the source, prompt context, material edits, and final decision when the work affects a client recommendation. The efficiency is only real after review and correction time are included.`,
+      points: [
+        "Classify client data before using an AI tool",
+        "Verify changing facts against primary sources",
+        "Keep diagnosis, exceptions, and sensitive communication human",
+        "Measure time saved after review, correction, and failure handling",
+      ],
+    },
+    {
+      title: "Create proof a future buyer can inspect",
+      body: `A polished final screenshot is not enough. Build ${plan.evidence}. Explain the starting condition, relevant constraint, expert decision, implementation, measurement window, result, and what remains uncertain. Remove confidential details and do not imply causation the evidence cannot support. Strong proof helps a future buyer understand how you think, while a current client can see what changed and why the next recommendation is relevant.`,
+      points: [
+        "Show the starting condition and commercial context",
+        "Name the expert decision and the rejected alternative",
+        "Use the agreed success definition",
+        "End with who should use the approach and who should not",
+      ],
+    },
+    {
+      title: "Design the continuation before the first engagement ends",
+      body: `The natural next service is ${plan.continuation}. Introduce it when the first result reveals an ongoing need, not as a surprise after the project closes. Define what is reviewed or delivered each cycle, how priorities are chosen, what capacity and response boundaries apply, and how the client can pause or change scope. A useful recurring offer protects, extends, or repeatedly produces an outcome. Undefined access to the freelancer is not a durable retainer.`,
+      points: [
+        `Continuation: ${plan.continuation}`,
+        `Ongoing measure: ${plan.metric}`,
+        "Set a clear cadence, capacity, and response boundary",
+        "Review relevance before renewal or material scope change",
+      ],
+    },
+    {
+      title: "Use this two-week field plan",
+      body: `Days one and two: document the current workflow and baseline. Days three and four: package the ${plan.starterOffer}, including scope, price, exclusions, and evidence required. Day five: build the offer-specific intake and first milestone. During week two, invite a small number of relevant clients, past clients, or warm prospects to review or buy the package. Deliver the first useful decision, record every hesitation, and improve the offer before increasing promotion. This creates a live learning loop instead of another planning document.`,
+      points: [
+        "Publish one small paid starting offer",
+        "Prepare the first milestone before promoting it",
+        "Invite only buyers for whom the problem is relevant",
+        "Revise the package from real questions and delivery evidence",
+      ],
+    },
+  ];
 };
 
 const guide = (
@@ -30,6 +220,7 @@ const guide = (
   updatedAt,
   legacy: false,
   featured: true,
+  sections: [...article.sections, ...deepeningSections(article)],
   sources: article.sources.length ? article.sources : [smallBusinessResearchSource],
 });
 
