@@ -6,10 +6,18 @@ const { title = "Build a client business that does not depend on your inbox", te
 
 <section class="cta-band">
   <div class="container cta-inner">
-    <div>
+    <div class="cta-copy">
       <h2>{title}</h2>
       <p>{text}</p>
+      <ul class="cta-confidence" aria-label="Retainr trial benefits">
+        <li>0% Retainr transaction fee</li>
+        <li>100% white-label client portal</li>
+        <li>Start with one real offer</li>
+      </ul>
     </div>
-    <a href={href} class="button secondary">{cta}</a>
+    <div class="cta-actions">
+      <a href={href} class="button secondary">{cta}</a>
+      <a href="/pricing/" class="cta-pricing-link">Compare plans →</a>
+    </div>
   </div>
 </section>

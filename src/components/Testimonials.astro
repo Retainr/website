@@ -2,26 +2,28 @@
 import { testimonials } from "@/data/site";
 ---
 
-<section class="section">
+<section class="section customer-evidence" aria-labelledby="customer-evidence-title">
   <div class="container">
-    <div class="section-heading centered">
-      <span class="eyebrow">Customer-Reported Outcomes</span>
-      <h2>What Retainr customers say changed in their client operation</h2>
+    <div class="customer-evidence-heading">
+      <div>
+        <span class="eyebrow">Customer-Reported Outcomes</span>
+        <h2 id="customer-evidence-title">What becomes easier when the client journey lives in one place</h2>
+      </div>
+      <p>Real client-operation outcomes, summarized without inflated performance claims.</p>
     </div>
-    <div class="testimonial-grid">
+    <div class="customer-evidence-grid">
       {testimonials.map((item) => (
-        <article class="testimonial">
-          <div class="quote-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10 11H6C5.45 11 5 10.55 5 10V6C5 5.45 5.45 5 6 5H10C10.55 5 11 5.45 11 6V10C11 10.55 10.55 11 10 11Z" fill="#FF4D18"/>
-              <path d="M18 11H14C13.45 11 13 10.55 13 10V6C13 5.45 13.45 5 14 5H18C18.55 5 19 5.45 19 6V10C19 10.55 18.55 11 18 11Z" fill="#FF4D18"/>
-              <path d="M10 19H6C5.45 19 5 18.55 5 18V14C5 13.45 5.45 13 6 13H10C10.55 13 11 13.45 11 14V18C11 18.55 10.55 19 10 19Z" fill="#FF4D18"/>
-              <path d="M18 19H14C13.45 19 13 18.55 13 18V14C13 13.45 13.45 13 14 13H18C18.55 13 19 13.45 19 14V18C19 18.55 18.55 19 18 19Z" fill="#FF4D18"/>
-            </svg>
+        <article class="customer-evidence-item">
+          <div class="customer-evidence-person">
+            <span aria-hidden="true">{item.name.charAt(0)}</span>
+            <div>
+              <strong>{item.name}</strong>
+              <small>{item.role}</small>
+            </div>
           </div>
+          <span class="customer-evidence-label">Reported outcome</span>
+          <h3>{item.outcome}</h3>
           <p>{item.quote}</p>
-          <strong>{item.name}</strong>
-          <div class="muted">{item.role}</div>
         </article>
       ))}
     </div>

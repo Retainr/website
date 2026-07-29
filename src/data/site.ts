@@ -58,20 +58,23 @@ export const companyLinks = [
 
 export const testimonials = [
   {
+    outcome: "A clearer client command center",
     quote:
-      "Reports simpler client management, better small-team collaboration, and clearer visibility into client relationships.",
+      "Client management became simpler, small-team collaboration improved, and the state of each relationship became easier to see.",
     name: "Raul",
     role: "CEO",
   },
   {
+    outcome: "More continuity while growing",
     quote:
-      "Says Retainr helped the business retain clients while supporting growth.",
+      "Retainr helped the business keep client relationships active while the operation continued to grow.",
     name: "Hanna",
     role: "Business owner",
   },
   {
+    outcome: "Less fragmented communication",
     quote:
-      "Reports a more efficient, organized way to keep client interactions in one place.",
+      "Client interactions became more efficient and organized once the working context lived in one place.",
     name: "Rajesh",
     role: "Freelancer",
   },

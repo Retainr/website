@@ -13,21 +13,33 @@ const {
 ---
 
 <section id="method" class="section method-section" aria-labelledby="method-title">
-  <div class="container">
-    <div class="section-heading centered">
+  <div class="container method-programme">
+    <div class="method-programme-intro">
       <span class="eyebrow">The Retainr Method</span>
       <h2 id="method-title">{title}</h2>
       <p>{intro}</p>
+      <div class="method-programme-marker" aria-label="One continuous six-step client journey">
+        <strong>01 → 06</strong>
+        <span>One continuous client journey</span>
+      </div>
+      <a class="text-link" href="/method/">Explore the complete method →</a>
     </div>
 
-    <div class="feature-grid method-grid">
+    <ol class="method-journey">
       {retainrMethodSteps.map((step, index) => (
-        <article class="feature-card method-card">
-          <div class="feature-icon">{index + 1}</div>
-          <h3>{step.title}</h3>
-          <p>{step.body}</p>
-        </article>
+        <li class="method-journey-step">
+          <span class="method-step-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+          <div class="method-step-copy">
+            <span class="method-step-phase">{step.phase}</span>
+            <h3>{step.title}</h3>
+            <p>{step.body}</p>
+          </div>
+          <div class="method-step-result">
+            <span>Creates</span>
+            <strong>{step.result}</strong>
+          </div>
+        </li>
       ))}
-    </div>
+    </ol>
   </div>
 </section>
