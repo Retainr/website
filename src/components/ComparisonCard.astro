@@ -1,0 +1,33 @@
+---
+import type { Comparison } from "@/data/comparisons";
+
+type Props = {
+  comparison: Comparison;
+  index?: number;
+};
+
+const { comparison, index } = Astro.props;
+---
+
+<article class="comparison-card">
+  <div class="comparison-card-topline">
+    {typeof index === "number" && <span class="comparison-index">{String(index + 1).padStart(2, "0")}</span>}
+    <span class:list={["comparison-status", `is-${comparison.status.tone}`]}>{comparison.status.label}</span>
+  </div>
+  <p class="comparison-category">{comparison.category}</p>
+  <h2><a href={`/compare/${comparison.slug}/`}>Retainr vs {comparison.competitor}</a></h2>
+  <p>{comparison.summary}</p>
+  <dl class="comparison-fit-summary">
+    <div>
+      <dt>Retainr fits</dt>
+      <dd>{comparison.retainrBestFor}</dd>
+    </div>
+    <div>
+      <dt>{comparison.competitor} fits</dt>
+      <dd>{comparison.competitorBestFor}</dd>
+    </div>
+  </dl>
+  <a class="comparison-card-link" href={`/compare/${comparison.slug}/`}>
+    Read the evidence-based comparison <span aria-hidden="true">&#8594;</span>
+  </a>
+</article>

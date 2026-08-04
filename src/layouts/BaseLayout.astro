@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import CrispChat from "@/components/CrispChat.astro";
 import ConversionTracking from "@/components/ConversionTracking.astro";
+import { comparisonLinks } from "@/data/comparisons";
 import { companyLinks, loginUrl, navLinks, resourceLinks, signupUrl, solutionLinks } from "@/data/site";
 
 type Props = {
@@ -112,19 +113,37 @@ const organizationSchema = {
     </main>
     <footer class="site-footer">
       <div class="container">
-        <div class="footer-grid">
-          <div class="footer-col">
+        <div class="footer-brand-row">
+          <div class="footer-brand-copy">
             <a href="/" class="logo" aria-label="Retainr home">
               <img src="/assets/retainr-logo.svg" alt="Retainr" width="148" height="42" />
             </a>
-            <h3>Build Your Method</h3>
-            <p class="muted">Turn trusted expertise into packaged offers, paid signup links, guided delivery, and recurring client revenue.</p>
-            <a href={signupUrl} class="button">Start Your $1 Trial</a>
+            <div>
+              <h2>Build your method. Keep the relationship.</h2>
+              <p class="muted">Turn trusted expertise into packaged offers, guided delivery, and recurring client revenue.</p>
+            </div>
           </div>
+          <div class="footer-start-panel">
+            <strong>Start with one paid client journey.</strong>
+            <form class="email-form" action={signupUrl} method="get">
+              <input type="email" name="email" placeholder="Enter work email" aria-label="Work email" required />
+              <button class="button yellow" type="submit">Start for $1</button>
+            </form>
+            <span>No Retainr transaction fees. Cancel anytime.</span>
+          </div>
+        </div>
+        <div class="footer-link-grid">
           <div class="footer-col">
             <h3>Freelancer & Creator Systems</h3>
             <div class="footer-links">
               {solutionLinks.map((link) => <a href={link.href}>{link.label}</a>)}
+            </div>
+          </div>
+          <div class="footer-col">
+            <h3>Compare</h3>
+            <div class="footer-links">
+              <a href="/compare/"><strong>All Retainr comparisons</strong></a>
+              {comparisonLinks.map((link) => <a href={link.href}>{link.label}</a>)}
             </div>
           </div>
           <div class="footer-col">
@@ -142,13 +161,6 @@ const organizationSchema = {
               {resourceLinks.map((link) => <a href={link.href}>{link.label}</a>)}
               <a href="https://status.retainr.io">Status Page</a>
             </div>
-
-            <form class="email-form" action={signupUrl} method="get">
-              <input type="email" name="email" placeholder="Enter work email" aria-label="Work email" required />
-              <button class="button yellow" type="submit">Start Selling</button>
-            </form>
-            <p class="muted">Begin promoting your niche services and managing paid client orders.</p>
-
             <div class="social-links">
               <a href="https://x.com/Retainr_io">X</a>
               <a href="https://tiktok.com/@retainr.io">TikTok</a>

@@ -1,0 +1,237 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ComparisonCard from "@/components/ComparisonCard.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import {
+  comparisons,
+  comparisonsReviewedAt,
+  comparisonsReviewedLabel,
+  type Comparison,
+} from "@/data/comparisons";
+import { signupUrl } from "@/data/site";
+
+export function getStaticPaths() {
+  return comparisons.map((comparison) => ({
+    params: { slug: comparison.slug },
+    props: { comparison },
+  }));
+}
+
+type Props = {
+  comparison: Comparison;
+};
+
+const { comparison } = Astro.props;
+const pagePath = `/compare/${comparison.slug}/`;
+const signupHref = `${signupUrl}?intent=compare&alternative=${encodeURIComponent(comparison.slug.replace("retainr-vs-", ""))}`;
+const relatedComparisons = comparisons
+  .filter((item) => item.slug !== comparison.slug)
+  .slice(0, 3);
+
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": `https://www.retainr.io${pagePath}#webpage`,
+      url: `https://www.retainr.io${pagePath}`,
+      name: comparison.title,
+      description: comparison.description,
+      dateModified: comparisonsReviewedAt,
+      inLanguage: "en",
+      isPartOf: { "@id": "https://www.retainr.io/#website" },
+      breadcrumb: { "@id": `https://www.retainr.io${pagePath}#breadcrumb` },
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `https://www.retainr.io${pagePath}#breadcrumb`,
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://www.retainr.io/" },
+        { "@type": "ListItem", position: 2, name: "Compare", item: "https://www.retainr.io/compare/" },
+        { "@type": "ListItem", position: 3, name: `Retainr vs ${comparison.competitor}` },
+      ],
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: comparison.questions.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: { "@type": "Answer", text: item.answer },
+      })),
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={comparison.metaTitle}
+  description={comparison.description}
+  path={pagePath}
+>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(pageSchema)}></script>
+
+  <section class="hero comparison-detail-hero">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a><span aria-hidden="true">/</span><a href="/compare/">Compare</a><span aria-hidden="true">/</span><span aria-current="page">{comparison.competitor}</span>
+      </nav>
+      <div class="comparison-detail-heading">
+        <div class="hero-copy">
+          <span class="eyebrow">{comparison.eyebrow}</span>
+          <h1>{comparison.title}</h1>
+          <p>{comparison.summary}</p>
+          <div class="hero-actions">
+            <a class="button" href="#verdict">Read the verdict</a>
+            <a class="button ghost" href={signupHref}>Try Retainr for $1</a>
+          </div>
+        </div>
+        <aside class:list={["comparison-status-panel", `is-${comparison.status.tone}`]}>
+          <span>Current vendor status</span>
+          <strong>{comparison.status.label}</strong>
+          <p>{comparison.status.detail}</p>
+          <a href={comparison.competitorUrl} target="_blank" rel="noopener external">
+            Visit {comparison.competitor}'s official site <span aria-hidden="true">&#8599;</span>
+          </a>
+          <small>Checked {comparisonsReviewedLabel}</small>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="verdict" class="section comparison-verdict-section">
+    <div class="container comparison-verdict-shell">
+      <div class="comparison-verdict-label"><span>Decision</span><strong>In one minute</strong></div>
+      <div>
+        <h2>{comparison.verdict}</h2>
+        <p>
+          The right choice depends on the operating constraint you need to remove, not the length of a feature list. Use the two fit profiles below before comparing individual capabilities.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section comparison-fit-section">
+    <div class="container comparison-fit-grid">
+      <article class="comparison-fit-card retainr-fit-card">
+        <span>Choose Retainr for</span>
+        <h2>A packaged expert service that should lead to recurring value.</h2>
+        <p>{comparison.retainrBestFor}</p>
+        <ul>{comparison.chooseRetainr.map((item) => <li>{item}</li>)}</ul>
+        <a class="button" href={signupHref}>Build this workflow</a>
+      </article>
+      <article class="comparison-fit-card competitor-fit-card">
+        <span>Choose {comparison.competitor} for</span>
+        <h2>{comparison.category}.</h2>
+        <p>{comparison.competitorBestFor}</p>
+        <ul>{comparison.chooseCompetitor.map((item) => <li>{item}</li>)}</ul>
+        <a class="comparison-external-link" href={comparison.competitorUrl} target="_blank" rel="noopener external">
+          Review the official product <span aria-hidden="true">&#8599;</span>
+        </a>
+      </article>
+    </div>
+  </section>
+
+  <section class="section ice comparison-table-section">
+    <div class="container">
+      <div class="section-heading comparison-table-heading">
+        <span class="eyebrow">Side-by-side operating model</span>
+        <h2>Where Retainr and {comparison.competitor} differ</h2>
+        <p>These are workflow distinctions based on current first-party product material, not paid placement or crowdsourced ratings.</p>
+      </div>
+      <div class="comparison-table-scroll" tabindex="0" role="region" aria-label={`Retainr and ${comparison.competitor} comparison`}>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th scope="col">Decision area</th>
+              <th scope="col">Retainr</th>
+              <th scope="col">{comparison.competitor}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {comparison.rows.map((row) => (
+              <tr>
+                <th scope="row">{row.topic}</th>
+                <td>{row.retainr}</td>
+                <td>{row.competitor}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section comparison-evaluation-section">
+    <div class="container comparison-evaluation-grid">
+      <div class="section-heading">
+        <span class="eyebrow">Before you migrate</span>
+        <h2>Run the same five-part test in both products.</h2>
+        <p>A polished demo is not evidence that a system fits your daily client work. Use one representative service and complete the real journey.</p>
+      </div>
+      <ol class="comparison-evaluation-list">
+        <li><span>01</span><div><strong>Publish the offer</strong><p>Can the right buyer understand the outcome, boundary, price, and next step without a call?</p></div></li>
+        <li><span>02</span><div><strong>Complete payment and intake</strong><p>Check how much context survives from the selected offer into onboarding and internal work.</p></div></li>
+        <li><span>03</span><div><strong>Deliver one milestone</strong><p>Invite a client, share a file, request approval, update progress, and resolve a question.</p></div></li>
+        <li><span>04</span><div><strong>Handle the exception</strong><p>Test a late payment, scope question, revision, changed deadline, or support request.</p></div></li>
+        <li><span>05</span><div><strong>Renew or export</strong><p>Create the next recurring offer, then confirm that client and business data can be exported cleanly.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section dark comparison-source-section">
+    <div class="container comparison-source-grid">
+      <div>
+        <span class="eyebrow">Research notes</span>
+        <h2>Evidence, scope, and freshness</h2>
+        <p>
+          This page was reviewed on {comparisonsReviewedLabel} using the official sources below. Product names belong to their respective owners. Features, prices, limits, and availability can change, so verify any purchase-critical detail on the vendor's current site.
+        </p>
+      </div>
+      <div class="comparison-source-links">
+        {comparison.sources.map((source, index) => (
+          <a href={source.url} target="_blank" rel="noopener external">
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <strong>{source.label}</strong>
+            <i aria-hidden="true">&#8599;</i>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section comparison-faq-section">
+    <div class="container">
+      <div class="section-heading centered">
+        <span class="eyebrow">Direct answers</span>
+        <h2>Retainr vs {comparison.competitor} FAQ</h2>
+      </div>
+      <div class="faq-grid">
+        {comparison.questions.map((item) => (
+          <article class="faq-item">
+            <h3>{item.question}</h3>
+            <p>{item.answer}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section compare-related-section">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">Keep comparing</span>
+        <h2>Related Retainr alternatives</h2>
+      </div>
+      <div class="comparison-related-grid">
+        {relatedComparisons.map((item) => <ComparisonCard comparison={item} />)}
+      </div>
+      <a class="comparison-all-link" href="/compare/">View every Retainr comparison <span aria-hidden="true">&#8594;</span></a>
+    </div>
+  </section>
+
+  <CtaBand
+    title="Choose Retainr when the client relationship is the product"
+    text="Package one paid outcome, preserve the buyer's context through onboarding, and build the recurring next step into the way you deliver."
+    href={signupHref}
+  />
+</BaseLayout>

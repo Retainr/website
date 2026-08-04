@@ -45,7 +45,6 @@ export const resourceLinks = [
 ];
 
 export const companyLinks = [
-  { href: "/alternatives-compare-agency-client-management-software/", label: "Compare" },
   { href: "/case-studies/", label: "Freelancer Use Cases" },
   { href: "/blog/", label: "Blog" },
   { href: "/brand-assets/", label: "Brand Assets" },

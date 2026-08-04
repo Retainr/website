@@ -72,30 +72,67 @@ export const pages: MarketingPage[] = [
   },
   {
     slug: "alternatives-compare-agency-client-management-software",
-    title: "Client Management Software for Niche Creators",
+    title: "Retainr Alternatives: Client Software for Niche Freelancers",
     description:
-      "Compare client management software for niche freelancers selling productized services, branded client experiences, and recurring work.",
-    eyebrow: "Compare",
-    hero: "What client management software should a niche service business choose?",
+      "Compare client management software, creator stores, agency platforms, checkout tools, and freelance systems for productized services and recurring client revenue.",
+    eyebrow: "Retainr Alternatives",
+    hero: "Choose client software by operating model, not by feature count",
     subhero:
-      "The best platform is the one that lets a niche expert sell services, manage clients, deliver work, and keep their brand visible without stitching together too many tools.",
+      "The useful question is not which platform has the longest checklist. It is which system best connects how you sell, onboard, deliver, support, renew, and protect the client relationship.",
     image: "/assets/dashboard-hero.png",
     sections: [
       {
-        title: "What to look for in creator client management software",
+        title: "Start with the job the platform must do",
         body:
-          "Most tools solve one slice of service operations. Retainr is built around the complete client lifecycle: selling, onboarding, payment, project delivery, support, and repeat revenue.",
-        points: ["Accessibility", "Integration", "Communication", "Customization", "Scalability"],
+          "A creator storefront, request portal, agency resource planner, financial operating system, checkout platform, and coaching programme solve different problems. Define the constraint first: finding demand, packaging the offer, converting checkout, onboarding clients, coordinating delivery, managing finances, or earning renewals.",
+        points: ["Name the current bottleneck", "Choose one representative service", "Test the full client journey", "Check export and migration paths"],
       },
       {
-        title: "Plutio, ManyRequests, AgencyHandy, and Productive",
+        title: "Compare agency and client-management systems",
         body:
-          "Each competitor has strengths, but many require tradeoffs across white-label selling, client portals, support, team work, and productized services.",
+          "ManyRequests emphasizes agency service requests and production delivery. Productive goes deeper into resources, budgets, utilization, and agency financials. Agency Handy and ClientManager combine broad client administration, projects, billing, and portal workflows. Plutio provides a flexible all-in-one back office. Retainr is more opinionated about packaging expert outcomes and developing recurring value from trusted clients.",
+        points: ["Retainr vs ManyRequests", "Retainr vs Productive", "Retainr vs Agency Handy", "Retainr vs Plutio", "Retainr vs ClientManager"],
+      },
+      {
+        title: "Separate creator commerce from client delivery",
+        body:
+          "Stan Store helps audience-first creators sell downloads, courses, memberships, webinars, and coaching bookings. Spiffy specializes in checkout, subscriptions, payment plans, upsells, affiliates, and revenue operations. Bloom provides CRM, booking, contracts, galleries, and websites for creative professionals. Retainr fits when the purchase begins a hands-on client relationship that needs structured intake, delivery, communication, support, and renewal.",
+        points: ["Retainr vs Stan Store", "Retainr vs Spiffy", "Retainr vs Bloom"],
+      },
+      {
+        title: "Check vendor status before comparing features",
+        body:
+          "A comparison is only useful when product availability is current. Midday announced on 7 May 2026 that its team was joining Ramp and that the hosted product would wind down over the following three months. Existing users should prioritize official export guidance; new buyers should not treat Midday as a normal active SaaS alternative without verifying its current status.",
+        points: ["Confirm active product status", "Review current pricing limits", "Read first-party migration guidance", "Avoid relying on stale listicles"],
+      },
+      {
+        title: "Do not confuse software with business strategy",
+        body:
+          "Freelance Cake is coaching, education, community, and content rather than client-management software. It may be the better investment when positioning, packaging, pricing, pipeline, or confidence is unclear. Retainr becomes more valuable when the method is clear enough to operationalize through a repeatable buying and delivery system.",
+        points: ["Use coaching for judgment", "Use software for repeatable execution", "Combine them when the constraint spans both"],
       },
       {
         title: "Why Retainr stands apart",
         body:
-          "Retainr focuses on turning your expertise into a branded storefront and operating system, so small teams can look bigger and deliver with less manual coordination.",
+          "Retainr connects the moments that determine whether expertise becomes durable revenue: a clear offer, contextual signup, paid onboarding, branded delivery, organized support, and a visible recurring next step. It is designed for niche freelancers and compact expert teams that want every client interaction to reinforce their method rather than disappear into disconnected tools.",
+        points: ["Package expertise", "Preserve buyer context", "Deliver through your brand", "Earn the renewal"],
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the best Retainr alternative?",
+        answer:
+          "There is no universal best alternative. ManyRequests fits request-driven agencies, Productive fits resource-intensive agencies, Stan Store fits audience commerce, Spiffy fits checkout operations, Bloom fits visual creative businesses, and Freelance Cake fits strategic coaching. Retainr fits expert-led client services that should become recurring relationships.",
+      },
+      {
+        question: "How should a freelancer compare client-management platforms?",
+        answer:
+          "Use one real service and test discovery, purchase, payment, intake, delivery, revisions, support, renewal, and data export. Score client clarity, operator effort, brand continuity, and total tool cost rather than counting features in isolation.",
+      },
+      {
+        question: "Are these comparisons based on current vendor information?",
+        answer:
+          "The dedicated Retainr comparison library was reviewed on 4 August 2026 using official product, pricing, documentation, and status pages. Purchase-critical details should still be verified directly because plans and availability can change.",
       },
     ],
   },

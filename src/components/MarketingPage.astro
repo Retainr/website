@@ -27,6 +27,10 @@ const isInformationalPage = informationalSlugs.has(page.slug);
 const showConversionFramework = !isInformationalPage;
 const showFinalCta = !noConversionSlugs.has(page.slug);
 const pageActions: Record<string, { label: string; href: string; download?: boolean }[]> = {
+  "alternatives-compare-agency-client-management-software": [
+    { label: "Compare Retainr", href: "/compare/" },
+    { label: "View Retainr Pricing", href: "/pricing/" },
+  ],
   "brand-assets": [
     { label: "Download Retainr Logo", href: "/assets/retainr-logo.svg", download: true },
     { label: "About Retainr", href: "/about-retainr/" },

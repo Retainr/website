@@ -1,0 +1,123 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ComparisonCard from "@/components/ComparisonCard.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import { comparisons, comparisonsReviewedLabel } from "@/data/comparisons";
+import { signupUrl } from "@/data/site";
+
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Retainr comparisons and alternatives",
+  url: "https://www.retainr.io/compare/",
+  description:
+    "Evidence-based comparisons of Retainr with client portals, agency platforms, creator stores, checkout products, financial tools, and freelance education.",
+  dateModified: "2026-08-04",
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: comparisons.map((comparison, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: `https://www.retainr.io/compare/${comparison.slug}/`,
+      name: `Retainr vs ${comparison.competitor}`,
+    })),
+  },
+};
+---
+
+<BaseLayout
+  title="Compare Retainr: 10 Alternatives for Freelancers"
+  description="Compare Retainr with ManyRequests, Productive, Agency Handy, Plutio, Stan Store, Bloom, Spiffy, Midday, Freelance Cake, and ClientManager."
+  path="/compare/"
+>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(collectionSchema)}></script>
+
+  <section class="hero compare-index-hero">
+    <div class="container compare-hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Evidence-based comparison library</span>
+        <h1>Compare Retainr for the way you actually earn.</h1>
+        <p>
+          Retainr is built for experts who package client outcomes, deliver them through a branded method, and turn proven work into recurring revenue. These comparisons show where that model fits and where another product may be the better choice.
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="#comparisons">Compare platforms</a>
+          <a class="button ghost" href="/method/">See the Retainr Method</a>
+        </div>
+      </div>
+      <aside class="comparison-brief" aria-label="How these comparisons are prepared">
+        <span class="comparison-brief-label">Decision brief</span>
+        <strong>No invented winners. No checkbox theatre.</strong>
+        <p>We review first-party product, pricing, and documentation pages, then compare operating models rather than pretending every feature is equivalent.</p>
+        <ul>
+          <li>Current status checked</li>
+          <li>Best-fit customer explained</li>
+          <li>Trade-offs stated plainly</li>
+          <li>Official sources linked</li>
+        </ul>
+        <small>Research reviewed {comparisonsReviewedLabel}. Product details can change.</small>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section compare-method-strip">
+    <div class="container compare-method-grid">
+      <div>
+        <span>01</span>
+        <strong>Identify the real constraint</strong>
+        <p>Do you need better selling, client delivery, financial control, creator commerce, or strategic coaching?</p>
+      </div>
+      <div>
+        <span>02</span>
+        <strong>Test one complete journey</strong>
+        <p>Walk a real offer from discovery through payment, intake, delivery, support, renewal, and export.</p>
+      </div>
+      <div>
+        <span>03</span>
+        <strong>Choose for the next two years</strong>
+        <p>Prefer the system that clients understand and your business can operate without hidden tool sprawl.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="comparisons" class="section compare-library">
+    <div class="container">
+      <div class="section-heading compare-library-heading">
+        <div>
+          <span class="eyebrow">Compare by operating model</span>
+          <h2>Ten alternatives. Ten different jobs to be done.</h2>
+        </div>
+        <p>
+          A request portal, agency ERP, creator store, checkout platform, financial OS, and coaching programme are not interchangeable. Start with the category closest to your current bottleneck.
+        </p>
+      </div>
+      <div class="comparison-card-grid">
+        {comparisons.map((comparison, index) => <ComparisonCard comparison={comparison} index={index} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section ice comparison-principles">
+    <div class="container comparison-principles-grid">
+      <div class="section-heading">
+        <span class="eyebrow">What Retainr is designed to do</span>
+        <h2>Make expertise easier to buy, experience, and renew.</h2>
+        <p>
+          Retainr is not trying to become the deepest accounting suite, resource planner, course platform, or checkout funnel builder. It connects the commercial and delivery moments that shape a specialist client relationship.
+        </p>
+      </div>
+      <ol class="comparison-outcomes">
+        <li><strong>Package the outcome.</strong><span>Turn repeated expertise into a clear entry service, core engagement, and ongoing plan.</span></li>
+        <li><strong>Preserve buyer context.</strong><span>Route each prospect into the signup and onboarding flow that matches the offer and niche.</span></li>
+        <li><strong>Deliver through your brand.</strong><span>Keep work, communication, files, support, and progress in one recognizable client home.</span></li>
+        <li><strong>Earn the renewal.</strong><span>Use visible delivered value to introduce the next recurring outcome at the right moment.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <CtaBand
+    title="Test Retainr with one real client journey"
+    text="Package one service, send the matching signup link, and inspect the complete experience before moving the rest of your business."
+    href={`${signupUrl}?intent=comparison-library`}
+  />
+</BaseLayout>
