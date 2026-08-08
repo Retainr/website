@@ -261,7 +261,7 @@ export const pages: MarketingPage[] = [
       {
         title: "Scope and lawful basis",
         body:
-          "Retainr, operated by SimpliXio Pte. Ltd., processes personal information to provide the platform and related services. Depending on the relationship, processing may be based on consent, performance of a contract, legitimate operational needs, or legal obligations. When a Retainr customer collects information from its own clients, that customer determines why the information is collected and should be contacted about its use.",
+          "Retainr processes personal information to provide the platform and related services. Depending on the relationship, processing may be based on consent, performance of a contract, legitimate operational needs, or legal obligations. When a Retainr customer collects information from its own clients, that customer determines why the information is collected and should be contacted about its use.",
       },
       {
         title: "Information Retainr may collect",
@@ -668,12 +668,12 @@ export const pages: MarketingPage[] = [
     eyebrow: "Terms",
     hero: "Terms & Conditions",
     subhero:
-      "Effective 5 August 2026. These terms govern access to the Retainr website and service operated by SimpliXio Pte. Ltd.",
+      "Effective 5 August 2026. These terms govern access to the Retainr website, platform, and related services.",
     sections: [
       {
-        title: "Agreement and service operator",
+        title: "Agreement and service scope",
         body:
-          "These terms govern the relationship between users of retainr.io and the Retainr service and SimpliXio Pte. Ltd., 160 Robinson Road, #14-04 SBF Center, Singapore S068914. By accessing or using the service, a visitor or account holder accepts these terms. Anyone who does not agree should not use the service.",
+          "These terms govern the relationship between visitors or account holders using retainr.io and the Retainr service. By accessing or using the service, a visitor or account holder accepts these terms. Anyone who does not agree should not use the service.",
       },
       {
         title: "Free access and third-party charges",
@@ -729,7 +729,7 @@ export const pages: MarketingPage[] = [
       {
         title: "Changes and contact",
         body:
-          "Retainr may revise these terms. Continued use after revised terms take effect means the user accepts the revised terms; users who do not agree should stop using the service. Questions can be sent to contact@retainr.io, by telephone at +65 3158 1144, or by post to SimpliXio Pte. Ltd., 160 Robinson Road, #14-04 SBF Center, Singapore S068914.",
+          "Retainr may revise these terms. Continued use after revised terms take effect means the user accepts the revised terms; users who do not agree should stop using the service. Questions can be sent to contact@retainr.io.",
       },
     ],
   },
