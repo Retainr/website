@@ -1,18 +1,17 @@
 ---
-const githubUrl = "https://github.com/pH-7";
 const linkedinUrl = "https://www.linkedin.com/in/ph7enry/";
 ---
 
-<div class="footer-builder-card" aria-label="Retainr builder">
-  <a class="footer-builder-profile" href={githubUrl} target="_blank" rel="me noopener noreferrer">
-    <span class="footer-builder-monogram" aria-hidden="true">PH</span>
-    <span class="footer-builder-copy">
-      <strong>Built by Pierre-Henry</strong>
-      <small>View the builder on GitHub</small>
-    </span>
-  </a>
-  <a class="footer-builder-linkedin" href={linkedinUrl} target="_blank" rel="me noopener noreferrer">
-    <span class="footer-builder-linkedin-mark" aria-hidden="true">in</span>
-    <span>Follow on LinkedIn</span>
-  </a>
-</div>
+<a
+  class="footer-builder-card"
+  href={linkedinUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Follow Pierre-Henry on LinkedIn (opens in a new tab)"
+>
+  <span class="footer-builder-linkedin-mark" aria-hidden="true">in</span>
+  <span class="footer-builder-copy">
+    <strong>Follow Pierre-Henry on LinkedIn</strong>
+    <small>Building Retainr in public</small>
+  </span>
+</a>
