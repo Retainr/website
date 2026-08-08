@@ -2,6 +2,8 @@
 
 Static Astro rebuild of my Webflow's `www.retainr.io` for GitHub Pages.
 
+Production publishing and the reversible Webflow cutover are documented in [DEPLOYMENT.md](./DEPLOYMENT.md).
+
 ## Commands
 
 ```bash
