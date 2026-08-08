@@ -2,8 +2,10 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ComparisonCard from "@/components/ComparisonCard.astro";
 import CtaBand from "@/components/CtaBand.astro";
-import { comparisons, comparisonsReviewedLabel } from "@/data/comparisons";
+import { comparisons, comparisonsReviewedAt, comparisonsReviewedLabel } from "@/data/comparisons";
 import { signupUrl } from "@/data/site";
+
+const comparisonCount = comparisons.length;
 
 const collectionSchema = {
   "@context": "https://schema.org",
@@ -12,7 +14,7 @@ const collectionSchema = {
   url: "https://www.retainr.io/compare/",
   description:
     "Evidence-based comparisons of Retainr with client portals, agency platforms, creator stores, checkout products, financial tools, and freelance education.",
-  dateModified: "2026-08-04",
+  dateModified: comparisonsReviewedAt,
   mainEntity: {
     "@type": "ItemList",
     itemListElement: comparisons.map((comparison, index) => ({
@@ -26,8 +28,8 @@ const collectionSchema = {
 ---
 
 <BaseLayout
-  title="Compare Retainr: 10 Alternatives for Freelancers"
-  description="Compare Retainr with ManyRequests, Productive, Agency Handy, Plutio, Stan Store, Bloom, Spiffy, Midday, Freelance Cake, and ClientManager."
+  title={`Compare Retainr: ${comparisonCount} Alternatives for Freelancers`}
+  description="Compare Retainr with leading freelancer CRMs, client portals, agency platforms, creator stores, business suites, and service-delivery tools using current first-party evidence."
   path="/compare/"
 >
   <script is:inline type="application/ld+json" set:html={JSON.stringify(collectionSchema)}></script>
@@ -85,7 +87,7 @@ const collectionSchema = {
       <div class="section-heading compare-library-heading">
         <div>
           <span class="eyebrow">Compare by operating model</span>
-          <h2>Ten alternatives. Ten different jobs to be done.</h2>
+          <h2>{comparisonCount} alternatives. Different jobs to be done.</h2>
         </div>
         <p>
           A request portal, agency ERP, creator store, checkout platform, financial OS, and coaching programme are not interchangeable. Start with the category closest to your current bottleneck.

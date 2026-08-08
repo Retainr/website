@@ -39,8 +39,8 @@ export type Comparison = {
   sources: ComparisonSource[];
 };
 
-export const comparisonsReviewedAt = "2026-08-04";
-export const comparisonsReviewedLabel = "4 August 2026";
+export const comparisonsReviewedAt = "2026-08-08";
+export const comparisonsReviewedLabel = "8 August 2026";
 
 export const comparisons: Comparison[] = [
   {
@@ -68,6 +68,13 @@ export const comparisons: Comparison[] = [
     verdict:
       "Choose Retainr when your expertise and repeatable client outcome are the product. Choose ManyRequests when request intake and an agency production queue are the center of the operation.",
     rows: [
+      {
+        topic: "Published software cost",
+        retainr:
+          "$0. Retainr is free forever with unlimited team members, unlimited clients, white-label controls, and no Retainr transaction fee.",
+        competitor:
+          "Core is published at $39/month and Pro at $79/month when billed annually. One seat is included; additional seats are priced separately. Verify taxes, payment processing, and current terms.",
+      },
       {
         topic: "Primary operating model",
         retainr:
@@ -133,6 +140,7 @@ export const comparisons: Comparison[] = [
     ],
     sources: [
       { label: "ManyRequests product overview", url: "https://manyrequests.com/" },
+      { label: "ManyRequests pricing", url: "https://manyrequests.com/pricing" },
       {
         label: "ManyRequests white-label client portal",
         url: "https://manyrequests.com/white-label-client-portal",
@@ -164,6 +172,13 @@ export const comparisons: Comparison[] = [
     verdict:
       "Choose Retainr to commercialize and retain specialist client relationships. Choose Productive when capacity planning and agency financial control are more important than a creator-led storefront and buying journey.",
     rows: [
+      {
+        topic: "Published software cost",
+        retainr:
+          "$0. Retainr is free forever without per-user pricing, client limits, or feature tiers.",
+        competitor:
+          "Essential is published at $9/user/month and Professional at $24/user/month when billed yearly, with a three-seat minimum. Verify current enterprise terms and optional services.",
+      },
       {
         topic: "Primary operating model",
         retainr:
@@ -406,7 +421,7 @@ export const comparisons: Comparison[] = [
       {
         question: "Is Plutio cheaper than Retainr?",
         answer:
-          "Plutio publishes entry pricing and add-ons on its live pricing page, while Retainr maintains its plans in a public pricing page. Compare the total configuration you need, especially seats, white labeling, custom domains, and payment requirements.",
+          "Retainr is free forever, so there is no Retainr subscription to compare. Plutio publishes paid plans and add-ons on its live pricing page; verify the configuration you need, especially seats, white labeling, custom domains, and payment requirements.",
       },
       {
         question: "Does Plutio have a client portal?",
@@ -985,12 +1000,585 @@ export const comparisons: Comparison[] = [
       { label: "ClientManager pricing and plan limits", url: "https://www.clientmanager.io/pricing" },
     ],
   },
+  {
+    slug: "retainr-vs-bonsai",
+    competitor: "Bonsai",
+    category: "Freelancer business management",
+    competitorUrl: "https://www.hellobonsai.com/",
+    metaTitle: "Retainr vs Bonsai: Freelancer Software Comparison",
+    title: "Retainr vs Bonsai: which system fits a specialist freelancer?",
+    description:
+      "Compare Retainr and Bonsai for service packages, CRM, proposals, contracts, invoices, client portals, project delivery, and recurring client revenue.",
+    eyebrow: "Retainr vs Bonsai",
+    summary:
+      "Bonsai is a broad business-management suite for freelancers, teams, and agencies. Retainr is more focused on making specialist expertise easy to buy, delivering it through a branded client method, and turning a successful engagement into recurring revenue. The right choice depends on whether you need a deeper administrative back office or a clearer commercial and client journey.",
+    status: {
+      label: "Active platform",
+      tone: "active",
+      detail:
+        "Bonsai currently publishes CRM, proposals, contracts, forms, scheduling, client portals, invoicing, time, expenses, project management, workload, and profitability features across four paid tiers.",
+    },
+    retainrBestFor:
+      "Niche freelancers and compact expert teams that want one branded route from a clear service offer through signup, onboarding, delivery, support, and the next recurring outcome.",
+    competitorBestFor:
+      "Freelancers and agencies that need proposals, contracts, scheduling, time tracking, expense management, project profitability, and financial administration in one broad system.",
+    verdict:
+      "Choose Retainr when the priority is productizing expertise and increasing recurring revenue from trusted clients. Choose Bonsai when document workflows, time, expenses, and profitability reporting are the larger operational constraint.",
+    rows: [
+      {
+        topic: "Published software cost",
+        retainr:
+          "$0. Every Retainr feature is free forever, including unlimited clients, unlimited team members, white-label portals, and custom domains.",
+        competitor:
+          "Bonsai publishes Basic at $9, Essentials at $19, Premium at $29, and Elite at $49 per user per month when billed annually. Elite has a three-user minimum.",
+      },
+      {
+        topic: "Selling workflow",
+        retainr:
+          "Starts with a buyable specialist package and routes each buyer into the matching paid signup and onboarding flow.",
+        competitor:
+          "Uses a service library, proposals, contracts, forms, scheduling, and invoices to move a lead into a managed project.",
+      },
+      {
+        topic: "Client experience",
+        retainr:
+          "Keeps the offer, onboarding context, work, support, approvals, and next service visible inside the expert's brand.",
+        competitor:
+          "Includes client portals from Essentials, while removal of Bonsai branding is listed in Premium and above.",
+      },
+      {
+        topic: "Operational depth",
+        retainr:
+          "Prioritizes the commercial and delivery moments that help a specialist client relationship continue.",
+        competitor:
+          "Adds time, expenses, workload, Gantt views, project insights, deals, and profit and productivity reporting as tiers increase.",
+      },
+      {
+        topic: "Best growth motion",
+        retainr:
+          "Turns one successful result into a visible recurring support, optimization, or advisory offer.",
+        competitor:
+          "Improves control across the standard lead, document, project, time, invoice, and reporting lifecycle.",
+      },
+    ],
+    chooseRetainr: [
+      "Your repeated expertise can be presented as a clear package or retainer.",
+      "You want every client-facing feature without per-user pricing or plan gates.",
+      "Your main goal is making the next recurring outcome easier for an existing client to buy.",
+    ],
+    chooseCompetitor: [
+      "Proposals, contracts, scheduling, time, expenses, and profitability must live in one back office.",
+      "You bill heavily by time or need workload and project-profit reporting.",
+      "You prefer a conventional CRM-to-document-to-project workflow over an offer-led method.",
+    ],
+    questions: [
+      {
+        question: "Is Retainr a free Bonsai alternative?",
+        answer:
+          "Retainr is free forever and overlaps with Bonsai around clients, offers, payments, projects, and portals. It is not a complete replacement for every Bonsai feature: test contracts, proposals, scheduling, time, expenses, and profitability if those are essential.",
+      },
+      {
+        question: "Which is better for a white-label client portal?",
+        answer:
+          "Retainr includes its branded client experience without a paid tier. Bonsai lists client portals from Essentials and removal of Bonsai branding from Premium; verify the exact domain and email controls you need.",
+      },
+      {
+        question: "Which is better for recurring services?",
+        answer:
+          "Retainr is more explicitly organized around packaging an entry offer, proving value, and presenting the next recurring outcome. Bonsai supports retainer billing inside a broader project and financial management system.",
+      },
+    ],
+    sources: [
+      { label: "Bonsai pricing and feature comparison", url: "https://www.hellobonsai.com/pricing" },
+      { label: "Bonsai pricing help center", url: "https://help.hellobonsai.com/en/articles/455542-bonsai-s-pricing-and-subscription-plans" },
+    ],
+  },
+  {
+    slug: "retainr-vs-moxie",
+    competitor: "Moxie",
+    category: "Freelancer business management",
+    competitorUrl: "https://www.withmoxie.com/",
+    metaTitle: "Retainr vs Moxie: Freelancer Platform Comparison",
+    title: "Retainr vs Moxie: which platform should a freelancer run on?",
+    description:
+      "Compare Retainr and Moxie for client management, proposals, contracts, accounting, portals, automations, support tickets, and recurring services.",
+    eyebrow: "Retainr vs Moxie",
+    summary:
+      "Moxie is an all-in-one freelance operations platform with proposals, contracts, invoicing, time, accounting, scheduling, communication, and client management. Retainr concentrates on a tighter revenue method: package specialist expertise, move the right buyer into the right onboarding flow, deliver through your brand, and make recurring value easy to continue.",
+    status: {
+      label: "Active platform",
+      tone: "active",
+      detail:
+        "Moxie currently publishes Starter, Pro, and Teams options for freelancers, with white-label portals, support ticketing, workflow automation, integrations, and collaborators available above Starter.",
+    },
+    retainrBestFor:
+      "Independent experts and niche service businesses that want productized signup, branded delivery, and a deliberate path from one-off work to ongoing client revenue.",
+    competitorBestFor:
+      "Freelancers who want proposals, contracts, accounting, time tracking, scheduling, a universal inbox, and client operations in one conventional business suite.",
+    verdict:
+      "Choose Retainr when the offer and recurring client journey are the center of the business. Choose Moxie when replacing a wider set of freelance administration tools is the stronger need.",
+    rows: [
+      {
+        topic: "Published software cost",
+        retainr:
+          "$0. Retainr is free forever with no seat, client, portal, white-label, or feature-tier charges.",
+        competitor:
+          "Moxie publishes Starter at $10/month, Pro at $20/month, and Teams at $32/month when billed annually. Monthly billing is also available at higher effective rates.",
+      },
+      {
+        topic: "Commercial starting point",
+        retainr:
+          "Begins with a named outcome, package, direct buying link, and service-specific onboarding path.",
+        competitor:
+          "Begins with client and project management supported by proposals, contracts, invoices, forms, and a sales pipeline.",
+      },
+      {
+        topic: "Client portal",
+        retainr:
+          "Uses the portal to reinforce the specialist method, current delivery state, support, and next recurring service.",
+        competitor:
+          "Lists a fully white-label client portal, support ticketing, and request management in Pro and Teams.",
+      },
+      {
+        topic: "Freelance administration",
+        retainr:
+          "Keeps the workflow focused on paid client relationships, delivery, and continuity.",
+        competitor:
+          "Adds proposals, contracts, time, basic accounting, meeting scheduling, calendar, inbox, and a communicator phone line.",
+      },
+      {
+        topic: "Collaboration",
+        retainr:
+          "Includes unlimited team members and clients without moving to a different plan.",
+        competitor:
+          "Pro includes unlimited project collaborators; Teams is positioned for up to five team members.",
+      },
+    ],
+    chooseRetainr: [
+      "You want to turn repeated expert work into a visible package and recurring plan.",
+      "Unlimited team access and white labeling should not depend on a subscription tier.",
+      "The client should experience one guided relationship from purchase through renewal.",
+    ],
+    chooseCompetitor: [
+      "You need proposals, contracts, basic accounting, time tracking, and scheduling in the same product.",
+      "A unified inbox or business phone line is important to your daily workflow.",
+      "You want a broad freelancer back office more than an opinionated recurring-revenue method.",
+    ],
+    questions: [
+      {
+        question: "Is Retainr a free Moxie alternative?",
+        answer:
+          "Retainr is free forever and overlaps with Moxie around clients, projects, portals, payments, support, and recurring services. Moxie remains broader in proposals, contracts, accounting, time, calendars, and its communicator workflow.",
+      },
+      {
+        question: "Does Moxie include a white-label portal?",
+        answer:
+          "Moxie's current pricing page lists a white-label client portal in Pro and Teams. Retainr includes its branded portal and custom-domain experience free forever.",
+      },
+      {
+        question: "Which is simpler for productized services?",
+        answer:
+          "Retainr is the more focused choice when prospects should understand and buy a named service without a long proposal workflow. Moxie is stronger when each engagement still needs broad freelance administration around it.",
+      },
+    ],
+    sources: [
+      { label: "Moxie pricing and plan features", url: "https://www.withmoxie.com/pricing" },
+      { label: "Moxie client portal", url: "https://www.withmoxie.com/product-pages/client-portal" },
+    ],
+  },
+  {
+    slug: "retainr-vs-dubsado",
+    competitor: "Dubsado",
+    category: "CRM and workflow automation",
+    competitorUrl: "https://www.dubsado.com/",
+    metaTitle: "Retainr vs Dubsado: Client Workflow Comparison",
+    title: "Retainr vs Dubsado: productized client method or customizable CRM?",
+    description:
+      "Compare Retainr and Dubsado for client portals, proposals, contracts, forms, scheduling, automated workflows, invoicing, and recurring services.",
+    eyebrow: "Retainr vs Dubsado",
+    summary:
+      "Dubsado is a customizable client relationship and workflow system built around forms, proposals, contracts, scheduling, invoices, and automated processes. Retainr starts earlier with the service itself: package the outcome, send the buying link, preserve that context through delivery, and introduce the next recurring result after value is visible.",
+    status: {
+      label: "Active platform",
+      tone: "active",
+      detail:
+        "Dubsado currently publishes Starter and Premier plans. Premier adds scheduling, automated workflows, public proposals, bookkeeping integration, and Zapier to the core client and project workflow.",
+    },
+    retainrBestFor:
+      "Specialist freelancers and digital creators who want repeatable offers, immediate paid signup, branded delivery, and a simple route to recurring client work.",
+    competitorBestFor:
+      "Service businesses that need highly customizable forms, proposals, contracts, schedulers, workflows, and document-led client administration.",
+    verdict:
+      "Choose Retainr when clients should buy a clear expert outcome and continue into recurring value. Choose Dubsado when flexible documents and automation rules are the operational foundation.",
+    rows: [
+      {
+        topic: "Published software cost",
+        retainr:
+          "$0. Retainr includes every feature, unlimited team members, and unlimited clients free forever.",
+        competitor:
+          "Dubsado publishes Starter at $335/year and Premier at $525/year. Additional brands are $10/month, while its current pricing includes three additional users before team charges apply.",
+      },
+      {
+        topic: "Sales workflow",
+        retainr:
+          "Uses a productized offer and matching signup link to reduce repeated proposal and setup work.",
+        competitor:
+          "Uses lead capture, proposals, contracts, forms, invoices, and payment plans in a configurable CRM sequence.",
+      },
+      {
+        topic: "Automation",
+        retainr:
+          "Connects offer-specific intake, delivery, support, and recurring next steps with integrations and webhooks.",
+        competitor:
+          "Premier adds automated workflows, scheduler templates, Zapier, and bookkeeping integration.",
+      },
+      {
+        topic: "Client experience",
+        retainr:
+          "Makes the branded portal the continuing home for work, support, progress, and renewal.",
+        competitor:
+          "Provides client portals alongside customizable proposals, contracts, questionnaires, and appointment scheduling.",
+      },
+      {
+        topic: "Implementation style",
+        retainr:
+          "Favors a smaller number of repeatable services and a visible six-step client method.",
+        competitor:
+          "Rewards detailed setup when the business needs conditional forms, document templates, and extensive workflow customization.",
+      },
+    ],
+    chooseRetainr: [
+      "Most engagements begin from a repeatable package rather than a bespoke proposal.",
+      "You want the same branded system to sell, onboard, deliver, support, and renew the work.",
+      "You do not want automation, team access, or client volume tied to a paid plan.",
+    ],
+    chooseCompetitor: [
+      "Custom proposals, contracts, forms, questionnaires, and schedulers are central to every sale.",
+      "You need detailed workflow automation across a highly customized client process.",
+      "Your business is document-led and each engagement remains substantially bespoke.",
+    ],
+    questions: [
+      {
+        question: "Is Retainr a free Dubsado alternative?",
+        answer:
+          "Retainr is free forever and covers the commercial and delivery journey around client services. It should not be presented as a one-for-one replacement for every Dubsado proposal, contract, form, scheduler, or workflow feature.",
+      },
+      {
+        question: "Which is better for automations?",
+        answer:
+          "Dubsado Premier is stronger when complex document and scheduling workflows are the requirement. Retainr automation is better framed around carrying a purchased offer into onboarding, delivery, support, and renewal.",
+      },
+      {
+        question: "Which is easier for a productized service?",
+        answer:
+          "Retainr is designed around named packages and direct buying paths. Dubsado can support productized work, but its normal flow is more proposal, contract, form, and workflow oriented.",
+      },
+    ],
+    sources: [
+      { label: "Dubsado pricing and feature comparison", url: "https://www.dubsado.com/pricing" },
+      { label: "Dubsado plan guide", url: "https://help.dubsado.com/en/articles/15920232-choose-the-right-dubsado-plan-for-your-business" },
+    ],
+  },
+  {
+    slug: "retainr-vs-honeybook",
+    competitor: "HoneyBook",
+    category: "Clientflow CRM",
+    competitorUrl: "https://www.honeybook.com/",
+    metaTitle: "Retainr vs HoneyBook: Clientflow Comparison",
+    title: "Retainr vs HoneyBook: which client system fits an independent expert?",
+    description:
+      "Compare Retainr and HoneyBook for lead capture, proposals, contracts, scheduling, payments, client portals, automations, and recurring client revenue.",
+    eyebrow: "Retainr vs HoneyBook",
+    summary:
+      "HoneyBook combines lead capture, CRM, scheduling, proposals, contracts, payments, client portals, and AI-assisted administration for independent businesses in supported countries. Retainr is built around a more specific transformation: turn expert services into buyable packages, carry each sale into branded delivery, and make the next recurring outcome visible.",
+    status: {
+      label: "Active platform",
+      tone: "active",
+      detail:
+        "HoneyBook currently publishes Starter, Essentials, and Premium memberships and states that the platform is available to business owners in the United States, Canada, United Kingdom, and Australia.",
+    },
+    retainrBestFor:
+      "Niche freelancers and independent experts worldwide who want a free, white-label service-selling and delivery system centered on productized and recurring offers.",
+    competitorBestFor:
+      "Supported-region businesses that want a polished CRM, proposals, contracts, scheduling, payments, lead forms, and automation in one established clientflow product.",
+    verdict:
+      "Choose Retainr when the specialist offer and recurring relationship are the product. Choose HoneyBook when lead capture, documents, scheduling, payment administration, and an established regional clientflow ecosystem matter more.",
+    rows: [
+      {
+        topic: "Published software cost",
+        retainr:
+          "$0. Retainr is free forever with no plans, seat fees, feature limits, or Retainr transaction fee.",
+        competitor:
+          "HoneyBook publishes Starter at $29/month, Essentials at $49/month, and Premium at $109/month when billed yearly. Confirm regional taxes and payment-processing terms.",
+      },
+      {
+        topic: "Geographic availability",
+        retainr:
+          "Positions itself for digital creators and specialist service businesses operating internationally.",
+        competitor:
+          "Currently states availability for business owners in the United States, Canada, United Kingdom, and Australia.",
+      },
+      {
+        topic: "Selling workflow",
+        retainr:
+          "Presents a package, direct signup, intake, and delivery path built around a repeatable expert result.",
+        competitor:
+          "Combines contact and lead forms, pipeline, proposals, contracts, scheduling, invoices, and payments.",
+      },
+      {
+        topic: "Branding and automation",
+        retainr:
+          "Includes the branded portal, custom domain, automation surfaces, and unlimited team access free forever.",
+        competitor:
+          "Essentials adds automations, advanced integrations, up to two team members, and removal of Powered by HoneyBook branding.",
+      },
+      {
+        topic: "Recurring growth",
+        retainr:
+          "Uses the delivered result and client context to present the next relevant recurring service.",
+        competitor:
+          "Uses a broad clientflow pipeline to manage leads, bookings, projects, payments, and repeat business.",
+      },
+    ],
+    chooseRetainr: [
+      "You sell repeatable specialist outcomes and want clients to buy from a clear service link.",
+      "You need white-label delivery and unlimited collaborators without a paid tier.",
+      "Your business operates outside HoneyBook's currently supported countries.",
+    ],
+    chooseCompetitor: [
+      "You need proposals, contracts, scheduling, lead forms, and payment administration in one mature CRM.",
+      "HoneyBook's supported geography and payment workflow match your business.",
+      "You prefer a conventional lead-to-booking clientflow over a productized-service method.",
+    ],
+    questions: [
+      {
+        question: "Is Retainr a free HoneyBook alternative?",
+        answer:
+          "Retainr is free forever and overlaps with HoneyBook around clients, payments, portals, projects, and recurring work. HoneyBook is broader in proposals, contracts, scheduling, lead forms, and its regional payment ecosystem.",
+      },
+      {
+        question: "Does HoneyBook remove its branding on every plan?",
+        answer:
+          "No. HoneyBook's current pricing page lists removal of Powered by HoneyBook in Essentials and Premium, not Starter. Retainr includes its white-label client experience free forever.",
+      },
+      {
+        question: "Can I use HoneyBook outside the United States?",
+        answer:
+          "HoneyBook currently states support for the United States, Canada, United Kingdom, and Australia. Check its current availability page before relying on it in another country.",
+      },
+    ],
+    sources: [
+      { label: "HoneyBook pricing and feature comparison", url: "https://www.honeybook.com/pricing" },
+      { label: "HoneyBook membership plan guide", url: "https://help.honeybook.com/en/articles/2418282-what-s-included-in-each-honeybook-membership-plan" },
+    ],
+  },
+  {
+    slug: "retainr-vs-assembly",
+    competitor: "Assembly",
+    category: "Extensible client portal platform",
+    competitorUrl: "https://assembly.com/",
+    metaTitle: "Retainr vs Assembly: Client Portal Comparison",
+    title: "Retainr vs Assembly: specialist revenue method or extensible client platform?",
+    description:
+      "Compare Retainr and Assembly, formerly Copilot, for client portals, billing, contracts, automations, custom apps, white labeling, and service delivery.",
+    eyebrow: "Retainr vs Assembly",
+    summary:
+      "Assembly, previously named Copilot, is an extensible client portal and back-office platform for professional service firms. Retainr is deliberately narrower and lighter: package expert outcomes, route buyers into the right onboarding, deliver through a branded method, and turn proven work into recurring client revenue without a software subscription.",
+    status: {
+      label: "Active platform",
+      tone: "active",
+      detail:
+        "Assembly announced its change from Copilot in September 2025. It currently publishes client portals, CRM, billing, contracts, automation, APIs, custom apps, and enterprise security options.",
+    },
+    retainrBestFor:
+      "Solo experts and lean specialist teams that want a focused, free system for offers, paid signup, delivery, support, and recurring client relationships.",
+    competitorBestFor:
+      "Tech-enabled professional service firms that need an extensible portal platform, embedded applications, custom integrations, advanced permissions, or enterprise security controls.",
+    verdict:
+      "Choose Retainr for a focused expert-service revenue method with no subscription or seat fees. Choose Assembly when extensibility, custom apps, multi-company clients, or enterprise security justify a larger platform investment.",
+    rows: [
+      {
+        topic: "Published software cost",
+        retainr:
+          "$0. Retainr includes every feature, unlimited team members, unlimited clients, and its white-label client experience free forever.",
+        competitor:
+          "Assembly publishes Starter from $39/month, Professional from $149/month, Advanced from $399/month, and Enterprise from $2,000/month. Higher tiers add users, limits, and controls.",
+      },
+      {
+        topic: "Primary operating model",
+        retainr:
+          "A guided system for productizing expertise and extending successful client work into recurring revenue.",
+        competitor:
+          "An extensible client-facing platform combining CRM, portal, billing, contracts, tasks, files, forms, embeds, and apps.",
+      },
+      {
+        topic: "Limits and team access",
+        retainr:
+          "Does not limit team members, clients, or feature access by plan.",
+        competitor:
+          "Starter lists one internal user and 50 clients; Professional lists three internal users and 500 clients, with additional-user pricing.",
+      },
+      {
+        topic: "Branding and extensibility",
+        retainr:
+          "Includes custom-domain and white-label client delivery around Retainr's built-in service workflow.",
+        competitor:
+          "Professional adds custom domains, API, Zapier, Make, and custom apps; Advanced lists full white labeling and additional security controls.",
+      },
+      {
+        topic: "Ideal complexity",
+        retainr:
+          "Optimized for a compact expert business that wants fast setup around a few repeatable offers.",
+        competitor:
+          "Designed to scale into custom apps, advanced client permissions, HIPAA requirements, SSO, and enterprise deployments.",
+      },
+    ],
+    chooseRetainr: [
+      "You need a focused path from specialist offer to recurring client value.",
+      "You want unlimited clients and collaborators without subscription or usage tiers.",
+      "A built-in method is more useful than an extensible platform you must assemble.",
+    ],
+    chooseCompetitor: [
+      "You need custom apps, embedded tools, APIs, advanced access controls, or multi-company client structures.",
+      "SOC 2, HIPAA with a BAA, enforced MFA, or enterprise security controls are purchase requirements.",
+      "Your team can justify a larger platform investment for deep extensibility.",
+    ],
+    questions: [
+      {
+        question: "Is Assembly the same product as Copilot client portal?",
+        answer:
+          "Yes. The company announced in September 2025 that Copilot had become Assembly. This comparison uses the current Assembly name while acknowledging the former brand for people searching older references.",
+      },
+      {
+        question: "Is Retainr a free Assembly alternative?",
+        answer:
+          "Retainr is free forever and covers offers, clients, payments, projects, support, portals, and recurring services. Assembly goes further into custom applications, embedded tools, advanced permissions, and enterprise security.",
+      },
+      {
+        question: "Which is better for a solo freelancer?",
+        answer:
+          "Retainr is the more focused and lower-cost choice for a solo specialist building repeatable client revenue. Assembly is stronger when the solo business specifically needs its extensible portal architecture or custom app ecosystem.",
+      },
+    ],
+    sources: [
+      { label: "Assembly pricing and plan limits", url: "https://assembly.com/pricing" },
+      { label: "Official Copilot to Assembly announcement", url: "https://assembly.com/blog/copilot-rebrand-assembly" },
+    ],
+  },
+  {
+    slug: "retainr-vs-suitedash",
+    competitor: "SuiteDash",
+    category: "All-in-one business platform",
+    competitorUrl: "https://suitedash.com/",
+    metaTitle: "Retainr vs SuiteDash: Client Portal Comparison",
+    title: "Retainr vs SuiteDash: focused client revenue system or all-in-one suite?",
+    description:
+      "Compare Retainr and SuiteDash for client portals, CRM, onboarding, billing, projects, automations, white labeling, LMS, and recurring services.",
+    eyebrow: "Retainr vs SuiteDash",
+    summary:
+      "SuiteDash is a broad all-in-one business platform spanning CRM, portals, projects, onboarding, billing, marketing, scheduling, files, e-signatures, LMS, support, and community. Retainr intentionally reduces that surface area to the client revenue journey an independent expert needs to make a service easy to buy, deliver, support, and renew.",
+    status: {
+      label: "Active platform",
+      tone: "active",
+      detail:
+        "SuiteDash currently publishes Start, Thrive, and Pinnacle plans with unlimited clients and staff, extensive white labeling, and progressively deeper marketing, automation, onboarding, LMS, and support capabilities.",
+    },
+    retainrBestFor:
+      "Niche experts and small service teams that value a clear method, fast setup, productized offers, and recurring client growth over a very large configuration surface.",
+    competitorBestFor:
+      "Small and medium businesses that want to consolidate many operational systems and are prepared to configure CRM, marketing, portals, billing, LMS, support, and automation in one suite.",
+    verdict:
+      "Choose Retainr when simplicity, productized expertise, and recurring client revenue are the priority. Choose SuiteDash when replacing a large software stack matters more than having a focused specialist method.",
+    rows: [
+      {
+        topic: "Published software cost",
+        retainr:
+          "$0. Retainr is free forever with unlimited people and clients, custom domains, white labeling, and no Retainr transaction fee.",
+        competitor:
+          "SuiteDash publishes Start at $19/month or $180/year, Thrive at $49/month or $480/year, and Pinnacle at $99/month or $960/year, with century licenses also offered.",
+      },
+      {
+        topic: "Product scope",
+        retainr:
+          "Connects service packaging, signup, onboarding, delivery, support, and recurring offers in one opinionated client journey.",
+        competitor:
+          "Combines CRM, funnels, projects, onboarding, billing, portals, scheduling, e-signatures, marketing, LMS, support, and community.",
+      },
+      {
+        topic: "People and portals",
+        retainr:
+          "Includes unlimited team members and clients without a subscription.",
+        competitor:
+          "Publishes unlimited clients, staff, and portals on all plans, with plan differences based mainly on feature depth and storage.",
+      },
+      {
+        topic: "Setup experience",
+        retainr:
+          "Guides a lean business to configure a small number of offers and one repeatable six-step method.",
+        competitor:
+          "Provides a much larger configuration surface for businesses consolidating several tools and complex processes.",
+      },
+      {
+        topic: "Advanced operations",
+        retainr:
+          "Focuses on expert-service delivery, support, and the next relevant client outcome.",
+        competitor:
+          "Higher tiers add proposals, folder generators, pipelines, automation, FLOWs onboarding, LMS, support tickets, and task dependencies.",
+      },
+    ],
+    chooseRetainr: [
+      "You want to launch a repeatable expert offer without configuring an enterprise-sized toolkit.",
+      "The most important workflow is turning successful client delivery into recurring revenue.",
+      "You prefer a focused, opinionated method with no software subscription.",
+    ],
+    chooseCompetitor: [
+      "You want CRM, marketing, scheduling, e-signatures, LMS, community, and support in one configurable suite.",
+      "Your business is willing to invest more setup time to consolidate many separate applications.",
+      "Storage scale, learning content, community, or advanced onboarding automation are major requirements.",
+    ],
+    questions: [
+      {
+        question: "Is Retainr a free SuiteDash alternative?",
+        answer:
+          "Retainr is free forever and overlaps with SuiteDash around clients, portals, projects, billing, onboarding, support, and white labeling. SuiteDash is substantially broader in marketing, scheduling, e-signatures, LMS, community, and advanced configuration.",
+      },
+      {
+        question: "Does SuiteDash charge per user?",
+        answer:
+          "SuiteDash's current pricing page states that its listed plans are not priced per user and include unlimited clients and staff. Retainr is also unlimited, but without a software subscription.",
+      },
+      {
+        question: "Which platform is easier to configure?",
+        answer:
+          "Retainr should be easier for a specialist business that needs a focused offer-to-renewal workflow. SuiteDash offers far more modules, which can replace more tools but also requires more configuration decisions.",
+      },
+    ],
+    sources: [
+      { label: "SuiteDash pricing and plan comparison", url: "https://suitedash.com/pricing/" },
+      { label: "SuiteDash feature directory", url: "https://suitedash.com/features/" },
+    ],
+  },
 ];
 
-export const comparisonLinks = comparisons.map((comparison) => ({
-  href: `/compare/${comparison.slug}/`,
-  label: `Retainr vs ${comparison.competitor}`,
-}));
+const footerComparisonSlugs = new Set([
+  "retainr-vs-manyrequests",
+  "retainr-vs-productive",
+  "retainr-vs-agencyhandy",
+  "retainr-vs-plutio",
+  "retainr-vs-bonsai",
+  "retainr-vs-moxie",
+  "retainr-vs-dubsado",
+  "retainr-vs-honeybook",
+  "retainr-vs-assembly",
+  "retainr-vs-suitedash",
+]);
+
+export const comparisonLinks = comparisons
+  .filter((comparison) => footerComparisonSlugs.has(comparison.slug))
+  .map((comparison) => ({
+    href: `/compare/${comparison.slug}/`,
+    label: `Retainr vs ${comparison.competitor}`,
+  }));
 
 export const getComparison = (slug: string | undefined) =>
   comparisons.find((comparison) => comparison.slug === slug);

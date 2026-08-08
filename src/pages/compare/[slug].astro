@@ -82,7 +82,7 @@ const pageSchema = {
           <p>{comparison.summary}</p>
           <div class="hero-actions">
             <a class="button" href="#verdict">Read the verdict</a>
-            <a class="button ghost" href={signupHref}>Try Retainr for $1</a>
+            <a class="button ghost" href={signupHref}>Start Retainr free</a>
           </div>
         </div>
         <aside class:list={["comparison-status-panel", `is-${comparison.status.tone}`]}>
@@ -151,8 +151,8 @@ const pageSchema = {
             {comparison.rows.map((row) => (
               <tr>
                 <th scope="row">{row.topic}</th>
-                <td>{row.retainr}</td>
-                <td>{row.competitor}</td>
+                <td data-label="Retainr">{row.retainr}</td>
+                <td data-label={comparison.competitor}>{row.competitor}</td>
               </tr>
             ))}
           </tbody>
