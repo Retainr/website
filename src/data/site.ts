@@ -1,5 +1,6 @@
 export const signupUrl = "https://app.retainr.io/signup";
 export const loginUrl = "https://app.retainr.io/login";
+export const signupLabel = "Start free forever";
 
 export const palette = [
   { name: "Retainr orange", hex: "#FF4D18" },

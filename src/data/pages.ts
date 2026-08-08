@@ -132,7 +132,7 @@ export const pages: MarketingPage[] = [
       {
         question: "Are these comparisons based on current vendor information?",
         answer:
-          "The dedicated Retainr comparison library was reviewed on 4 August 2026 using official product, pricing, documentation, and status pages. Purchase-critical details should still be verified directly because plans and availability can change.",
+          "The dedicated Retainr comparison library was reviewed on 8 August 2026 using official product, pricing, documentation, and status pages. Purchase-critical details should still be verified directly because plans and availability can change.",
       },
     ],
   },
@@ -266,13 +266,13 @@ export const pages: MarketingPage[] = [
       {
         title: "Information Retainr may collect",
         body:
-          "Information may be collected through the website, application, email, telephone, or live chat. This can include names, email addresses, telephone numbers, organization details, billing and account information, IP addresses, language preferences, support messages, service usage, and files or other content uploaded while using the platform.",
-        points: ["Account and contact details", "Billing and subscription information", "Technical and usage data", "Client-service content submitted to the platform"],
+          "Information may be collected through the website, application, email, telephone, or live chat. This can include names, email addresses, telephone numbers, organization details, account and connected-payment information, IP addresses, language preferences, support messages, service usage, and files or other content uploaded while using the platform.",
+        points: ["Account and contact details", "Connected-payment information", "Technical and usage data", "Client-service content submitted to the platform"],
       },
       {
         title: "How we use information",
         body:
-          "Personal information is used to operate and secure the service, create and maintain accounts, process subscriptions, provide support, communicate about the service, diagnose performance, prevent misuse, improve product experience, and meet applicable legal requirements. Marketing communications should be sent only where Retainr has an appropriate basis and should provide a way to change communication preferences.",
+          "Personal information is used to operate and secure the service, create and maintain accounts, support connected payment workflows, provide support, communicate about the service, diagnose performance, prevent misuse, improve product experience, and meet applicable legal requirements. Marketing communications should be sent only where Retainr has an appropriate basis and should provide a way to change communication preferences.",
       },
       {
         title: "Storage and information security",
@@ -668,7 +668,7 @@ export const pages: MarketingPage[] = [
     eyebrow: "Terms",
     hero: "Terms & Conditions",
     subhero:
-      "Effective 20 August 2024. These terms govern access to the Retainr website and service operated by SimpliXio Pte. Ltd.",
+      "Effective 5 August 2026. These terms govern access to the Retainr website and service operated by SimpliXio Pte. Ltd.",
     sections: [
       {
         title: "Agreement and service operator",
@@ -676,15 +676,15 @@ export const pages: MarketingPage[] = [
           "These terms govern the relationship between users of retainr.io and the Retainr service and SimpliXio Pte. Ltd., 160 Robinson Road, #14-04 SBF Center, Singapore S068914. By accessing or using the service, a visitor or account holder accepts these terms. Anyone who does not agree should not use the service.",
       },
       {
-        title: "Subscriptions and billing cycles",
+        title: "Free access and third-party charges",
         body:
-          "Paid parts of the service are billed in advance on the monthly or annual cycle selected at checkout. Subscriptions renew on the same cycle until cancelled by the user or Retainr. Users must provide accurate billing information and authorize charges to the selected payment method. If an automatic charge fails, Retainr may request manual payment by a stated deadline.",
-        points: ["Monthly or annual billing", "Automatic renewal until cancellation", "Accurate billing information is required", "Account management or support can be used to cancel renewal"],
+          "Retainr is now free forever. There are no more plans, seat fees, or feature limits. Users may connect independent payment providers to charge their own clients; those providers apply their own terms, processing fees, billing requirements, and dispute procedures.",
+        points: ["No Retainr subscription charge", "No workspace seat fee", "No feature-tier restriction", "Connected payment providers apply their own fees"],
       },
       {
-        title: "Trials, fee changes, and refunds",
+        title: "Former subscriptions",
         body:
-          "Retainr may offer a trial at its discretion and may require billing details to activate it. The checkout flow states when the selected subscription will be charged. Retainr may change trial availability or subscription fees, with fee changes taking effect at the end of the current billing cycle after reasonable notice. Refund requests may be considered case by case at Retainr's discretion.",
+          "A current Retainr subscription will end at the close of its existing billing period. There will be no further Retainr subscription charges, and no refund is being issued for the current period. The workspace, its data, and access to every feature remain available.",
       },
       {
         title: "Accounts and security",
@@ -1035,10 +1035,10 @@ export const pages: MarketingPage[] = [
     image: "/assets/dashboard-hero.png",
     sections: [
       {
-        title: "Product and pricing questions",
+        title: "Product and free-access questions",
         body:
-          "If you are choosing a plan, compare pricing first and then start with the offer you want to launch. The best Retainr setup begins with one package, one onboarding flow, and one recurring upgrade.",
-        points: ["Pricing", "Plans", "Setup questions", "Creator use cases"],
+          "Retainr is free forever, so the best setup begins with the offer you want to launch rather than a plan choice. Start with one package, one onboarding flow, and one useful recurring continuation.",
+        points: ["Free access", "Setup questions", "Creator use cases", "Feature availability"],
       },
       {
         title: "Support and account help",

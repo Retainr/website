@@ -9,8 +9,7 @@
         page_path: window.location.pathname,
         cta_label: label || "Signup",
         niche: destination.searchParams.get("niche") || undefined,
-        plan: destination.searchParams.get("plan") || undefined,
-        billing: destination.searchParams.get("billing") || undefined,
+        intent: destination.searchParams.get("intent") || undefined,
       };
 
       window.dataLayer = window.dataLayer || [];

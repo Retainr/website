@@ -1,7 +1,7 @@
 ---
-import { signupUrl } from "@/data/site";
+import { signupLabel, signupUrl } from "@/data/site";
 
-const { title = "Build a client business that does not depend on your inbox", text = "Retainr helps niche freelancers and independent experts turn services into buyable offers, guided delivery, and recurring client revenue from one branded place.", cta = "Start Your $1 Trial", href = signupUrl } = Astro.props;
+const { title = "Build a client business that does not depend on your inbox", text = "Retainr helps niche freelancers and independent experts turn services into buyable offers, guided delivery, and recurring client revenue from one branded place.", cta = signupLabel, href = signupUrl } = Astro.props;
 ---
 
 <section class="cta-band">
@@ -9,15 +9,15 @@ const { title = "Build a client business that does not depend on your inbox", te
     <div class="cta-copy">
       <h2>{title}</h2>
       <p>{text}</p>
-      <ul class="cta-confidence" aria-label="Retainr trial benefits">
+      <ul class="cta-confidence" aria-label="Retainr access benefits">
         <li>0% Retainr transaction fee</li>
         <li>100% white-label client portal</li>
-        <li>Start with one real offer</li>
+        <li>Every feature, free forever</li>
       </ul>
     </div>
     <div class="cta-actions">
       <a href={href} class="button secondary">{cta}</a>
-      <a href="/pricing/" class="cta-pricing-link">Compare plans →</a>
+      <a href="/pricing/" class="cta-pricing-link">See what is included →</a>
     </div>
   </div>
 </section>

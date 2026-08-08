@@ -5,11 +5,6 @@ import Testimonials from "@/components/Testimonials.astro";
 import pricing from "@/config/pricing.json";
 import { signupUrl } from "@/data/site";
 
-const pricedPlans = pricing.plans.map((plan) => ({
-  ...plan,
-  yearlySavings: (plan.monthly - plan.yearly) * 12,
-  yearlyTotal: plan.yearly * 12,
-}));
 const pricingFaqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -25,63 +20,40 @@ const pricingFaqSchema = {
 ---
 
 <BaseLayout
-  title="Retainr Pricing for Niche Freelancers and Independent Experts"
-  description="Choose a Retainr plan for selling niche services, onboarding clients, managing delivery, and turning trusted freelance expertise into recurring revenue."
+  title="Retainr Pricing: Free Forever for Independent Experts"
+  description="Retainr is free forever, with every feature, unlimited team members and clients, white-label portals, and no Retainr transaction fees."
   path="/pricing/"
 >
   <script is:inline type="application/ld+json" set:html={JSON.stringify(pricingFaqSchema)}></script>
-  <section class="hero center pricing-hero">
+
+  <section class="hero center pricing-hero free-pricing-hero">
     <div class="container">
       <div class="hero-copy" style="justify-items:center">
-        <span class="eyebrow">Pricing for Independent Client Businesses</span>
-        <h1 class="hero-title">Choose the plan that turns expertise into recurring client revenue.</h1>
-        <p>Start with the clients who already trust your work. Package what they need next, deliver it through your brand, and grow into predictable monthly revenue.</p>
+        <span class="eyebrow">Retainr is now free forever</span>
+        <h1 class="hero-title">No plans. No seat fees. No feature limits.</h1>
+        <p>Build the complete branded client journey from your first offer to recurring revenue without choosing a tier.</p>
       </div>
     </div>
   </section>
 
-  <section class="section pricing-section">
-    <div class="container">
-      <div class="pricing-toolbar">
-        <div>
-          <strong>Simple plans. Zero transaction fees.</strong>
-          <span>Compare monthly and yearly pricing before you begin signup.</span>
-        </div>
-        <div class="pricing-toggle" aria-label="Billing period">
-          <button type="button" class="active" data-billing="monthly" aria-pressed="true">{pricing.billing.monthlyLabel}</button>
-          <button type="button" data-billing="yearly" aria-pressed="false">{pricing.billing.yearlyLabel} <span>Save up to $240</span></button>
-        </div>
+  <section class="free-pricing-section" aria-labelledby="free-pricing-title">
+    <div class="container free-pricing-stage">
+      <div class="free-price" aria-label={`${pricing.currency}${pricing.price} forever`}>
+        <span>{pricing.currency}</span>
+        <strong>{pricing.price}</strong>
+        <small>forever</small>
       </div>
-      <div class="pricing-grid">
-        {pricedPlans.map((plan) => (
-          <article class:list={["pricing-card", { highlight: plan.highlight }]} data-plan-card={plan.slug}>
-            <div class="trial">{plan.badge}</div>
-            <h3>{plan.name}</h3>
-            <p class="muted">{plan.description}</p>
-            <div class="price">
-              <span>{pricing.currency}</span>
-              <span data-monthly={plan.monthly} data-yearly={plan.yearly}>{plan.monthly}</span>
-              <small>/month</small>
-            </div>
-            <p
-              class="price-detail"
-              data-price-detail
-              data-monthly-detail="Billed monthly"
-              data-yearly-detail={`${pricing.currency}${plan.yearlyTotal} billed yearly`}
-            >Billed monthly</p>
-            <p class="price-saving" data-price-saving hidden>{`Save ${pricing.currency}${plan.yearlySavings} each year`}</p>
-            <a
-              href={`${signupUrl}?plan=${plan.slug}&billing=monthly`}
-              data-plan-cta
-              data-signup-base={`${signupUrl}?plan=${plan.slug}`}
-              class:list={["button", { yellow: plan.highlight }]}
-            >{plan.cta}</a>
-            <ul class="check-list">
-              {plan.features.map((feature) => <li>{feature}</li>)}
-            </ul>
-          </article>
-        ))}
+      <div class="free-pricing-copy">
+        <span>{pricing.badge}</span>
+        <h2 id="free-pricing-title">{pricing.headline}</h2>
+        <p>{pricing.description}</p>
+        <a href={signupUrl} class="button">{pricing.cta}</a>
       </div>
+      <ul class="free-pricing-proof" aria-label="Free Retainr access includes">
+        <li><strong>Every feature</strong><span>White label, portals, delivery, support, API, and mobile access</span></li>
+        <li><strong>Unlimited people</strong><span>Invite the team and clients your work actually needs</span></li>
+        <li><strong>0% platform fee</strong><span>Retainr does not take a percentage of client payments</span></li>
+      </ul>
     </div>
   </section>
 
@@ -103,7 +75,7 @@ const pricingFaqSchema = {
             <div class="prospection-node"><strong>01</strong><span>Define your exact expertise and ideal buyer</span></div>
             <div class="prospection-node"><strong>02</strong><span>Find matched companies and relevant outreach angles</span></div>
             <div class="prospection-node"><strong>03</strong><span>Move warm replies into Retainr onboarding</span></div>
-            <a href={`${signupUrl}?plan=magic-prospections&intent=early-access`} class="button">Join Early Access</a>
+            <a href={`${signupUrl}?intent=magic-prospections`} class="button">Create a free workspace</a>
           </div>
         </div>
       </div>
@@ -113,14 +85,12 @@ const pricingFaqSchema = {
   <section class="section ice">
     <div class="container">
       <div class="section-heading centered">
-        <span class="eyebrow">Everything behind the method</span>
-        <h2>Build the same branded buying and delivery system across every niche offer.</h2>
+        <span class="eyebrow">The complete client system</span>
+        <h2>Everything behind the Retainr Method is included.</h2>
       </div>
       <div class="included-grid">
         {pricing.included.map((item) => (
-          <div class="metric-card">
-            <strong>{item}</strong>
-          </div>
+          <div class="metric-card"><strong>{item}</strong></div>
         ))}
       </div>
     </div>
@@ -130,7 +100,7 @@ const pricingFaqSchema = {
     <div class="container">
       <div class="section-heading centered">
         <span class="eyebrow">FAQ</span>
-        <h2>Common pricing questions</h2>
+        <h2>Free-forever questions, answered clearly.</h2>
       </div>
       <div class="faq-grid">
         {pricing.faq.map((item) => (
@@ -145,44 +115,7 @@ const pricingFaqSchema = {
 
   <Testimonials />
   <CtaBand
-    title="Start with one offer and one client journey"
-    text="Use the $1 trial to package the first paid outcome, inspect your signup flow, and manage delivery from a branded client portal."
-    href={`${signupUrl}?plan=solo-creator&billing=monthly`}
+    title="Start with one offer and keep every capability"
+    text="Create your free workspace, publish the first paid outcome, and manage delivery from a branded client portal."
   />
-
-  <script>
-    const buttons = document.querySelectorAll("[data-billing]");
-    const prices = document.querySelectorAll("[data-monthly][data-yearly]");
-    const details = document.querySelectorAll<HTMLElement>("[data-price-detail]");
-    const savings = document.querySelectorAll<HTMLElement>("[data-price-saving]");
-    const planCtas = document.querySelectorAll<HTMLAnchorElement>("[data-plan-cta]");
-
-    buttons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const billing = button.getAttribute("data-billing") || "monthly";
-        buttons.forEach((item) => {
-          const active = item === button;
-          item.classList.toggle("active", active);
-          item.setAttribute("aria-pressed", String(active));
-        });
-        prices.forEach((price) => {
-          const next = price.getAttribute(`data-${billing}`);
-          if (next) price.textContent = next;
-        });
-        details.forEach((detail) => {
-          detail.textContent = detail.dataset[`${billing}Detail`] || "";
-        });
-        savings.forEach((saving) => {
-          saving.hidden = billing !== "yearly";
-        });
-        planCtas.forEach((cta) => {
-          const base = cta.dataset.signupBase;
-          if (!base) return;
-          const destination = new URL(base);
-          destination.searchParams.set("billing", billing);
-          cta.href = destination.toString();
-        });
-      });
-    });
-  </script>
 </BaseLayout>

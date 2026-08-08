@@ -1,116 +1,65 @@
 {
   "currency": "$",
-  "billing": {
-    "monthlyLabel": "Monthly",
-    "yearlyLabel": "Yearly",
-    "yearlyNote": "Save when paid yearly"
-  },
+  "price": 0,
+  "name": "Complete Retainr",
+  "badge": "Free forever",
+  "headline": "One workspace. Every feature. No plan selection.",
+  "description": "Package services, sell with branded links, onboard clients, deliver work, support relationships, and invite your team without a Retainr subscription.",
+  "cta": "Start free forever",
   "featuredFeature": {
-    "eyebrow": "Coming soon",
+    "eyebrow": "In development",
     "name": "Magic Prospections",
     "headline": "Find targeted prospects for your exact niche service",
-    "description": "Magic Prospections is Retainr's upcoming prospecting and lead generation tool for freelance developers and technical specialists. It is designed to help identify relevant companies, match them to your expertise, prepare outreach angles, and move promising replies into your Retainr client workflow.",
+    "description": "Magic Prospections is Retainr's upcoming prospecting and lead-generation workflow for freelance developers and technical specialists. It is being designed to identify relevant companies, match them to your expertise, prepare outreach angles, and move promising replies into your Retainr client workflow.",
     "bullets": [
       "Target prospects by niche, technology stack, business type, and service fit",
-      "Generate cold email angles for your specific niche expertise",
+      "Generate cold-email angles for your specific expertise",
       "Track outreach, replies, and follow-up status before a lead becomes a client",
-      "Move warm prospects into Retainr signup, onboarding, billing, and delivery"
+      "Move warm prospects into Retainr onboarding and delivery"
     ],
-    "note": "Planned first for the Magic Prospections plan as a lead-generation layer for technical freelancers who want more qualified conversations."
+    "note": "Availability and final scope may change while this workflow is developed. Create a free Retainr workspace now and follow product updates for release news."
   },
-  "plans": [
-    {
-      "slug": "solo-creator",
-      "name": "Solo Freelancer",
-      "badge": "Ending soon - $1 trial",
-      "monthly": 25,
-      "yearly": 19,
-      "description": "Ideal for independent experts who need a white-label system to sell one niche offer, onboard clients, and manage delivery.",
-      "features": [
-        "Max. 1 user",
-        "Unlimited clients",
-        "Own branded offer portal",
-        "White-label client portal",
-        "0% transaction fees",
-        "No Powered By badge"
-      ],
-      "cta": "Start Trial"
-    },
-    {
-      "slug": "teams",
-      "name": "Teams",
-      "badge": "Ending soon - $1 trial",
-      "monthly": 77,
-      "yearly": 69,
-      "description": "Ideal for small specialist teams that need a white-label system to sell packages, onboard clients, and manage delivery.",
-      "features": [
-        "Everything in Solo Freelancer",
-        "Max. 6 users",
-        "Unlimited clients",
-        "Own branded offer portal",
-        "Projects, tickets, and tasks",
-        "Advanced branding"
-      ],
-      "cta": "Start Trial",
-      "highlight": true
-    },
-    {
-      "slug": "magic-prospections",
-      "name": "Magic Prospections",
-      "badge": "Coming soon - early access",
-      "monthly": 199,
-      "yearly": 179,
-      "description": "Upcoming prospecting system for technical freelancers who want targeted prospects, cold outreach workflows, and a direct path from reply to paid client.",
-      "features": [
-        "Everything in Teams",
-        "Max. 18 users",
-        "Magic Prospections for technical freelancers",
-        "Targeted prospect discovery by expertise and niche",
-        "Cold email angle generation and follow-up tracking",
-        "Android and iOS app",
-        "Dedicated agent, monitored 24/7",
-        "API and webhooks"
-      ],
-      "cta": "Join Early Access"
-    }
-  ],
   "included": [
-    "Zero transaction fees",
+    "Unlimited team members",
     "Unlimited leads and clients",
     "Own branded offer portal",
     "White-label client management portal",
-    "Projects and ticketing",
-    "Tasks and boards",
-    "Unlimited storage, up to 1 GB per file",
+    "Zero Retainr transaction fees",
+    "Projects, ticketing, tasks, and boards",
+    "Storage up to 1 GB per file",
     "Order feedback and approvals",
     "Custom domain and SSL",
-    "Unbranded emails",
-    "Payment integration",
+    "Unbranded client emails",
+    "Payment integrations",
     "API and webhooks",
-    "Data security and privacy controls",
+    "Mobile app access",
     "Retainr recurring revenue method",
-    "24/7 customer support team"
+    "Support and product updates"
   ],
   "faq": [
+    {
+      "question": "Is Retainr really free forever?",
+      "answer": "Yes. Retainr is now free forever. There are no more plans, seat fees, or feature limits."
+    },
     {
       "question": "Will the portal use my brand?",
       "answer": "Yes. Your branded portal can carry your logo, brand name, custom domain, and client-facing experience."
     },
     {
-      "question": "Can I add unlimited clients and buyers?",
-      "answer": "Yes. Retainr is built for unlimited clients, buyers, and service relationships, with team structure based on your plan."
+      "question": "Can I invite my team and add unlimited clients?",
+      "answer": "Yes. Retainr no longer limits workspace seats, clients, buyers, or service relationships by plan."
     },
     {
-      "question": "Is it easy to add and sell services?",
-      "answer": "Yes. Create a niche service package, set payment details, publish the offer, and send clients directly to the right signup flow."
+      "question": "Does Retainr charge a transaction fee?",
+      "answer": "Retainr adds no percentage transaction fee. A connected payment provider may still charge its standard processing fees."
+    },
+    {
+      "question": "What happens to an existing paid subscription?",
+      "answer": "Your current subscription will end at the close of its existing billing period. There will be no further Retainr subscription charges, and no refund is being issued for the current period. You keep your workspace, your data, and access to every feature."
     },
     {
       "question": "Who owns the data, customers, and subscribers?",
       "answer": "You do. Your client data, customers, orders, and subscribers belong to your business."
-    },
-    {
-      "question": "Do you integrate with Zapier and Google Analytics?",
-      "answer": "Yes. Retainr includes webhook and API options so you can connect your creator stack and automate the work around delivery."
     }
   ]
 }

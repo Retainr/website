@@ -12,7 +12,7 @@ npm run build
 
 ## Pricing
 
-Update pricing in `src/config/pricing.json`. The pricing page reads plans, billing prices, included features, trial copy, and FAQs from that file.
+Update the free-forever offer in `src/config/pricing.json`. The pricing page reads the price, included features, upcoming product note, and FAQs from that file.
 
 ## Routes
 

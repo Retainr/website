@@ -23,7 +23,7 @@ const nicheCount = niches.length;
 const relatedNiches = featuredNiches.filter((item) => item.slug !== niche.slug).slice(0, 3);
 const relatedNicheCount = relatedNiches.length;
 const systemLabel = `The System for ${niche.name}`;
-const finalCtaText = "Start Your $1 Trial";
+const finalCtaText = "Start free forever";
 const offerLadder = niche.offers.slice(0, 3);
 const nicheChallenges = niche.painPoints ?? [];
 const nicheOutcomes = niche.benefits ?? [];
@@ -63,13 +63,13 @@ const serviceSchema = {
           sell with confidence, deliver professionally, and turn one-time clients into predictable monthly revenue.
         </p>
         <div class="hero-actions">
-          <a href={nicheSignupUrl} class="button">Start Your $1 Trial</a>
+          <a href={nicheSignupUrl} class="button">Start free forever</a>
           <a href="#method" class="button ghost">See The Method</a>
         </div>
         <div class="hero-proof">
           <div class="proof-pill"><strong>0%</strong><span>transaction fees</span></div>
           <div class="proof-pill"><strong>100%</strong><span>white label</span></div>
-          <div class="proof-pill"><strong>$1</strong><span>limited-time trial</span></div>
+          <div class="proof-pill"><strong>$0</strong><span>free forever</span></div>
         </div>
       </div>
       <div class="hero-visual">
@@ -154,10 +154,10 @@ const serviceSchema = {
     </div>
   </section>
 
-  <!-- Trial confidence band -->
+  <!-- Free-forever confidence band -->
   <GuaranteeBand 
-    title={`Test the ${niche.name} workflow with one real offer.`}
-    subtitle="Use the current $1 trial to check the buying, onboarding, and delivery experience before moving more client work into Retainr."
+    title={`Build the ${niche.name} workflow with one real offer.`}
+    subtitle="Use every Retainr feature free forever to check the buying, onboarding, and delivery experience before moving more client work into the system."
   />
 
   <Testimonials />

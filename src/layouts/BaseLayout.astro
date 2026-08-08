@@ -3,7 +3,7 @@ import "../styles/global.css";
 import CrispChat from "@/components/CrispChat.astro";
 import ConversionTracking from "@/components/ConversionTracking.astro";
 import { comparisonLinks } from "@/data/comparisons";
-import { companyLinks, loginUrl, navLinks, resourceLinks, signupUrl, solutionLinks } from "@/data/site";
+import { companyLinks, loginUrl, navLinks, resourceLinks, signupLabel, signupUrl, solutionLinks } from "@/data/site";
 
 type Props = {
   title: string;
@@ -101,7 +101,7 @@ const organizationSchema = {
         </nav>
         <div id="navigation-actions" class="nav-actions">
           <a href={loginUrl} class="button ghost">Login</a>
-          <a href={signupUrl} class="button">Start for $1</a>
+          <a href={signupUrl} class="button">{signupLabel}</a>
         </div>
         <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation navigation-actions">
           <span></span>
@@ -124,12 +124,12 @@ const organizationSchema = {
             </div>
           </div>
           <div class="footer-start-panel">
-            <strong>Start with one paid client journey.</strong>
+            <strong>Start with one real client journey.</strong>
             <form class="email-form" action={signupUrl} method="get">
               <input type="email" name="email" placeholder="Enter work email" aria-label="Work email" required />
-              <button class="button yellow" type="submit">Start for $1</button>
+              <button class="button yellow" type="submit">Start free</button>
             </form>
-            <span>No Retainr transaction fees. Cancel anytime.</span>
+            <span>Free forever. No plans, seat fees, or feature limits.</span>
           </div>
         </div>
         <div class="footer-link-grid">

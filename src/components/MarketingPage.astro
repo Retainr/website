@@ -29,7 +29,7 @@ const showFinalCta = !noConversionSlugs.has(page.slug);
 const pageActions: Record<string, { label: string; href: string; download?: boolean }[]> = {
   "alternatives-compare-agency-client-management-software": [
     { label: "Compare Retainr", href: "/compare/" },
-    { label: "View Retainr Pricing", href: "/pricing/" },
+    { label: "See Free Retainr Access", href: "/pricing/" },
   ],
   "brand-assets": [
     { label: "Download Retainr Logo", href: "/assets/retainr-logo.svg", download: true },
@@ -57,8 +57,8 @@ const pageActions: Record<string, { label: string; href: string; download?: bool
   ],
 };
 const heroActions = pageActions[page.slug] ?? [
-  { label: "Start Your $1 Trial", href: signupUrl },
-  { label: "View Pricing", href: "/pricing/" },
+  { label: "Start free forever", href: signupUrl },
+  { label: "See what is included", href: "/pricing/" },
 ];
 const faqSchema = page.faqs?.length
   ? {
@@ -275,7 +275,7 @@ const faqSchema = page.faqs?.length
       <div class="next-links" aria-label="Continue exploring Retainr">
         <a href="/productize/">Productize your offer <span aria-hidden="true">→</span></a>
         <a href="/client-onboarding/">Improve onboarding <span aria-hidden="true">→</span></a>
-        <a href="/pricing/">Choose a plan <span aria-hidden="true">→</span></a>
+        <a href="/pricing/">See what is included <span aria-hidden="true">→</span></a>
       </div>
     </div>
   </section>}
