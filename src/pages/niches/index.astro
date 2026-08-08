@@ -1,0 +1,126 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import NicheIcon from "@/components/NicheIcon.astro";
+import { niches, type Niche } from "@/data/niches";
+
+const groups = [
+  {
+    name: "Growth & technology",
+    description: "Turn strategic expertise, implementation, and optimization into visible ongoing value.",
+    slugs: ["seo-experts", "ai-experts", "marketing-consultants", "notion-consultants", "crypto-experts"],
+  },
+  {
+    name: "Creative & publishing",
+    description: "Package creative output around clear briefs, approvals, delivery, and continuing support.",
+    slugs: ["designers", "web-designers", "cartoonists", "ebook-novelists", "copywriters", "video-editors", "podcast-producers", "ugc-creators"],
+  },
+  {
+    name: "Coaching & wellbeing",
+    description: "Give clients a structured programme, useful accountability, and a natural next step.",
+    slugs: ["nutritionists", "registered-dietitians", "fitness-coaches", "life-coaches", "digital-coaches"],
+  },
+  {
+    name: "Products & client operations",
+    description: "Connect every sale to organized onboarding, delivery, support, and repeatable service.",
+    slugs: ["info-products", "course-creators", "community-managers", "virtual-assistants", "dog-walkers"],
+  },
+].map((group) => ({
+  ...group,
+  items: group.slugs
+    .map((slug) => niches.find((niche) => niche.slug === slug))
+    .filter((niche): niche is Niche => Boolean(niche)),
+}));
+
+const directorySchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Retainr specialist client-system playbooks",
+  description: "Niche-specific Retainr workflows for digital creators, independent experts, and specialist freelancers.",
+  numberOfItems: niches.length,
+  itemListElement: niches.map((niche, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: niche.name,
+    url: `https://www.retainr.io/niches/${niche.slug}/`,
+  })),
+};
+---
+
+<BaseLayout
+  title="Retainr for Digital Creators & Specialist Freelancers"
+  description={`Explore ${niches.length} niche-specific client revenue playbooks for digital creators, consultants, coaches, and specialist freelancers using Retainr.`}
+  path="/niches/"
+>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(directorySchema)}></script>
+
+  <section class="niche-directory-hero" aria-labelledby="niche-directory-title">
+    <div class="container niche-directory-hero-inner">
+      <div class="niche-directory-intro">
+        <span class="eyebrow">{niches.length} specialist client systems</span>
+        <h1 id="niche-directory-title">Built around the work your clients already trust you to do.</h1>
+        <p>
+          Generic freelancer advice stops at finding a client. These playbooks show how a specialist can package the first offer, collect the right context, deliver professionally, and make recurring work the useful next step.
+        </p>
+        <a href="#specialist-directory" class="button">Find your playbook</a>
+      </div>
+
+      <div class="niche-directory-signal" aria-label="Retainr specialist workflow">
+        <div class="niche-directory-signal-top">
+          <strong>{niches.length}</strong>
+          <span>ways to make specialist work easier to buy and continue</span>
+        </div>
+        <div class="niche-directory-icon-run" aria-hidden="true">
+          {groups.map((group) => <NicheIcon niche={group.items[0]} />)}
+        </div>
+        <ol>
+          <li><span>01</span> Package the expertise</li>
+          <li><span>02</span> Guide the client</li>
+          <li><span>03</span> Deliver the outcome</li>
+          <li><span>04</span> Continue the value</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="niche-directory" id="specialist-directory" aria-labelledby="specialist-directory-title">
+    <div class="container">
+      <div class="niche-directory-heading">
+        <span>Choose the work, not a broad freelancer label</span>
+        <h2 id="specialist-directory-title">Every playbook starts with a real specialist offer.</h2>
+        <p>Open the closest fit to see its offer ladder, onboarding questions, recurring-revenue path, and niche-aware Retainr signup.</p>
+      </div>
+
+      <div class="niche-directory-groups">
+        {groups.map((group, groupIndex) => (
+          <section class="niche-directory-group" aria-labelledby={`niche-group-${groupIndex}`}>
+            <header>
+              <span>{String(groupIndex + 1).padStart(2, "0")}</span>
+              <div>
+                <h3 id={`niche-group-${groupIndex}`}>{group.name}</h3>
+                <p>{group.description}</p>
+              </div>
+            </header>
+            <div class="niche-directory-links">
+              {group.items.map((niche) => (
+                <a href={`/niches/${niche.slug}/`}>
+                  <NicheIcon niche={niche} />
+                  <span>
+                    <strong>{niche.name}</strong>
+                    <small>{niche.tagline}</small>
+                  </span>
+                  <i aria-hidden="true">↗</i>
+                </a>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand
+    title="Your expertise deserves a client system, not more admin"
+    text="Start with one offer, one real client journey, and every Retainr feature free forever."
+  />
+</BaseLayout>

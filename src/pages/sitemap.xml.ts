@@ -6,11 +6,12 @@ import { niches } from "@/data/niches";
 
 const site = "https://www.retainr.io";
 
-const siteUpdatedAt = "2026-08-04";
+const siteUpdatedAt = "2026-08-08";
 
 const entries = new Map<string, string>([
   ["/", siteUpdatedAt],
   ["/pricing/", siteUpdatedAt],
+  ["/niches/", siteUpdatedAt],
   ["/compare/", comparisonsReviewedAt],
   ...comparisons.map((comparison) => [`/compare/${comparison.slug}/`, comparisonsReviewedAt] as const),
   ...pages.map((page) => [`/${page.slug}/`, siteUpdatedAt] as const),

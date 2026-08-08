@@ -63,60 +63,67 @@ const workdayOutcomes = [
   description="Retainr helps niche freelancers package services, onboard clients, deliver in one branded portal, and turn successful work into recurring revenue."
   path="/"
 >
-  <!-- Hero -->
-  <section class="hero home-hero">
-    <div class="container hero-grid">
-      <div class="hero-copy">
-        <span class="eyebrow">The Client Revenue System for Independent Experts</span>
-        <h1>Turn Client Work Into <span>Recurring Revenue</span></h1>
-        <h2 class="hero-subtitle">Package. Sell. Retain.</h2>
+  <section class="home-intro" aria-labelledby="home-title">
+    <div class="container home-intro-shell">
+      <div class="home-intro-copy">
+        <span class="home-kicker"><i></i> The client revenue system for independent experts</span>
+        <h1 id="home-title"><span>Retainr</span> turns client work into <mark>recurring revenue.</mark></h1>
         <p>
-          AI makes production faster, but recurring revenue still depends on a client experience people
-          trust. Retainr connects your offer, payment, onboarding, delivery, support, and next recurring
-          plan in one journey under your brand.
+          Package what you do, send one buying link, onboard clients, deliver under your brand, and
+          make the next useful service easy to continue. One system from first yes to lasting revenue.
         </p>
-        <div class="hero-actions">
-          <a href={signupUrl} class="button">Start Your $1 Trial</a>
-          <a href="#method" class="button ghost">See The Method</a>
+        <div class="hero-actions home-intro-actions">
+          <a href={signupUrl} class="button">Start free forever</a>
+          <a href="#method" class="button ghost">See the Retainr Method</a>
+        </div>
+        <p class="home-access-note"><strong>$0 forever.</strong> No plans, seat fees, or feature limits.</p>
+      </div>
+
+      <div class="home-product-stage" aria-label="Retainr product experience">
+        <div class="home-stage-mark home-stage-mark-left" aria-hidden="true"></div>
+        <div class="home-product-window">
+          <div class="home-product-bar">
+            <span aria-hidden="true"></span>
+            <strong>app.retainr.io</strong>
+            <small>Your client business, in one place</small>
+          </div>
+          <img src="/assets/dashboard-hero.png" alt="Retainr dashboard showing team, tasks, clients, and revenue" loading="eager" width="1600" height="682" />
+        </div>
+        <div class="home-stage-note home-stage-note-link">
+          <span>01</span><strong>Sell with one link</strong><small>Offer → payment → onboarding</small>
+        </div>
+        <div class="home-stage-note home-stage-note-method">
+          <span>THE METHOD</span><strong>Package → Sell → Deliver → Retain</strong>
+        </div>
+        <div class="home-stage-note home-stage-note-free">
+          <strong>FREE</strong><span>Every feature. Forever.</span>
         </div>
       </div>
-      <div class="hero-visual">
-        <div class="product-frame">
-          <img src="/assets/dashboard-hero.png" alt="Retainr client management dashboard" loading="eager" width="1600" height="682" />
-        </div>
-        <div class="hero-ticket hero-ticket-top">
-          <strong>Magic Link</strong>
-          <span>Client joins the right plan in one click</span>
-        </div>
-        <div class="hero-system-card">
-          <span>Retainr Method</span>
-          <strong>Package → Pay → Onboard → Retain</strong>
-        </div>
-      </div>
-      <div class="hero-proof">
-        <div class="proof-pill"><strong>0%</strong><span>Retainr transaction fees</span></div>
-        <div class="proof-pill"><strong>100%</strong><span>white-label client portal</span></div>
-        <div class="proof-pill"><strong>$1</strong><span>limited-time trial</span></div>
+
+      <div class="home-proof-line" aria-label="Retainr product facts">
+        <span><strong>0%</strong> Retainr transaction fees</span>
+        <span><strong>100%</strong> white-label client experience</span>
+        <span><strong>Unlimited</strong> team members and clients</span>
       </div>
     </div>
   </section>
 
   <!-- Audience Positioning -->
-  <section class="audience-strip" aria-labelledby="audience-strip-title">
-    <div class="container audience-shell">
-      <div class="audience-copy">
-        <span class="eyebrow">Built for Niche Freelancers and Creators</span>
-        <h2 id="audience-strip-title">Not another client database. Retainr is the buying path, operating method, and client portal for experts who sell outcomes.</h2>
-        <p>
-          The best Retainr customers already have expertise people trust. The missing piece is a branded system that turns that expertise into packages, paid signup links, delivery workflows, and recurring offers.
-        </p>
+  <section class="specialist-index" aria-labelledby="audience-strip-title">
+    <div class="container specialist-index-shell">
+      <div class="specialist-index-copy">
+        <span>Built for people clients trust</span>
+        <h2 id="audience-strip-title">Your expertise is specific. Your client system should be too.</h2>
+        <p>Retainr turns specialist knowledge into a clear offer, a professional delivery experience, and a natural path to recurring work.</p>
+        <a href="/niches/" class="text-link">Explore every specialist playbook →</a>
       </div>
-
-      <div class="audience-stack" aria-label="Specialist audiences Retainr serves">
-        {audienceSegments.map((segment) => (
-          <a href={segment.href} class="audience-pill">
+      <div class="specialist-index-list" aria-label="Specialist audiences Retainr serves">
+        {audienceSegments.map((segment, index) => (
+          <a href={segment.href}>
+            <span>{String(index + 1).padStart(2, "0")}</span>
             <strong>{segment.label}</strong>
-            <span>{segment.offer}</span>
+            <small>{segment.offer}</small>
+            <i aria-hidden="true">↗</i>
           </a>
         ))}
       </div>
@@ -134,7 +141,7 @@ const workdayOutcomes = [
       <div class="showcase-grid">
         <article class="showcase-card showcase-card-large">
           <div class="showcase-copy">
-            <span class="trial">Limited Time - $1 Trial</span>
+            <span class="trial">Every feature - free forever</span>
             <h3>Offer Custom Packages</h3>
             <p>Build fixed-fee subscriptions, retainers, one-off jobs, and paid trials that are clear enough for clients to buy without another proposal thread.</p>
           </div>
@@ -164,7 +171,7 @@ const workdayOutcomes = [
   <section class="section operating-system-section" aria-labelledby="operating-system-title">
     <div class="container operating-system-grid">
       <div class="operating-system-copy">
-        <span class="trial">Limited Time - $1 Trial</span>
+        <span class="trial">Every feature - free forever</span>
         <span class="eyebrow">What Matters. Unified Dashboard.</span>
         <h2 id="operating-system-title">One Retainr workspace for selling, earning, and running your specialist business.</h2>
         <p>
@@ -243,10 +250,10 @@ const workdayOutcomes = [
     </div>
   </section>
 
-  <!-- Trial confidence band -->
+  <!-- Free-forever confidence band -->
   <GuaranteeBand 
-    title="Test your first offer before you scale the system."
-    subtitle="Use the current $1 trial to publish a real package, inspect the client journey, and decide from direct experience."
+    title="Start with one offer. Keep the whole system."
+    subtitle="Retainr is free forever. Publish a real package, inspect the client journey, and invite the people your delivery needs without choosing a plan."
   />
 
   <Testimonials />
