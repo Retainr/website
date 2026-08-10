@@ -34,27 +34,25 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
-      "@id": "https://www.retainr.io/#organization",
+      "@type": "Person",
+      "@id": "https://www.retainr.io/#pierre-henry",
+      name: "Pierre-Henry",
+      url: "https://github.com/pH-7",
+      sameAs: [
+        "https://github.com/pH-7",
+        "https://www.linkedin.com/in/ph7enry/",
+      ],
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://www.retainr.io/#software",
       name: "Retainr",
       url: "https://www.retainr.io/",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://www.retainr.io/assets/retainr-logo.svg",
-      },
-      sameAs: [
-        "https://x.com/Retainr_io",
-        "https://www.youtube.com/@Retainr",
-        "https://www.linkedin.com/company/retainr-io/",
-      ],
-      founder: {
-        "@type": "Person",
-        name: "Pierre-Henry",
-        url: "https://github.com/pH-7",
-        sameAs: [
-          "https://github.com/pH-7",
-          "https://www.linkedin.com/in/ph7enry/",
-        ],
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "Web",
+      image: "https://www.retainr.io/assets/retainr-logo.svg",
+      creator: {
+        "@id": "https://www.retainr.io/#pierre-henry",
       },
     },
     {
@@ -62,7 +60,7 @@ const organizationSchema = {
       "@id": "https://www.retainr.io/#website",
       name: "Retainr",
       url: "https://www.retainr.io/",
-      publisher: { "@id": "https://www.retainr.io/#organization" },
+      publisher: { "@id": "https://www.retainr.io/#pierre-henry" },
       inLanguage: "en",
     },
   ],
@@ -175,7 +173,7 @@ const organizationSchema = {
               <a href="https://x.com/Retainr_io">X</a>
               <a href="https://tiktok.com/@retainr.io">TikTok</a>
               <a href="https://www.youtube.com/@Retainr">YouTube</a>
-              <a href="https://www.linkedin.com/company/retainr-io/">LinkedIn</a>
+              <a href="https://www.linkedin.com/in/ph7enry/">LinkedIn</a>
             </div>
           </div>
         </div>

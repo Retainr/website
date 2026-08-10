@@ -274,9 +274,9 @@ export const flagshipBlogArticles: FlagshipBlogArticle[] = [
           "A useful page should make four things obvious: who Retainr is, who the guide is for, what problem is being solved, and where the reader should go next. Use consistent product naming, link to the About and Method pages, identify the intended specialist audience, and connect advice to a concrete workflow. Structured data can reinforce visible information, but it should never invent an author, review process, or claim that the page does not show. The article, metadata, internal links, and schema should all describe the same thing.",
         points: [
           "Name the intended niche in the title, introduction, or examples",
-          "Use consistent Retainr product and company details",
+          "Use consistent Retainr product and creator details",
           "Add BlogPosting structured data that matches the visible article",
-          "Link to the authoring company, method, and relevant niche page",
+          "Link to the authoring product, method, and relevant niche page",
         ],
       },
       {

@@ -24,7 +24,7 @@ ${link("/pricing/", "Free Forever", "Every Retainr feature is available without 
 ${link("/niches/", "Specialist Playbooks", "Directory of niche-specific offer, onboarding, delivery, and recurring-revenue workflows for digital creators and independent experts.")}
 ${link("/case-studies/", "Freelancer Use Cases", "Scenario-based examples of specialist client revenue workflows without fabricated performance claims.")}
 ${link("/compare/", "Retainr Comparisons", "Source-linked comparisons organized by operating model, buyer fit, trade-offs, and current vendor status.")}
-${link("/about-retainr/", "About Retainr", "Company purpose, intended audience, and product mission.")}
+${link("/about-retainr/", "About Retainr", "Product purpose, intended audience, and creator mission.")}
 ${link("/contact/", "Contact Retainr", "Product, support, partnership, and account enquiry routes.")}
 
 ## Core Workflows

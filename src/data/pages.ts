@@ -177,7 +177,7 @@ export const pages: MarketingPage[] = [
       {
         title: "Color palette",
         body:
-          "Retainr uses a specific color system when citing the brand. The palette reflects the company's core DNA and applies it with readability in mind.",
+          "Retainr uses a specific color system when citing the brand. The palette reflects the product's core DNA and applies it with readability in mind.",
         points: ["#FF4D18", "#FFD540", "#FFFFFF", "#1d2130", "#EDF8FD", "#B7CD4B"],
       },
       {
@@ -475,7 +475,7 @@ export const pages: MarketingPage[] = [
       {
         title: "Make your niche service experience exceptional",
         body:
-          "Sell like a software company while delivering the personal expertise clients are buying from you.",
+          "Sell with software-level clarity while delivering the personal expertise clients are buying from you.",
         points: ["Service storefront", "Online payments", "Client dashboard", "Branded delivery"],
       },
       {
