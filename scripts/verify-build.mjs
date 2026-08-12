@@ -146,6 +146,40 @@ if (await exists(path.join(dist, "sitemap.xml"))) {
   }
 }
 
+if (await exists(path.join(dist, "llms.txt"))) {
+  const llms = await readFile(path.join(dist, "llms.txt"), "utf8");
+  const lines = llms.split(/\r?\n/);
+  const firstSectionIndex = lines.findIndex((line) => line.startsWith("## "));
+  const sections = lines.filter((line) => line.startsWith("## "));
+  const optionalIndex = sections.indexOf("## Optional");
+
+  if (lines[0] !== "# Retainr" || !lines[2]?.startsWith("> Retainr is ")) {
+    failures.add("llms.txt must start with the Retainr H1 followed by a summary blockquote");
+  }
+  if (!llms.includes("Canonical identity: Retainr is the product name")) {
+    failures.add("llms.txt is missing the canonical product identity");
+  }
+  if (!llms.includes("https://www.retainr.io/") || /https?:\/\/(?:www\.)?retainr\.com/i.test(llms)) {
+    failures.add("llms.txt must use the canonical retainr.io domain");
+  }
+  for (const route of ["/method/", "/features/", "/pricing/", "/niches/", "/compare/", "/blog/"]) {
+    if (!llms.includes(`](${productionOrigin}${route})`)) {
+      failures.add(`llms.txt is missing the canonical route: ${route}`);
+    }
+  }
+  if (optionalIndex === -1 || optionalIndex !== sections.length - 1) {
+    failures.add("llms.txt Optional section must exist and be the final H2 section");
+  }
+  if (firstSectionIndex !== -1) {
+    const invalidSectionLine = lines
+      .slice(firstSectionIndex)
+      .find((line) => line && !line.startsWith("## ") && !line.startsWith("- ["));
+    if (invalidSectionLine) {
+      failures.add(`llms.txt contains a non-link line inside its link sections: ${invalidSectionLine}`);
+    }
+  }
+}
+
 const summary = {
   htmlPages: htmlFiles.length,
   internalLinks,
