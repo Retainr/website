@@ -166,7 +166,7 @@ const titleCase = (value: string) =>
     .replace(/\bMusttry\b/g, "Must-Try")
     .replace(/\bMusthave\b/g, "Must-Have")
     .replace(/\bRealworld\b/g, "Real-World")
-    .replace(/\bGamechanging\b/g, "Game-Changing")
+    .replace(/\bGamechanging\b/g, "High-Impact")
     .replace(/\bHavent\b/g, "Haven't")
     .replace(/\bPsychologybacked\b/g, "Psychology-Backed");
 
@@ -186,6 +186,14 @@ const previousEvergreenSlug = (slug: string) =>
 const cleanTitle = (slug: string) => {
   const base = evergreenSlug(slug).replace(/^blog\//, "");
   return titleCase(base)
+    .replace(
+      "7 Technologies To Streamline Business Processes",
+      "7 Technologies That Simplify Business Processes"
+    )
+    .replace(
+      "How To Streamline And Automate Your Business Processes",
+      "How To Simplify And Automate Your Business Processes"
+    )
     .replace(
       "7 Inspiring Examples Of Freelancers With Exceptional Industryfocused Brands",
       "7 Freelancer Brands Built Around Industry Expertise"

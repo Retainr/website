@@ -92,7 +92,7 @@ export const homeFeatures = [
       "Bring your team and clients together in one shared space. Chat, share updates, assign tasks, track progress, and keep delivery moving without scattered tools.",
   },
   {
-    title: "Gain Insights & Unlock Revenue",
+    title: "Gain Insights & Grow Recurring Revenue",
     body:
       "Track orders, upsells, renewals, and performance signals. Connect Retainr with Zapier, webhooks, and analytics to grow without extra manual work.",
   },

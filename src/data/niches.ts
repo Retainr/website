@@ -147,7 +147,7 @@ export const niches: Niche[] = [
     name: "Info Product & Online Course Creators",
     hero: "Turn digital products into implementation support and recurring revenue",
     subhero: "Sell courses, templates, and workshops with clear upsell paths into ongoing coaching and support retainers.",
-    description: "Package your digital products and implementation support into a seamless client journey that increases both sales and retention.",
+    description: "Package your digital products and implementation support into a clear client journey that increases both sales and retention.",
     tagline: "From course buyers to ongoing implementation coaching clients",
     icon: "IP",
     offers: [
