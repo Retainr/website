@@ -92,6 +92,10 @@ for (const file of htmlFiles) {
     }
   }
 
+  if (html.includes("https://www.retainr.io/#organization")) {
+    failures.add(`Stale organization schema reference: ${relative}`);
+  }
+
   const stalePatterns = [
     /Start Your \$1 Trial/i,
     /Start for \$1/i,

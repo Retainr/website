@@ -36,11 +36,9 @@ const articleSchema = {
     url: "https://www.retainr.io/blog/",
   },
   author: {
-    "@type": "Organization",
-    name: "Retainr",
-    url: "https://www.retainr.io/about-retainr/",
+    "@id": "https://www.retainr.io/#pierre-henry",
   },
-  publisher: { "@id": "https://www.retainr.io/#organization" },
+  publisher: { "@id": "https://www.retainr.io/#pierre-henry" },
   about: article.category,
 };
 ---
@@ -61,7 +59,7 @@ const articleSchema = {
             <a href={signupUrl} class="button">Start free forever</a>
             <a href="/income/" class="button ghost">Turn Expertise Into Revenue</a>
           </div>
-          <div class="muted">Reviewed {article.updatedAt} by the Retainr editorial team. Written for {article.audience} and niche freelancers.</div>
+          <div class="muted">Reviewed {article.updatedAt} for Retainr. Written for {article.audience} and niche freelancers.</div>
         </div>
         <div class="blog-insight-panel">
           <img
