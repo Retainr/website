@@ -17,6 +17,8 @@ const requiredFiles = [
   "compare/index.html",
   "niches/index.html",
   "pricing/index.html",
+  "mobile-app/index.html",
+  "open-source-solution-for-freelancers-agencies/index.html",
 ];
 
 const exists = async (file) => {
