@@ -1,0 +1,36 @@
+---
+import { signupUrl } from "@/data/site";
+---
+
+<div class="footer-signup-panel">
+  <div class="footer-signup-copy">
+    <span>Free workspace</span>
+    <strong>Start with one real client journey.</strong>
+    <p>Enter your work email to continue directly to Retainr signup.</p>
+  </div>
+
+  <form
+    class="footer-signup-form"
+    action={signupUrl}
+    method="get"
+    aria-label="Create a free Retainr workspace"
+  >
+    <label class="visually-hidden" for="footer-work-email">Work email</label>
+    <input
+      id="footer-work-email"
+      type="email"
+      name="email"
+      maxlength="254"
+      autocomplete="email"
+      inputmode="email"
+      placeholder="Enter work email"
+      required
+    />
+    <button type="submit">
+      <span>Start free forever</span>
+      <span aria-hidden="true">→</span>
+    </button>
+  </form>
+
+  <span class="footer-signup-note">Every feature included. No plans, seat fees, or Retainr transaction fees.</span>
+</div>

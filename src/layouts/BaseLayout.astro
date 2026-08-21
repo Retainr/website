@@ -3,6 +3,7 @@ import "../styles/global.css";
 import CrispChat from "@/components/CrispChat.astro";
 import ConversionTracking from "@/components/ConversionTracking.astro";
 import BuilderCard from "@/components/BuilderCard.astro";
+import FooterSignupForm from "@/components/FooterSignupForm.astro";
 import { comparisonLinks } from "@/data/comparisons";
 import { founder } from "@/data/founder";
 import { companyLinks, loginUrl, navLinks, resourceLinks, signupLabel, signupUrl, solutionLinks } from "@/data/site";
@@ -132,14 +133,7 @@ const organizationSchema = {
               <p class="muted">Turn trusted expertise into packaged offers, guided delivery, and recurring client revenue.</p>
             </div>
           </div>
-          <div class="footer-start-panel">
-            <strong>Start with one real client journey.</strong>
-            <form class="email-form" action={signupUrl} method="get">
-              <input type="email" name="email" placeholder="Enter work email" aria-label="Work email" required />
-              <button class="button yellow" type="submit">Start free</button>
-            </form>
-            <span>Free forever. No plans, seat fees, or feature limits.</span>
-          </div>
+          <FooterSignupForm />
         </div>
         <div class="footer-link-grid">
           <div class="footer-col">

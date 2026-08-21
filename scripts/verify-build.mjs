@@ -73,6 +73,7 @@ const allFiles = await walk(dist);
 const htmlFiles = allFiles.filter((file) => file.endsWith(".html"));
 let internalLinks = 0;
 let crispPages = 0;
+let footerSignupPages = 0;
 
 for (const file of htmlFiles) {
   const html = await readFile(file, "utf8");
@@ -94,6 +95,12 @@ for (const file of htmlFiles) {
     }
     if (!html.includes("Pierre-Henry Soria")) {
       failures.add(`Missing full founder attribution: ${relative}`);
+    }
+    const hasFooterSignup = /<form[^>]*class=["'][^"']*footer-signup-form[^"']*["'][^>]*action=["']https:\/\/app\.retainr\.io\/signup["'][^>]*method=["']get["'][^>]*>[\s\S]*?<input[^>]*type=["']email["'][^>]*name=["']email["']/i.test(html);
+    if (!hasFooterSignup) {
+      failures.add(`Missing footer email signup path: ${relative}`);
+    } else {
+      footerSignupPages += 1;
     }
   }
 
@@ -196,6 +203,7 @@ const summary = {
   htmlPages: htmlFiles.length,
   internalLinks,
   crispPages,
+  footerSignupPages,
   failures: [...failures],
 };
 

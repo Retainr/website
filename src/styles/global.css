@@ -36,6 +36,16 @@
   box-sizing: border-box;
 }
 
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -3564,7 +3574,7 @@ body.menu-open .menu-button span::after {
 
 .footer-brand-row {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(390px, 0.75fr);
+  grid-template-columns: minmax(300px, 0.82fr) minmax(460px, 1.18fr);
   gap: 64px;
   align-items: center;
   padding-bottom: 44px;
@@ -3595,24 +3605,106 @@ body.menu-open .menu-button span::after {
   line-height: 1.55;
 }
 
-.footer-start-panel {
+.footer-signup-panel {
   display: grid;
-  gap: 10px;
+  gap: 12px;
 }
 
-.footer-start-panel > span {
+.footer-signup-copy {
+  display: grid;
+  gap: 6px;
+}
+
+.footer-signup-copy > span {
+  color: var(--yellow);
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.footer-signup-copy > strong {
+  color: var(--white);
+  font-size: 1.12rem;
+  line-height: 1.3;
+}
+
+.footer-signup-copy > p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.footer-signup-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 6px;
+  overflow: hidden;
+  border: 2px solid var(--white);
+  border-radius: 8px;
+  padding: 5px;
+  background: var(--white);
+  box-shadow: 7px 7px 0 var(--orange);
+}
+
+.footer-signup-form input {
+  min-width: 0;
+  height: 58px;
+  border: 0;
+  border-radius: 5px;
+  padding: 0 16px;
+  background: var(--white);
+  color: var(--ink);
+  outline: 0;
+}
+
+.footer-signup-form input::placeholder {
+  color: rgba(29, 33, 48, 0.56);
+}
+
+.footer-signup-form input:focus-visible {
+  border-radius: 5px;
+  outline: 3px solid rgba(255, 77, 24, 0.42);
+  outline-offset: -3px;
+}
+
+.footer-signup-form button {
+  display: inline-flex;
+  min-width: 194px;
+  min-height: 58px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  padding: 0 18px;
+  background: var(--yellow);
+  color: var(--ink);
+  cursor: pointer;
+  font-weight: 900;
+  white-space: nowrap;
+  transition: background 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.footer-signup-form button:hover {
+  background: var(--green);
+  box-shadow: 3px 3px 0 var(--ink);
+  transform: translate(-1px, -1px);
+}
+
+.footer-signup-form button:focus-visible {
+  outline-color: var(--yellow);
+  outline-offset: 5px;
+}
+
+.footer-signup-form button > span:last-child {
+  font-size: 1.2rem;
+}
+
+.footer-signup-note {
   color: rgba(255, 255, 255, 0.58);
   font-size: 0.78rem;
-}
-
-.footer-start-panel .email-form {
-  margin-top: 0;
-}
-
-.footer-start-panel .button {
-  flex: 0 0 auto;
-  min-width: 112px;
-  white-space: nowrap;
+  line-height: 1.45;
 }
 
 .footer-link-grid {
@@ -3780,24 +3872,6 @@ body.menu-open .menu-button span::after {
   border-radius: 8px;
   outline: 3px solid var(--yellow);
   outline-offset: 4px;
-}
-
-.email-form {
-  margin-top: 2.4rem;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-
-.email-form input {
-  min-width: 0;
-  width: 100%;
-  height: 48px;
-  border: 2px solid var(--ink);
-  border-radius: 8px;
-  padding: 0 14px;
-  background: var(--white);
-  box-shadow: 4px 4px 0 rgba(255, 213, 64, 0.72);
 }
 
 /* ============================================
@@ -4351,10 +4425,17 @@ body.menu-open .menu-button span::after {
   }
 
   .hero-actions,
-  .email-form,
   .workday-summary {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .footer-signup-form {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-signup-form button {
+    width: 100%;
   }
 
   .workday-labels {
