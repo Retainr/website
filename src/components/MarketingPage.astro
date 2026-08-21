@@ -5,6 +5,7 @@ import CtaBand from "./CtaBand.astro";
 import Testimonials from "./Testimonials.astro";
 import { assetDimensions } from "@/data/assets";
 import { signupUrl } from "@/data/site";
+import { founder } from "@/data/founder";
 
 type Props = { page: MarketingPage };
 const { page } = Astro.props;
@@ -24,9 +25,10 @@ const informationalSlugs = new Set([
 ]);
 const noConversionSlugs = new Set(["brand-assets", "privacy-policy", "help", "terms-conditions", "feedback", "contact"]);
 const isInformationalPage = informationalSlugs.has(page.slug);
+const isFounderPage = page.slug === "about-retainr" || page.slug === "manifesto-retainr";
 const showConversionFramework = !isInformationalPage;
 const showFinalCta = !noConversionSlugs.has(page.slug);
-const pageActions: Record<string, { label: string; href: string; download?: boolean }[]> = {
+const pageActions: Record<string, { label: string; href: string; download?: boolean; newTab?: boolean }[]> = {
   "alternatives-compare-agency-client-management-software": [
     { label: "Compare Retainr", href: "/compare/" },
     { label: "See Free Retainr Access", href: "/pricing/" },
@@ -34,6 +36,14 @@ const pageActions: Record<string, { label: string; href: string; download?: bool
   "brand-assets": [
     { label: "Download Retainr Logo", href: "/assets/retainr-logo.svg", download: true },
     { label: "About Retainr", href: "/about-retainr/" },
+  ],
+  "about-retainr": [
+    { label: "Start free forever", href: signupUrl },
+    { label: `Follow ${founder.name}`, href: founder.linkedinUrl, newTab: true },
+  ],
+  "manifesto-retainr": [
+    { label: "Read the founder story", href: "/about-retainr/" },
+    { label: "See free Retainr access", href: "/pricing/" },
   ],
   "privacy-policy": [
     { label: "Contact Retainr", href: "mailto:contact@retainr.io" },
@@ -44,12 +54,12 @@ const pageActions: Record<string, { label: string; href: string; download?: bool
     { label: "Read Privacy Policy", href: "/privacy-policy/" },
   ],
   help: [
-    { label: "Watch Tutorials", href: "https://www.youtube.com/@Retainr" },
+    { label: "Watch Tutorials", href: "https://www.youtube.com/@Retainr", newTab: true },
     { label: "Contact Support", href: "mailto:contact@retainr.io" },
   ],
   feedback: [
     { label: "Send Feedback", href: "mailto:contact@retainr.io?subject=Retainr%20feedback" },
-    { label: "Request a Feature", href: "https://x.com/intent/tweet?text=@Retainr_io%20I%20have%20a%20feature%20suggestion%20for%20improving%20your%20platform." },
+    { label: "Request a Feature", href: "https://x.com/intent/tweet?text=@Retainr_io%20I%20have%20a%20feature%20suggestion%20for%20improving%20your%20platform.", newTab: true },
   ],
   contact: [
     { label: "Email Retainr", href: "mailto:contact@retainr.io" },
@@ -86,11 +96,19 @@ const faqSchema = page.faqs?.length
         <h1>{page.hero}</h1>
         <p>{page.subhero}</p>
         <div class="hero-actions">
-          {heroActions.map((action, index) => (
-            <a href={action.href} class:list={["button", { ghost: index > 0 }]} download={action.download || undefined}>
-              {action.label}
-            </a>
-          ))}
+          {heroActions.map((action, index) => {
+            return (
+              <a
+                href={action.href}
+                class:list={["button", { ghost: index > 0 }]}
+                download={action.download || undefined}
+                target={action.newTab ? "_blank" : undefined}
+                rel={action.newTab ? "noopener noreferrer" : undefined}
+              >
+                {action.label}
+              </a>
+            );
+          })}
         </div>
       </div>
       {isInformationalPage ? (
@@ -168,7 +186,16 @@ const faqSchema = page.faqs?.length
   <section class:list={["section", "programme-section", { "informational-content-section": isInformationalPage }]}>
     <div class="container programme-layout">
       <aside class="programme-intro">
-        {isInformationalPage ? (
+        {isFounderPage ? (
+          <>
+            <span class="eyebrow">Independent builder</span>
+            <h2>Retainr has a real person behind it.</h2>
+            <p>{founder.name} builds Retainr in public for freelancers who want a clearer client business without another platform subscription.</p>
+            <a href={founder.linkedinUrl} target="_blank" rel="noopener noreferrer" class="text-link">
+              Follow {founder.name} <span aria-hidden="true">→</span>
+            </a>
+          </>
+        ) : isInformationalPage ? (
           <>
             <span class="eyebrow">{page.eyebrow ?? "Retainr"}</span>
             <h2>Clear information, organized for quick reference.</h2>

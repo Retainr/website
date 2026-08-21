@@ -194,57 +194,68 @@ export const pages: MarketingPage[] = [
   },
   {
     slug: "about-retainr",
-    title: "About Retainr for Niche Creators",
+    title: "About Retainr and Pierre-Henry Soria",
     description:
-      "Learn why Retainr was built as the simplest way to turn niche expertise into profitable products and recurring client systems.",
+      "Meet Pierre-Henry Soria, the independent product engineer behind Retainr, and learn why he made the client revenue platform free forever for freelancers.",
     eyebrow: "About",
-    hero: "About Retainr",
+    hero: "A free client platform, built independently",
     subhero:
-      "Retainr exists to help creators, independent experts, and small expert-led teams replace messy client operations with a branded system that sells and delivers services.",
+      "I am Pierre-Henry Soria. I built Retainr to help freelancers turn trusted expertise into clear offers, organized delivery, and recurring client relationships without adding another software subscription.",
     image: "/assets/team-collab.png",
     sections: [
       {
-        title: "Our story",
+        title: "Why I built Retainr",
         body:
-          "Independent experts are expected to sell, onboard, invoice, communicate, deliver, support, and retain clients while switching between too many disconnected tools. Retainr brings that work into one place.",
+          "Skilled freelancers lose too much time between a client's yes and the work that creates value. Offer details, payment links, onboarding questions, messages, files, tasks, approvals, and support drift across separate tools. I built Retainr to connect the parts it genuinely handles, so the client journey feels deliberate from purchase to delivery and the next useful service.",
       },
       {
-        title: "Our mission",
+        title: "Why I made every feature free",
         body:
-          "Make it simple for independent experts to turn what they know into packaged services, recurring revenue, and professional client experiences.",
+          "I removed Retainr's platform subscriptions, seat fees, and feature tiers because access to a dependable client system should not become another monthly burden for an independent professional. Client payments through connected providers still work normally, and those providers may charge their own processing fees. Retainr itself is free forever.",
       },
       {
-        title: "Our values",
+        title: "The support I value",
         body:
-          "Brand ownership, practical automation, client clarity, fast delivery, and creator independence guide the product.",
-        points: ["Own your brand", "Sell with clarity", "Deliver faster", "Automate repeat work"],
+          "Your money is not the price of access. If Retainr earns a place in your business, you can support my independent work by following me on X or LinkedIn, sharing Retainr after it has genuinely helped, or sending honest feedback. Every action is optional. Useful software should earn advocacy rather than demand it.",
+        points: ["Follow the build on X or LinkedIn", "Share Retainr after a real result", "Send honest product feedback", "Keep every Retainr feature regardless"],
+      },
+      {
+        title: "What Retainr is here to do",
+        body:
+          "Retainr gives a freelancer one connected path from a named service package to a buying link, payment, offer-specific onboarding, branded client delivery, support, and recurring work. It does not pretend every specialist business is identical. It gives you a practical foundation that keeps your brand and your client relationship at the center.",
+        points: ["Make expertise easier to understand and buy", "Move each buyer into the right onboarding flow", "Keep delivery and support connected to the client", "Make the next useful service easy to continue"],
       },
     ],
   },
   {
     slug: "manifesto-retainr",
-    title: "Retainr Manifesto for Creator-Led Services",
+    title: "The Retainr Manifesto by Pierre-Henry Soria",
     description:
-      "Why Retainr was built as a better platform for creator-led productized services and branded client delivery.",
+      "Pierre-Henry Soria's reason for building Retainr as a free-forever client system for freelancers, creators, and independent experts.",
     eyebrow: "Manifesto",
-    hero: "Turn Trusted Expertise Into Profit",
+    hero: "Expert work deserves a better client system",
     subhero:
-      "The future belongs to experts who package their knowledge, sell clearly, and deliver through systems that protect their time.",
+      "I built Retainr around a simple belief: independent experts should be able to run a clear, professional client journey without paying for access to the features that make it work.",
     sections: [
       {
-        title: "The big idea",
+        title: "The client relationship belongs to the freelancer",
         body:
-          "Independent experts should not need an enterprise stack to look professional. They need one practical system that helps them sell and deliver with confidence.",
+          "Clients choose a freelancer for their judgment, expertise, and way of working. The software should reinforce that trust, not push another company's brand into the middle of the relationship. Retainr keeps the expert's offer, identity, delivery, and next service visible from the first payment onward.",
       },
       {
-        title: "The promise",
+        title: "Access should be generous",
         body:
-          "Retainr helps creators and expert-led teams productize expertise, keep their brand front and center, and create a client experience that can scale.",
+          "A seat limit should not stop a freelancer from inviting the right collaborator. A feature tier should not prevent a client from receiving a professional experience. Retainr has no platform subscription, seat fee, feature tier, or Retainr transaction fee. Every freelancer can use the complete system and decide whether it deserves a permanent place in their business.",
       },
       {
-        title: "Why ditch the status quo",
+        title: "Connected beats complicated",
         body:
-          "Spreadsheets, email threads, payment links, file folders, chat tools, and task boards all have a place, but they fail clients when they are disconnected.",
+          "The goal is not to collect more software. It is to remove the avoidable gaps between an offer, payment, onboarding, delivery, support, and the next useful engagement. Retainr concentrates on that connected path so freelancers can spend more time on valuable work and less time reconstructing client context.",
+      },
+      {
+        title: "Advocacy should be earned",
+        body:
+          "Retainr never requires a follow, public post, or recommendation in exchange for access. If the product creates a real win, following Pierre-Henry Soria, sharing the result, or offering direct feedback helps an independent product reach more freelancers. That support matters precisely because it is voluntary and based on useful work.",
       },
     ],
   },

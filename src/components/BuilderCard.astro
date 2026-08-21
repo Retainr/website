@@ -1,17 +1,17 @@
 ---
-const linkedinUrl = "https://www.linkedin.com/in/ph7enry/";
+import { founder } from "@/data/founder";
 ---
 
 <a
   class="footer-builder-card"
-  href={linkedinUrl}
+  href={founder.linkedinUrl}
   target="_blank"
   rel="noopener noreferrer"
-  aria-label="Follow Pierre-Henry on LinkedIn (opens in a new tab)"
+  aria-label={`Follow ${founder.name} on LinkedIn (opens in a new tab)`}
 >
   <span class="footer-builder-linkedin-mark" aria-hidden="true">in</span>
   <span class="footer-builder-copy">
-    <strong>Follow Pierre-Henry on LinkedIn</strong>
+    <strong>Follow {founder.name} on LinkedIn</strong>
     <small>Building Retainr in public</small>
   </span>
 </a>

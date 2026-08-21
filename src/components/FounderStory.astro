@@ -1,0 +1,69 @@
+---
+import { founder } from "@/data/founder";
+---
+
+<section class="founder-story" aria-labelledby="founder-story-title">
+  <div class="container founder-story-shell">
+    <div class="founder-identity" aria-label={`${founder.name}, builder of Retainr`}>
+      <span class="founder-identity-label">Independent builder</span>
+      <strong aria-hidden="true">PH</strong>
+      <span>{founder.name}</span>
+      <small>Building Retainr in public</small>
+    </div>
+
+    <div class="founder-story-copy">
+      <span class="eyebrow">Built independently by {founder.name}</span>
+      <h2 id="founder-story-title">A free client platform with a real person behind it.</h2>
+      <p>{founder.story}</p>
+      <p>{founder.whyFree}</p>
+      <blockquote>“{founder.principle}”</blockquote>
+      <div class="founder-story-actions">
+        <a class="button yellow" href="/about-retainr/">Why I built Retainr</a>
+        <a
+          class="founder-social-link"
+          href={founder.linkedinUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Follow ${founder.name} on LinkedIn (opens in a new tab)`}
+        >
+          <span aria-hidden="true">in</span>
+          Follow on LinkedIn
+        </a>
+        <a
+          class="founder-social-link"
+          href={founder.xUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Follow ${founder.name} on X (opens in a new tab)`}
+        >
+          <span aria-hidden="true">X</span>
+          Follow on X
+        </a>
+      </div>
+    </div>
+
+    <ol class="founder-principles" aria-label="Principles behind Retainr's free access">
+      <li>
+        <span>01</span>
+        <div>
+          <strong>Free means free</strong>
+          <p>No Retainr plans, seat fees, feature tiers, or transaction fees.</p>
+        </div>
+      </li>
+      <li>
+        <span>02</span>
+        <div>
+          <strong>Advocacy is earned</strong>
+          <p>Following, sharing, and feedback are appreciated, never required.</p>
+        </div>
+      </li>
+      <li>
+        <span>03</span>
+        <div>
+          <strong>Your relationship stays yours</strong>
+          <p>Your brand, clients, orders, and service relationships remain yours.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>

@@ -92,6 +92,9 @@ for (const file of htmlFiles) {
     } else {
       crispPages += 1;
     }
+    if (!html.includes("Pierre-Henry Soria")) {
+      failures.add(`Missing full founder attribution: ${relative}`);
+    }
   }
 
   if (html.includes("https://www.retainr.io/#organization")) {
@@ -164,6 +167,9 @@ if (await exists(path.join(dist, "llms.txt"))) {
   }
   if (!llms.includes("Canonical identity: Retainr is the product name")) {
     failures.add("llms.txt is missing the canonical product identity");
+  }
+  if (!llms.includes("Pierre-Henry Soria") || !llms.includes("Why Retainr is free:")) {
+    failures.add("llms.txt is missing the full founder identity or free-access rationale");
   }
   if (!llms.includes("https://www.retainr.io/") || /https?:\/\/(?:www\.)?retainr\.com/i.test(llms)) {
     failures.add("llms.txt must use the canonical retainr.io domain");

@@ -6,6 +6,7 @@ import GuaranteeBand from "@/components/GuaranteeBand.astro";
 import MethodSteps from "@/components/MethodSteps.astro";
 import WorkdayRelief from "@/components/WorkdayRelief.astro";
 import NicheIcon from "@/components/NicheIcon.astro";
+import FounderStory from "@/components/FounderStory.astro";
 import { signupUrl } from "@/data/site";
 import { featuredNiches, niches } from "@/data/niches";
 
@@ -26,7 +27,7 @@ const operatingModules = [
   {
     label: "Unified Dashboard",
     title: "Manage every client from one command center",
-    body: "Track orders, tasks, files, tickets, invoices, approvals, and delivery status without stitching together five tools.",
+    body: "Track orders, tasks, files, tickets, payment records, approvals, and delivery status without stitching together five tools.",
   },
   {
     label: "White Label Portal",
@@ -46,7 +47,7 @@ const operatingModules = [
 ];
 
 const workdayChallenges = [
-  "A client says yes, then waits while you rebuild the proposal, invoice, intake form, and project board by hand.",
+  "A client says yes, then waits while you rebuild the offer, payment request, intake form, and project board by hand.",
   "Project context is split across email, DMs, payment links, folders, and task tools, so every update begins with a search.",
   "A completed project goes quiet because the next useful service was never made visible or easy to buy.",
 ];
@@ -160,7 +161,7 @@ const workdayOutcomes = [
           <img src="/assets/revenue-graph.png" alt="Retainr revenue graph" loading="lazy" width="1080" height="564" />
           <div class="showcase-copy">
             <h3>Hassle-Free Payments</h3>
-            <p>Connect packages, invoices, recurring payments, and project delivery so revenue is tied to the client workflow from the first click.</p>
+            <p>Connect packages, orders, recurring payments, and project delivery so revenue is tied to the client workflow from the first click.</p>
           </div>
         </article>
       </div>
@@ -256,6 +257,7 @@ const workdayOutcomes = [
     subtitle="Retainr is free forever. Publish a real package, inspect the client journey, and invite the people your delivery needs without choosing a plan."
   />
 
+  <FounderStory />
   <Testimonials />
   <CtaBand />
 </BaseLayout>

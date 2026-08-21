@@ -4,6 +4,7 @@ import CrispChat from "@/components/CrispChat.astro";
 import ConversionTracking from "@/components/ConversionTracking.astro";
 import BuilderCard from "@/components/BuilderCard.astro";
 import { comparisonLinks } from "@/data/comparisons";
+import { founder } from "@/data/founder";
 import { companyLinks, loginUrl, navLinks, resourceLinks, signupLabel, signupUrl, solutionLinks } from "@/data/site";
 
 type Props = {
@@ -36,12 +37,12 @@ const organizationSchema = {
     {
       "@type": "Person",
       "@id": "https://www.retainr.io/#pierre-henry",
-      name: "Pierre-Henry",
-      url: "https://github.com/pH-7",
-      sameAs: [
-        "https://github.com/pH-7",
-        "https://www.linkedin.com/in/ph7enry/",
-      ],
+      name: founder.name,
+      givenName: founder.givenName,
+      familyName: founder.familyName,
+      jobTitle: founder.role,
+      url: "https://www.retainr.io/about-retainr/",
+      sameAs: [founder.githubUrl, founder.linkedinUrl, founder.xUrl],
     },
     {
       "@type": "SoftwareApplication",
@@ -173,14 +174,14 @@ const organizationSchema = {
               <a href="https://x.com/Retainr_io">X</a>
               <a href="https://tiktok.com/@retainr.io">TikTok</a>
               <a href="https://www.youtube.com/@Retainr">YouTube</a>
-              <a href="https://www.linkedin.com/in/ph7enry/">LinkedIn</a>
+              <a href={founder.linkedinUrl}>LinkedIn</a>
             </div>
           </div>
         </div>
         <div class="footer-closing">
           <p class="footer-bottom">
             © 2026 Retainr.
-            <a href="https://github.com/pH-7" target="_blank" rel="noopener noreferrer">Built by Pierre-Henry</a>
+            <a href={founder.githubUrl} target="_blank" rel="noopener noreferrer">Built by {founder.name}</a>
           </p>
           <BuilderCard />
         </div>
