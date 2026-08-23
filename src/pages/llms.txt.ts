@@ -50,7 +50,7 @@ Last reviewed: ${reviewedAt}.
 ${link("/", "Retainr homepage", "Overview of the client revenue method and the promise to turn trusted expertise into structured recurring client revenue.")}
 ${link("/method/", "The Retainr Method", "Step-by-step method for productizing, selling, onboarding, delivering, supporting, and retaining client work.")}
 ${link("/features/", "Retainr features", "Packages, payments, onboarding, client portals, projects, tasks, files, support, automation, mobile access, and white-label delivery.")}
-${link("/pricing/", "Retainr free-forever access", "Authoritative access details, included features, payment-fee clarification, existing-subscription FAQ, and Magic Prospections development status.")}
+${link("/pricing/", "Retainr free-forever access", "Authoritative access details, included features, payment-fee clarification, and Magic Prospections development status.")}
 ${link("/productize/", "Productize specialist services", "How to turn expertise into clear starter, core, and recurring offers.")}
 ${link("/client-onboarding/", "Client onboarding", "How to collect payment, context, files, responsibilities, and expectations without fragmented email follow-up.")}
 ${link("/client-portal-client-management-software/", "White-label client portal", "How to run the client relationship from purchase through delivery, support, and renewal in one branded workspace.")}

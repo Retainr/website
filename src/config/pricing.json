@@ -54,16 +54,8 @@
       "answer": "Retainr adds no percentage transaction fee. A connected payment provider may still charge its standard processing fees."
     },
     {
-      "question": "What happens to an existing paid subscription?",
-      "answer": "Your current subscription will end at the close of its existing billing period. There will be no further Retainr subscription charges, and no refund is being issued for the current period. You keep your workspace, your data, and access to every feature."
-    },
-    {
       "question": "Who owns the data, customers, and subscribers?",
       "answer": "You do. Your client data, customers, orders, and subscribers belong to your business."
-    },
-    {
-      "question": "Why did Pierre-Henry make Retainr free?",
-      "answer": "Pierre-Henry removed Retainr's platform subscriptions, seat fees, and feature tiers so independent professionals can use a dependable client system without another recurring software cost. If Retainr proves useful, following product updates on X, sharing Retainr after a real result, or sending honest feedback is welcome but always optional."
     }
   ]
 }
