@@ -1215,6 +1215,8 @@ body.menu-open .menu-button span::after {
 
 .marketing-hero h1 {
   max-width: 100%;
+  font-size: 4rem;
+  line-height: 1;
   overflow-wrap: anywhere;
 }
 
