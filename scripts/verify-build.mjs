@@ -1,4 +1,4 @@
-import { access, readFile, readdir } from "node:fs/promises";
+import { access, readFile, readdir, stat } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -19,6 +19,8 @@ const requiredFiles = [
   "pricing/index.html",
   "mobile-app/index.html",
   "open-source-solution-for-freelancers-agencies/index.html",
+  "guides/agency-freelancing-skills-you-need-to-know-in-2025.pdf",
+  "Retainr.io-skills-you-need-to-know-in-2025.pdf",
 ];
 
 const exists = async (file) => {
@@ -67,6 +69,21 @@ for (const relative of requiredFiles) {
 if (await exists(path.join(dist, "CNAME"))) {
   const cname = (await readFile(path.join(dist, "CNAME"), "utf8")).trim();
   if (cname !== "www.retainr.io") failures.add(`CNAME must be www.retainr.io, found: ${cname || "empty"}`);
+}
+
+for (const relative of [
+  "guides/agency-freelancing-skills-you-need-to-know-in-2025.pdf",
+  "Retainr.io-skills-you-need-to-know-in-2025.pdf",
+]) {
+  const file = path.join(dist, relative);
+  if (!(await exists(file))) continue;
+  const [header, details] = await Promise.all([readFile(file), stat(file)]);
+  if (header.subarray(0, 5).toString("ascii") !== "%PDF-") {
+    failures.add(`Invalid PDF output: ${relative}`);
+  }
+  if (details.size < 100_000) {
+    failures.add(`Unexpectedly small PDF output: ${relative}`);
+  }
 }
 
 const allFiles = await walk(dist);

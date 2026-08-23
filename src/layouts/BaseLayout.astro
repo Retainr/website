@@ -161,7 +161,15 @@ const organizationSchema = {
           <div class="footer-col">
             <h3>Resources</h3>
             <div class="footer-links">
-              {resourceLinks.map((link) => <a href={link.href}>{link.label}</a>)}
+              {resourceLinks.map((link) => (
+                <a
+                  href={link.href}
+                  target={link.newTab ? "_blank" : undefined}
+                  rel={link.newTab ? "noopener noreferrer" : undefined}
+                >
+                  {link.label}
+                </a>
+              ))}
               <a href="https://status.retainr.io">Status Page</a>
             </div>
             <div class="social-links">

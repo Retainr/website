@@ -37,11 +37,22 @@ export const solutionLinks = [
   { href: "/cafe-productivity/", label: "Cafe Productivity for Indie Creators" },
 ];
 
-export const resourceLinks = [
-  { href: "https://www.youtube.com/@Retainr", label: "Tutorial Videos" },
+type ResourceLink = {
+  href: string;
+  label: string;
+  newTab?: boolean;
+};
+
+export const resourceLinks: ResourceLink[] = [
+  { href: "https://www.youtube.com/@Retainr", label: "Tutorial Videos", newTab: true },
   { href: "/help/", label: "Knowledge Base" },
   { href: "/pitch-deck/", label: "Why Retainr?" },
-  { href: "/guides/agency-freelancing-skills-you-need-to-know/", label: "High-Demand Freelance Skills" },
+  {
+    href: "/guides/agency-freelancing-skills-you-need-to-know-in-2025.pdf",
+    label: "High-Demand Freelance Skills PDF",
+    newTab: true,
+  },
+  { href: "/guides/agency-freelancing-skills-you-need-to-know/", label: "Evergreen Freelance Skills Guide" },
   { href: "/feedback/", label: "Feedback" },
 ];
 
