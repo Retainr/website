@@ -48,7 +48,7 @@ export const resourceLinks: ResourceLink[] = [
   { href: "/help/", label: "Knowledge Base" },
   { href: "/pitch-deck/", label: "Why Retainr?" },
   {
-    href: "/guides/agency-freelancing-skills-you-need-to-know-in-2025.pdf",
+    href: "/Retainr.io-skills-you-need-to-know.pdf",
     label: "High-Demand Freelance Skills PDF",
     newTab: true,
   },

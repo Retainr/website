@@ -20,6 +20,7 @@ const requiredFiles = [
   "mobile-app/index.html",
   "open-source-solution-for-freelancers-agencies/index.html",
   "tools/image-editor/index.html",
+  "Retainr.io-skills-you-need-to-know.pdf",
   "guides/agency-freelancing-skills-you-need-to-know-in-2025.pdf",
   "Retainr.io-skills-you-need-to-know-in-2025.pdf",
 ];
@@ -73,6 +74,7 @@ if (await exists(path.join(dist, "CNAME"))) {
 }
 
 for (const relative of [
+  "Retainr.io-skills-you-need-to-know.pdf",
   "guides/agency-freelancing-skills-you-need-to-know-in-2025.pdf",
   "Retainr.io-skills-you-need-to-know-in-2025.pdf",
 ]) {
