@@ -39,7 +39,7 @@ const pageActions: Record<string, { label: string; href: string; download?: bool
   ],
   "about-retainr": [
     { label: "Start free forever", href: signupUrl },
-    { label: `Follow ${founder.name}`, href: founder.linkedinUrl, newTab: true },
+    { label: "Why Retainr is free", href: "/manifesto-retainr/" },
   ],
   "manifesto-retainr": [
     { label: "Read the founder story", href: "/about-retainr/" },
@@ -191,8 +191,8 @@ const faqSchema = page.faqs?.length
             <span class="eyebrow">Independent builder</span>
             <h2>Retainr has a real person behind it.</h2>
             <p>{founder.name} builds Retainr in public for freelancers who want a clearer client business without another platform subscription.</p>
-            <a href={founder.linkedinUrl} target="_blank" rel="noopener noreferrer" class="text-link">
-              Follow {founder.name} <span aria-hidden="true">→</span>
+            <a href="/manifesto-retainr/" class="text-link">
+              Read why Retainr is free <span aria-hidden="true">→</span>
             </a>
           </>
         ) : isInformationalPage ? (

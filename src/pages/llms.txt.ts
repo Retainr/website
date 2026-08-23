@@ -100,7 +100,6 @@ ${link("/contact/", "Contact Retainr", "Routes for product, support, partnership
 ${link("/privacy-policy/", "Privacy Policy", "How Retainr handles website and service information, cookies, service providers, user choices, and privacy requests.")}
 ${link("/terms-conditions/", "Terms of Service", "Terms governing access to Retainr websites, applications, and services.")}
 ${externalLink(founder.githubUrl, `${founder.name} on GitHub`, "The independent product engineer and builder of Retainr.")}
-${externalLink(founder.linkedinUrl, `${founder.name} on LinkedIn`, "Founder updates and public product-building context.")}
 ${externalLink(founder.xUrl, `${founder.name} on X`, "Product notes and updates from the builder of Retainr.")}
 
 ## Machine-Readable Discovery

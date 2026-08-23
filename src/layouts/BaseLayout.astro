@@ -40,10 +40,9 @@ const organizationSchema = {
       "@id": "https://www.retainr.io/#pierre-henry",
       name: founder.name,
       givenName: founder.givenName,
-      familyName: founder.familyName,
       jobTitle: founder.role,
       url: "https://www.retainr.io/about-retainr/",
-      sameAs: [founder.githubUrl, founder.linkedinUrl, founder.xUrl],
+      sameAs: [founder.githubUrl, founder.xUrl],
     },
     {
       "@type": "SoftwareApplication",
@@ -176,7 +175,7 @@ const organizationSchema = {
               <a href="https://x.com/Retainr_io">X</a>
               <a href="https://tiktok.com/@retainr.io">TikTok</a>
               <a href="https://www.youtube.com/@Retainr">YouTube</a>
-              <a href={founder.linkedinUrl}>LinkedIn</a>
+              <a href={founder.githubUrl} target="_blank" rel="noopener noreferrer">GitHub</a>
             </div>
           </div>
         </div>

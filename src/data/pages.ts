@@ -194,13 +194,13 @@ export const pages: MarketingPage[] = [
   },
   {
     slug: "about-retainr",
-    title: "About Retainr and Pierre-Henry Soria",
+    title: "About Retainr and Pierre-Henry",
     description:
-      "Meet Pierre-Henry Soria, the independent product engineer behind Retainr, and learn why he made the client revenue platform free forever for freelancers.",
+      "Meet Pierre-Henry, the independent product engineer behind Retainr, and learn why he made the client revenue platform free forever for freelancers.",
     eyebrow: "About",
     hero: "A free client platform, built independently",
     subhero:
-      "I am Pierre-Henry Soria. I built Retainr to help freelancers turn trusted expertise into clear offers, organized delivery, and recurring client relationships without adding another software subscription.",
+      "I am Pierre-Henry. I built Retainr to help freelancers turn trusted expertise into clear offers, organized delivery, and recurring client relationships without adding another software subscription.",
     image: "/assets/team-collab.png",
     sections: [
       {
@@ -216,8 +216,8 @@ export const pages: MarketingPage[] = [
       {
         title: "The support I value",
         body:
-          "Your money is not the price of access. If Retainr earns a place in your business, you can support my independent work by following me on X or LinkedIn, sharing Retainr after it has genuinely helped, or sending honest feedback. Every action is optional. Useful software should earn advocacy rather than demand it.",
-        points: ["Follow the build on X or LinkedIn", "Share Retainr after a real result", "Send honest product feedback", "Keep every Retainr feature regardless"],
+          "Your money is not the price of access. If Retainr earns a place in your business, you can support my independent work by following product updates on X, sharing Retainr after it has genuinely helped, or sending honest feedback. Every action is optional. Useful software should earn advocacy rather than demand it.",
+        points: ["Follow Retainr updates on X", "Share Retainr after a real result", "Send honest product feedback", "Keep every Retainr feature regardless"],
       },
       {
         title: "What Retainr is here to do",
@@ -229,9 +229,9 @@ export const pages: MarketingPage[] = [
   },
   {
     slug: "manifesto-retainr",
-    title: "The Retainr Manifesto by Pierre-Henry Soria",
+    title: "The Retainr Manifesto by Pierre-Henry",
     description:
-      "Pierre-Henry Soria's reason for building Retainr as a free-forever client system for freelancers, creators, and independent experts.",
+      "Pierre-Henry's reason for building Retainr as a free-forever client system for freelancers, creators, and independent experts.",
     eyebrow: "Manifesto",
     hero: "Expert work deserves a better client system",
     subhero:
@@ -255,7 +255,7 @@ export const pages: MarketingPage[] = [
       {
         title: "Advocacy should be earned",
         body:
-          "Retainr never requires a follow, public post, or recommendation in exchange for access. If the product creates a real win, following Pierre-Henry Soria, sharing the result, or offering direct feedback helps an independent product reach more freelancers. That support matters precisely because it is voluntary and based on useful work.",
+          "Retainr never requires a follow, public post, or recommendation in exchange for access. If the product creates a real win, following Retainr updates, sharing the result, or offering direct feedback helps an independent product reach more freelancers. That support matters precisely because it is voluntary and based on useful work.",
       },
     ],
   },

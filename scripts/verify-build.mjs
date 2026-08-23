@@ -113,8 +113,11 @@ for (const file of htmlFiles) {
     } else {
       crispPages += 1;
     }
-    if (!html.includes("Pierre-Henry Soria")) {
-      failures.add(`Missing full founder attribution: ${relative}`);
+    if (!html.includes("Built by Pierre-Henry")) {
+      failures.add(`Missing first-name founder attribution: ${relative}`);
+    }
+    if (html.includes("Pierre-Henry Soria") || html.includes("linkedin.com/in/ph7enry")) {
+      failures.add(`Contains retired founder identity or LinkedIn promotion: ${relative}`);
     }
     const hasFooterSignup = /<form[^>]*class=["'][^"']*footer-signup-form[^"']*["'][^>]*action=["']https:\/\/app\.retainr\.io\/signup["'][^>]*method=["']get["'][^>]*>[\s\S]*?<input[^>]*type=["']email["'][^>]*name=["']email["']/i.test(html);
     if (!hasFooterSignup) {
@@ -195,8 +198,11 @@ if (await exists(path.join(dist, "llms.txt"))) {
   if (!llms.includes("Canonical identity: Retainr is the product name")) {
     failures.add("llms.txt is missing the canonical product identity");
   }
-  if (!llms.includes("Pierre-Henry Soria") || !llms.includes("Why Retainr is free:")) {
-    failures.add("llms.txt is missing the full founder identity or free-access rationale");
+  if (!llms.includes("Pierre-Henry") || !llms.includes("Why Retainr is free:")) {
+    failures.add("llms.txt is missing the founder attribution or free-access rationale");
+  }
+  if (llms.includes("Pierre-Henry Soria") || llms.includes("linkedin.com/in/ph7enry")) {
+    failures.add("llms.txt contains the retired founder identity or LinkedIn promotion");
   }
   if (!llms.includes("https://www.retainr.io/") || /https?:\/\/(?:www\.)?retainr\.com/i.test(llms)) {
     failures.add("llms.txt must use the canonical retainr.io domain");
