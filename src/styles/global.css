@@ -5,6 +5,7 @@
   --ink: #1d2130;
   --ice: #edf8fd;
   --green: #b7cd4b;
+  --linkedin: #0a66c2;
   --line: rgba(29, 33, 48, 0.12);
   --muted: rgba(29, 33, 48, 0.68);
   --shadow: 0 22px 0 rgba(255, 213, 64, 0.16), 0 28px 70px rgba(29, 33, 48, 0.1);
@@ -3859,11 +3860,16 @@ body.menu-open .menu-button span::after {
   width: 32px;
   height: 32px;
   border-radius: 4px;
-  background: var(--ice);
-  color: var(--ink);
+  background: var(--white);
+  color: var(--linkedin);
   box-shadow: 2px 2px 0 var(--yellow);
-  font-size: 0.78rem;
-  font-weight: 900;
+}
+
+.footer-builder-mark svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+  fill: currentcolor;
 }
 
 .footer-builder-card:hover {
