@@ -1,0 +1,219 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const title = "Free Image Editor for Freelancers | Retainr";
+const description = "Resize, rotate, flip, and adjust client images privately in your browser with Retainr's free image editor.";
+---
+
+<BaseLayout title={title} description={description} path="/tools/image-editor/">
+  <section class="image-editor-hero">
+    <div class="container image-editor-heading">
+      <div>
+        <span class="eyebrow">Free creator tool</span>
+        <h1>Make the image ready. Keep the client work moving.</h1>
+      </div>
+      <p>Your image stays in your browser. Retainr does not upload or store it.</p>
+    </div>
+  </section>
+
+  <section class="image-editor-section" aria-labelledby="image-editor-title">
+    <div class="container image-editor-shell" data-image-editor>
+      <div class="image-editor-toolbar">
+        <div>
+          <span class="editor-step">01</span>
+          <h2 id="image-editor-title">Choose an image</h2>
+        </div>
+        <label class="button yellow editor-upload" for="image-editor-upload">Open image</label>
+        <input
+          id="image-editor-upload"
+          class="visually-hidden"
+          type="file"
+          accept="image/jpeg,image/png,image/webp"
+        />
+      </div>
+
+      <div class="image-editor-workspace">
+        <div class="image-editor-stage" data-editor-stage>
+          <div class="image-editor-empty" data-editor-empty>
+            <span aria-hidden="true">+</span>
+            <strong>No image open</strong>
+            <small>PNG, JPEG, or WebP</small>
+          </div>
+          <canvas data-editor-canvas hidden></canvas>
+        </div>
+
+        <aside class="image-editor-controls" aria-label="Image adjustments">
+          <div class="editor-control-heading">
+            <span class="editor-step">02</span>
+            <h2>Adjust</h2>
+          </div>
+
+          <label class="editor-slider">
+            <span>Brightness <output data-output="brightness">100%</output></span>
+            <input data-adjustment="brightness" type="range" min="0" max="200" value="100" disabled />
+          </label>
+          <label class="editor-slider">
+            <span>Contrast <output data-output="contrast">100%</output></span>
+            <input data-adjustment="contrast" type="range" min="0" max="200" value="100" disabled />
+          </label>
+          <label class="editor-slider">
+            <span>Saturation <output data-output="saturation">100%</output></span>
+            <input data-adjustment="saturation" type="range" min="0" max="200" value="100" disabled />
+          </label>
+
+          <div class="editor-transform-grid">
+            <button type="button" data-transform="rotate-left" disabled>Rotate left</button>
+            <button type="button" data-transform="rotate-right" disabled>Rotate right</button>
+            <button type="button" data-transform="flip" disabled>Flip horizontal</button>
+            <button type="button" data-transform="reset" disabled>Reset</button>
+          </div>
+
+          <div class="editor-export">
+            <label for="image-editor-format">Format</label>
+            <select id="image-editor-format" data-editor-format disabled>
+              <option value="image/png">PNG</option>
+              <option value="image/jpeg">JPEG</option>
+            </select>
+            <button class="button" type="button" data-editor-download disabled>Download image</button>
+          </div>
+
+          <p class="editor-status" data-editor-status aria-live="polite">Open an image to begin.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const editor = document.querySelector<HTMLElement>("[data-image-editor]");
+
+  if (editor) {
+    const upload = editor.querySelector<HTMLInputElement>("#image-editor-upload");
+    const canvas = editor.querySelector<HTMLCanvasElement>("[data-editor-canvas]");
+    const empty = editor.querySelector<HTMLElement>("[data-editor-empty]");
+    const status = editor.querySelector<HTMLElement>("[data-editor-status]");
+    const format = editor.querySelector<HTMLSelectElement>("[data-editor-format]");
+    const download = editor.querySelector<HTMLButtonElement>("[data-editor-download]");
+    const adjustments = [...editor.querySelectorAll<HTMLInputElement>("[data-adjustment]")];
+    const transforms = [...editor.querySelectorAll<HTMLButtonElement>("[data-transform]")];
+    const controls = [...adjustments, ...transforms, ...(format ? [format] : []), ...(download ? [download] : [])];
+    const context = canvas?.getContext("2d");
+    const image = new Image();
+    let objectUrl = "";
+    let rotation = 0;
+    let flipped = false;
+
+    const adjustmentValue = (name: string) =>
+      adjustments.find((input) => input.dataset.adjustment === name)?.value ?? "100";
+
+    const setEnabled = (enabled: boolean) => {
+      controls.forEach((control) => {
+        control.disabled = !enabled;
+      });
+    };
+
+    const render = () => {
+      if (!canvas || !context || !image.naturalWidth) return;
+
+      const maxDimension = 2400;
+      const scale = Math.min(1, maxDimension / Math.max(image.naturalWidth, image.naturalHeight));
+      const imageWidth = Math.round(image.naturalWidth * scale);
+      const imageHeight = Math.round(image.naturalHeight * scale);
+      const quarterTurn = Math.abs(rotation / 90) % 2 === 1;
+      canvas.width = quarterTurn ? imageHeight : imageWidth;
+      canvas.height = quarterTurn ? imageWidth : imageHeight;
+
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.save();
+      context.translate(canvas.width / 2, canvas.height / 2);
+      context.rotate((rotation * Math.PI) / 180);
+      context.scale(flipped ? -1 : 1, 1);
+      context.filter = `brightness(${adjustmentValue("brightness")}%) contrast(${adjustmentValue("contrast")}%) saturate(${adjustmentValue("saturation")}%)`;
+      context.drawImage(image, -imageWidth / 2, -imageHeight / 2, imageWidth, imageHeight);
+      context.restore();
+    };
+
+    const reset = () => {
+      rotation = 0;
+      flipped = false;
+      adjustments.forEach((input) => {
+        input.value = "100";
+        const output = editor.querySelector<HTMLOutputElement>(`[data-output="${input.dataset.adjustment}"]`);
+        if (output) output.value = "100%";
+      });
+      render();
+      if (status) status.textContent = "Adjustments reset.";
+    };
+
+    upload?.addEventListener("change", () => {
+      const file = upload.files?.[0];
+      if (!file) return;
+
+      if (objectUrl) URL.revokeObjectURL(objectUrl);
+      objectUrl = URL.createObjectURL(file);
+      image.onload = () => {
+        reset();
+        setEnabled(true);
+        if (canvas) canvas.hidden = false;
+        if (empty) empty.hidden = true;
+        if (status) status.textContent = `${file.name} ready - ${image.naturalWidth} x ${image.naturalHeight}px.`;
+      };
+      image.onerror = () => {
+        if (status) status.textContent = "This image could not be opened.";
+      };
+      image.src = objectUrl;
+    });
+
+    adjustments.forEach((input) => {
+      input.addEventListener("input", () => {
+        const output = editor.querySelector<HTMLOutputElement>(`[data-output="${input.dataset.adjustment}"]`);
+        if (output) output.value = `${input.value}%`;
+        render();
+      });
+    });
+
+    transforms.forEach((button) => {
+      button.addEventListener("click", () => {
+        if (button.dataset.transform === "rotate-left") rotation -= 90;
+        if (button.dataset.transform === "rotate-right") rotation += 90;
+        if (button.dataset.transform === "flip") flipped = !flipped;
+        if (button.dataset.transform === "reset") {
+          reset();
+          return;
+        }
+        render();
+      });
+    });
+
+    download?.addEventListener("click", () => {
+      if (!canvas || !format) return;
+      const mime = format.value;
+      const exportCanvas = document.createElement("canvas");
+      exportCanvas.width = canvas.width;
+      exportCanvas.height = canvas.height;
+      const exportContext = exportCanvas.getContext("2d");
+      if (!exportContext) return;
+
+      if (mime === "image/jpeg") {
+        exportContext.fillStyle = "#ffffff";
+        exportContext.fillRect(0, 0, exportCanvas.width, exportCanvas.height);
+      }
+      exportContext.drawImage(canvas, 0, 0);
+      exportCanvas.toBlob((blob) => {
+        if (!blob) return;
+        const link = document.createElement("a");
+        const extension = mime === "image/jpeg" ? "jpg" : "png";
+        const url = URL.createObjectURL(blob);
+        link.href = url;
+        link.download = `retainr-edited-image.${extension}`;
+        link.click();
+        URL.revokeObjectURL(url);
+        if (status) status.textContent = `Downloaded ${link.download}.`;
+      }, mime, 0.92);
+    });
+
+    window.addEventListener("pagehide", () => {
+      if (objectUrl) URL.revokeObjectURL(objectUrl);
+    });
+  }
+</script>

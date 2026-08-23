@@ -19,6 +19,7 @@ const requiredFiles = [
   "pricing/index.html",
   "mobile-app/index.html",
   "open-source-solution-for-freelancers-agencies/index.html",
+  "tools/image-editor/index.html",
   "guides/agency-freelancing-skills-you-need-to-know-in-2025.pdf",
   "Retainr.io-skills-you-need-to-know-in-2025.pdf",
 ];

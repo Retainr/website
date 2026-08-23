@@ -53,6 +53,7 @@ export const resourceLinks: ResourceLink[] = [
     newTab: true,
   },
   { href: "/guides/agency-freelancing-skills-you-need-to-know/", label: "Evergreen Freelance Skills Guide" },
+  { href: "/tools/image-editor/", label: "Free Image Editor" },
   { href: "/feedback/", label: "Feedback" },
 ];
 

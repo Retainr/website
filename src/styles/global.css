@@ -4767,6 +4767,319 @@ body.menu-open .menu-button span::after {
 }
 
 /* ============================================
+   FREE IMAGE EDITOR
+   ============================================ */
+.image-editor-hero {
+  border-bottom: 2px solid var(--ink);
+  padding: 86px 0 74px;
+  background: var(--orange);
+}
+
+.image-editor-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(260px, 0.55fr);
+  gap: 60px;
+  align-items: end;
+}
+
+.image-editor-heading .eyebrow {
+  color: var(--ink);
+}
+
+.image-editor-heading h1 {
+  max-width: 900px;
+  margin: 18px 0 0;
+  color: var(--white);
+  font-size: clamp(3.1rem, 7vw, 6.5rem);
+  line-height: 0.94;
+}
+
+.image-editor-heading > p {
+  margin: 0 0 8px;
+  border-left: 4px solid var(--yellow);
+  padding-left: 18px;
+  color: var(--ink);
+  font-weight: 800;
+  line-height: 1.55;
+}
+
+.image-editor-section {
+  padding: 78px 0 110px;
+  background: var(--ice);
+}
+
+.image-editor-shell {
+  overflow: hidden;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  background: var(--white);
+  box-shadow: 12px 12px 0 var(--yellow);
+}
+
+.image-editor-toolbar {
+  display: flex;
+  min-height: 104px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 2px solid var(--ink);
+  padding: 20px 26px;
+}
+
+.image-editor-toolbar > div,
+.editor-control-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.image-editor-toolbar h2,
+.editor-control-heading h2 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.editor-step {
+  display: inline-grid;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+  background: var(--green);
+  color: var(--ink);
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.editor-upload {
+  cursor: pointer;
+}
+
+.image-editor-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 330px;
+  min-height: 620px;
+}
+
+.image-editor-stage {
+  display: grid;
+  min-width: 0;
+  min-height: 620px;
+  overflow: auto;
+  place-items: center;
+  padding: 38px;
+  background-color: #dce7ec;
+  background-image:
+    linear-gradient(45deg, rgba(255, 255, 255, 0.48) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(255, 255, 255, 0.48) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.48) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.48) 75%);
+  background-position: 0 0, 0 12px, 12px -12px, -12px 0;
+  background-size: 24px 24px;
+}
+
+.image-editor-stage canvas {
+  display: block;
+  max-width: 100%;
+  max-height: 700px;
+  border: 1px solid rgba(29, 33, 48, 0.3);
+  background: transparent;
+  box-shadow: 0 18px 48px rgba(29, 33, 48, 0.18);
+}
+
+.image-editor-stage canvas[hidden] {
+  display: none;
+}
+
+.image-editor-empty {
+  display: grid;
+  justify-items: center;
+  color: rgba(29, 33, 48, 0.7);
+  text-align: center;
+}
+
+.image-editor-empty[hidden] {
+  display: none;
+}
+
+.image-editor-empty > span {
+  display: grid;
+  width: 74px;
+  height: 74px;
+  margin-bottom: 18px;
+  place-items: center;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  background: var(--yellow);
+  color: var(--ink);
+  font-size: 2rem;
+  font-weight: 700;
+  box-shadow: 6px 6px 0 var(--orange);
+}
+
+.image-editor-empty strong {
+  color: var(--ink);
+  font-size: 1.08rem;
+}
+
+.image-editor-empty small {
+  margin-top: 7px;
+}
+
+.image-editor-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  border-left: 2px solid var(--ink);
+  padding: 28px;
+  background: var(--white);
+}
+
+.editor-slider {
+  display: grid;
+  gap: 10px;
+}
+
+.editor-slider > span {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.editor-slider output {
+  color: var(--orange);
+}
+
+.editor-slider input {
+  width: 100%;
+  accent-color: var(--orange);
+}
+
+.editor-transform-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.editor-transform-grid button {
+  min-height: 46px;
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  padding: 8px 10px;
+  background: var(--ice);
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.editor-transform-grid button:hover:not(:disabled) {
+  background: var(--yellow);
+}
+
+.editor-transform-grid button:disabled,
+.image-editor-controls select:disabled,
+.image-editor-controls .button:disabled {
+  cursor: not-allowed;
+  opacity: 0.42;
+}
+
+.editor-export {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 9px 12px;
+  align-items: center;
+  border-top: 2px solid var(--ink);
+  padding-top: 24px;
+}
+
+.editor-export label {
+  font-size: 0.8rem;
+  font-weight: 900;
+}
+
+.editor-export select {
+  height: 44px;
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  padding: 0 10px;
+  background: var(--white);
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.editor-export .button {
+  grid-column: 1 / -1;
+  width: 100%;
+  justify-content: center;
+}
+
+.editor-status {
+  min-height: 42px;
+  margin: auto 0 0;
+  color: rgba(29, 33, 48, 0.66);
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 900px) {
+  .image-editor-heading,
+  .image-editor-workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .image-editor-heading {
+    gap: 34px;
+  }
+
+  .image-editor-heading > p {
+    max-width: 620px;
+  }
+
+  .image-editor-controls {
+    border-top: 2px solid var(--ink);
+    border-left: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .image-editor-hero {
+    padding: 70px 0 58px;
+  }
+
+  .image-editor-heading h1 {
+    font-size: 3.1rem;
+  }
+
+  .image-editor-section {
+    padding: 48px 0 84px;
+  }
+
+  .image-editor-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .image-editor-toolbar .button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .image-editor-stage {
+    min-height: 390px;
+    padding: 20px;
+  }
+
+  .image-editor-controls {
+    padding: 24px 20px;
+  }
+}
+
+/* ============================================
    RETAINR SIGNATURE SYSTEM
    Product-led evolution of the original site
    ============================================ */
