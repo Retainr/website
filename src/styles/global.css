@@ -3609,7 +3609,9 @@ body.menu-open .menu-button span::after {
 
 .footer-signup-panel {
   display: grid;
-  gap: 12px;
+  width: min(100%, 560px);
+  justify-self: end;
+  gap: 10px;
 }
 
 .footer-signup-copy {
@@ -3651,7 +3653,7 @@ body.menu-open .menu-button span::after {
 
 .footer-signup-form input {
   min-width: 0;
-  height: 58px;
+  height: 52px;
   border: 0;
   border-radius: 5px;
   padding: 0 16px;
@@ -3672,8 +3674,8 @@ body.menu-open .menu-button span::after {
 
 .footer-signup-form button {
   display: inline-flex;
-  min-width: 194px;
-  min-height: 58px;
+  min-width: 184px;
+  min-height: 52px;
   align-items: center;
   justify-content: space-between;
   gap: 18px;
@@ -3945,6 +3947,10 @@ body.menu-open .menu-button span::after {
   .comparison-evaluation-grid,
   .comparison-source-grid {
     gap: 38px;
+  }
+
+  .footer-signup-panel {
+    justify-self: start;
   }
 
   .compare-method-grid {
