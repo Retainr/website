@@ -2,4 +2,26 @@ node_modules/
 dist/
 .astro/
 .DS_Store
-npm-debug.log*
+*.log
+
+# Local credentials and environment configuration
+.env
+.env.*
+!.env.example
+.npmrc
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+credentials*.json
+service-account*.json
+secrets/
+
+# Local data and database exports
+*.db
+*.sqlite
+*.sqlite3
+*.dump
+*.sql

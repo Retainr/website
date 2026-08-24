@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "astro dev --host 127.0.0.1",
     "build": "astro check && astro build",
-    "build:ci": "npm run build && npm run verify:build",
+    "build:ci": "npm run verify:public-repo && npm run build && npm run verify:build",
+    "verify:public-repo": "node scripts/verify-public-repo.mjs",
     "verify:build": "node scripts/verify-build.mjs",
     "preview": "astro preview --host 127.0.0.1"
   },
