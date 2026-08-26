@@ -1633,6 +1633,7 @@ body.menu-open .menu-button span::after {
 .niche-card {
   position: relative;
   overflow: hidden;
+  container-type: inline-size;
   display: flex;
   flex-direction: column;
   padding: 30px 24px 22px;
@@ -1705,19 +1706,20 @@ body.menu-open .menu-button span::after {
 }
 
 .niche-index {
-  position: absolute;
-  top: 46px;
-  right: 18px;
+  align-self: start;
+  justify-self: end;
   color: rgba(29, 33, 48, 0.12);
   font-size: 3.1rem;
   line-height: 1;
   font-weight: 950;
+  white-space: nowrap;
 }
 
 .niche-header {
   position: relative;
   z-index: 1;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   gap: 16px;
   margin: 34px 0 18px;
@@ -1736,6 +1738,28 @@ body.menu-open .menu-button span::after {
   font-weight: 800;
   color: var(--ink);
   overflow-wrap: anywhere;
+}
+
+@container (max-width: 410px) {
+  .niche-header-numbered {
+    grid-template-areas:
+      "icon index"
+      "title title";
+    grid-template-columns: auto 1fr;
+    align-items: start;
+  }
+
+  .niche-header-numbered .niche-icon {
+    grid-area: icon;
+  }
+
+  .niche-header-numbered h3 {
+    grid-area: title;
+  }
+
+  .niche-header-numbered .niche-index {
+    grid-area: index;
+  }
 }
 
 .niche-desc {

@@ -235,10 +235,10 @@ const workdayOutcomes = [
         <div class="niche-grid">
           {homepageNiches.map((niche, index) => (
             <a class="niche-card" href={`/niches/${niche.slug}/`}>
-              <span class="niche-index">0{index + 1}</span>
-              <div class="niche-header">
+              <div class="niche-header niche-header-numbered">
                 <NicheIcon niche={niche} />
                 <h3>{niche.name}</h3>
+                <span class="niche-index" aria-hidden="true">0{index + 1}</span>
               </div>
               <p class="niche-desc">{niche.tagline}</p>
               <span class="niche-route">Niche-aware onboarding</span>
