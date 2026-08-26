@@ -72,20 +72,21 @@ const iconStyle = `--icon-a:${theme.a};--icon-b:${theme.b};--icon-c:${theme.c};-
   <svg viewBox="0 0 64 64" fill="none" focusable="false">
     {type === "network" && (
       <g>
-        <path d="M20 22h24v20H20z" />
-        <path d="M24 18v-5m16 5v-5M24 51v-5m16 5v-5M16 28h-5m5 12h-5m42-12h-5m5 12h-5" />
-        <circle cx="27" cy="31" r="3.5" />
-        <circle cx="39" cy="31" r="3.5" />
-        <path d="M27 38h10" />
+        <path
+          d="M32 13l3.8 11.2L47 28l-11.2 3.8L32 43l-3.8-11.2L17 28l11.2-3.8L32 13Z"
+          fill="currentColor"
+          stroke="none"
+        />
+        <path d="M47 39l1.8 5.2L54 46l-5.2 1.8L47 53l-1.8-5.2L40 46l5.2-1.8L47 39Z" />
+        <circle cx="17" cy="46" r="2.5" fill="currentColor" stroke="none" />
       </g>
     )}
     {type === "growth" && (
       <g>
-        <path d="M14 47h36" />
-        <path d="M18 42l10-10 8 6 13-17" />
-        <path d="M41 21h8v8" />
-        <rect x="17" y="28" width="8" height="14" />
-        <rect x="31" y="34" width="8" height="8" />
+        <circle cx="27" cy="28" r="13" />
+        <path d="M36.5 37.5L49 50" />
+        <path d="M20 32l6-6 5 5 9-10" />
+        <path d="M34 21h6v6" />
       </g>
     )}
     {type === "design" && (
