@@ -1,0 +1,110 @@
+---
+interface Props {
+  title: string;
+  path: string;
+  description?: string;
+  surface: string;
+}
+
+const { title, path, description = "A practical Retainr resource for freelancers.", surface } = Astro.props;
+const shareUrl = new URL(path, Astro.site ?? "https://www.retainr.io").toString();
+const shareText = `${title} — a practical Retainr resource for freelancers.`;
+const xShareUrl = `https://x.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
+const linkedInShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`;
+const headingId = `share-${surface.replace(/[^a-z0-9-]/gi, "-").toLowerCase()}`;
+---
+
+<section
+  class="share-bar"
+  data-share-tools
+  data-share-title={title}
+  data-share-description={description}
+  data-share-url={shareUrl}
+  data-share-surface={surface}
+  aria-labelledby={headingId}
+>
+  <div class="share-bar-copy">
+    <span class="eyebrow">Pass it on</span>
+    <h2 id={headingId}>Useful enough to keep?</h2>
+    <p>Send this resource to the freelancer who is working through the same problem.</p>
+  </div>
+  <div class="share-bar-controls">
+    <div class="share-bar-actions" aria-label="Share this resource">
+      <button class="share-action share-action-primary" type="button" data-native-share hidden>Share</button>
+      <a
+        class="share-action"
+        href={xShareUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-share-platform="x"
+        aria-label="Share this resource on X"
+      >Post on X</a>
+      <a
+        class="share-action"
+        href={linkedInShareUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-share-platform="linkedin"
+        aria-label="Share this resource on LinkedIn"
+      >Share on LinkedIn</a>
+      <button class="share-action" type="button" data-copy-share>Copy link</button>
+    </div>
+    <p class="share-bar-status" data-share-status aria-live="polite"></p>
+  </div>
+</section>
+
+<script>
+  const reportShare = (bar: HTMLElement, platform: string) => {
+    window.dispatchEvent(new CustomEvent("retainr:share", {
+      detail: {
+        platform,
+        surface: bar.dataset.shareSurface,
+        page_path: window.location.pathname,
+      },
+    }));
+  };
+
+  const copyShareUrl = async (url: string) => {
+    if (!navigator.clipboard?.writeText) throw new Error("Clipboard API unavailable");
+    await navigator.clipboard.writeText(url);
+  };
+
+  document.querySelectorAll<HTMLElement>("[data-share-tools]").forEach((bar) => {
+    if (bar.dataset.shareReady === "true") return;
+    bar.dataset.shareReady = "true";
+
+    const title = bar.dataset.shareTitle ?? document.title;
+    const text = bar.dataset.shareDescription ?? "";
+    const url = bar.dataset.shareUrl ?? window.location.href;
+    const status = bar.querySelector<HTMLElement>("[data-share-status]");
+    const nativeButton = bar.querySelector<HTMLButtonElement>("[data-native-share]");
+    const copyButton = bar.querySelector<HTMLButtonElement>("[data-copy-share]");
+
+    bar.querySelectorAll<HTMLElement>("[data-share-platform]").forEach((link) => {
+      link.addEventListener("click", () => reportShare(bar, link.dataset.sharePlatform ?? "unknown"));
+    });
+
+    if (nativeButton && navigator.share) {
+      nativeButton.hidden = false;
+      nativeButton.addEventListener("click", async () => {
+        try {
+          await navigator.share({ title, text, url });
+          reportShare(bar, "native");
+        } catch (error) {
+          if (error instanceof DOMException && error.name === "AbortError") return;
+          if (status) status.textContent = "Sharing is unavailable here. Copy the link instead.";
+        }
+      });
+    }
+
+    copyButton?.addEventListener("click", async () => {
+      try {
+        await copyShareUrl(url);
+        if (status) status.textContent = "Link copied. Send it to someone who needs it.";
+        reportShare(bar, "copy");
+      } catch {
+        if (status) status.textContent = "Could not copy automatically. Use your browser address bar.";
+      }
+    });
+  });
+</script>

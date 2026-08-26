@@ -6757,6 +6757,106 @@ body {
   font-size: 0.88rem;
 }
 
+.share-bar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 36px;
+  align-items: center;
+  margin-top: 42px;
+  border-block: 2px solid var(--ink);
+  padding: 30px 0;
+}
+
+.article-body > .share-bar {
+  margin-top: 10px;
+}
+
+.share-bar-copy {
+  display: grid;
+  gap: 8px;
+}
+
+.share-bar-copy .eyebrow,
+.share-bar-copy h2,
+.share-bar-copy p,
+.share-bar-status {
+  margin: 0;
+}
+
+.share-bar-copy h2 {
+  font-size: clamp(1.45rem, 2.4vw, 2rem);
+  line-height: 1.05;
+}
+
+.share-bar-copy p {
+  max-width: 54ch;
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.share-bar-controls {
+  display: grid;
+  gap: 10px;
+  justify-items: end;
+}
+
+.share-bar-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.share-action {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+  padding: 10px 14px;
+  background: var(--white);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 140ms ease, color 140ms ease, transform 140ms ease;
+}
+
+.share-action:hover {
+  background: var(--ink);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+.share-action-primary {
+  background: var(--yellow);
+}
+
+.share-action:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 3px;
+}
+
+.share-bar-status {
+  min-height: 1.25em;
+  color: var(--muted);
+  font-size: 0.76rem;
+  line-height: 1.35;
+}
+
+.guide-share-section {
+  padding-top: 0;
+}
+
+.guide-share-section .share-bar {
+  margin-top: 0;
+}
+
 @media (max-width: 980px) {
   .guide-hero-grid,
   .guide-tracks-layout,
@@ -6784,6 +6884,18 @@ body {
 
   .guide-outcome-grid article:nth-child(4) {
     border-top: 1px solid var(--line);
+  }
+
+  .share-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .share-bar-controls {
+    justify-items: start;
+  }
+
+  .share-bar-actions {
+    justify-content: flex-start;
   }
 }
 
@@ -6858,5 +6970,22 @@ body {
   .guide-tracks-copy h2,
   .guide-evidence-grid h2 {
     font-size: 2rem;
+  }
+
+  .share-bar {
+    gap: 22px;
+    padding: 26px 0;
+  }
+
+  .share-bar-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  .share-action {
+    width: 100%;
+    min-width: 0;
+    padding-inline: 10px;
   }
 }

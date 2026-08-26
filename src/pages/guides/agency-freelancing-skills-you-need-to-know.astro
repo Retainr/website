@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import CtaBand from "@/components/CtaBand.astro";
+import ShareBar from "@/components/ShareBar.astro";
 import { assetDimensions } from "@/data/assets";
 import { skillsGuide } from "@/data/site";
 
@@ -132,6 +133,17 @@ const tracks = [
         <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" rel="noopener noreferrer"><strong>World Economic Forum</strong><span>Employer expectations for evolving skills through 2030.</span></a>
         <a href="https://www.linkedin.com/business/talent/blog/learning-and-development/skills-on-the-rise" target="_blank" rel="noopener noreferrer"><strong>LinkedIn Skills on the Rise</strong><span>Fast-growing skills observed across regions and functions.</span></a>
       </div>
+    </div>
+  </section>
+
+  <section class="section guide-share-section">
+    <div class="container">
+      <ShareBar
+        title={skillsGuide.title}
+        description={skillsGuide.description}
+        path={skillsGuide.landingPath}
+        surface="freelance-skills-workbook"
+      />
     </div>
   </section>
 

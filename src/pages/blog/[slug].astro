@@ -2,6 +2,7 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import CtaBand from "@/components/CtaBand.astro";
 import LegacyRedirect from "@/components/LegacyRedirect.astro";
+import ShareBar from "@/components/ShareBar.astro";
 import SkillsGuideCard from "@/components/SkillsGuideCard.astro";
 import { assetDimensions } from "@/data/assets";
 import { blogArticles, primaryBlogArticles } from "@/data/blog";
@@ -114,6 +115,12 @@ const articleSchema = {
               </ul>
             </section>
           )}
+          <ShareBar
+            title={article.title}
+            description={article.description}
+            path={canonicalPath}
+            surface="blog-article"
+          />
         </div>
         <aside class="article-sidebar">
           <SkillsGuideCard variant="sidebar" />
