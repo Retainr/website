@@ -769,25 +769,26 @@ export const pages: MarketingPage[] = [
   },
   {
     slug: "guides/agency-freelancing-skills-you-need-to-know",
-    title: "High-Demand Creator Skills for Recurring Revenue",
+    title: "High-Demand Freelance Skills You Need to Know | Retainr",
     description:
-      "Evergreen guide to high-demand creator skills for digital creators and niche experts building recurring revenue.",
-    eyebrow: "Guide",
-    hero: "High-demand creator skills for recurring revenue",
+      "A free 13-page workbook for choosing a valuable freelance skill, packaging a clear offer, validating demand, and building recurring client revenue.",
+    eyebrow: "Free evergreen workbook",
+    hero: "High-demand freelance skills you need to know",
     subhero:
-      "The best skills are the ones you can package, sell repeatedly, and connect to measurable client outcomes.",
-    image: "/assets/packages.png",
+      "Move from a broad capability to a focused offer you can test with real buyers, deliver clearly, and extend into recurring work.",
+    image: "/assets/freelance-skills-guide-cover.webp",
     sections: [
       {
-        title: "Skills that package well",
+        title: "Score the opportunity before building the offer",
         body:
-          "SEO, nutrition coaching, design, AI automation, writing, conversion copy, analytics, community education, and crypto education all become stronger when sold as clear packages.",
-        points: ["Audit", "Plan", "Implementation", "Reporting", "Retainer"],
+          "Use a practical scorecard to assess buyer pain, urgency, proof, repeatability, access, continuity, and delivery energy before investing in positioning or production.",
+        points: ["Demand scorecard", "12 skill tracks", "Starter offers", "Recurring paths"],
       },
       {
-        title: "How to choose your skill stack",
+        title: "Validate one focused offer",
         body:
-          "Pick a niche, define a repeated client problem, build a fixed-scope starter offer, then sell a recurring plan for support and improvement.",
+          "Follow the seven-day validation sprint, shape the result on the printable offer canvas, and use the 30-day plan to turn evidence into a repeatable client workflow.",
+        points: ["7-day validation sprint", "30-day action plan", "Printable offer canvas", "No email required"],
       },
     ],
   },

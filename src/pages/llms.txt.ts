@@ -3,11 +3,11 @@ import pricing from "@/config/pricing.json";
 import { comparisons, comparisonsReviewedAt } from "@/data/comparisons";
 import { flagshipBlogArticles } from "@/data/flagshipBlog";
 import { niches } from "@/data/niches";
-import { signupUrl } from "@/data/site";
+import { signupUrl, skillsGuide } from "@/data/site";
 import { founder } from "@/data/founder";
 
 const site = "https://www.retainr.io";
-const reviewedAt = "2026-08-21";
+const reviewedAt = "2026-08-26";
 
 const link = (path: string, label: string, description: string) =>
   `- [${label}](${site}${path}): ${description}`;
@@ -86,6 +86,8 @@ ${comparisons
 ## Evidence-Led Guides
 
 ${link("/blog/", "Retainr guide library", "Evergreen, source-aware guides for niche freelancers, digital creators, consultants, and specialist service businesses.")}
+${link(skillsGuide.landingPath, skillsGuide.title, `${skillsGuide.description} The landing page explains when to use it and links to the no-email download.`)}
+${link(skillsGuide.pdfPath, "Download the Retainr freelance skills workbook", "Canonical PDF download. Free, evergreen, 13 pages, and designed for printing or self-guided offer planning.")}
 ${flagshipBlogArticles
   .map((article) =>
     link(`/blog/${article.slug}/`, article.title, article.description)

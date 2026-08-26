@@ -6,6 +6,7 @@ const dimensions = {
   "/assets/team-collab.png": { width: 1080, height: 493 },
   "/assets/client-portal.webp": { width: 898, height: 372 },
   "/assets/support-mockup.svg": { width: 332, height: 216 },
+  "/assets/freelance-skills-guide-cover.webp": { width: 810, height: 810 },
 } as const;
 
 export const assetDimensions = (path: string) =>

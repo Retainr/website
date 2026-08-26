@@ -1,9 +1,144 @@
 ---
-import MarketingPage from "@/components/MarketingPage.astro";
-import { pages } from "@/data/pages";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import { assetDimensions } from "@/data/assets";
+import { skillsGuide } from "@/data/site";
 
-const page = pages.find((item) => item.slug === "guides/agency-freelancing-skills-you-need-to-know");
-if (!page) throw new Error("Guide page content is missing");
+const coverDimensions = assetDimensions(skillsGuide.coverPath);
+const site = Astro.site ?? "https://www.retainr.io";
+const learningResourceSchema = {
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  name: skillsGuide.title,
+  description: skillsGuide.description,
+  url: new URL(skillsGuide.landingPath, site).toString(),
+  inLanguage: "en",
+  isAccessibleForFree: true,
+  learningResourceType: "Workbook",
+  educationalUse: ["Self assessment", "Planning", "Professional development"],
+  audience: {
+    "@type": "Audience",
+    audienceType: "Freelancers, digital creators, consultants, and independent experts",
+  },
+  encoding: {
+    "@type": "MediaObject",
+    contentUrl: new URL(skillsGuide.pdfPath, site).toString(),
+    encodingFormat: "application/pdf",
+  },
+};
+
+const tracks = [
+  "AI workflow audits",
+  "SEO and AI visibility",
+  "Web and conversion design",
+  "Email lifecycle systems",
+  "Video and content repurposing",
+  "Analytics and reporting",
+  "Operations and virtual assistance",
+  "Community programmes",
+  "Coaching and education",
+  "Course and info-product production",
+  "Illustration and brand systems",
+  "Technical delivery and automation",
+];
 ---
 
-<MarketingPage page={page} />
+<BaseLayout
+  title={`${skillsGuide.title} | Free Retainr Workbook`}
+  description={skillsGuide.description}
+  path={skillsGuide.landingPath}
+  image={skillsGuide.coverPath}
+>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(learningResourceSchema)}></script>
+
+  <section class="guide-hero">
+    <div class="container guide-hero-grid">
+      <div class="guide-hero-copy">
+        <span class="eyebrow">Free evergreen workbook</span>
+        <h1>{skillsGuide.title}</h1>
+        <p>{skillsGuide.description}</p>
+        <div class="hero-actions">
+          <a class="button" href={skillsGuide.pdfPath} download>Download the free PDF ↓</a>
+          <a class="button ghost" href="#inside">See what is inside</a>
+        </div>
+        <ul class="guide-access-list" aria-label="Download details">
+          <li>13 practical pages</li>
+          <li>No email required</li>
+          <li>Print-ready offer canvas</li>
+        </ul>
+      </div>
+      <a class="guide-cover-stage" href={skillsGuide.pdfPath} download aria-label={`Download ${skillsGuide.title}`}>
+        <img
+          src={skillsGuide.coverPath}
+          alt="Cover of Retainr's high-demand freelance skills workbook"
+          width={coverDimensions.width}
+          height={coverDimensions.height}
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        />
+        <span>PDF · 13 pages · Free forever</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="guide-use-band" aria-label="When to use this workbook">
+    <div class="container guide-use-grid">
+      <article><strong>Choosing a direction</strong><span>Score a skill before investing in a large offer.</span></article>
+      <article><strong>Packaging expertise</strong><span>Connect a starter project to recurring value.</span></article>
+      <article><strong>After a successful project</strong><span>Name the useful next service while context is active.</span></article>
+    </div>
+  </section>
+
+  <section class="section guide-inside-section" id="inside">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">Inside the workbook</span>
+        <h2>Useful decisions, not another list of job titles.</h2>
+        <p>The workbook moves from evidence to action: select a problem, shape an offer, test it with buyers, and define the recurring need.</p>
+      </div>
+      <div class="guide-outcome-grid">
+        <article><span>01</span><h3>Demand scorecard</h3><p>Rate pain, urgency, proof, repeatability, access, continuity, and delivery energy.</p></article>
+        <article><span>02</span><h3>12 skill tracks</h3><p>See starter and recurring offers across technical, growth, creative, operational, and human expertise.</p></article>
+        <article><span>03</span><h3>Validation sprint</h3><p>Use seven focused days to test buyer behavior before polishing the package.</p></article>
+        <article><span>04</span><h3>Offer canvas</h3><p>Draft the buyer, problem, outcome, boundaries, proof, and next action on one printable page.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ice guide-tracks-section">
+    <div class="container guide-tracks-layout">
+      <div class="guide-tracks-copy">
+        <span class="eyebrow">Skill tracks</span>
+        <h2>Start with the client problem. Then choose the capability.</h2>
+        <p>Each track includes a narrow starter offer and a recurring path that protects or compounds the first result.</p>
+        <a class="button" href={skillsGuide.pdfPath} download>Get all examples in the PDF ↓</a>
+      </div>
+      <ol class="guide-track-list">
+        {tracks.map((track, index) => <li><span>{String(index + 1).padStart(2, "0")}</span>{track}</li>)}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section guide-evidence-section">
+    <div class="container guide-evidence-grid">
+      <div>
+        <span class="eyebrow">Evidence with boundaries</span>
+        <h2>Use market evidence without turning it into an income promise.</h2>
+        <p>Demand varies by market, geography, seniority, buyer access, and proof. The workbook uses current research to inform categories, then directs the decision back to real buyer conversations.</p>
+      </div>
+      <div class="guide-source-list">
+        <a href="https://investors.upwork.com/news-releases/news-release-details/upwork-unveils-2025s-most-demand-skills" target="_blank" rel="noopener noreferrer"><strong>Upwork In-Demand Skills</strong><span>Freelance-platform earnings and job-posting evidence.</span></a>
+        <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" rel="noopener noreferrer"><strong>World Economic Forum</strong><span>Employer expectations for evolving skills through 2030.</span></a>
+        <a href="https://www.linkedin.com/business/talent/blog/learning-and-development/skills-on-the-rise" target="_blank" rel="noopener noreferrer"><strong>LinkedIn Skills on the Rise</strong><span>Fast-growing skills observed across regions and functions.</span></a>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand
+    title="Choose the skill. Build the client system."
+    text="Download the workbook, validate one focused offer, then use Retainr to package, onboard, deliver, and retain the relationship."
+    cta="Download the free workbook"
+    href={skillsGuide.pdfPath}
+  />
+</BaseLayout>

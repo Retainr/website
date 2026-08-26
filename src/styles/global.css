@@ -6281,3 +6281,563 @@ body {
     height: 58px;
   }
 }
+
+/* FREE FREELANCE SKILLS WORKBOOK */
+.blog-workbook-section {
+  padding-block: 42px;
+  background: var(--white);
+}
+
+.skills-guide-card {
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(260px, 0.76fr) minmax(0, 1.24fr);
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  background: #050505;
+  color: var(--white);
+  box-shadow: 9px 9px 0 var(--yellow), 0 24px 64px rgba(29, 33, 48, 0.12);
+}
+
+.skills-guide-cover {
+  display: block;
+  min-width: 0;
+  background: #050505;
+}
+
+.skills-guide-cover img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.skills-guide-copy {
+  display: grid;
+  align-content: center;
+  gap: 16px;
+  min-width: 0;
+  padding: 42px;
+}
+
+.skills-guide-copy .eyebrow {
+  width: fit-content;
+  border-color: rgba(255, 213, 64, 0.35);
+  background: rgba(255, 213, 64, 0.1);
+  color: var(--yellow);
+}
+
+.skills-guide-copy h2,
+.skills-guide-copy p,
+.skills-guide-copy ul {
+  margin: 0;
+}
+
+.skills-guide-copy h2 {
+  color: var(--white);
+  font-size: 2rem;
+  line-height: 1.08;
+}
+
+.skills-guide-copy p {
+  max-width: 58ch;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.6;
+}
+
+.skills-guide-copy ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 18px;
+  padding: 0;
+  list-style: none;
+}
+
+.skills-guide-copy li {
+  position: relative;
+  padding-left: 20px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.9rem;
+  font-weight: 750;
+}
+
+.skills-guide-copy li::before {
+  position: absolute;
+  top: 0.48em;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+  background: var(--green);
+  content: "";
+}
+
+.skills-guide-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.skills-guide-actions .text-link {
+  color: var(--yellow);
+}
+
+.skills-guide-copy small {
+  color: rgba(255, 255, 255, 0.54);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.skills-guide-card-sidebar {
+  grid-template-columns: 94px minmax(0, 1fr);
+  border-width: 1px;
+  box-shadow: 5px 5px 0 var(--yellow);
+}
+
+.skills-guide-card-sidebar .skills-guide-cover img {
+  aspect-ratio: 1;
+}
+
+.skills-guide-card-sidebar .skills-guide-copy {
+  gap: 8px;
+  padding: 15px;
+}
+
+.skills-guide-card-sidebar .eyebrow {
+  padding: 4px 7px;
+  font-size: 0.62rem;
+}
+
+.skills-guide-card-sidebar h2 {
+  font-size: 1rem;
+  line-height: 1.18;
+}
+
+.skills-guide-card-sidebar p,
+.skills-guide-card-sidebar ul,
+.skills-guide-card-sidebar small,
+.skills-guide-card-sidebar .button {
+  display: none;
+}
+
+.skills-guide-card-sidebar .skills-guide-actions {
+  gap: 10px;
+}
+
+.skills-guide-card-sidebar .text-link {
+  font-size: 0.78rem;
+}
+
+.guide-hero {
+  overflow: hidden;
+  padding: 88px 0 96px;
+  border-bottom: 2px solid var(--ink);
+  background:
+    linear-gradient(90deg, transparent 0 64%, rgba(255, 213, 64, 0.08) 64% 100%),
+    #050505;
+  color: var(--white);
+}
+
+.guide-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.72fr);
+  gap: 76px;
+  align-items: center;
+}
+
+.guide-hero-copy {
+  display: grid;
+  gap: 22px;
+  align-content: center;
+}
+
+.guide-hero-copy .eyebrow {
+  width: fit-content;
+  border-color: rgba(255, 213, 64, 0.35);
+  background: rgba(255, 213, 64, 0.1);
+  color: var(--yellow);
+}
+
+.guide-hero h1 {
+  max-width: 13ch;
+  margin: 0;
+  color: var(--white);
+  font-size: 4.35rem;
+  line-height: 0.98;
+}
+
+.guide-hero-copy > p {
+  max-width: 58ch;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.16rem;
+  line-height: 1.65;
+}
+
+.guide-hero .button.ghost {
+  border-color: rgba(255, 255, 255, 0.72);
+  background: transparent;
+  color: var(--white);
+}
+
+.guide-access-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.guide-access-list li {
+  position: relative;
+  padding-left: 18px;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.86rem;
+  font-weight: 750;
+}
+
+.guide-access-list li::before {
+  position: absolute;
+  top: 0.4em;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+  background: var(--green);
+  content: "";
+}
+
+.guide-cover-stage {
+  position: relative;
+  display: block;
+  border: 2px solid var(--white);
+  border-radius: 8px;
+  background: #050505;
+  text-decoration: none;
+  transform: rotate(1.5deg);
+  box-shadow: 14px 14px 0 var(--orange), 26px 26px 0 var(--yellow);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.guide-cover-stage:hover {
+  transform: translateY(-6px) rotate(0.5deg);
+  box-shadow: 17px 17px 0 var(--orange), 30px 30px 0 var(--yellow);
+}
+
+.guide-cover-stage img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.guide-cover-stage span {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  border: 2px solid var(--ink);
+  border-radius: 5px;
+  background: var(--yellow);
+  color: var(--ink);
+  padding: 9px 12px;
+  font-size: 0.76rem;
+  font-weight: 900;
+  box-shadow: 4px 4px 0 var(--orange);
+}
+
+.guide-use-band {
+  border-bottom: 2px solid var(--ink);
+  background: var(--yellow);
+}
+
+.guide-use-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.guide-use-grid article {
+  display: grid;
+  gap: 5px;
+  min-height: 116px;
+  padding: 26px 30px;
+}
+
+.guide-use-grid article + article {
+  border-left: 1px solid rgba(29, 33, 48, 0.34);
+}
+
+.guide-use-grid strong {
+  font-size: 1rem;
+}
+
+.guide-use-grid span {
+  color: rgba(29, 33, 48, 0.72);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.guide-outcome-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--white);
+  box-shadow: 9px 9px 0 var(--yellow);
+}
+
+.guide-outcome-grid article {
+  min-height: 260px;
+  padding: 28px;
+}
+
+.guide-outcome-grid article + article {
+  border-left: 1px solid var(--line);
+}
+
+.guide-outcome-grid span {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 32px;
+  margin-bottom: 54px;
+  border-radius: 5px;
+  background: var(--orange);
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: 950;
+}
+
+.guide-outcome-grid article:nth-child(2) span {
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+.guide-outcome-grid article:nth-child(3) span {
+  background: var(--green);
+  color: var(--ink);
+}
+
+.guide-outcome-grid article:nth-child(4) span {
+  background: var(--ink);
+}
+
+.guide-outcome-grid h3 {
+  margin: 0 0 12px;
+  font-size: 1.12rem;
+}
+
+.guide-outcome-grid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.guide-tracks-layout,
+.guide-evidence-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1.22fr);
+  gap: 66px;
+  align-items: start;
+}
+
+.guide-tracks-copy {
+  display: grid;
+  gap: 18px;
+  position: sticky;
+  top: 104px;
+}
+
+.guide-tracks-copy h2,
+.guide-tracks-copy p {
+  margin: 0;
+}
+
+.guide-tracks-copy h2,
+.guide-evidence-grid h2 {
+  font-size: 2.35rem;
+  line-height: 1.08;
+}
+
+.guide-tracks-copy p,
+.guide-evidence-grid p {
+  color: var(--muted);
+  line-height: 1.62;
+}
+
+.guide-tracks-copy .button {
+  justify-self: start;
+}
+
+.guide-track-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  border-top: 2px solid var(--ink);
+  list-style: none;
+}
+
+.guide-track-list li {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  min-height: 76px;
+  border-bottom: 1px solid rgba(29, 33, 48, 0.25);
+  padding: 12px 16px;
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+
+.guide-track-list li:nth-child(odd) {
+  border-right: 1px solid rgba(29, 33, 48, 0.25);
+}
+
+.guide-track-list span {
+  color: var(--orange);
+  font-size: 0.76rem;
+  font-weight: 950;
+}
+
+.guide-evidence-section {
+  border-top: 2px solid var(--ink);
+}
+
+.guide-evidence-grid h2,
+.guide-evidence-grid p {
+  margin: 16px 0 0;
+}
+
+.guide-source-list {
+  display: grid;
+  border-top: 2px solid var(--ink);
+}
+
+.guide-source-list a {
+  display: grid;
+  gap: 6px;
+  min-height: 102px;
+  border-bottom: 1px solid var(--line);
+  padding: 22px 18px;
+  color: var(--ink);
+  text-decoration: none;
+  transition: background 160ms ease, padding-left 160ms ease;
+}
+
+.guide-source-list a:hover {
+  background: var(--ice);
+  padding-left: 24px;
+}
+
+.guide-source-list span {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+@media (max-width: 980px) {
+  .guide-hero-grid,
+  .guide-tracks-layout,
+  .guide-evidence-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-cover-stage {
+    width: min(520px, calc(100% - 30px));
+    margin-inline: auto;
+  }
+
+  .guide-tracks-copy {
+    position: static;
+  }
+
+  .guide-outcome-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .guide-outcome-grid article:nth-child(3) {
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+
+  .guide-outcome-grid article:nth-child(4) {
+    border-top: 1px solid var(--line);
+  }
+}
+
+@media (max-width: 640px) {
+  .skills-guide-card,
+  .skills-guide-card-sidebar {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-guide-card-featured .skills-guide-cover {
+    max-height: 330px;
+  }
+
+  .skills-guide-card-featured .skills-guide-cover img {
+    object-position: center 24%;
+  }
+
+  .skills-guide-copy {
+    padding: 26px 22px;
+  }
+
+  .skills-guide-copy h2 {
+    font-size: 1.55rem;
+  }
+
+  .skills-guide-copy ul {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-guide-card-sidebar .skills-guide-cover {
+    display: none;
+  }
+
+  .guide-hero {
+    padding: 62px 0 78px;
+  }
+
+  .guide-hero-grid {
+    gap: 52px;
+  }
+
+  .guide-hero h1 {
+    font-size: 2.65rem;
+  }
+
+  .guide-use-grid,
+  .guide-outcome-grid,
+  .guide-track-list {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-use-grid article + article,
+  .guide-outcome-grid article + article,
+  .guide-track-list li:nth-child(odd) {
+    border-left: 0;
+    border-right: 0;
+  }
+
+  .guide-use-grid article + article,
+  .guide-outcome-grid article + article {
+    border-top: 1px solid rgba(29, 33, 48, 0.3);
+  }
+
+  .guide-outcome-grid article {
+    min-height: 0;
+  }
+
+  .guide-outcome-grid span {
+    margin-bottom: 32px;
+  }
+
+  .guide-tracks-copy h2,
+  .guide-evidence-grid h2 {
+    font-size: 2rem;
+  }
+}

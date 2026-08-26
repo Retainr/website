@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import SkillsGuideCard from "@/components/SkillsGuideCard.astro";
 import { assetDimensions } from "@/data/assets";
 import { blogCategories, primaryBlogArticles } from "@/data/blog";
 
@@ -20,6 +21,12 @@ const featuredBlogArticles = primaryBlogArticles.filter((article) => article.fea
           Practical, source-aware resources for niche experts who want to package services, use current tools responsibly, and turn successful client work into recurring revenue.
         </p>
       </div>
+    </div>
+  </section>
+
+  <section class="section blog-workbook-section">
+    <div class="container">
+      <SkillsGuideCard />
     </div>
   </section>
 

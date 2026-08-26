@@ -2,6 +2,15 @@ export const signupUrl = "https://app.retainr.io/signup";
 export const loginUrl = "https://app.retainr.io/login";
 export const signupLabel = "Start free forever";
 
+export const skillsGuide = {
+  title: "High-Demand Freelance Skills You Need to Know",
+  description:
+    "A free 13-page workbook for choosing a valuable skill, packaging a clear offer, validating demand, and building recurring client revenue.",
+  landingPath: "/guides/agency-freelancing-skills-you-need-to-know/",
+  pdfPath: "/Retainr.io-skills-you-need-to-know.pdf",
+  coverPath: "/assets/freelance-skills-guide-cover.webp",
+};
+
 export const palette = [
   { name: "Retainr orange", hex: "#FF4D18" },
   { name: "Signal yellow", hex: "#FFD540" },
@@ -47,12 +56,7 @@ export const resourceLinks: ResourceLink[] = [
   { href: "https://www.youtube.com/@Retainr", label: "Tutorial Videos", newTab: true },
   { href: "/help/", label: "Knowledge Base" },
   { href: "/pitch-deck/", label: "Why Retainr?" },
-  {
-    href: "/Retainr.io-skills-you-need-to-know.pdf",
-    label: "High-Demand Freelance Skills PDF",
-    newTab: true,
-  },
-  { href: "/guides/agency-freelancing-skills-you-need-to-know/", label: "Evergreen Freelance Skills Guide" },
+  { href: skillsGuide.landingPath, label: "Free Freelance Skills Workbook" },
   { href: "/tools/image-editor/", label: "Free Image Editor" },
   { href: "/feedback/", label: "Feedback" },
 ];
