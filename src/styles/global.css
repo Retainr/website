@@ -4942,19 +4942,38 @@ body.menu-open .menu-button span::after {
   display: none;
 }
 
-.image-editor-empty > span {
+.image-editor-empty-open {
+  appearance: none;
   display: grid;
   width: 74px;
   height: 74px;
   margin-bottom: 18px;
+  padding: 0;
   place-items: center;
   border: 2px solid var(--ink);
   border-radius: 8px;
   background: var(--yellow);
   color: var(--ink);
+  box-shadow: 6px 6px 0 var(--orange);
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.image-editor-empty-open > span {
   font-size: 2rem;
   font-weight: 700;
-  box-shadow: 6px 6px 0 var(--orange);
+  line-height: 1;
+}
+
+.image-editor-empty-open:hover {
+  background: var(--green);
+  box-shadow: 8px 8px 0 var(--orange);
+  transform: translate(-2px, -2px);
+}
+
+.image-editor-empty-open:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 5px;
 }
 
 .image-editor-empty strong {
