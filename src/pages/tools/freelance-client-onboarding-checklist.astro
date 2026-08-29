@@ -1,0 +1,419 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import ShareBar from "@/components/ShareBar.astro";
+
+const path = "/tools/freelance-client-onboarding-checklist/";
+const title = "Free Freelance Client Onboarding Checklist Generator | Retainr";
+const description = "Generate a practical client onboarding checklist for consulting, design, SEO, coaching, or creative work. Copy, download, or print it free with no signup.";
+const site = Astro.site ?? "https://www.retainr.io";
+
+type ChecklistItem = { phase: string; task: string };
+
+const checklistData: {
+  base: ChecklistItem[];
+  services: Record<string, { label: string; items: ChecklistItem[] }>;
+  engagements: Record<string, { label: string; items: ChecklistItem[] }>;
+} = {
+  base: [
+    { phase: "Agreement", task: "Confirm the desired outcome, deliverables, exclusions, and definition of done" },
+    { phase: "Agreement", task: "Confirm the fee, payment status, start date, and cancellation terms" },
+    { phase: "People", task: "Name the client owner, delivery owner, approver, and escalation contact" },
+    { phase: "Communication", task: "Agree where requests, decisions, files, and urgent issues will live" },
+    { phase: "Access", task: "Request only the accounts and files required for the first milestone" },
+    { phase: "Access", task: "Use secure invitations or a password manager instead of sending passwords by email" },
+    { phase: "Delivery", task: "Schedule kickoff and confirm the first visible milestone" },
+    { phase: "Delivery", task: "Document response times, review windows, and what happens when feedback is late" },
+  ],
+  services: {
+    consulting: {
+      label: "Consulting or advisory",
+      items: [
+        { phase: "Context", task: "Collect the decision the client needs to make and why it matters now" },
+        { phase: "Context", task: "Identify stakeholders, prior attempts, constraints, and evidence already available" },
+        { phase: "Delivery", task: "Confirm whether the output is a diagnosis, recommendation, implementation plan, or facilitated decision" },
+        { phase: "Approval", task: "Name who accepts the recommendation and who owns implementation afterward" },
+      ],
+    },
+    design: {
+      label: "Brand or web design",
+      items: [
+        { phase: "Assets", task: "Collect current brand files, fonts, copy, imagery, and usage rights" },
+        { phase: "Context", task: "Confirm audience, channels, required dimensions, devices, and accessibility needs" },
+        { phase: "Approval", task: "Define the number of concept and revision rounds included" },
+        { phase: "Delivery", task: "Agree final file formats, source-file ownership, and handoff location" },
+      ],
+    },
+    seo: {
+      label: "SEO or growth marketing",
+      items: [
+        { phase: "Access", task: "Request analytics, Search Console, CMS, advertising, and tag-manager access as required" },
+        { phase: "Baseline", task: "Record the current measurement window, conversion definition, and known tracking gaps" },
+        { phase: "Context", task: "Confirm priority offers, markets, audiences, seasonality, and prohibited claims" },
+        { phase: "Approval", task: "Name who approves content, technical changes, budgets, and production access" },
+      ],
+    },
+    coaching: {
+      label: "Coaching or education",
+      items: [
+        { phase: "Context", task: "Confirm the participant's goal, starting point, constraints, and preferred learning format" },
+        { phase: "Boundaries", task: "State communication hours, rescheduling rules, confidentiality limits, and emergency exclusions" },
+        { phase: "Delivery", task: "Schedule sessions and define preparation, action, and accountability between them" },
+        { phase: "Measurement", task: "Agree how progress will be reviewed without promising an outcome outside your control" },
+      ],
+    },
+    creative: {
+      label: "Content or creative production",
+      items: [
+        { phase: "Brief", task: "Confirm audience, message, channel, format, length, and call to action" },
+        { phase: "Assets", task: "Collect source material, references, brand rules, releases, and usage rights" },
+        { phase: "Approval", task: "Define feedback format, revision rounds, and the final decision maker" },
+        { phase: "Delivery", task: "Agree filenames, aspect ratios, captions, source files, and publishing responsibilities" },
+      ],
+    },
+  },
+  engagements: {
+    project: {
+      label: "One-off project",
+      items: [
+        { phase: "Timeline", task: "Confirm milestone dates, client dependencies, and the final handoff date" },
+        { phase: "Closeout", task: "Schedule a completion review for results, open risks, and the next useful action" },
+      ],
+    },
+    recurring: {
+      label: "Recurring retainer",
+      items: [
+        { phase: "Cadence", task: "Confirm the monthly deliverables, request capacity, priority rule, and meeting rhythm" },
+        { phase: "Reporting", task: "Agree the success measure, reporting date, baseline, and decision owner" },
+        { phase: "Boundaries", task: "Define rollover, out-of-scope work, response times, pauses, and urgent requests" },
+        { phase: "Renewal", task: "Schedule a relevance and scope review before the next renewal decision" },
+      ],
+    },
+  },
+};
+
+const defaultService = "consulting";
+const defaultEngagement = "project";
+const defaultItems = [
+  ...checklistData.base,
+  ...checklistData.services[defaultService].items,
+  ...checklistData.engagements[defaultEngagement].items,
+];
+const faqs = [
+  {
+    question: "What should a freelance client onboarding checklist include?",
+    answer: "At minimum, confirm the outcome, scope, payment, responsibilities, communication channel, required access, first milestone, approval process, response times, and closeout or recurring review. The exact checklist should change with the service and engagement model.",
+  },
+  {
+    question: "When should I send the onboarding checklist?",
+    answer: "Use it after the client has agreed to the engagement and before delivery begins. Request the minimum information needed for the first useful milestone instead of sending a long generic questionnaire before the client understands why each item matters.",
+  },
+  {
+    question: "Does this generator save client information?",
+    answer: "No. The generator does not ask for client information. Your service choices and checked items remain in the current browser page and are not submitted to Retainr.",
+  },
+  {
+    question: "Can I edit the generated checklist?",
+    answer: "Yes. Copy or download the checklist, then adapt the wording to the engagement. Remove irrelevant items and add any legal, security, accessibility, clinical, financial, or industry requirements that apply to your work.",
+  },
+  {
+    question: "Is this checklist a contract or legal template?",
+    answer: "No. It is an operational starting point, not legal advice or a replacement for a contract, privacy review, security process, or professional requirements that apply to your service.",
+  },
+];
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": new URL(`${path}#tool`, site).toString(),
+      name: "Retainr Freelance Client Onboarding Checklist Generator",
+      description,
+      url: new URL(path, site).toString(),
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "Any operating system with a modern web browser",
+      browserRequirements: "JavaScript and a modern browser for interactive generation, copying, downloading, and printing",
+      isAccessibleForFree: true,
+      offers: { "@type": "Offer", price: 0, priceCurrency: "USD" },
+      featureList: [
+        "Service-specific onboarding tasks",
+        "One-off and recurring engagement checklists",
+        "Interactive completion checkboxes",
+        "Copy to clipboard",
+        "Plain-text download",
+        "Print-ready output",
+      ],
+      audience: { "@type": "Audience", audienceType: "Freelancers, consultants, coaches, creators, and independent specialists" },
+      creator: { "@id": "https://www.retainr.io/#pierre-henry" },
+      isPartOf: { "@id": "https://www.retainr.io/#website" },
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: { "@type": "Answer", text: faq.answer },
+      })),
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Retainr", item: new URL("/", site).toString() },
+        { "@type": "ListItem", position: 2, name: "Free Tools", item: new URL("/tools/", site).toString() },
+        { "@type": "ListItem", position: 3, name: "Client Onboarding Checklist", item: new URL(path, site).toString() },
+      ],
+    },
+  ],
+};
+---
+
+<BaseLayout title={title} description={description} path={path}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)}></script>
+  <script is:inline id="checklist-data" type="application/json" set:html={JSON.stringify(checklistData)}></script>
+
+  <section class="tool-detail-hero checklist-hero">
+    <div class="container tool-detail-hero-grid">
+      <div class="tool-detail-copy">
+        <nav class="tool-breadcrumb" aria-label="Breadcrumb"><a href="/tools/">Free Tools</a><span>/</span><span>Client Onboarding Checklist</span></nav>
+        <span class="eyebrow">Free browser tool · No signup</span>
+        <h1>Build the client onboarding checklist your service actually needs.</h1>
+        <p>Choose the work and engagement type. Retainr turns them into a focused operational checklist you can complete, copy, download, or print.</p>
+        <ul class="tool-trust-list" aria-label="Tool access details">
+          <li>Nothing submitted</li>
+          <li>No email gate</li>
+          <li>Plain-text export</li>
+        </ul>
+      </div>
+      <div class="checklist-hero-sheet" aria-hidden="true">
+        <span>NEW CLIENT · READY TO START</span>
+        <strong>Onboarding that protects the first milestone.</strong>
+        <i>Scope confirmed</i><i>Owners named</i><i>Access requested</i><i>Review scheduled</i>
+      </div>
+    </div>
+  </section>
+
+  <section class="checklist-generator-section" aria-labelledby="checklist-generator-title">
+    <div class="container checklist-generator" data-checklist-generator>
+      <div class="checklist-builder-panel">
+        <div class="checklist-builder-heading">
+          <span class="editor-step">01</span>
+          <div><h2 id="checklist-generator-title">Choose the engagement</h2><p>Your choices remain in this browser page.</p></div>
+        </div>
+        <label>
+          <span>Type of service</span>
+          <select data-checklist-service>
+            {Object.entries(checklistData.services).map(([value, service]) => <option value={value}>{service.label}</option>)}
+          </select>
+        </label>
+        <label>
+          <span>Engagement model</span>
+          <select data-checklist-engagement>
+            {Object.entries(checklistData.engagements).map(([value, engagement]) => <option value={value}>{engagement.label}</option>)}
+          </select>
+        </label>
+        <div class="checklist-privacy-note">
+          <strong>Keep sensitive information out.</strong>
+          <p>This generator needs only the service category. Add client details later in your own approved system.</p>
+        </div>
+      </div>
+
+      <div class="checklist-output-panel">
+        <div class="checklist-output-heading">
+          <span class="editor-step">02</span>
+          <div><h2>Your onboarding checklist</h2><p data-checklist-summary>{checklistData.services[defaultService].label} · {checklistData.engagements[defaultEngagement].label} · {defaultItems.length} items</p></div>
+        </div>
+        <ol class="generated-checklist" data-checklist-output>
+          {defaultItems.map((item, index) => (
+            <li>
+              <label for={`checklist-item-${index}`}>
+                <input id={`checklist-item-${index}`} type="checkbox" />
+                <span><small>{item.phase}</small>{item.task}</span>
+              </label>
+            </li>
+          ))}
+        </ol>
+        <div class="checklist-actions" aria-label="Checklist export actions">
+          <button class="button yellow" type="button" data-checklist-copy>Copy checklist</button>
+          <button class="button ghost" type="button" data-checklist-download>Download .txt</button>
+          <button class="button ghost" type="button" data-checklist-print>Print</button>
+        </div>
+        <p class="checklist-status" data-checklist-status aria-live="polite">Check items as you prepare the engagement.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tool-explanation-section" aria-labelledby="onboarding-checklist-purpose">
+    <div class="container tool-explanation-grid">
+      <div>
+        <span class="eyebrow">What this solves</span>
+        <h2 id="onboarding-checklist-purpose">Start delivery with fewer hidden assumptions.</h2>
+        <p>A client onboarding checklist turns a verbal yes into an operationally ready engagement. It makes the outcome, people, access, communication, review process, and first milestone explicit before work fragments across email and direct messages.</p>
+      </div>
+      <div class="tool-context-cards">
+        <article><strong>Use it when</strong><p>The client has accepted the engagement and needs a clear path into the first milestone.</p></article>
+        <article><strong>It produces</strong><p>A service-specific checklist that you can complete, copy into a client portal, download, or print.</p></article>
+        <article><strong>It does not replace</strong><p>Your contract, professional judgment, security process, privacy obligations, or regulated-industry requirements.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ice tool-steps-section" aria-labelledby="onboarding-checklist-steps">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">How to use the checklist</span>
+        <h2 id="onboarding-checklist-steps">Generate less. Verify more.</h2>
+        <p>The strongest onboarding process requests only information that changes how the work begins.</p>
+      </div>
+      <ol class="tool-step-list">
+        <li><span>01</span><div><strong>Choose the closest service type</strong><p>Use the category that best matches the first deliverable, even if your broader business spans several disciplines.</p></div></li>
+        <li><span>02</span><div><strong>Choose project or recurring work</strong><p>A retainer needs cadence, capacity, reporting, and renewal boundaries that a one-off handoff does not.</p></div></li>
+        <li><span>03</span><div><strong>Remove what does not affect delivery</strong><p>A shorter relevant checklist creates more readiness than a long form filled with information nobody uses.</p></div></li>
+        <li><span>04</span><div><strong>Add your non-negotiable requirements</strong><p>Include legal, privacy, accessibility, security, clinical, financial, or industry-specific steps where they genuinely apply.</p></div></li>
+        <li><span>05</span><div><strong>Put it where the client works with you</strong><p>Copy the final list into the client record, assign owners, and make the first milestone visible.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section tool-related-section" aria-labelledby="checklist-related-title">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">Continue the workflow</span>
+        <h2 id="checklist-related-title">Free help before and after onboarding.</h2>
+      </div>
+      <div class="tool-related-links">
+        <a href="/guides/agency-freelancing-skills-you-need-to-know/"><span>Before the engagement</span><strong>Shape a focused freelance offer</strong><small>Free 13-page workbook →</small></a>
+        <a href="/tools/image-editor/"><span>During delivery</span><strong>Prepare a client image privately</strong><small>Free browser editor →</small></a>
+        <a href="/client-onboarding/"><span>Build the system</span><strong>Connect payment, intake, and delivery</strong><small>Client onboarding with Retainr →</small></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ice tool-faq-section" aria-labelledby="checklist-faq-title">
+    <div class="container faq-layout">
+      <div class="section-heading"><span class="eyebrow">Checklist FAQ</span><h2 id="checklist-faq-title">What to include, when to send it, and where it stops.</h2></div>
+      <div class="faq-list">
+        {faqs.map((faq) => <details><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section tool-share-section"><div class="container"><ShareBar title="Free Freelance Client Onboarding Checklist Generator" description={description} path={path} surface="client-onboarding-checklist" /></div></section>
+
+  <CtaBand
+    title="Move the checklist into a working client journey"
+    text="Retainr gives the offer, payment, onboarding questions, files, tasks, approvals, and recurring plan one branded place. Use every feature free forever."
+  />
+</BaseLayout>
+
+<script>
+  type ChecklistItem = { phase: string; task: string };
+  type ChecklistOption = { label: string; items: ChecklistItem[] };
+  type ChecklistData = {
+    base: ChecklistItem[];
+    services: Record<string, ChecklistOption>;
+    engagements: Record<string, ChecklistOption>;
+  };
+
+  const generator = document.querySelector<HTMLElement>("[data-checklist-generator]");
+  const dataNode = document.querySelector<HTMLScriptElement>("#checklist-data");
+
+  if (generator && dataNode) {
+    const data = JSON.parse(dataNode.textContent ?? "{}") as ChecklistData;
+    const service = generator.querySelector<HTMLSelectElement>("[data-checklist-service]");
+    const engagement = generator.querySelector<HTMLSelectElement>("[data-checklist-engagement]");
+    const output = generator.querySelector<HTMLOListElement>("[data-checklist-output]");
+    const summary = generator.querySelector<HTMLElement>("[data-checklist-summary]");
+    const status = generator.querySelector<HTMLElement>("[data-checklist-status]");
+
+    const selectedItems = () => [
+      ...data.base,
+      ...(service ? data.services[service.value]?.items ?? [] : []),
+      ...(engagement ? data.engagements[engagement.value]?.items ?? [] : []),
+    ];
+
+    const reportAction = (action: string) => {
+      window.dispatchEvent(new CustomEvent("retainr:tool_action", {
+        detail: { tool: "client-onboarding-checklist", action, page_path: window.location.pathname },
+      }));
+    };
+
+    const render = () => {
+      if (!service || !engagement || !output) return;
+      const items = selectedItems();
+      output.replaceChildren();
+      items.forEach((item, index) => {
+        const entry = document.createElement("li");
+        const label = document.createElement("label");
+        const input = document.createElement("input");
+        const copy = document.createElement("span");
+        const phase = document.createElement("small");
+        const id = `checklist-item-${index}`;
+        input.type = "checkbox";
+        input.id = id;
+        label.htmlFor = id;
+        phase.textContent = item.phase;
+        copy.append(phase, document.createTextNode(item.task));
+        label.append(input, copy);
+        entry.append(label);
+        output.append(entry);
+      });
+      if (summary) summary.textContent = `${data.services[service.value].label} · ${data.engagements[engagement.value].label} · ${items.length} items`;
+      if (status) status.textContent = "Checklist updated. Check items as you prepare the engagement.";
+    };
+
+    const plainText = () => {
+      if (!service || !engagement || !output) return "";
+      const checks = [...output.querySelectorAll<HTMLInputElement>('input[type="checkbox"]')];
+      const items = selectedItems();
+      const lines = [
+        "FREELANCE CLIENT ONBOARDING CHECKLIST",
+        `${data.services[service.value].label} · ${data.engagements[engagement.value].label}`,
+        "Generated free at https://www.retainr.io/tools/freelance-client-onboarding-checklist/",
+        "",
+      ];
+      let phase = "";
+      items.forEach((item, index) => {
+        if (item.phase !== phase) {
+          phase = item.phase;
+          lines.push(phase.toUpperCase());
+        }
+        lines.push(`${checks[index]?.checked ? "[x]" : "[ ]"} ${item.task}`);
+      });
+      lines.push("", "Operational starting point only. Adapt it to the engagement and applicable professional requirements.");
+      return lines.join("\n");
+    };
+
+    service?.addEventListener("change", render);
+    engagement?.addEventListener("change", render);
+
+    generator.querySelector("[data-checklist-copy]")?.addEventListener("click", async () => {
+      try {
+        if (!navigator.clipboard?.writeText) throw new Error("Clipboard API unavailable");
+        await navigator.clipboard.writeText(plainText());
+        if (status) status.textContent = "Checklist copied. Paste it into your client workspace or document.";
+        reportAction("copy");
+      } catch {
+        if (status) status.textContent = "Copying is unavailable here. Download the plain-text file instead.";
+      }
+    });
+
+    generator.querySelector("[data-checklist-download]")?.addEventListener("click", () => {
+      const blob = new Blob([plainText()], { type: "text/plain;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "freelance-client-onboarding-checklist.txt";
+      document.body.append(link);
+      link.click();
+      link.remove();
+      window.setTimeout(() => URL.revokeObjectURL(url), 1_000);
+      if (status) status.textContent = "Plain-text checklist downloaded.";
+      reportAction("download");
+    });
+
+    generator.querySelector("[data-checklist-print]")?.addEventListener("click", () => {
+      reportAction("print");
+      window.print();
+    });
+  }
+</script>

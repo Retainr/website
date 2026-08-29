@@ -1,18 +1,94 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import ShareBar from "@/components/ShareBar.astro";
 
 const title = "Free Image Editor for Freelancers | Retainr";
-const description = "Resize, rotate, flip, and adjust client images privately in your browser with Retainr's free image editor.";
+const description = "Adjust brightness, contrast, and saturation, rotate or flip, then export PNG or JPEG images privately in your browser. Free with no signup or upload.";
+const path = "/tools/image-editor/";
+const site = Astro.site ?? "https://www.retainr.io";
+const faqs = [
+  {
+    question: "Is the Retainr image editor free to use?",
+    answer: "Yes. You can open, adjust, and export an image without creating an account, entering an email address, or paying for the download.",
+  },
+  {
+    question: "Does Retainr upload or store my image?",
+    answer: "No. The selected image is decoded and edited in your browser. Retainr does not receive or store the image file you open in this tool.",
+  },
+  {
+    question: "Which image formats are supported?",
+    answer: "The editor accepts PNG, JPEG, and WebP images. It exports a newly encoded PNG or JPEG file.",
+  },
+  {
+    question: "Does the editor keep the original resolution and metadata?",
+    answer: "Images with a side longer than 2,400 pixels are reduced proportionally for browser-safe processing. Export creates a new image and may not preserve EXIF metadata, embedded color profiles, animation, layers, or transparency when JPEG is selected.",
+  },
+  {
+    question: "When is this editor appropriate for client work?",
+    answer: "Use it for quick brightness, contrast, saturation, orientation, and format changes when you have permission to edit the image. Use a full design or photo application for precise retouching, print color management, layered files, or production-critical exports.",
+  },
+];
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": new URL(`${path}#tool`, site).toString(),
+      name: "Retainr Free Private Image Editor",
+      description,
+      url: new URL(path, site).toString(),
+      applicationCategory: "MultimediaApplication",
+      operatingSystem: "Any operating system with a modern web browser",
+      browserRequirements: "JavaScript, HTML Canvas, and a modern browser",
+      isAccessibleForFree: true,
+      offers: { "@type": "Offer", price: 0, priceCurrency: "USD" },
+      featureList: [
+        "Local browser image processing",
+        "Brightness adjustment",
+        "Contrast adjustment",
+        "Saturation adjustment",
+        "Left and right rotation",
+        "Horizontal flip",
+        "PNG and JPEG export",
+      ],
+      audience: { "@type": "Audience", audienceType: "Freelancers, designers, content creators, consultants, and small studios" },
+      creator: { "@id": "https://www.retainr.io/#pierre-henry" },
+      isPartOf: { "@id": "https://www.retainr.io/#website" },
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: { "@type": "Answer", text: faq.answer },
+      })),
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Retainr", item: new URL("/", site).toString() },
+        { "@type": "ListItem", position: 2, name: "Free Tools", item: new URL("/tools/", site).toString() },
+        { "@type": "ListItem", position: 3, name: "Private Image Editor", item: new URL(path, site).toString() },
+      ],
+    },
+  ],
+};
 ---
 
-<BaseLayout title={title} description={description} path="/tools/image-editor/">
+<BaseLayout title={title} description={description} path={path}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)}></script>
   <section class="image-editor-hero">
     <div class="container image-editor-heading">
       <div>
+        <nav class="tool-breadcrumb" aria-label="Breadcrumb"><a href="/tools/">Free Tools</a><span>/</span><span>Private Image Editor</span></nav>
         <span class="eyebrow">Free creator tool</span>
         <h1>Make the image ready. Keep the client work moving.</h1>
       </div>
-      <p>Your image stays in your browser. Retainr does not upload or store it.</p>
+      <div class="image-editor-hero-note">
+        <p>Your image stays in your browser. Retainr does not upload or store it.</p>
+        <strong>No signup · No email · No paid export</strong>
+      </div>
     </div>
   </section>
 
@@ -93,6 +169,63 @@ const description = "Resize, rotate, flip, and adjust client images privately in
       </div>
     </div>
   </section>
+
+  <section class="section tool-explanation-section" aria-labelledby="image-editor-purpose">
+    <div class="container tool-explanation-grid">
+      <div>
+        <span class="eyebrow">What this tool does</span>
+        <h2 id="image-editor-purpose">Handle the quick correction without sending the file elsewhere.</h2>
+        <p>Use the editor when a client asset needs a straightforward visual adjustment before a presentation, proposal, portal update, social post, or delivery. It is designed for speed and privacy, not layered design production.</p>
+      </div>
+      <div class="tool-context-cards">
+        <article><strong>Good for</strong><p>Brightness, contrast, saturation, orientation, horizontal flipping, and PNG or JPEG export.</p></article>
+        <article><strong>Private by design</strong><p>The selected file is processed with browser canvas APIs and is not uploaded to Retainr.</p></article>
+        <article><strong>Know the boundary</strong><p>The longest side is capped at 2,400 pixels. Exports may not preserve metadata, profiles, layers, or animation.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ice tool-steps-section" aria-labelledby="image-editor-steps">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">How to edit an image</span>
+        <h2 id="image-editor-steps">Four steps from source file to client-ready export.</h2>
+      </div>
+      <ol class="tool-step-list">
+        <li><span>01</span><div><strong>Open a PNG, JPEG, or WebP image</strong><p>Choose a file from your device. The file remains inside the current browser session.</p></div></li>
+        <li><span>02</span><div><strong>Adjust only what the image needs</strong><p>Change brightness, contrast, or saturation while checking that skin tones, brand colors, and important detail remain credible.</p></div></li>
+        <li><span>03</span><div><strong>Correct the orientation</strong><p>Rotate left or right, flip horizontally, or reset every adjustment to return to the loaded image.</p></div></li>
+        <li><span>04</span><div><strong>Choose PNG or JPEG and download</strong><p>Use PNG when transparency matters. Use JPEG for a smaller photographic file when transparency is not required.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section tool-related-section" aria-labelledby="image-editor-related-title">
+    <div class="container">
+      <div class="section-heading"><span class="eyebrow">Continue the work</span><h2 id="image-editor-related-title">Free resources around the client asset.</h2></div>
+      <div class="tool-related-links">
+        <a href="/tools/freelance-client-onboarding-checklist/"><span>Before delivery</span><strong>Prepare the client onboarding checklist</strong><small>Free browser generator →</small></a>
+        <a href="/guides/agency-freelancing-skills-you-need-to-know/"><span>Shape the offer</span><strong>Choose a valuable freelance skill</strong><small>Free 13-page workbook →</small></a>
+        <a href="/client-portal-client-management-software/"><span>Deliver professionally</span><strong>Keep client files with the relationship</strong><small>Explore the Retainr portal →</small></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ice tool-faq-section" aria-labelledby="image-editor-faq-title">
+    <div class="container faq-layout">
+      <div class="section-heading"><span class="eyebrow">Image Editor FAQ</span><h2 id="image-editor-faq-title">Privacy, formats, quality, and appropriate use.</h2></div>
+      <div class="faq-list">
+        {faqs.map((faq) => <details><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section tool-share-section"><div class="container"><ShareBar title="Retainr Free Private Image Editor" description={description} path={path} surface="private-image-editor" /></div></section>
+
+  <CtaBand
+    title="When one image becomes an ongoing client workflow"
+    text="Retainr keeps client files, requests, approvals, tasks, support, and recurring services connected in one branded workspace. Every feature is free forever."
+  />
 </BaseLayout>
 
 <script>
@@ -230,8 +363,10 @@ const description = "Resize, rotate, flip, and adjust client images privately in
         const url = URL.createObjectURL(blob);
         link.href = url;
         link.download = `retainr-edited-image.${extension}`;
+        document.body.append(link);
         link.click();
-        URL.revokeObjectURL(url);
+        link.remove();
+        window.setTimeout(() => URL.revokeObjectURL(url), 1_000);
         if (status) status.textContent = `Downloaded ${link.download}.`;
       }, mime, 0.92);
     });

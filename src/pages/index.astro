@@ -5,8 +5,10 @@ import Testimonials from "@/components/Testimonials.astro";
 import GuaranteeBand from "@/components/GuaranteeBand.astro";
 import MethodSteps from "@/components/MethodSteps.astro";
 import WorkdayRelief from "@/components/WorkdayRelief.astro";
+import FreeToolCard from "@/components/FreeToolCard.astro";
 import NicheIcon from "@/components/NicheIcon.astro";
 import { signupUrl } from "@/data/site";
+import { freeTools } from "@/data/freeTools";
 import { featuredNiches, niches } from "@/data/niches";
 
 const nicheCount = niches.length;
@@ -257,5 +259,24 @@ const workdayOutcomes = [
   />
 
   <Testimonials />
+
+  <section class="section home-free-tools-section" aria-labelledby="home-free-tools-title">
+    <div class="container">
+      <div class="home-free-tools-heading">
+        <div>
+          <span class="eyebrow">Free before Retainr</span>
+          <h2 id="home-free-tools-title">Useful tools for the work around the client relationship.</h2>
+        </div>
+        <div>
+          <p>Choose the offer, prepare the client, or fix the asset. No account, email gate, or paid export.</p>
+          <a class="text-link" href="/tools/">Browse every free tool →</a>
+        </div>
+      </div>
+      <div class="free-tools-grid free-tools-grid-home">
+        {freeTools.map((tool) => <FreeToolCard tool={tool} compact />)}
+      </div>
+    </div>
+  </section>
+
   <CtaBand />
 </BaseLayout>

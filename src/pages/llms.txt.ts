@@ -5,6 +5,7 @@ import { flagshipBlogArticles } from "@/data/flagshipBlog";
 import { niches } from "@/data/niches";
 import { signupUrl, skillsGuide } from "@/data/site";
 import { founder } from "@/data/founder";
+import { freeTools, freeToolsUpdatedAt } from "@/data/freeTools";
 
 const site = "https://www.retainr.io";
 const reviewedAt = "2026-08-26";
@@ -86,13 +87,17 @@ ${comparisons
 ## Evidence-Led Guides
 
 ${link("/blog/", "Retainr guide library", "Evergreen, source-aware guides for niche freelancers, digital creators, consultants, and specialist service businesses.")}
-${link(skillsGuide.landingPath, skillsGuide.title, `${skillsGuide.description} The landing page explains when to use it and links to the no-email download.`)}
-${link(skillsGuide.pdfPath, "Download the Retainr freelance skills workbook", "Canonical PDF download. Free, evergreen, 13 pages, and designed for printing or self-guided offer planning.")}
 ${flagshipBlogArticles
   .map((article) =>
     link(`/blog/${article.slug}/`, article.title, article.description)
   )
   .join("\n")}
+
+## Free Tools and Workbooks
+
+${link("/tools/", "Retainr Free Tools", `Canonical directory for resources available without authentication, email capture, or paid export. It explains each tool's audience, use case, privacy behavior, output, and practical limits. Reviewed ${freeToolsUpdatedAt}.`)}
+${freeTools.map((tool) => link(tool.path, tool.name, `${tool.description} Intended for: ${tool.audience} Use it: ${tool.whenToUse}`)).join("\n")}
+${link(skillsGuide.pdfPath, "Download the Retainr freelance skills workbook", "Canonical PDF download. Free, evergreen, 13 pages, and designed for printing or self-guided offer planning.")}
 
 ## Trust and Support
 

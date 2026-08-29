@@ -19,7 +19,10 @@ const requiredFiles = [
   "pricing/index.html",
   "mobile-app/index.html",
   "open-source-solution-for-freelancers-agencies/index.html",
+  "tools/index.html",
   "tools/image-editor/index.html",
+  "tools/freelance-client-onboarding-checklist/index.html",
+  "guides/agency-freelancing-skills-you-need-to-know/index.html",
   "Retainr.io-skills-you-need-to-know.pdf",
   "guides/agency-freelancing-skills-you-need-to-know-in-2025.pdf",
   "Retainr.io-skills-you-need-to-know-in-2025.pdf",
@@ -174,11 +177,26 @@ if (await exists(path.join(dist, "robots.txt"))) {
   if (!robots.includes("Sitemap: https://www.retainr.io/sitemap.xml")) {
     failures.add("robots.txt does not advertise the production sitemap");
   }
+  for (const crawler of ["OAI-SearchBot", "PerplexityBot", "Claude-SearchBot", "MistralAI-Index"]) {
+    if (!robots.includes(`User-agent: ${crawler}`)) {
+      failures.add(`robots.txt does not explicitly allow the discovery crawler: ${crawler}`);
+    }
+  }
 }
 
 if (await exists(path.join(dist, "sitemap.xml"))) {
   const sitemap = await readFile(path.join(dist, "sitemap.xml"), "utf8");
-  for (const route of ["/", "/pricing/", "/compare/", "/niches/", "/blog/"]) {
+  for (const route of [
+    "/",
+    "/pricing/",
+    "/compare/",
+    "/niches/",
+    "/blog/",
+    "/tools/",
+    "/tools/image-editor/",
+    "/tools/freelance-client-onboarding-checklist/",
+    "/guides/agency-freelancing-skills-you-need-to-know/",
+  ]) {
     if (!sitemap.includes(`<loc>${productionOrigin}${route}</loc>`)) {
       failures.add(`Sitemap is missing: ${route}`);
     }
@@ -207,9 +225,18 @@ if (await exists(path.join(dist, "llms.txt"))) {
   if (!llms.includes("https://www.retainr.io/") || /https?:\/\/(?:www\.)?retainr\.com/i.test(llms)) {
     failures.add("llms.txt must use the canonical retainr.io domain");
   }
-  for (const route of ["/method/", "/features/", "/pricing/", "/niches/", "/compare/", "/blog/"]) {
+  for (const route of ["/method/", "/features/", "/pricing/", "/niches/", "/compare/", "/blog/", "/tools/"]) {
     if (!llms.includes(`](${productionOrigin}${route})`)) {
       failures.add(`llms.txt is missing the canonical route: ${route}`);
+    }
+  }
+  for (const route of [
+    "/tools/image-editor/",
+    "/tools/freelance-client-onboarding-checklist/",
+    "/guides/agency-freelancing-skills-you-need-to-know/",
+  ]) {
+    if (!llms.includes(`](${productionOrigin}${route})`)) {
+      failures.add(`llms.txt is missing the free resource: ${route}`);
     }
   }
   if (optionalIndex === -1 || optionalIndex !== sections.length - 1) {
@@ -222,6 +249,38 @@ if (await exists(path.join(dist, "llms.txt"))) {
     if (invalidSectionLine) {
       failures.add(`llms.txt contains a non-link line inside its link sections: ${invalidSectionLine}`);
     }
+  }
+}
+
+const freeToolPages = [
+  "tools/index.html",
+  "tools/image-editor/index.html",
+  "tools/freelance-client-onboarding-checklist/index.html",
+  "guides/agency-freelancing-skills-you-need-to-know/index.html",
+];
+
+for (const relative of freeToolPages) {
+  const file = path.join(dist, relative);
+  if (!(await exists(file))) continue;
+  const html = await readFile(file, "utf8");
+  const main = html.match(/<main[^>]*>[\s\S]*?<\/main>/i)?.[0] ?? "";
+  const structuredDataBlocks = [...html.matchAll(/<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)];
+  if (structuredDataBlocks.length === 0) {
+    failures.add(`Free tool page is missing structured data: ${relative}`);
+  } else {
+    for (const [, json] of structuredDataBlocks) {
+      try {
+        JSON.parse(json);
+      } catch {
+        failures.add(`Free tool page contains invalid structured data: ${relative}`);
+      }
+    }
+  }
+  if (!/No signup|without creating .*account|without authentication/i.test(main)) {
+    failures.add(`Free tool page does not state open access in its main content: ${relative}`);
+  }
+  if (/<form[^>]*(?:login|signup|subscribe)/i.test(main)) {
+    failures.add(`Free tool page gates its main utility behind a form: ${relative}`);
   }
 }
 

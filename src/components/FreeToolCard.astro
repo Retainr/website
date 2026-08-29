@@ -1,0 +1,51 @@
+---
+import type { FreeTool } from "@/data/freeTools";
+
+type Props = {
+  tool: FreeTool;
+  compact?: boolean;
+};
+
+const { tool, compact = false } = Astro.props;
+---
+
+<article class:list={["free-tool-card", `free-tool-card-${tool.kind}`, { "free-tool-card-compact": compact }]}>
+  <a class="free-tool-visual" href={tool.path} aria-label={`Open ${tool.name}`}>
+    {tool.kind === "workbook" && (
+      <img
+        src="/assets/freelance-skills-guide-cover.webp"
+        alt="Cover of the Retainr freelance skills workbook"
+        width="810"
+        height="810"
+        loading="lazy"
+        decoding="async"
+      />
+    )}
+    {tool.kind === "image-editor" && (
+      <div class="free-tool-editor-preview" aria-hidden="true">
+        <div class="free-tool-editor-image">
+          <img src="/assets/freelance-skills-guide-cover.webp" alt="" width="810" height="810" loading="lazy" decoding="async" />
+        </div>
+        <span></span><span></span><span></span>
+      </div>
+    )}
+    {tool.kind === "checklist" && (
+      <div class="free-tool-checklist-preview" aria-hidden="true">
+        <strong>CLIENT ONBOARDING</strong>
+        <span><i>✓</i> Scope confirmed</span>
+        <span><i>✓</i> Access requested</span>
+        <span><i></i> First milestone</span>
+      </div>
+    )}
+    <span class="free-tool-format">{tool.format}</span>
+  </a>
+  <div class="free-tool-card-copy">
+    <span class="eyebrow">No signup required</span>
+    <h3><a href={tool.path}>{tool.shortName}</a></h3>
+    <p>{tool.description}</p>
+    <ul aria-label={`${tool.shortName} highlights`}>
+      {tool.highlights.map((highlight) => <li>{highlight}</li>)}
+    </ul>
+    <a class="text-link" href={tool.path}>{tool.action} →</a>
+  </div>
+</article>

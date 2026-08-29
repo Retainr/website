@@ -7,25 +7,70 @@ import { skillsGuide } from "@/data/site";
 
 const coverDimensions = assetDimensions(skillsGuide.coverPath);
 const site = Astro.site ?? "https://www.retainr.io";
+const faqs = [
+  {
+    question: "Is the Retainr freelance skills workbook free?",
+    answer: "Yes. The complete 13-page PDF is available without an account, email address, or payment.",
+  },
+  {
+    question: "Who is the workbook for?",
+    answer: "It is for freelancers, consultants, digital creators, coaches, and independent specialists choosing a direction, refining an offer, or looking for work that can lead to recurring client value.",
+  },
+  {
+    question: "Does the workbook promise that a skill will be profitable?",
+    answer: "No. It uses market evidence to identify useful categories, then asks you to validate the buyer, problem, urgency, access, proof, delivery energy, and recurring need in your own market.",
+  },
+  {
+    question: "How should I use the workbook?",
+    answer: "Score one or two plausible skills, choose a narrow buyer problem, draft a starter offer, run the seven-day validation sprint, and revise the offer from real buyer questions before investing in a larger package.",
+  },
+  {
+    question: "Can I print and use the offer canvas?",
+    answer: "Yes. The PDF is designed for self-guided planning and includes a printable offer canvas you can use for your own freelance business.",
+  },
+];
 const learningResourceSchema = {
   "@context": "https://schema.org",
-  "@type": "LearningResource",
-  name: skillsGuide.title,
-  description: skillsGuide.description,
-  url: new URL(skillsGuide.landingPath, site).toString(),
-  inLanguage: "en",
-  isAccessibleForFree: true,
-  learningResourceType: "Workbook",
-  educationalUse: ["Self assessment", "Planning", "Professional development"],
-  audience: {
-    "@type": "Audience",
-    audienceType: "Freelancers, digital creators, consultants, and independent experts",
-  },
-  encoding: {
-    "@type": "MediaObject",
-    contentUrl: new URL(skillsGuide.pdfPath, site).toString(),
-    encodingFormat: "application/pdf",
-  },
+  "@graph": [
+    {
+      "@type": "LearningResource",
+      "@id": new URL(`${skillsGuide.landingPath}#workbook`, site).toString(),
+      name: skillsGuide.title,
+      description: skillsGuide.description,
+      url: new URL(skillsGuide.landingPath, site).toString(),
+      inLanguage: "en",
+      isAccessibleForFree: true,
+      learningResourceType: "Workbook",
+      educationalUse: ["Self assessment", "Planning", "Professional development"],
+      audience: {
+        "@type": "Audience",
+        audienceType: "Freelancers, digital creators, consultants, and independent experts",
+      },
+      encoding: {
+        "@type": "MediaObject",
+        contentUrl: new URL(skillsGuide.pdfPath, site).toString(),
+        encodingFormat: "application/pdf",
+      },
+      creator: { "@id": "https://www.retainr.io/#pierre-henry" },
+      isPartOf: { "@id": "https://www.retainr.io/#website" },
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: { "@type": "Answer", text: faq.answer },
+      })),
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Retainr", item: new URL("/", site).toString() },
+        { "@type": "ListItem", position: 2, name: "Free Tools", item: new URL("/tools/", site).toString() },
+        { "@type": "ListItem", position: 3, name: "Freelance Skills Workbook", item: new URL(skillsGuide.landingPath, site).toString() },
+      ],
+    },
+  ],
 };
 
 const tracks = [
@@ -55,6 +100,7 @@ const tracks = [
   <section class="guide-hero">
     <div class="container guide-hero-grid">
       <div class="guide-hero-copy">
+        <nav class="tool-breadcrumb" aria-label="Breadcrumb"><a href="/tools/">Free Tools</a><span>/</span><span>Freelance Skills Workbook</span></nav>
         <span class="eyebrow">Free evergreen workbook</span>
         <h1>{skillsGuide.title}</h1>
         <p>{skillsGuide.description}</p>
@@ -64,7 +110,7 @@ const tracks = [
         </div>
         <ul class="guide-access-list" aria-label="Download details">
           <li>13 practical pages</li>
-          <li>No email required</li>
+          <li>No signup or email</li>
           <li>Print-ready offer canvas</li>
         </ul>
       </div>
@@ -132,6 +178,26 @@ const tracks = [
         <a href="https://investors.upwork.com/news-releases/news-release-details/upwork-unveils-2025s-most-demand-skills" target="_blank" rel="noopener noreferrer"><strong>Upwork In-Demand Skills</strong><span>Freelance-platform earnings and job-posting evidence.</span></a>
         <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" rel="noopener noreferrer"><strong>World Economic Forum</strong><span>Employer expectations for evolving skills through 2030.</span></a>
         <a href="https://www.linkedin.com/business/talent/blog/learning-and-development/skills-on-the-rise" target="_blank" rel="noopener noreferrer"><strong>LinkedIn Skills on the Rise</strong><span>Fast-growing skills observed across regions and functions.</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tool-related-section" aria-labelledby="workbook-related-title">
+    <div class="container">
+      <div class="section-heading"><span class="eyebrow">Put the offer to work</span><h2 id="workbook-related-title">Free tools for the next client steps.</h2></div>
+      <div class="tool-related-links">
+        <a href="/tools/freelance-client-onboarding-checklist/"><span>After the client says yes</span><strong>Build a relevant onboarding checklist</strong><small>Free browser generator →</small></a>
+        <a href="/tools/image-editor/"><span>During delivery</span><strong>Prepare a client image privately</strong><small>Free browser editor →</small></a>
+        <a href="/productize/"><span>Build the system</span><strong>Turn the chosen skill into a clear service</strong><small>Productize with Retainr →</small></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ice tool-faq-section" aria-labelledby="workbook-faq-title">
+    <div class="container faq-layout">
+      <div class="section-heading"><span class="eyebrow">Workbook FAQ</span><h2 id="workbook-faq-title">Access, evidence, and practical use.</h2></div>
+      <div class="faq-list">
+        {faqs.map((faq) => <details><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}
       </div>
     </div>
   </section>

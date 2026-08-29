@@ -1,3 +1,5 @@
+import { freeTools } from "@/data/freeTools";
+
 export const signupUrl = "https://app.retainr.io/signup";
 export const loginUrl = "https://app.retainr.io/login";
 export const signupLabel = "Start free forever";
@@ -25,6 +27,7 @@ export const navLinks = [
   { href: "/features/", label: "Features" },
   { href: "/pricing/", label: "Pricing" },
   { href: "/case-studies/", label: "Use Cases" },
+  { href: "/tools/", label: "Free Tools" },
   { href: "/blog/", label: "Blog" },
 ];
 
@@ -53,11 +56,11 @@ type ResourceLink = {
 };
 
 export const resourceLinks: ResourceLink[] = [
+  { href: "/tools/", label: "All Free Tools" },
+  ...freeTools.map((tool) => ({ href: tool.path, label: tool.shortName })),
   { href: "https://www.youtube.com/@Retainr", label: "Tutorial Videos", newTab: true },
   { href: "/help/", label: "Knowledge Base" },
   { href: "/pitch-deck/", label: "Why Retainr?" },
-  { href: skillsGuide.landingPath, label: "Free Freelance Skills Workbook" },
-  { href: "/tools/image-editor/", label: "Free Image Editor" },
   { href: "/feedback/", label: "Feedback" },
 ];
 

@@ -1,0 +1,162 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import FreeToolCard from "@/components/FreeToolCard.astro";
+import ShareBar from "@/components/ShareBar.astro";
+import { freeTools, freeToolsUpdatedAt } from "@/data/freeTools";
+
+const path = "/tools/";
+const title = "Free Tools for Freelancers and Digital Creators | Retainr";
+const description = "Free, no-signup tools and workbooks for client onboarding, image editing, offer planning, and recurring freelance revenue.";
+const site = Astro.site ?? "https://www.retainr.io";
+const faqs = [
+  {
+    question: "Do Retainr's free tools require an account?",
+    answer: "No. Every tool in this directory can be used without creating a Retainr account or entering an email address.",
+  },
+  {
+    question: "Do the browser tools upload my files or checklist choices?",
+    answer: "No. The image editor and checklist generator run in your browser. Retainr does not receive the image you open or the checklist choices you make.",
+  },
+  {
+    question: "Can I use the outputs for client work?",
+    answer: "Yes. You can use the edited images, downloaded checklists, printable templates, and workbook outputs in your own freelance or creator business.",
+  },
+  {
+    question: "Why does Retainr provide these tools for free?",
+    answer: "They solve practical problems that happen around client work. Retainr is introduced only when a freelancer needs a larger system for packaging, onboarding, delivering, and retaining that work.",
+  },
+];
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": new URL(`${path}#page`, site).toString(),
+      name: "Retainr Free Tools",
+      description,
+      url: new URL(path, site).toString(),
+      dateModified: freeToolsUpdatedAt,
+      isPartOf: { "@id": "https://www.retainr.io/#website" },
+      mainEntity: { "@id": new URL(`${path}#tools`, site).toString() },
+    },
+    {
+      "@type": "ItemList",
+      "@id": new URL(`${path}#tools`, site).toString(),
+      name: "Free tools for freelancers and digital creators",
+      numberOfItems: freeTools.length,
+      itemListOrder: "https://schema.org/ItemListUnordered",
+      itemListElement: freeTools.map((tool, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": tool.kind === "workbook" ? "LearningResource" : "WebApplication",
+          name: tool.name,
+          description: tool.description,
+          url: new URL(tool.path, site).toString(),
+          isAccessibleForFree: true,
+        },
+      })),
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: { "@type": "Answer", text: faq.answer },
+      })),
+    },
+  ],
+};
+---
+
+<BaseLayout title={title} description={description} path={path} image="/assets/freelance-skills-guide-cover.webp">
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(collectionSchema)}></script>
+
+  <section class="free-tools-hero">
+    <div class="container free-tools-hero-grid">
+      <div>
+        <span class="eyebrow">Retainr Free Tools</span>
+        <h1>Useful before signup. Useful even if you never sign up.</h1>
+      </div>
+      <div class="free-tools-hero-copy">
+        <p>Practical tools for the work surrounding a freelance engagement: choosing an offer, preparing the client, and getting assets ready to deliver.</p>
+        <ul aria-label="Free tools access policy">
+          <li>No account</li>
+          <li>No email gate</li>
+          <li>No hidden paid export</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section free-tools-directory" aria-labelledby="free-tools-title">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">Choose the job to be done</span>
+        <h2 id="free-tools-title">Free resources that produce something you can use.</h2>
+        <p>Each page explains what the resource does, who it helps, when to use it, what stays private, and where its limits are.</p>
+      </div>
+      <div class="free-tools-grid">
+        {freeTools.map((tool) => <FreeToolCard tool={tool} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section ice free-tools-moments" aria-labelledby="free-tools-moments-title">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">Use them in sequence</span>
+        <h2 id="free-tools-moments-title">Three moments in a stronger client workflow.</h2>
+      </div>
+      <ol>
+        <li><span>01</span><div><strong>Before the offer</strong><p>Use the skills workbook to choose a problem worth solving and shape a focused first service.</p></div></li>
+        <li><span>02</span><div><strong>After the client says yes</strong><p>Generate an onboarding checklist that makes responsibilities, access, and the first milestone explicit.</p></div></li>
+        <li><span>03</span><div><strong>During delivery</strong><p>Use the private image editor for quick asset corrections without sending the file to another service.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section free-tools-principles" aria-labelledby="free-tools-principles-title">
+    <div class="container free-tools-principles-grid">
+      <div>
+        <span class="eyebrow">The access promise</span>
+        <h2 id="free-tools-principles-title">The utility comes before the product.</h2>
+      </div>
+      <div class="free-tools-principle-list">
+        <article><strong>Open access</strong><p>The working tool and its useful output are available without authentication.</p></article>
+        <article><strong>Clear boundaries</strong><p>Every page states supported formats, privacy behavior, and practical limitations.</p></article>
+        <article><strong>Client-work context</strong><p>The surrounding guidance helps a freelancer decide when the tool is appropriate.</p></article>
+        <article><strong>A relevant next step</strong><p>Retainr appears after the task, when a repeatable client system would genuinely help.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ice free-tools-faq" aria-labelledby="free-tools-faq-title">
+    <div class="container faq-layout">
+      <div class="section-heading">
+        <span class="eyebrow">Free Tools FAQ</span>
+        <h2 id="free-tools-faq-title">Access, privacy, and client use.</h2>
+      </div>
+      <div class="faq-list">
+        {faqs.map((faq) => (
+          <details>
+            <summary>{faq.question}</summary>
+            <p>{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section free-tools-share-section">
+    <div class="container">
+      <ShareBar title="Retainr Free Tools for Freelancers" description={description} path={path} surface="free-tools-directory" />
+    </div>
+  </section>
+
+  <CtaBand
+    title="When the checklist becomes a client system"
+    text="Retainr connects the offer, payment, onboarding, files, delivery, support, and recurring plan in one branded workspace. Every feature remains free forever."
+  />
+</BaseLayout>

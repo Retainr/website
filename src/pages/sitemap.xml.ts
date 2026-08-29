@@ -3,6 +3,7 @@ import { primaryBlogArticles } from "@/data/blog";
 import { comparisons, comparisonsReviewedAt } from "@/data/comparisons";
 import { pages } from "@/data/pages";
 import { niches } from "@/data/niches";
+import { freeTools, freeToolsUpdatedAt } from "@/data/freeTools";
 
 const site = "https://www.retainr.io";
 
@@ -13,7 +14,9 @@ const entries = new Map<string, string>([
   ["/pricing/", siteUpdatedAt],
   ["/niches/", siteUpdatedAt],
   ["/compare/", comparisonsReviewedAt],
+  ["/tools/", freeToolsUpdatedAt],
   ["/Retainr.io-skills-you-need-to-know.pdf", siteUpdatedAt],
+  ...freeTools.map((tool) => [tool.path, freeToolsUpdatedAt] as const),
   ...comparisons.map((comparison) => [`/compare/${comparison.slug}/`, comparisonsReviewedAt] as const),
   ...pages.map((page) => [`/${page.slug}/`, siteUpdatedAt] as const),
   ...primaryBlogArticles.map((article) => [`/blog/${article.slug}/`, article.updatedAt] as const),
