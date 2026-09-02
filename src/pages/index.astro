@@ -7,6 +7,7 @@ import MethodSteps from "@/components/MethodSteps.astro";
 import WorkdayRelief from "@/components/WorkdayRelief.astro";
 import FreeToolCard from "@/components/FreeToolCard.astro";
 import NicheIcon from "@/components/NicheIcon.astro";
+import RotatingKicker from "@/components/RotatingKicker.astro";
 import { signupUrl } from "@/data/site";
 import { freeTools } from "@/data/freeTools";
 import { featuredNiches, niches } from "@/data/niches";
@@ -14,6 +15,13 @@ import { featuredNiches, niches } from "@/data/niches";
 const nicheCount = niches.length;
 const homepageNiches = featuredNiches.slice(0, 4);
 const homepageNicheCount = homepageNiches.length;
+
+const heroMessages = [
+  "The client revenue system for independent experts",
+  "Package your expertise into clear client offers",
+  "Run sales, onboarding, and delivery in one place",
+  "Turn successful client work into recurring revenue",
+] as const;
 
 const audienceSegments = [
   { label: "AI consultants", href: "/niches/ai-experts/", offer: "AI audits to optimization retainers" },
@@ -68,7 +76,7 @@ const workdayOutcomes = [
   <section class="home-intro" aria-labelledby="home-title">
     <div class="container home-intro-shell">
       <div class="home-intro-copy">
-        <span class="home-kicker"><i></i> The client revenue system for independent experts</span>
+        <RotatingKicker messages={heroMessages} />
         <h1 id="home-title"><span>Retainr</span> turns client work into <mark>recurring revenue.</mark></h1>
         <p>
           Package what you do, send one buying link, onboard clients, deliver under your brand, and

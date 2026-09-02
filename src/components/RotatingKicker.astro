@@ -1,0 +1,52 @@
+---
+interface Props {
+  messages: readonly string[];
+  interval?: number;
+}
+
+const { messages, interval = 3600 } = Astro.props;
+const rotation = messages.filter(Boolean);
+const fallback = rotation[0] ?? "";
+---
+
+<span
+  class="home-kicker rotating-kicker"
+  data-rotating-kicker
+  data-messages={JSON.stringify(rotation)}
+  data-interval={interval}
+>
+  <i aria-hidden="true"></i>
+  <span class="rotating-kicker-viewport" aria-hidden="true">
+    <span class="rotating-kicker-text" data-rotating-kicker-text>{fallback}</span>
+  </span>
+  <span class="visually-hidden">{fallback}</span>
+</span>
+
+<script>
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (!reducedMotion) {
+    document.querySelectorAll<HTMLElement>("[data-rotating-kicker]").forEach((kicker) => {
+      if (kicker.dataset.rotatingKickerReady === "true") return;
+
+      const text = kicker.querySelector<HTMLElement>("[data-rotating-kicker-text]");
+      const messages = JSON.parse(kicker.dataset.messages ?? "[]") as string[];
+      const interval = Number.parseInt(kicker.dataset.interval ?? "3600", 10);
+
+      if (!text || messages.length < 2) return;
+
+      kicker.dataset.rotatingKickerReady = "true";
+      let activeIndex = 0;
+
+      window.setInterval(() => {
+        text.classList.add("is-changing");
+
+        window.setTimeout(() => {
+          activeIndex = (activeIndex + 1) % messages.length;
+          text.textContent = messages[activeIndex];
+          text.classList.remove("is-changing");
+        }, 180);
+      }, Math.max(interval, 2400));
+    });
+  }
+</script>
