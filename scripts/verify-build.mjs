@@ -11,6 +11,7 @@ const requiredFiles = [
   "CNAME",
   "404.html",
   "index.html",
+  "licenses/lucide.txt",
   "llms.txt",
   "robots.txt",
   "sitemap.xml",
@@ -258,6 +259,24 @@ const freeToolPages = [
   "tools/freelance-client-onboarding-checklist/index.html",
   "guides/agency-freelancing-skills-you-need-to-know/index.html",
 ];
+
+if (await exists(path.join(dist, "index.html"))) {
+  const homepage = await readFile(path.join(dist, "index.html"), "utf8");
+  const kicker = homepage.match(/<rotating-kicker\b[^>]*>[\s\S]*?<\/rotating-kicker>/)?.[0] ?? "";
+  const messages = [...kicker.matchAll(/<span\b[^>]*data-rotating-kicker-text[^>]*>([\s\S]*?)<\/span>/g)];
+  if (messages.length < 2 || messages.filter(([tag]) => tag.includes('data-active="true"')).length !== 1) {
+    failures.add("Homepage rotation must render all messages with exactly one static fallback visible");
+  }
+  if (!/<span[^>]*class="visually-hidden"[^>]*>[^<]+<\/span>/.test(kicker)) {
+    failures.add("Homepage rotation is missing its stable screen-reader description");
+  }
+  if (!/<button[^>]*type="button"[^>]*data-rotation-toggle[^>]*aria-label="Pause rotating message"[^>]*disabled/.test(kicker)) {
+    failures.add("Homepage rotation must provide a labelled control disabled until enhancement runs");
+  }
+  if (!/<span[^>]*class="rotating-kicker-viewport"[^>]*aria-hidden="true"/.test(kicker)) {
+    failures.add("Homepage rotation must not repeatedly announce decorative message changes");
+  }
+}
 
 for (const relative of freeToolPages) {
   const file = path.join(dist, relative);

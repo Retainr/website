@@ -4,49 +4,174 @@ interface Props {
   interval?: number;
 }
 
-const { messages, interval = 3600 } = Astro.props;
+const { messages, interval = 4800 } = Astro.props;
 const rotation = messages.filter(Boolean);
 const fallback = rotation[0] ?? "";
 ---
 
-<span
+<rotating-kicker
   class="home-kicker rotating-kicker"
   data-rotating-kicker
-  data-messages={JSON.stringify(rotation)}
   data-interval={interval}
 >
   <i aria-hidden="true"></i>
   <span class="rotating-kicker-viewport" aria-hidden="true">
-    <span class="rotating-kicker-text" data-rotating-kicker-text>{fallback}</span>
+    {rotation.map((message, index) => (
+      <span class="rotating-kicker-text" data-rotating-kicker-text data-active={String(index === 0)}>{message}</span>
+    ))}
   </span>
   <span class="visually-hidden">{fallback}</span>
-</span>
+  <button class="rotating-kicker-control" type="button" data-rotation-toggle aria-label="Pause rotating message" title="Pause rotating message" disabled>
+    <!-- Pause/play icons: Lucide (ISC), /licenses/lucide.txt. -->
+    <svg class="rotation-icon-pause" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="14" y="3" width="5" height="18" rx="1" />
+      <rect x="5" y="3" width="5" height="18" rx="1" />
+    </svg>
+    <svg class="rotation-icon-play" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z" />
+    </svg>
+  </button>
+</rotating-kicker>
 
 <script>
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  class RotatingKicker extends HTMLElement {
+    private cleanup?: () => void;
 
-  if (!reducedMotion) {
-    document.querySelectorAll<HTMLElement>("[data-rotating-kicker]").forEach((kicker) => {
-      if (kicker.dataset.rotatingKickerReady === "true") return;
+    connectedCallback() {
+      this.cleanup?.();
+      const messages = Array.from(this.querySelectorAll<HTMLElement>("[data-rotating-kicker-text]"));
+      const toggle = this.querySelector<HTMLButtonElement>("[data-rotation-toggle]");
+      if (!toggle || messages.length < 2) return;
 
-      const text = kicker.querySelector<HTMLElement>("[data-rotating-kicker-text]");
-      const messages = JSON.parse(kicker.dataset.messages ?? "[]") as string[];
-      const interval = Number.parseInt(kicker.dataset.interval ?? "3600", 10);
-
-      if (!text || messages.length < 2) return;
-
-      kicker.dataset.rotatingKickerReady = "true";
+      const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+      const parsedInterval = Number(this.dataset.interval);
+      const interval = Number.isFinite(parsedInterval) ? Math.max(parsedInterval, 2400) : 4800;
+      const events = new AbortController();
+      const options = { signal: events.signal };
       let activeIndex = 0;
+      let paused = false;
+      let suspended = false;
+      let timer: number | undefined;
 
-      window.setInterval(() => {
-        text.classList.add("is-changing");
+      const selectMessage = () => {
+        messages.forEach((message, index) => {
+          message.dataset.active = String(index === activeIndex);
+        });
+      };
+      const canRun = () => !paused && !motion.matches && !document.hidden && !suspended;
+      const sync = () => {
+        window.clearTimeout(timer);
+        this.dataset.rotationState = motion.matches ? "static" : paused ? "paused" : "running";
+        toggle.disabled = motion.matches;
+        const label = paused ? "Resume rotating message" : "Pause rotating message";
+        toggle.setAttribute("aria-label", label);
+        toggle.title = label;
 
-        window.setTimeout(() => {
-          activeIndex = (activeIndex + 1) % messages.length;
-          text.textContent = messages[activeIndex];
-          text.classList.remove("is-changing");
-        }, 180);
-      }, Math.max(interval, 2400));
-    });
+        if (motion.matches) activeIndex = 0;
+        selectMessage();
+
+        if (canRun()) {
+          timer = window.setTimeout(() => {
+            if (canRun()) activeIndex = (activeIndex + 1) % messages.length;
+            sync();
+          }, interval);
+        }
+      };
+
+      toggle.addEventListener("click", () => {
+        paused = !paused;
+        sync();
+      }, options);
+      motion.addEventListener("change", sync, options);
+      document.addEventListener("visibilitychange", sync, options);
+      window.addEventListener("pagehide", () => { suspended = true; sync(); }, options);
+      window.addEventListener("pageshow", () => { suspended = false; sync(); }, options);
+
+      this.cleanup = () => {
+        window.clearTimeout(timer);
+        events.abort();
+      };
+      sync();
+    }
+
+    disconnectedCallback() {
+      this.cleanup?.();
+    }
+  }
+
+  if (!customElements.get("rotating-kicker")) {
+    customElements.define("rotating-kicker", RotatingKicker);
   }
 </script>
+
+<style>
+  .rotating-kicker {
+    display: grid;
+    grid-template-columns: 11px minmax(0, 1fr) 32px;
+    max-width: 100%;
+    line-height: 1.4;
+  }
+
+  /* Every message sizes the same grid cell, including when text wraps. */
+  .rotating-kicker-viewport {
+    display: grid;
+    min-width: 0;
+    place-items: center;
+  }
+
+  .rotating-kicker-text {
+    grid-area: 1 / 1;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(0.25em);
+    transition: opacity 180ms ease, transform 180ms ease, visibility 180ms;
+  }
+
+  .rotating-kicker-text[data-active="true"] {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+  }
+
+  .rotating-kicker-control {
+    display: grid;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    place-items: center;
+    visibility: hidden;
+    border: 0;
+    border-radius: 4px;
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+  }
+
+  [data-rotation-state="running"] .rotating-kicker-control,
+  [data-rotation-state="paused"] .rotating-kicker-control {
+    visibility: visible;
+  }
+
+  .rotating-kicker-control:hover,
+  .rotating-kicker-control:focus-visible {
+    background: var(--ice);
+  }
+
+  .rotating-kicker-control:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 2px;
+  }
+
+  .rotation-icon-play,
+  [data-rotation-state="paused"] .rotation-icon-pause {
+    display: none;
+  }
+
+  [data-rotation-state="paused"] .rotation-icon-play {
+    display: block;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rotating-kicker-text { transition: none; }
+  }
+</style>
