@@ -18,6 +18,7 @@ const requiredFiles = [
   "compare/index.html",
   "niches/index.html",
   "pricing/index.html",
+  "changelog/index.html",
   "mobile-app/index.html",
   "open-source-solution-for-freelancers-agencies/index.html",
   "tools/index.html",
@@ -190,6 +191,7 @@ if (await exists(path.join(dist, "sitemap.xml"))) {
   for (const route of [
     "/",
     "/pricing/",
+    "/changelog/",
     "/compare/",
     "/niches/",
     "/blog/",
@@ -226,7 +228,7 @@ if (await exists(path.join(dist, "llms.txt"))) {
   if (!llms.includes("https://www.retainr.io/") || /https?:\/\/(?:www\.)?retainr\.com/i.test(llms)) {
     failures.add("llms.txt must use the canonical retainr.io domain");
   }
-  for (const route of ["/method/", "/features/", "/pricing/", "/niches/", "/compare/", "/blog/", "/tools/"]) {
+  for (const route of ["/method/", "/features/", "/pricing/", "/changelog/", "/niches/", "/compare/", "/blog/", "/tools/"]) {
     if (!llms.includes(`](${productionOrigin}${route})`)) {
       failures.add(`llms.txt is missing the canonical route: ${route}`);
     }

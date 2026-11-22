@@ -1,0 +1,78 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import CtaBand from "@/components/CtaBand.astro";
+import { changelogEntries } from "@/data/changelog";
+
+const dateFormatter = new Intl.DateTimeFormat("en-GB", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+  timeZone: "UTC",
+});
+
+const kindLabels = {
+  new: "New",
+  improved: "Improved",
+  fixed: "Fixed",
+} as const;
+---
+
+<BaseLayout
+  title="Retainr Changelog | Product Updates"
+  description="See the latest Retainr product, mobile app, website, reliability, and accessibility updates in one concise changelog."
+  path="/changelog/"
+>
+  <section class="hero center changelog-hero">
+    <div class="container">
+      <div class="hero-copy" style="justify-items:center">
+        <span class="eyebrow">Retainr Changelog</span>
+        <h1 class="hero-title">What changed, and why it matters.</h1>
+        <p>
+          A concise record of useful improvements across Retainr. Each note is grounded in shipped work,
+          with internal chores left out.
+        </p>
+        <div class="changelog-bot-note">
+          <span aria-hidden="true">✦</span>
+          <strong>Maintained by the Retainr AI changelog bot</strong>
+          <small>Recent commits are reviewed, grouped, verified, and published after the site checks pass.</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section changelog-section" aria-labelledby="release-notes-title">
+    <div class="container changelog-shell">
+      <div class="changelog-intro">
+        <span class="eyebrow">Recent updates</span>
+        <h2 id="release-notes-title">Small details and substantial releases, in one timeline.</h2>
+        <p>
+          Updates appear here when they change what people can use, understand, or rely on. Dates reflect
+          when the underlying work was completed.
+        </p>
+      </div>
+
+      <ol class="changelog-list">
+        {changelogEntries.map((entry) => (
+          <li class="changelog-entry">
+            <div class="changelog-date">
+              <time datetime={entry.date}>{dateFormatter.format(new Date(`${entry.date}T00:00:00Z`))}</time>
+              <span class={`changelog-kind changelog-kind-${entry.kind}`}>{kindLabels[entry.kind]}</span>
+            </div>
+            <article>
+              <h3>{entry.title}</h3>
+              <p>{entry.summary}</p>
+              <ul>
+                {entry.details.map((detail) => <li>{detail}</li>)}
+              </ul>
+            </article>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <CtaBand
+    title="Use the latest Retainr, free forever"
+    text="Create a workspace and bring packages, onboarding, delivery, support, and recurring client work into one branded system."
+  />
+</BaseLayout>

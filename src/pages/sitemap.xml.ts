@@ -7,11 +7,13 @@ import { freeTools, freeToolsUpdatedAt } from "@/data/freeTools";
 
 const site = "https://www.retainr.io";
 
-const siteUpdatedAt = "2026-08-26";
+const siteUpdatedAt = "2026-09-04";
+const changelogUpdatedAt = "2026-09-04";
 
 const entries = new Map<string, string>([
   ["/", siteUpdatedAt],
   ["/pricing/", siteUpdatedAt],
+  ["/changelog/", changelogUpdatedAt],
   ["/niches/", siteUpdatedAt],
   ["/compare/", comparisonsReviewedAt],
   ["/tools/", freeToolsUpdatedAt],
