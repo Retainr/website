@@ -15,6 +15,9 @@ permissions:
   pull-requests: read
   copilot-requests: write
 
+engine: copilot
+model: copilot/gpt-5-mini
+
 network: defaults
 
 checkout:
