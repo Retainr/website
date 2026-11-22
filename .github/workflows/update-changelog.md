@@ -16,7 +16,7 @@ permissions:
   copilot-requests: write
 
 engine: copilot
-model: copilot/gpt-5-mini
+model: gpt-4.1
 
 network: defaults
 
